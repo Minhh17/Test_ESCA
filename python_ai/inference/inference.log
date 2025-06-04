@@ -1,0 +1,10 @@
+2024-11-25 19:20:56,362 - ERROR - Failed to load configuration: [Errno 2] No such file or directory: 'config/default.json'
+2024-11-25 19:21:42,173 - ERROR - Failed to load configuration: [Errno 2] No such file or directory: './config/default.json'
+2024-11-25 19:27:06,672 - ERROR - Failed to load configuration: [Errno 2] No such file or directory: './config/default.json'
+2024-11-25 19:28:54,186 - ERROR - Failed to load configuration: [Errno 2] No such file or directory: '/home/haiminh/Desktop/ESCA_Qt/python_ai/config/default.py'
+2024-11-25 19:29:19,903 - INFO - Loaded configuration from /home/haiminh/Desktop/ESCA_Qt/python_ai/config/default.json.
+2024-11-25 19:29:19,903 - INFO - Connected to shared memory with key 4660 and semaphore key 22136.
+2024-11-25 19:29:19,904 - ERROR - Failed to load model: No file or directory found at saved_model/vq_vae
+2024-11-25 19:34:27,752 - INFO - Loaded configuration from /home/haiminh/Desktop/ESCA_Qt/python_ai/config/default.json.
+2024-11-25 19:34:27,752 - INFO - Connected to shared memory with key 4660 and semaphore key 22136.
+2024-11-25 19:34:27,752 - ERROR - Failed to load model: No file or directory found at saved_model/vq_vae

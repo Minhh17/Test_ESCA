@@ -1,0 +1,13 @@
+{
+    "REALTIME": {
+        "CHANNELS": 1,
+        "DEVICE_INDEX_INPUT": 12,
+        "IMPORT_FILE": false,
+        "LOG_PATH": "/home/haiminh/Desktop/Anomaly_Detection/D-ESCA_v2/Results/rt_test_results",
+        "MANUAL_THRESHOLD": 0.01,
+        "RUNTIME": 1000,
+        "SAMPLING_RATE": 44100,
+        "SECOND": 2,
+        "TRANSFER_LEARNING": false
+    }
+}
