@@ -15,3 +15,25 @@ The documentation ESCA provides on github includes:
 
 To run project:
 
+## Jetson Orin Nano Optimization
+
+The inference module now supports TensorRT. Enable this by setting
+`"USE_TENSORRT": true` in `python_ai/config/default.json` and specify the
+`TRT_MODEL_PATH` where the optimized model will be stored. On the first run the
+model will be converted using TF‑TRT; subsequent runs load the optimized
+version directly. If conversion is not possible the code automatically falls
+back to TensorFlow execution.
+
+### Performance Evaluation
+
+When running `python_ai/inference/inference.py`, the processing time of each
+cycle is written to `REALTIME.LOG_PATH/processing_time.log` (as configured in
+`python_ai/config/default.json`). Compare these timings before and after
+enabling TensorRT on Jetson to quantify the speed‑up for your report.
+
+### GPU Gammatone Pre-processing
+
+Set `"USE_TF_GTGRAM": true` in the same configuration to offload the
+gammatone spectrogram calculation to TensorFlow running on GPU. This replaces
+the slower Python implementation, further improving throughput on Jetson.
+

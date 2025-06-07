@@ -2,20 +2,31 @@ import sysv_ipc
 import signal
 import sys
 import time
-import numpy as np	
+import numpy as np
 from gammatone import gtgram
-# from tensorflow.keras.models import load_model
-# from config.config_manager import ConfigManager
+from tensorflow.keras.models import load_model
 from config import ConfigManager
+import logging
+import os
 
 
 config_manager = ConfigManager()
 
-print("Cấu hình mặc định:")
-print(config_manager.config)
+log_dir = config_manager.get("REALTIME.LOG_PATH", "./logs")
+os.makedirs(log_dir, exist_ok=True)
+log_file = os.path.join(log_dir, "processing_time.log")
+logging.basicConfig(
+    filename=log_file,
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+)
+logger = logging.getLogger(__name__)
+
+logger.info("Cấu hình mặc định:")
+logger.info(config_manager.config)
 
 preprocess_type = config_manager.get("PREPROCESS.TYPE")
-print(f"PREPROCESS.TYPE: {preprocess_type}")
+logger.info(f"PREPROCESS.TYPE: {preprocess_type}")
 
 
 # Định nghĩa khóa và kích thước shared memory
@@ -53,15 +64,15 @@ def cleanup():
     if shm:
         try:
             shm.detach()
-            print("Shared memory detached.")
+            logger.info("Shared memory detached.")
         except Exception as e:
-            print(f"Failed to detach shared memory: {e}")
+            logger.error(f"Failed to detach shared memory: {e}")
 
 def signal_handler(signum, frame):
     """
     Xử lý tín hiệu (SIGINT, SIGTERM).
     """
-    print(f"Signal {signum} received. Exiting...")
+    logger.info(f"Signal {signum} received. Exiting...")
     cleanup()
     sys.exit(0)
     
@@ -74,19 +85,19 @@ def wait_for_shared_memory():
     while True:
         try:
             shm = sysv_ipc.SharedMemory(SHM_KEY)
-            print("Shared memory connected.")
+            logger.info("Shared memory connected.")
             break
         except sysv_ipc.ExistentialError:
-            print("Shared memory không tồn tại. Đang chờ...")
+            logger.info("Shared memory không tồn tại. Đang chờ...")
             time.sleep(1)
 
     while True:
         try:
             semaphore = sysv_ipc.Semaphore(SEM_KEY)
-            print("Semaphore connected.")
+            logger.info("Semaphore connected.")
             break
         except sysv_ipc.ExistentialError:
-            print("Semaphore không tồn tại. Đang chờ...")
+            logger.info("Semaphore không tồn tại. Đang chờ...")
             time.sleep(1)
 
 def main():
@@ -102,14 +113,14 @@ def main():
         # Kết nối tới shared memory
         shm = sysv_ipc.SharedMemory(SHM_KEY)
     except sysv_ipc.ExistentialError:
-        print("Shared memory không tồn tại. Hãy chắc chắn rằng Producer đang chạy.")
+        logger.error("Shared memory không tồn tại. Hãy chắc chắn rằng Producer đang chạy.")
         sys.exit(1)
 
     try:
         # Kết nối tới semaphore
         semaphore = sysv_ipc.Semaphore(SEM_KEY)
     except sysv_ipc.ExistentialError:
-        print("Semaphore không tồn tại. Hãy chắc chắn rằng Producer đang chạy.")
+        logger.error("Semaphore không tồn tại. Hãy chắc chắn rằng Producer đang chạy.")
         sys.exit(1)
 
     while True:
@@ -148,13 +159,13 @@ def main():
             # Thực hiện V operation để mở khóa semaphore
             semaphore.release()
             
-            #print(pred, flush=True)
-            print(f"Processing time: {end_time - start_time} seconds and Pred: {pred}")            
+            print(pred, flush=True)
+            logger.info(f"Processing time: {end_time - start_time} seconds, Pred: {pred}")
         
         except sysv_ipc.BusyError:
-            print("Semaphore is busy. Skipping this cycle.")
+            logger.info("Semaphore is busy. Skipping this cycle.")
         except Exception as e:
-            print(f"Unexpected error: {e}")
+            logger.error(f"Unexpected error: {e}")
             try:
                 semaphore.release()
             except sysv_ipc.ExistentialError:

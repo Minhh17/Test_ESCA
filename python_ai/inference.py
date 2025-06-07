@@ -5,6 +5,11 @@ import time
 import numpy as np
 from gammatone import gtgram
 from tensorflow.keras.models import load_model
+import tensorflow as tf
+try:
+    from tensorflow.python.compiler.tensorrt import trt_convert as trt
+except Exception:
+    trt = None
 import os
 import wave
 
@@ -19,6 +24,32 @@ SHM_SIZE = 176400  # 2 giây dữ liệu = 176400 bytes = 88200 mẫu int16
 
 EXCEED_LIMIT = 1
 
+
+def gtgram_tf(audio_array, sr, window_time, hop_time, channels, f_min):
+    """GPU-accelerated gammatone spectrogram using TensorFlow ops."""
+    window_size = int(sr * window_time)
+    hop_size = int(sr * hop_time)
+    audio = tf.convert_to_tensor(audio_array, dtype=tf.float32)
+    stft = tf.signal.stft(
+        audio,
+        frame_length=window_size,
+        frame_step=hop_size,
+        window_fn=tf.signal.hann_window,
+        pad_end=True,
+    )
+    magnitude = tf.abs(stft)
+    spec_bins = tf.shape(magnitude)[-1]
+    weights = tf.signal.linear_to_mel_weight_matrix(
+        num_mel_bins=channels,
+        num_spectrogram_bins=spec_bins,
+        sample_rate=sr,
+        lower_edge_hertz=f_min,
+        upper_edge_hertz=sr / 2,
+        dtype=magnitude.dtype,
+    )
+    gammatone_spec = tf.matmul(tf.square(magnitude), weights)
+    return tf.transpose(gammatone_spec)
+
 # Lấy tham số cấu hình từ config
 frame_rate = config_manager.get("PREPROCESS.FRAME_RATE")
 window_time = config_manager.get("PREPROCESS.GAMMA.WINDOW_TIME")
@@ -30,13 +61,48 @@ manual_threshold = config_manager.get("REALTIME.MANUAL_THRESHOLD")
 threshold = config_manager.get("REALTIME.THRESHOLD")
 MIN = config_manager.get("REALTIME.MIN")
 MAX = config_manager.get("REALTIME.MAX")
+use_tf_gamma = config_manager.get("PREPROCESS.USE_TF_GTGRAM")
 
 # print(f"model_path: {model_path}")
 # print(f"frame_rate: {frame_rate}, window_time: {window_time}, hop_time: {hop_time}, channels: {channels}, f_min: {f_min}")
 # print(f"manual_threshold: {manual_threshold}, threshold: {threshold}, MIN: {MIN}, MAX: {MAX}")
 
 # Load model
-model = load_model(model_path)
+use_trt = config_manager.get("DEVICE.USE_TENSORRT")
+trt_model_path = config_manager.get("REALTIME.TRT_MODEL_PATH")
+
+run_model = None
+
+def _setup_model():
+    global run_model
+    if use_trt and trt is not None:
+        try:
+            if trt_model_path and os.path.exists(trt_model_path):
+                model = tf.saved_model.load(trt_model_path)
+                infer = model.signatures['serving_default']
+            else:
+                converter = trt.TrtGraphConverterV2(input_saved_model_dir=model_path)
+                converter.convert()
+                if trt_model_path:
+                    converter.save(trt_model_path)
+                    model = tf.saved_model.load(trt_model_path)
+                else:
+                    model = converter.convert()
+                infer = model.signatures['serving_default'] if hasattr(model, 'signatures') else model
+
+            def run_trt(a):
+                result = infer(tf.convert_to_tensor(a))
+                return list(result.values())[0].numpy() if isinstance(result, dict) else result.numpy()
+
+            run_model = run_trt
+            return
+        except Exception as e:
+            print(f"TensorRT conversion failed: {e}. Falling back to TensorFlow model.")
+
+    model = load_model(model_path)
+    run_model = lambda a: model.predict(a, verbose=0)
+
+_setup_model()
 # model.summary()
 
 shm = None
@@ -81,7 +147,10 @@ def wait_for_shared_memory():
 
 def predict_mse(audio_array):
     """Dự đoán MSE từ audio array."""
-    gtg = gtgram.gtgram(audio_array, frame_rate, window_time, hop_time, channels, f_min)
+    if use_tf_gamma and tf is not None:
+        gtg = gtgram_tf(audio_array, frame_rate, window_time, hop_time, channels, f_min).numpy()
+    else:
+        gtg = gtgram.gtgram(audio_array, frame_rate, window_time, hop_time, channels, f_min)
     a = np.flipud(20 * np.log10(gtg + 1e-10))  # Tránh log(0)
     a = np.clip((a-MIN)/(MAX-MIN), a_min=0, a_max=1)
     # print(f"Spectrogram shape: {a.shape}")
@@ -92,8 +161,8 @@ def predict_mse(audio_array):
         print(f"Input shape không hợp lệ: {a.shape}")
         return None
 
-    pred = model.predict(a, verbose=0)
-    return np.mean((a - pred) ** 2)    
+    pred = run_model(a)
+    return np.mean((a - pred) ** 2)
 
 def process_realtime():
     """Xử lý Real-time: Đọc shared memory và inference mỗi 2 giây."""
