@@ -1,17 +1,13 @@
 import QtQuick 2.15
-import QtQuick.Controls 2.1
+import QtQuick.Controls 2.15
+
 import "../component"
-import SystemInformation 1.0
 
 Rectangle {
     id: rectangle
     width: 1024
     height: 480
     color: "#2a2a2a"
-
-    SystemInformationController {
-        id: backendObject
-    }
 
     // graph
     CpuFrame{
@@ -73,7 +69,7 @@ Rectangle {
         width: 313
         height: 40
         color: "#ffffff"
-        text: backendObject.diskText
+        text: BackendObject.diskText
         font.pixelSize: 23
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter

@@ -22,7 +22,7 @@ public:
 
 signals:
     void resultReceived(const float predValue);
-    void abnormalDetect();
+    void abnormalDetect(QString outputStr);
     void doneProcess();
 
 private slots:

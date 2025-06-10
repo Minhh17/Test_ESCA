@@ -43,12 +43,11 @@ void AIController::handleInferenceResult(const float predValue)
     }
     emit predValueChanged();
     qDebug() << "Total Pred Values Stored: " << m_predValue.size();
-    // qDebug() << "Data arr: "<<m_predValue;
 }
 
-void AIController::handleAbnormalDetect()
+void AIController::handleAbnormalDetect(QString outputStr)
 {
-    setAbnomalDetect(true);
+    setAbnomalDetect(outputStr);
     qDebug() << "setAbnomalDetect: "<<abnomalDetect();
 }
 
@@ -77,17 +76,6 @@ void AIController::setinferenceStatus(bool newInferenceStatus)
     emit inferenceStatusChanged();
 }
 
-bool AIController::abnomalDetect() const
-{
-    return m_abnomalDetect;
-}
-
-void AIController::setAbnomalDetect(bool newAbnomalDetect)
-{
-    m_abnomalDetect = newAbnomalDetect;
-    emit abnomalDetectChanged();
-}
-
 bool AIController::doneDetect() const
 {
     return m_doneDetect;
@@ -99,4 +87,15 @@ void AIController::setDoneDetect(bool newDoneDetect)
         return;
     m_doneDetect = newDoneDetect;
     emit doneDetectChanged();
+}
+
+QString AIController::abnomalDetect() const
+{
+    return m_abnomalDetect;
+}
+
+void AIController::setAbnomalDetect(const QString &newAbnomalDetect)
+{
+    m_abnomalDetect = newAbnomalDetect;
+    emit abnomalDetectChanged();
 }

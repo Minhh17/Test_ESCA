@@ -32,6 +32,7 @@ void ConfigApp::generateConfig() {
     // DEVICE
     QJsonObject device;
     device["JETSON"] = false;
+    device["USE_TENSORRT"] = false;
     root["DEVICE"] = device;
 
     // MODEL
@@ -65,6 +66,7 @@ void ConfigApp::generateConfig() {
     preprocess["SAMPLE_PER_FILE"] = 200;
     preprocess["SEGMENT_LEN"] = 2;
     preprocess["TYPE"] = "mel";
+    preprocess["USE_TF_GTGRAM"]= false;
 
     root["PREPROCESS"] = preprocess;
 
@@ -86,7 +88,8 @@ void ConfigApp::generateConfig() {
     realtime["MIN"] = -23.14520263671875;
     realtime["MAX"] = 51.67738342285156;
     realtime["THRESHOLD"] = 0.002630938310176134;
-
+    realtime["TRT_MODEL_PATH"] = "";
+    
     root["REALTIME"] = realtime;
 
     // RECORD

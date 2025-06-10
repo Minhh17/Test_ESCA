@@ -99,8 +99,8 @@ Rectangle {
             anchors.fill: parent
             property double threshold: ConfigManager.threshold
             property double manualThreshold: ConfigManager.manualThreshold
-            property double bufferFactor: 1.1  // Hệ số để tránh cột chạm trần
-            property double maxValue: Math.max(threshold*2, Math.max.apply(null, predValue) * bufferFactor)  // Điều chỉnh maxValue động
+            property double bufferFactor: 1.1
+            property double maxValue: Math.max(manualThreshold*1.25, Math.max.apply(null, predValue) * bufferFactor)  // Điều chỉnh maxValue động
 
             onPaint: {
                 var ctx = getContext("2d");
@@ -136,7 +136,7 @@ Rectangle {
                     var barHeight = valueRatio * chartHeight;
                     y = height - margin - barHeight;
 
-                    ctx.fillStyle = predValue[i] > threshold ? "#44aaff":"#ff4444";
+                    ctx.fillStyle = predValue[i] > manualThreshold ? "#ff4444":"#44aaff";
                     ctx.fillRect(x, y, barWidth - 2, barHeight);
                 }
 
@@ -168,5 +168,4 @@ Rectangle {
         }
     }
 }
-
 

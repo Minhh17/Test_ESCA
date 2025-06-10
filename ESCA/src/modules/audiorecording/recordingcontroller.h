@@ -8,7 +8,6 @@
 #include <QQmlEngine>
 #include <QThread>
 #include <QMutex>
-#include <functional>
 
 #include "../../config/config.h"
 
@@ -61,10 +60,7 @@ private:
     QByteArray audioBuffer2;
     bool m_usingBuffer1;
 
-    size_t m_chunkSize;
-    size_t calculateChunkSize(const QAudioFormat &format, double durationSec);
-    void processBuffer(const QByteArray &data,
-                       const std::function<void(const QByteArray&)> &onChunkReady);
+    const size_t chunkSize = 176400;
     
     bool m_recStatus;
 };

@@ -47,9 +47,9 @@ ApplicationWindow {
     Connections {
         target: AIObject
         onAbnomalDetectChanged: {
-            if (AIObject.abnomalDetect === true) {            
-                notificationCenter.showNotification("Inference: Abnomaly Detected", "warning", 1);
-            }
+
+                notificationCenter.showNotification(AIObject.abnomalDetect, "warning", 1);
+
         }
         onDoneDetectChanged: {
             if (AIObject.inferenceStatus === false) {

@@ -25,7 +25,6 @@ protected:
 public slots:
     void getAudioData(const QByteArray &data);
     void stop();
-    void setBufferSize(size_t size) { shm_size = size; }
 
 signals:
     void bufferChanged();
