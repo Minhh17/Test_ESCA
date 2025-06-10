@@ -11,6 +11,7 @@ import numpy as np
 from gammatone import gtgram
 import tensorflow as tf
 from tensorflow.keras.models import load_model
+
 from config.config_manager import ConfigManager
 
 # --- Configuration ---
@@ -103,6 +104,7 @@ if not USE_TENSORRT:
 shm = None
 semaphore = None
 
+
 # --- Preprocess Function ---
 def preprocess_audio(audio: np.ndarray) -> np.ndarray:
     gtg = gtgram.gtgram(audio, FRAME_RATE, WINDOW_TIME, HOP_TIME, CHANNELS, F_MIN)
@@ -121,7 +123,7 @@ def predict_and_report(audio: np.ndarray):
     logger.info("Inference time: %.2f ms, MSE: %.6f", duration, mse)
     if mse > MANUAL_THRESHOLD:
         print("Anomaly detected!!", flush=True)
-
+        
     print(f"{mse:.10f}", flush=True)
 
 
@@ -153,7 +155,6 @@ def wait_for_shared_memory():
         except sysv_ipc.ExistentialError:
             print("Semaphore không tồn tại. Đang chờ...")
             time.sleep(1)
-
 
 def process_realtime():
     """Xử lý Real-time: Đọc shared memory và inference mỗi 2 giây."""

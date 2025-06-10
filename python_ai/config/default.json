@@ -18,7 +18,8 @@
         }
     },
     "DEVICE": {
-        "JETSON": false
+        "JETSON": false,
+        "USE_TENSORRT": false
     },
     "MODEL": {
         "TYPE": "vq_vae"
@@ -41,7 +42,8 @@
         },
         "SAMPLE_PER_FILE": 200,
         "SEGMENT_LEN": 2,
-        "TYPE": "mel"
+        "TYPE": "mel",
+        "USE_TF_GTGRAM": false
     },
     "REALTIME": {
         "BUFFER_SIZE": 176400,
@@ -55,7 +57,8 @@
         "SECOND": 2,
         "SEMAPHORE_KEY": "0xBEEFDEAD",
         "SHARED_MEMORY_KEY": "0xDEADBEEF",
-        "TRANSFER_LEARNING": false
+        "TRANSFER_LEARNING": false,
+        "TRT_MODEL_PATH": ""
     },
     "RECORD": {
         "ABNOMALY": false,
