@@ -64,7 +64,7 @@ void ProcessManager::handleStandardOutput()
             emit doneProcess();
         } else {  // Nếu là chuỗi cảnh báo
             qWarning() << "Warning from Python:" << outputStr;
-            emit abnormalDetect();
+            emit abnormalDetect(outputStr);
         }
     }
 }

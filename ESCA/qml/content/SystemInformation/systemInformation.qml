@@ -1,15 +1,13 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import "../component"
-import SystemInformation 1.0
 
 Rectangle {
     width: 1000
     height: 420
     color: "#2a2a2a"
-    SystemInformationController {
-        id: backendObject
-    }
+
+    // TEMP COMPONENT
 
     Text {
         id: diskUsage
@@ -18,7 +16,7 @@ Rectangle {
         width: 272
         height: 40
         color: "#ffffff"
-        text: backendObject.diskText
+        text: BackendObject.diskText
         font.pixelSize: 20
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
@@ -81,7 +79,7 @@ Rectangle {
         width: 663
         height: 40
         color: "#ffffff"
-        text: "CPU" + backendObject.getCpuName()
+        text: "CPU: Quad-core ARM Cortex-A57 MPCore processor"
         font.pixelSize: 20
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
@@ -97,7 +95,7 @@ Rectangle {
         width: 663
         height: 40
         color: "#ffffff"
-        text: "GPU:" + backendObject.getGpuName()
+        text: "GPU: NVIDIA Maxwell architecture with 128 NVIDIA CUDA® cores\t"
         font.pixelSize: 20
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
@@ -184,13 +182,13 @@ Rectangle {
     }
 
     Text {
-        id: cacheL1
+        id: internetStatus5
         x: 758
         y: 86
         width: 140
         height: 40
         color: "#ffffff"
-        text: "L1:      " + backendObject.getCacheL1() + " KB"
+        text: "L1:      32 KB"
         font.pixelSize: 20
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
@@ -200,13 +198,13 @@ Rectangle {
     }
 
     Text {
-        id: cacheL2
+        id: internetStatus6
         x: 758
         y: 147
         width: 140
         height: 40
         color: "#ffffff"
-        text: "L2:      " + backendObject.getCacheL2() + "B"
+        text: "L2:      2 MB"
         font.pixelSize: 20
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
