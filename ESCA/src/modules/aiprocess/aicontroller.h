@@ -5,6 +5,7 @@
 #include "processmanager.h"
 #include "sharedmemorymanager.h"
 #include "configurationmanager.h"
+#include "inferenceoutputparser.h"
 
 class AIController : public QObject
 {
@@ -52,6 +53,7 @@ private:
     // ConfigurationManager* configManager;
     // SharedMemoryManager* sharedMemoryManager;
     ProcessManager* processManager;
+    InferenceOutputParser* parser;
 
     QVector<float> m_predValue;
     bool m_inferenceStatus = false;

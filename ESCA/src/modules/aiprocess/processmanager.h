@@ -21,9 +21,7 @@ public:
     QString scriptPath() const;
 
 signals:
-    void resultReceived(const float predValue);
-    void abnormalDetect(QString outputStr);
-    void doneProcess();
+    void outputReceived(const QString &line);
 
 private slots:
     void handleStandardOutput();
