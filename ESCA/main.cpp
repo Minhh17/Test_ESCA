@@ -11,6 +11,7 @@
 #include "./src/modules/systeminformation/systeminformationcontroller.h"
 #include "./src/modules/filemanager/FileIO.h"
 #include "./src/modules/aiprocess/aicontroller.h"
+#include "./src/modules/aiprocess/processmanager.h"
 #include "./src/modules/aiprocess/configurationmanager.h"
 #include "./src/config/configapp.h"
 #include "./src/modules/transferlearning/transfercontroller.h"
@@ -38,7 +39,10 @@ int main(int argc, char *argv[])
 
     RecordingController recordingController;
     SystemInformationController systemInformationController;
-    AIController aiController;
+
+    ProcessManager processManager;
+    AIController aiController(&processManager);
+
     TransferController transferController;
     NotificationLogger notificationLogger;
 

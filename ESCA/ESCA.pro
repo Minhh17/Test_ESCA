@@ -53,6 +53,7 @@ HEADERS += \
     src/config/configapp.h \
     src/modules/aiprocess/aicontroller.h \
     src/modules/aiprocess/configurationmanager.h \
+    src/modules/aiprocess/inferenceengine.h \
     src/modules/aiprocess/inferenceoutputparser.h \
     src/modules/aiprocess/processmanager.h \
     src/modules/aiprocess/sharedmemorymanager.h \

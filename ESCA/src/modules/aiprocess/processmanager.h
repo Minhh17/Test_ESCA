@@ -1,12 +1,11 @@
-// ProcessManager.h
 #ifndef PROCESSMANAGER_H
 #define PROCESSMANAGER_H
 
-#include "../ESCA/src/common/process/process.h"
 #include <QDir>
+#include "inferenceengine.h"
+#include "inferenceoutputparser.h"
 
-
-class ProcessManager : public Process
+class ProcessManager : public InferenceEngine
 {
     Q_OBJECT
 
@@ -14,14 +13,11 @@ public:
     explicit ProcessManager(QObject *parent = nullptr);
     ~ProcessManager();
 
-    void startPythonService();
-    void stopPythonService();
+    void start() override;
+    void stop() override;
 
-    void setScriptPath(const QString &path);
+    void setScriptPath(const QString &path) override;
     QString scriptPath() const;
-
-signals:
-    void outputReceived(const QString &line);
 
 private slots:
     void handleStandardOutput();
@@ -29,6 +25,7 @@ private slots:
 
 private:
     QString m_scriptPath;
+    InferenceOutputParser *m_parser;
 };
 
 #endif // PROCESSMANAGER_H

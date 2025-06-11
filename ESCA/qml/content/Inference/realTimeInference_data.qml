@@ -49,11 +49,12 @@ Rectangle {
                 // }
 
                 if (!aiStatus) {
+                    console.log("Minh", AIObject.doneDetect, aiStatus)
                     AIObject.doneDetect = false
                     AIObject.start();
                     RecordingObject.startSharedMemory()
                     // RecordingObject.startRecording()
-                    // console.log(AIObject.doneDetect)
+                    console.log(AIObject.doneDetect)
                 }
             }
         }

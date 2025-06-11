@@ -68,10 +68,10 @@ bool SharedMemoryManager::attachSharedMemory(char*& shm_ptr, int maxRetries, int
     }
 
     while (running && (timeoutMs <= 0 || timer.elapsed() < timeoutMs)) {
-        qDebug() << "Attempting to attach shared memory (attempt" << attempt + 1 << ")";
+        //qDebug() << "Attempting to attach shared memory (attempt" << attempt + 1 << ")";
         shm_ptr = static_cast<char*>(shmat(shm_id, nullptr, 0));
         if (shm_ptr != reinterpret_cast<char*>(-1)) {
-            qDebug() << "Shared memory attached";
+            //qDebug() << "Shared memory attached";
             return true;
         }
 
@@ -100,13 +100,13 @@ void SharedMemoryManager::run() {
     char* shm_ptr = nullptr;
 
     while (running) {
-        qDebug() << "Locking semaphore";
+        //qDebug() << "Locking semaphore";
         if (semop(sem_id, &sem_lock, 1) == -1) {
             if (errno == EINTR) continue; // Bị gián đoạn bởi signal
             qCritical() << "semop lock failed:" << strerror(errno);
             break;
         }
-        qDebug() << "Semaphore locked";
+        //qDebug() << "Semaphore locked";
 
         if (!attachSharedMemory(shm_ptr)) {
             qWarning() << "Could not attach to shared memory";
@@ -127,7 +127,7 @@ void SharedMemoryManager::run() {
             qCritical() << "semop unlock failed:" << strerror(errno);
             break;
         }
-        qDebug() << "Semaphore unlocked";
+        //qDebug() << "Semaphore unlocked";
         msleep(100); // Có thể điều chỉnh tùy theo yêu cầu realtime
     }
 
