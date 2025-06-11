@@ -1,42 +1,42 @@
 #include "processmanager.h"
 #include <QDebug>
+#include <QCoreApplication>
 
 ProcessManager::ProcessManager(QObject *parent)
-    : Process(parent),
-    m_scriptPath("../../../../python_ai/inference/shared_memory_reader.py")
+    : InferenceEngine(parent),
+    m_scriptPath("~/Desktop/minh/ESCA_Qt/python_ai/inference.py"),
+    m_parser(new InferenceOutputParser(this))
 {
     connect(&m_process, &QProcess::readyRead, this, &ProcessManager::handleStandardOutput);
+    connect(m_parser, &InferenceOutputParser::resultReceived, this, &ProcessManager::resultReceived);
+    connect(m_parser, &InferenceOutputParser::abnormalDetect, this, &ProcessManager::abnormalDetect);
+    connect(m_parser, &InferenceOutputParser::doneProcess, this, &ProcessManager::doneProcess);
 }
 
 ProcessManager::~ProcessManager()
 {
-    stopPythonService();
-}
-
-void ProcessManager::startPythonService()
-{
-    qInfo() << Q_FUNC_INFO;
-    if(m_scriptPath.isEmpty()) {
-        qWarning() << "Python script path is not set.";
-        return;
-    }
-
-    qDebug() << "Current working directory:" << QDir::currentPath();
-    setStatement("python3 ~/Desktop/minh/ESCA_Qt/python_ai/inference.py");
-    qInfo() << statement();
-
-    startProcess();
-    start();
-}
-
-void ProcessManager::stopPythonService()
-{
-    qInfo() << Q_FUNC_INFO;
+    //stopPythonService();
     stop();
+}
+
+void ProcessManager::start()
+{
+    qDebug()<<"In handleStandardOutput prcmng" <<QStringLiteral("python3 %1").arg(m_scriptPath);
+    qInfo() << Q_FUNC_INFO;
+    setStatement(QStringLiteral("python3 %1").arg(m_scriptPath));
+    Process::start();
+}
+
+void ProcessManager::stop()
+{
+    qDebug()<<"In ProcessManager::stop prcmng";
+    qInfo() << Q_FUNC_INFO;
+    Process::stop();
 }
 
 void ProcessManager::handleStandardOutput()
 {
+    qDebug()<<"In handleStandardOutput prcmng";
     static QByteArray buffer;
     buffer.append(m_process.readAllStandardOutput());
 
@@ -53,7 +53,7 @@ void ProcessManager::handleStandardOutput()
 
         if (outputStr.isEmpty())
             continue;
-        emit outputReceived(outputStr);
+        m_parser->parseLine(outputStr);
     }
 }
 

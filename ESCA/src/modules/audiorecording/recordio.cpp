@@ -16,8 +16,11 @@ RecordIO::~RecordIO()
 }
 
 void RecordIO::audioInputStop() {
-    disconnect(qIODevice, &QIODevice::readyRead, this, &RecordIO::onReadyRead);
-    m_audioInput->stop();    
+    if (qIODevice) {
+        disconnect(qIODevice, &QIODevice::readyRead, this, &RecordIO::onReadyRead);
+    }
+    if (m_audioInput)
+        m_audioInput->stop();
 }
 
 void RecordIO::startAudioInput(const QAudioFormat& format, const QAudioDeviceInfo& deviceInfo)
