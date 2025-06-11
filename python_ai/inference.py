@@ -60,6 +60,7 @@ if USE_TENSORRT:
         import tensorrt as trt
         import pycuda.driver as cuda
         import pycuda.autoinit
+        print("USE_TENSORRT")
         def load_model_fn():
             trt_logger = trt.Logger(trt.Logger.WARNING)
             with open(TRT_ENGINE_PATH, 'rb') as f:
@@ -104,7 +105,6 @@ if not USE_TENSORRT:
 shm = None
 semaphore = None
 
-
 # --- Preprocess Function ---
 def preprocess_audio(audio: np.ndarray) -> np.ndarray:
     gtg = gtgram.gtgram(audio, FRAME_RATE, WINDOW_TIME, HOP_TIME, CHANNELS, F_MIN)
@@ -116,11 +116,11 @@ def preprocess_audio(audio: np.ndarray) -> np.ndarray:
 # --- Prediction & Reporting ---
 def predict_and_report(audio: np.ndarray):
     inp = preprocess_audio(audio)
-    start = time.perf_counter()
+    
     pred = run_model(inp)
-    duration = (time.perf_counter() - start) * 1e3
+    
     mse = float(np.mean((inp - pred) ** 2))
-    logger.info("Inference time: %.2f ms, MSE: %.6f", duration, mse)
+    
     if mse > MANUAL_THRESHOLD:
         print("Anomaly detected!!", flush=True)
         
@@ -228,9 +228,15 @@ def main():
     signal.signal(signal.SIGTERM, lambda s, f: (cleanup(), sys.exit(0)))
     if not IMPORT_FILE:
         wait_for_shared_memory()
+        start = time.perf_counter()
         process_realtime()
+        duration = (time.perf_counter() - start) * 1e3
+        logger.info("Realtime Mode : %.2f ms", duration)
     else:
+        start = time.perf_counter()
         process_folder()
+        duration = (time.perf_counter() - start) * 1e3
+        logger.info("Folder Mode: %.2f ms", duration)
 
 if __name__ == '__main__':
     main()

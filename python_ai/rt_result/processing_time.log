@@ -2207,3 +2207,748 @@
 2025-06-10 16:27:56,237 - INFO - Inference time: 30.81 ms, MSE: 0.037039
 2025-06-10 16:27:57,369 - INFO - Inference time: 32.86 ms, MSE: 0.037039
 2025-06-10 16:27:58,254 - INFO - Inference time: 39.98 ms, MSE: 0.037039
+2025-06-10 10:04:14,112 - INFO - Inference time: 8163.83 ms, MSE: 0.246238
+2025-06-10 10:04:14,493 - INFO - Inference time: 104.32 ms, MSE: 0.258068
+2025-06-10 10:04:14,845 - INFO - Inference time: 98.27 ms, MSE: 0.263126
+2025-06-10 10:04:15,197 - INFO - Inference time: 97.69 ms, MSE: 0.322827
+2025-06-10 10:04:15,557 - INFO - Inference time: 98.48 ms, MSE: 0.318824
+2025-06-10 10:04:15,914 - INFO - Inference time: 97.77 ms, MSE: 0.313938
+2025-06-10 10:04:16,275 - INFO - Inference time: 98.00 ms, MSE: 0.330825
+2025-06-10 10:04:16,628 - INFO - Inference time: 96.44 ms, MSE: 0.296490
+2025-06-10 10:04:16,984 - INFO - Inference time: 96.95 ms, MSE: 0.319428
+2025-06-10 10:04:17,353 - INFO - Inference time: 107.87 ms, MSE: 0.322431
+2025-06-10 10:04:17,705 - INFO - Inference time: 98.21 ms, MSE: 0.315098
+2025-06-10 10:04:18,066 - INFO - Inference time: 98.44 ms, MSE: 0.313316
+2025-06-10 10:04:18,421 - INFO - Inference time: 98.27 ms, MSE: 0.284278
+2025-06-10 10:04:18,779 - INFO - Inference time: 98.24 ms, MSE: 0.316171
+2025-06-10 10:04:19,139 - INFO - Inference time: 97.51 ms, MSE: 0.293219
+2025-06-10 10:04:19,493 - INFO - Inference time: 96.58 ms, MSE: 0.288617
+2025-06-10 10:04:19,867 - INFO - Inference time: 111.08 ms, MSE: 0.302570
+2025-06-10 10:06:26,818 - INFO - Inference time: 4567.58 ms, MSE: 0.246238
+2025-06-10 10:06:27,265 - INFO - Inference time: 108.61 ms, MSE: 0.258068
+2025-06-10 10:06:27,619 - INFO - Inference time: 98.53 ms, MSE: 0.263126
+2025-06-10 10:06:27,978 - INFO - Inference time: 101.83 ms, MSE: 0.322827
+2025-06-10 10:06:28,344 - INFO - Inference time: 105.68 ms, MSE: 0.318824
+2025-06-10 10:06:28,701 - INFO - Inference time: 96.17 ms, MSE: 0.313938
+2025-06-10 10:06:29,052 - INFO - Inference time: 96.20 ms, MSE: 0.330825
+2025-06-10 10:06:29,406 - INFO - Inference time: 99.64 ms, MSE: 0.296490
+2025-06-10 10:06:29,756 - INFO - Inference time: 95.63 ms, MSE: 0.319428
+2025-06-10 10:06:30,124 - INFO - Inference time: 107.63 ms, MSE: 0.322431
+2025-06-10 10:06:30,497 - INFO - Inference time: 96.64 ms, MSE: 0.315098
+2025-06-10 10:06:30,850 - INFO - Inference time: 98.93 ms, MSE: 0.313315
+2025-06-10 10:06:31,206 - INFO - Inference time: 96.11 ms, MSE: 0.284278
+2025-06-10 10:06:31,556 - INFO - Inference time: 95.79 ms, MSE: 0.316171
+2025-06-10 10:06:31,908 - INFO - Inference time: 97.99 ms, MSE: 0.293219
+2025-06-10 10:06:32,282 - INFO - Inference time: 97.69 ms, MSE: 0.288617
+2025-06-10 10:06:32,645 - INFO - Inference time: 108.93 ms, MSE: 0.302570
+2025-06-10 10:06:33,071 - INFO - Inference time: 99.52 ms, MSE: 0.307716
+2025-06-10 10:35:33,243 - INFO - Inference time: 5259.16 ms, MSE: 0.246238
+2025-06-10 10:35:33,774 - INFO - Inference time: 132.73 ms, MSE: 0.258068
+2025-06-10 10:35:34,137 - INFO - Inference time: 104.90 ms, MSE: 0.263126
+2025-06-10 10:35:34,489 - INFO - Inference time: 98.11 ms, MSE: 0.322827
+2025-06-10 10:35:34,840 - INFO - Inference time: 97.17 ms, MSE: 0.318824
+2025-06-10 10:35:35,207 - INFO - Inference time: 104.70 ms, MSE: 0.313938
+2025-06-10 10:35:35,566 - INFO - Inference time: 98.10 ms, MSE: 0.330825
+2025-06-10 10:35:35,929 - INFO - Inference time: 99.83 ms, MSE: 0.296490
+2025-06-10 10:35:36,287 - INFO - Inference time: 101.64 ms, MSE: 0.319428
+2025-06-10 10:35:36,660 - INFO - Inference time: 114.28 ms, MSE: 0.322431
+2025-06-10 10:35:37,023 - INFO - Inference time: 100.59 ms, MSE: 0.315098
+2025-06-10 10:35:37,379 - INFO - Inference time: 98.95 ms, MSE: 0.313315
+2025-06-10 10:35:37,753 - INFO - Inference time: 104.34 ms, MSE: 0.284278
+2025-06-10 10:35:38,123 - INFO - Inference time: 104.20 ms, MSE: 0.316171
+2025-06-10 10:35:38,481 - INFO - Inference time: 100.96 ms, MSE: 0.293219
+2025-06-10 10:35:38,836 - INFO - Inference time: 97.10 ms, MSE: 0.288617
+2025-06-10 10:35:39,213 - INFO - Inference time: 119.82 ms, MSE: 0.302570
+2025-06-10 10:35:39,623 - INFO - Inference time: 99.48 ms, MSE: 0.307716
+2025-06-10 10:35:39,990 - INFO - Inference time: 115.43 ms, MSE: 0.300346
+2025-06-10 10:35:40,345 - INFO - Inference time: 99.05 ms, MSE: 0.309014
+2025-06-10 10:35:40,704 - INFO - Inference time: 99.33 ms, MSE: 0.301535
+2025-06-10 10:35:41,052 - INFO - Inference time: 97.26 ms, MSE: 0.306003
+2025-06-10 10:35:41,404 - INFO - Inference time: 99.25 ms, MSE: 0.312126
+2025-06-10 10:35:41,764 - INFO - Inference time: 97.87 ms, MSE: 0.323917
+2025-06-10 10:35:42,116 - INFO - Inference time: 100.31 ms, MSE: 0.301537
+2025-06-10 10:35:42,479 - INFO - Inference time: 102.17 ms, MSE: 0.316349
+2025-06-10 10:35:42,830 - INFO - Inference time: 98.74 ms, MSE: 0.311475
+2025-06-10 10:35:43,201 - INFO - Inference time: 111.16 ms, MSE: 0.320468
+2025-06-10 10:35:43,570 - INFO - Inference time: 104.33 ms, MSE: 0.322378
+2025-06-10 10:35:43,923 - INFO - Inference time: 98.67 ms, MSE: 0.317155
+2025-06-10 10:35:44,283 - INFO - Inference time: 99.69 ms, MSE: 0.316424
+2025-06-10 10:35:44,637 - INFO - Inference time: 98.81 ms, MSE: 0.319271
+2025-06-10 10:35:44,993 - INFO - Inference time: 95.65 ms, MSE: 0.318736
+2025-06-10 10:35:45,342 - INFO - Inference time: 95.50 ms, MSE: 0.320795
+2025-06-10 10:35:45,700 - INFO - Inference time: 102.98 ms, MSE: 0.317426
+2025-06-10 10:35:46,084 - INFO - Inference time: 109.24 ms, MSE: 0.319695
+2025-06-10 10:35:46,452 - INFO - Inference time: 113.10 ms, MSE: 0.242346
+2025-06-10 10:36:06,746 - INFO - Inference time: 5363.07 ms, MSE: 0.246238
+2025-06-10 10:36:07,152 - INFO - Inference time: 113.61 ms, MSE: 0.258068
+2025-06-10 10:36:07,507 - INFO - Inference time: 97.50 ms, MSE: 0.263126
+2025-06-10 10:36:07,869 - INFO - Inference time: 98.76 ms, MSE: 0.322827
+2025-06-10 10:36:08,224 - INFO - Inference time: 96.24 ms, MSE: 0.318824
+2025-06-10 10:36:08,629 - INFO - Inference time: 146.72 ms, MSE: 0.313938
+2025-06-10 10:36:09,011 - INFO - Inference time: 102.26 ms, MSE: 0.330825
+2025-06-10 10:36:09,363 - INFO - Inference time: 97.55 ms, MSE: 0.296490
+2025-06-10 10:36:09,716 - INFO - Inference time: 99.29 ms, MSE: 0.319428
+2025-06-10 10:36:10,082 - INFO - Inference time: 111.07 ms, MSE: 0.322431
+2025-06-10 10:36:10,446 - INFO - Inference time: 99.79 ms, MSE: 0.315098
+2025-06-10 10:36:10,827 - INFO - Inference time: 103.17 ms, MSE: 0.313316
+2025-06-10 10:36:11,194 - INFO - Inference time: 108.45 ms, MSE: 0.284278
+2025-06-10 10:36:11,549 - INFO - Inference time: 94.85 ms, MSE: 0.316171
+2025-06-10 10:36:11,907 - INFO - Inference time: 100.00 ms, MSE: 0.293219
+2025-06-10 10:36:12,277 - INFO - Inference time: 108.65 ms, MSE: 0.288617
+2025-06-10 10:36:12,654 - INFO - Inference time: 116.50 ms, MSE: 0.302570
+2025-06-10 10:36:13,069 - INFO - Inference time: 101.37 ms, MSE: 0.307716
+2025-06-10 10:36:13,451 - INFO - Inference time: 121.66 ms, MSE: 0.300346
+2025-06-10 10:36:13,821 - INFO - Inference time: 114.75 ms, MSE: 0.309014
+2025-06-10 10:36:14,173 - INFO - Inference time: 99.82 ms, MSE: 0.301535
+2025-06-10 10:36:14,532 - INFO - Inference time: 106.18 ms, MSE: 0.306003
+2025-06-10 10:36:14,889 - INFO - Inference time: 103.95 ms, MSE: 0.312126
+2025-06-10 10:36:15,257 - INFO - Inference time: 106.10 ms, MSE: 0.323917
+2025-06-10 10:36:15,619 - INFO - Inference time: 104.57 ms, MSE: 0.301537
+2025-06-10 10:36:15,984 - INFO - Inference time: 107.72 ms, MSE: 0.316349
+2025-06-10 10:36:16,352 - INFO - Inference time: 105.32 ms, MSE: 0.311475
+2025-06-10 10:36:16,723 - INFO - Inference time: 113.97 ms, MSE: 0.320468
+2025-06-10 10:36:17,097 - INFO - Inference time: 110.58 ms, MSE: 0.322378
+2025-06-10 10:36:17,464 - INFO - Inference time: 111.98 ms, MSE: 0.317155
+2025-06-10 10:36:17,817 - INFO - Inference time: 98.88 ms, MSE: 0.316424
+2025-06-10 10:36:18,182 - INFO - Inference time: 102.84 ms, MSE: 0.319271
+2025-06-10 10:36:18,553 - INFO - Inference time: 113.54 ms, MSE: 0.318736
+2025-06-10 10:36:18,924 - INFO - Inference time: 113.21 ms, MSE: 0.320795
+2025-06-10 10:36:19,303 - INFO - Inference time: 111.47 ms, MSE: 0.317426
+2025-06-10 10:36:19,661 - INFO - Inference time: 101.02 ms, MSE: 0.319695
+2025-06-10 10:36:20,034 - INFO - Inference time: 118.56 ms, MSE: 0.242346
+2025-06-10 10:37:36,527 - INFO - Inference time: 4844.54 ms, MSE: 0.246238
+2025-06-10 10:37:36,938 - INFO - Inference time: 114.19 ms, MSE: 0.258068
+2025-06-10 10:37:37,308 - INFO - Inference time: 109.89 ms, MSE: 0.263126
+2025-06-10 10:37:37,674 - INFO - Inference time: 108.42 ms, MSE: 0.322827
+2025-06-10 10:37:38,033 - INFO - Inference time: 100.99 ms, MSE: 0.318824
+2025-06-10 10:37:38,413 - INFO - Inference time: 112.62 ms, MSE: 0.313938
+2025-06-10 10:37:38,777 - INFO - Inference time: 104.37 ms, MSE: 0.330825
+2025-06-10 10:37:39,141 - INFO - Inference time: 104.71 ms, MSE: 0.296490
+2025-06-10 10:37:39,519 - INFO - Inference time: 117.29 ms, MSE: 0.319428
+2025-06-10 10:37:39,903 - INFO - Inference time: 122.44 ms, MSE: 0.322431
+2025-06-10 10:37:40,277 - INFO - Inference time: 108.92 ms, MSE: 0.315098
+2025-06-10 10:37:40,639 - INFO - Inference time: 99.53 ms, MSE: 0.313316
+2025-06-10 10:37:41,004 - INFO - Inference time: 106.42 ms, MSE: 0.284278
+2025-06-10 10:37:41,369 - INFO - Inference time: 105.06 ms, MSE: 0.316171
+2025-06-10 10:37:41,726 - INFO - Inference time: 100.73 ms, MSE: 0.293219
+2025-06-10 10:37:42,128 - INFO - Inference time: 124.02 ms, MSE: 0.288617
+2025-06-10 10:37:42,515 - INFO - Inference time: 117.55 ms, MSE: 0.302570
+2025-06-10 10:37:42,959 - INFO - Inference time: 109.39 ms, MSE: 0.307716
+2025-06-10 10:37:43,342 - INFO - Inference time: 118.36 ms, MSE: 0.300346
+2025-06-10 10:37:43,712 - INFO - Inference time: 106.17 ms, MSE: 0.309014
+2025-06-10 10:37:44,069 - INFO - Inference time: 101.88 ms, MSE: 0.301535
+2025-06-10 10:37:44,467 - INFO - Inference time: 108.58 ms, MSE: 0.306003
+2025-06-10 10:37:44,835 - INFO - Inference time: 107.41 ms, MSE: 0.312126
+2025-06-10 10:37:45,206 - INFO - Inference time: 110.67 ms, MSE: 0.323917
+2025-06-10 10:37:45,590 - INFO - Inference time: 99.49 ms, MSE: 0.301537
+2025-06-10 10:37:45,965 - INFO - Inference time: 116.97 ms, MSE: 0.316349
+2025-06-10 10:37:46,337 - INFO - Inference time: 106.94 ms, MSE: 0.311475
+2025-06-10 10:37:46,723 - INFO - Inference time: 119.45 ms, MSE: 0.320468
+2025-06-10 10:37:47,088 - INFO - Inference time: 105.85 ms, MSE: 0.322378
+2025-06-10 10:37:47,458 - INFO - Inference time: 104.91 ms, MSE: 0.317155
+2025-06-10 10:37:47,825 - INFO - Inference time: 107.27 ms, MSE: 0.316424
+2025-06-10 10:37:48,192 - INFO - Inference time: 107.71 ms, MSE: 0.319271
+2025-06-10 10:37:48,592 - INFO - Inference time: 117.26 ms, MSE: 0.318736
+2025-06-10 10:37:48,951 - INFO - Inference time: 100.42 ms, MSE: 0.320795
+2025-06-10 10:37:49,334 - INFO - Inference time: 117.76 ms, MSE: 0.317426
+2025-06-10 10:37:49,698 - INFO - Inference time: 104.79 ms, MSE: 0.319695
+2025-06-10 10:37:50,083 - INFO - Inference time: 124.76 ms, MSE: 0.242346
+2025-06-10 10:38:47,243 - INFO - Inference time: 4781.02 ms, MSE: 0.245500
+2025-06-10 10:38:47,739 - INFO - Inference time: 133.42 ms, MSE: 0.243815
+2025-06-10 10:38:48,103 - INFO - Inference time: 108.34 ms, MSE: 0.243353
+2025-06-10 10:38:48,461 - INFO - Inference time: 102.43 ms, MSE: 0.241931
+2025-06-10 10:38:48,814 - INFO - Inference time: 101.12 ms, MSE: 0.246074
+2025-06-10 10:38:49,174 - INFO - Inference time: 107.95 ms, MSE: 0.252707
+2025-06-10 10:38:49,532 - INFO - Inference time: 103.72 ms, MSE: 0.242725
+2025-06-10 10:38:49,883 - INFO - Inference time: 99.11 ms, MSE: 0.247605
+2025-06-10 10:38:50,242 - INFO - Inference time: 106.30 ms, MSE: 0.243577
+2025-06-10 10:38:50,618 - INFO - Inference time: 122.37 ms, MSE: 0.242669
+2025-06-10 10:38:50,969 - INFO - Inference time: 98.78 ms, MSE: 0.241700
+2025-06-10 10:38:51,329 - INFO - Inference time: 98.24 ms, MSE: 0.244710
+2025-06-10 10:38:51,705 - INFO - Inference time: 97.25 ms, MSE: 0.240639
+2025-06-10 10:38:52,056 - INFO - Inference time: 95.77 ms, MSE: 0.242231
+2025-06-10 10:38:52,414 - INFO - Inference time: 96.96 ms, MSE: 0.243930
+2025-06-10 10:38:52,769 - INFO - Inference time: 98.05 ms, MSE: 0.244046
+2025-06-10 10:38:53,142 - INFO - Inference time: 111.79 ms, MSE: 0.246251
+2025-06-10 10:38:53,542 - INFO - Inference time: 99.97 ms, MSE: 0.244857
+2025-06-10 10:38:53,944 - INFO - Inference time: 136.01 ms, MSE: 0.246017
+2025-06-10 10:38:54,312 - INFO - Inference time: 111.21 ms, MSE: 0.243338
+2025-06-10 10:38:54,712 - INFO - Inference time: 119.06 ms, MSE: 0.242320
+2025-06-10 10:38:55,064 - INFO - Inference time: 97.18 ms, MSE: 0.241039
+2025-06-10 10:38:55,429 - INFO - Inference time: 103.24 ms, MSE: 0.242354
+2025-06-10 10:38:55,781 - INFO - Inference time: 98.45 ms, MSE: 0.242390
+2025-06-10 10:38:56,151 - INFO - Inference time: 110.23 ms, MSE: 0.243679
+2025-06-10 10:38:56,503 - INFO - Inference time: 94.19 ms, MSE: 0.241340
+2025-06-10 10:38:56,853 - INFO - Inference time: 97.14 ms, MSE: 0.241724
+2025-06-10 10:38:57,224 - INFO - Inference time: 111.66 ms, MSE: 0.242195
+2025-06-10 10:38:57,581 - INFO - Inference time: 98.70 ms, MSE: 0.239521
+2025-06-10 10:38:57,938 - INFO - Inference time: 98.50 ms, MSE: 0.240710
+2025-06-10 10:38:58,292 - INFO - Inference time: 100.42 ms, MSE: 0.242532
+2025-06-10 10:38:58,643 - INFO - Inference time: 96.47 ms, MSE: 0.244245
+2025-06-10 10:38:59,000 - INFO - Inference time: 95.29 ms, MSE: 0.246211
+2025-06-10 10:38:59,360 - INFO - Inference time: 105.34 ms, MSE: 0.242277
+2025-06-10 10:38:59,711 - INFO - Inference time: 96.66 ms, MSE: 0.241095
+2025-06-10 10:39:00,063 - INFO - Inference time: 98.60 ms, MSE: 0.247200
+2025-06-10 10:39:00,435 - INFO - Inference time: 111.63 ms, MSE: 0.240318
+2025-06-10 10:39:00,802 - INFO - Inference time: 100.49 ms, MSE: 0.241075
+2025-06-10 10:39:01,159 - INFO - Inference time: 101.29 ms, MSE: 0.247753
+2025-06-10 10:39:01,519 - INFO - Inference time: 98.71 ms, MSE: 0.241008
+2025-06-10 10:39:01,871 - INFO - Inference time: 98.85 ms, MSE: 0.238141
+2025-06-10 10:39:02,224 - INFO - Inference time: 99.86 ms, MSE: 0.241583
+2025-06-10 10:39:02,589 - INFO - Inference time: 98.36 ms, MSE: 0.239599
+2025-06-10 10:39:02,944 - INFO - Inference time: 101.14 ms, MSE: 0.240648
+2025-06-10 10:39:03,314 - INFO - Inference time: 110.89 ms, MSE: 0.240312
+2025-06-10 10:39:03,713 - INFO - Inference time: 112.46 ms, MSE: 0.242222
+2025-06-10 10:39:04,071 - INFO - Inference time: 101.37 ms, MSE: 0.241708
+2025-06-10 10:39:04,432 - INFO - Inference time: 98.48 ms, MSE: 0.239414
+2025-06-10 10:39:04,786 - INFO - Inference time: 98.00 ms, MSE: 0.243428
+2025-06-10 10:39:05,148 - INFO - Inference time: 100.36 ms, MSE: 0.240765
+2025-06-10 10:39:05,504 - INFO - Inference time: 99.24 ms, MSE: 0.239518
+2025-06-10 10:39:05,858 - INFO - Inference time: 98.35 ms, MSE: 0.239948
+2025-06-10 10:39:06,238 - INFO - Inference time: 101.71 ms, MSE: 0.241295
+2025-06-10 10:39:06,593 - INFO - Inference time: 98.64 ms, MSE: 0.243266
+2025-06-10 10:39:06,966 - INFO - Inference time: 112.68 ms, MSE: 0.243013
+2025-06-10 10:39:07,326 - INFO - Inference time: 103.54 ms, MSE: 0.240571
+2025-06-10 10:39:07,683 - INFO - Inference time: 101.31 ms, MSE: 0.241759
+2025-06-10 10:39:08,037 - INFO - Inference time: 97.68 ms, MSE: 0.243835
+2025-06-10 10:39:08,393 - INFO - Inference time: 97.90 ms, MSE: 0.244177
+2025-06-10 10:39:08,752 - INFO - Inference time: 96.72 ms, MSE: 0.243758
+2025-06-10 10:39:09,105 - INFO - Inference time: 97.77 ms, MSE: 0.243743
+2025-06-10 10:39:09,465 - INFO - Inference time: 97.29 ms, MSE: 0.251965
+2025-06-10 10:39:09,818 - INFO - Inference time: 97.91 ms, MSE: 0.247210
+2025-06-10 10:39:10,186 - INFO - Inference time: 112.06 ms, MSE: 0.244508
+2025-06-10 10:39:10,550 - INFO - Inference time: 102.10 ms, MSE: 0.243443
+2025-06-10 10:39:10,904 - INFO - Inference time: 98.89 ms, MSE: 0.241510
+2025-06-10 10:39:11,270 - INFO - Inference time: 104.93 ms, MSE: 0.242418
+2025-06-10 10:39:11,637 - INFO - Inference time: 108.87 ms, MSE: 0.241528
+2025-06-10 10:39:11,993 - INFO - Inference time: 100.43 ms, MSE: 0.239959
+2025-06-10 10:39:12,355 - INFO - Inference time: 100.99 ms, MSE: 0.238570
+2025-06-10 10:39:12,709 - INFO - Inference time: 99.55 ms, MSE: 0.239689
+2025-06-10 10:39:13,068 - INFO - Inference time: 98.55 ms, MSE: 0.238931
+2025-06-10 10:39:13,446 - INFO - Inference time: 120.74 ms, MSE: 0.240830
+2025-06-10 10:39:13,820 - INFO - Inference time: 99.91 ms, MSE: 0.239918
+2025-06-10 10:39:14,188 - INFO - Inference time: 104.55 ms, MSE: 0.242765
+2025-06-10 10:39:14,556 - INFO - Inference time: 107.58 ms, MSE: 0.241326
+2025-06-10 10:39:14,913 - INFO - Inference time: 98.73 ms, MSE: 0.240962
+2025-06-10 10:39:15,290 - INFO - Inference time: 102.50 ms, MSE: 0.240541
+2025-06-10 10:39:15,647 - INFO - Inference time: 99.07 ms, MSE: 0.240159
+2025-06-10 10:39:16,013 - INFO - Inference time: 102.91 ms, MSE: 0.240342
+2025-06-10 10:39:16,379 - INFO - Inference time: 104.97 ms, MSE: 0.240478
+2025-06-10 10:39:16,759 - INFO - Inference time: 120.80 ms, MSE: 0.240778
+2025-06-10 10:40:06,305 - INFO - Inference time: 4746.74 ms, MSE: 0.245500
+2025-06-10 10:40:06,756 - INFO - Inference time: 119.71 ms, MSE: 0.243815
+2025-06-10 10:40:07,107 - INFO - Inference time: 100.21 ms, MSE: 0.243353
+2025-06-10 10:40:07,458 - INFO - Inference time: 98.36 ms, MSE: 0.241931
+2025-06-10 10:40:07,821 - INFO - Inference time: 108.41 ms, MSE: 0.246074
+2025-06-10 10:40:08,181 - INFO - Inference time: 98.95 ms, MSE: 0.252707
+2025-06-10 10:40:08,534 - INFO - Inference time: 97.64 ms, MSE: 0.242725
+2025-06-10 10:40:08,893 - INFO - Inference time: 98.39 ms, MSE: 0.247605
+2025-06-10 10:40:09,248 - INFO - Inference time: 98.72 ms, MSE: 0.243577
+2025-06-10 10:40:09,619 - INFO - Inference time: 114.76 ms, MSE: 0.242669
+2025-06-10 10:40:10,022 - INFO - Inference time: 102.50 ms, MSE: 0.241700
+2025-06-10 10:40:10,382 - INFO - Inference time: 104.81 ms, MSE: 0.244710
+2025-06-10 10:40:10,748 - INFO - Inference time: 103.36 ms, MSE: 0.240639
+2025-06-10 10:40:11,103 - INFO - Inference time: 103.66 ms, MSE: 0.242231
+2025-06-10 10:40:11,481 - INFO - Inference time: 115.26 ms, MSE: 0.243930
+2025-06-10 10:40:11,838 - INFO - Inference time: 96.70 ms, MSE: 0.244046
+2025-06-10 10:40:12,201 - INFO - Inference time: 107.23 ms, MSE: 0.246251
+2025-06-10 10:40:12,594 - INFO - Inference time: 99.34 ms, MSE: 0.244857
+2025-06-10 10:40:12,962 - INFO - Inference time: 111.98 ms, MSE: 0.246018
+2025-06-10 10:40:13,329 - INFO - Inference time: 104.67 ms, MSE: 0.243338
+2025-06-10 10:40:13,689 - INFO - Inference time: 99.36 ms, MSE: 0.242320
+2025-06-10 10:40:14,042 - INFO - Inference time: 96.77 ms, MSE: 0.241039
+2025-06-10 10:40:14,405 - INFO - Inference time: 107.20 ms, MSE: 0.242354
+2025-06-10 10:40:14,780 - INFO - Inference time: 116.32 ms, MSE: 0.242390
+2025-06-10 10:40:15,152 - INFO - Inference time: 113.48 ms, MSE: 0.243679
+2025-06-10 10:40:15,504 - INFO - Inference time: 97.55 ms, MSE: 0.241340
+2025-06-10 10:40:15,896 - INFO - Inference time: 102.68 ms, MSE: 0.241724
+2025-06-10 10:40:16,270 - INFO - Inference time: 111.56 ms, MSE: 0.242195
+2025-06-10 10:40:16,649 - INFO - Inference time: 100.61 ms, MSE: 0.239521
+2025-06-10 10:40:17,009 - INFO - Inference time: 103.39 ms, MSE: 0.240710
+2025-06-10 10:40:17,374 - INFO - Inference time: 105.92 ms, MSE: 0.242532
+2025-06-10 10:40:17,729 - INFO - Inference time: 98.10 ms, MSE: 0.244245
+2025-06-10 10:40:18,088 - INFO - Inference time: 98.63 ms, MSE: 0.246211
+2025-06-10 10:40:18,467 - INFO - Inference time: 103.01 ms, MSE: 0.242277
+2025-06-10 10:40:18,828 - INFO - Inference time: 104.51 ms, MSE: 0.241095
+2025-06-10 10:40:19,198 - INFO - Inference time: 107.18 ms, MSE: 0.247200
+2025-06-10 10:40:19,566 - INFO - Inference time: 111.95 ms, MSE: 0.240318
+2025-06-10 10:40:19,933 - INFO - Inference time: 110.13 ms, MSE: 0.241075
+2025-06-10 10:40:20,314 - INFO - Inference time: 105.83 ms, MSE: 0.247753
+2025-06-10 10:40:20,691 - INFO - Inference time: 97.44 ms, MSE: 0.241008
+2025-06-10 10:40:21,051 - INFO - Inference time: 96.70 ms, MSE: 0.238141
+2025-06-10 10:40:21,410 - INFO - Inference time: 103.22 ms, MSE: 0.241583
+2025-06-10 10:40:21,769 - INFO - Inference time: 102.43 ms, MSE: 0.239599
+2025-06-10 10:40:22,130 - INFO - Inference time: 99.09 ms, MSE: 0.240648
+2025-06-10 10:40:22,497 - INFO - Inference time: 108.74 ms, MSE: 0.240312
+2025-06-10 10:40:22,904 - INFO - Inference time: 120.26 ms, MSE: 0.242222
+2025-06-10 10:40:23,285 - INFO - Inference time: 98.41 ms, MSE: 0.241708
+2025-06-10 10:40:23,649 - INFO - Inference time: 103.46 ms, MSE: 0.239414
+2025-06-10 10:40:24,012 - INFO - Inference time: 98.03 ms, MSE: 0.243428
+2025-06-10 10:40:24,370 - INFO - Inference time: 99.93 ms, MSE: 0.240765
+2025-06-10 10:40:24,724 - INFO - Inference time: 96.11 ms, MSE: 0.239518
+2025-06-10 10:40:25,080 - INFO - Inference time: 97.98 ms, MSE: 0.239948
+2025-06-10 10:40:25,448 - INFO - Inference time: 103.28 ms, MSE: 0.241295
+2025-06-10 10:40:25,817 - INFO - Inference time: 103.54 ms, MSE: 0.243266
+2025-06-10 10:40:26,268 - INFO - Inference time: 156.85 ms, MSE: 0.243013
+2025-06-10 10:40:26,636 - INFO - Inference time: 106.32 ms, MSE: 0.240571
+2025-06-10 10:40:27,021 - INFO - Inference time: 118.32 ms, MSE: 0.241759
+2025-06-10 10:40:27,400 - INFO - Inference time: 119.76 ms, MSE: 0.243835
+2025-06-10 10:40:27,759 - INFO - Inference time: 100.01 ms, MSE: 0.244177
+2025-06-10 10:40:28,134 - INFO - Inference time: 100.70 ms, MSE: 0.243758
+2025-06-10 10:40:28,489 - INFO - Inference time: 95.63 ms, MSE: 0.243743
+2025-06-10 10:40:28,849 - INFO - Inference time: 96.86 ms, MSE: 0.251965
+2025-06-10 10:40:29,205 - INFO - Inference time: 98.57 ms, MSE: 0.247210
+2025-06-10 10:40:29,579 - INFO - Inference time: 114.19 ms, MSE: 0.244508
+2025-06-10 10:40:29,943 - INFO - Inference time: 98.41 ms, MSE: 0.243443
+2025-06-10 10:40:30,311 - INFO - Inference time: 110.18 ms, MSE: 0.241510
+2025-06-10 10:40:30,701 - INFO - Inference time: 98.16 ms, MSE: 0.242418
+2025-06-10 10:40:31,056 - INFO - Inference time: 96.57 ms, MSE: 0.241528
+2025-06-10 10:40:31,418 - INFO - Inference time: 99.03 ms, MSE: 0.239959
+2025-06-10 10:40:31,788 - INFO - Inference time: 99.11 ms, MSE: 0.238570
+2025-06-10 10:40:32,142 - INFO - Inference time: 97.35 ms, MSE: 0.239689
+2025-06-10 10:40:32,499 - INFO - Inference time: 99.14 ms, MSE: 0.238931
+2025-06-10 10:40:32,881 - INFO - Inference time: 123.05 ms, MSE: 0.240830
+2025-06-10 10:40:33,283 - INFO - Inference time: 105.09 ms, MSE: 0.239918
+2025-06-10 10:40:33,646 - INFO - Inference time: 98.80 ms, MSE: 0.242765
+2025-06-10 10:40:34,000 - INFO - Inference time: 96.67 ms, MSE: 0.241326
+2025-06-10 10:40:34,365 - INFO - Inference time: 102.11 ms, MSE: 0.240962
+2025-06-10 10:40:34,721 - INFO - Inference time: 97.50 ms, MSE: 0.240541
+2025-06-10 10:40:35,077 - INFO - Inference time: 97.01 ms, MSE: 0.240159
+2025-06-10 10:40:35,449 - INFO - Inference time: 103.79 ms, MSE: 0.240342
+2025-06-10 10:40:35,801 - INFO - Inference time: 98.22 ms, MSE: 0.240478
+2025-06-10 10:40:36,205 - INFO - Inference time: 118.36 ms, MSE: 0.240778
+2025-06-10 10:42:26,697 - INFO - Cấu hình mặc định:
+2025-06-10 10:42:26,697 - INFO - {'DATASET': {'DATALOADER': {'BATCH_SIZE': 128, 'SHUFFLE': True}, 'PATH': {'ANOMALY': '/home/sparclab/Desktop/Abnomaly_Audio_Dataset/fanAbnomaly', 'NORMAL': '/home/sparclab/Desktop/Abnomaly_Audio_Dataset/fanNormal', 'TEST': None, 'TFRECORDS': ['/home/sparclab/Desktop/D-ESCA_v2/park_dataset_demo/mel_orin_fan']}, 'RATIO': {'TEST': 0.1, 'TRAIN': 0.8}}, 'DEVICE': {'JETSON': True, 'USE_TENSORRT': False}, 'MODEL': {'TYPE': 'vq_vae'}, 'POSTPROCESS': {'PATH_SAVE_THRESHOLD': '/home/sparclab/SPARC/ESCA/Code/train_on_PCv2/Results/'}, 'PREPROCESS': {'AUDIO_LEN': 2, 'FRAME_RATE': 44100, 'GAMMA': {'CHANNELS': 32, 'F_MIN': 100, 'HOP_TIME': 0.06, 'WINDOW_TIME': 0.12}, 'MEL': {'NFFT': 2048, 'N_BANDS': 32, 'SR': 16000}, 'SAMPLE_PER_FILE': 200, 'SEGMENT_LEN': 2, 'TYPE': 'gamma', 'USE_TF_GTGRAM': False}, 'REALTIME': {'CHANNELS': 1, 'FOLDER_PATH': '/home/sparclab/Desktop/Abnomaly_Audio_Dataset/fanNormal', 'IMPORT_FILE': True, 'LOG_PATH': '/home/sparclab/Desktop/Test_ESCA/python_ai/rt_result', 'MANUAL_THRESHOLD': 0.28, 'MAX': 35.66025924682617, 'MIN': -16.225692749023438, 'MODEL_PATH': '/home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fan', 'SAMPLESIZE': 16, 'SAMPLING_RATE': 44100, 'SECOND': 2, 'THRESHOLD': 0.025730421766638756}, 'RECORD': {'ABNOMALY': False, 'CHANNEL': 0, 'CODEC': 0, 'DATASET_PATH': './dataset_mic_laptop_16k', 'DEVICE': 8, 'DEVICENAME': 'default', 'DURATION': 0, 'ENDIAN': 0, 'SAMPLERATE': 3, 'SAMPLESIZE': 1}, 'TRAINING': {'EPOCH': 10, 'LEARNING_RATE': 0.001, 'LOG_FOLDER': '/home/sparclab/Desktop/Test_ESCA/python_ai/result', 'PRETRAINED_WEIGHTS': '/home/sparclab/Desktop/Test_ESCA/python_ai/temp/saved_model', 'SAVE_PATH': '/home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fan'}, 'TRANSFER_LEARNING': {'ANOM_BATCH_SIZE': 128, 'BASED_WEIGHTS': '/home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fan/saved_model/vq_vae', 'BETA': 1, 'EPOCH': 20, 'LEARNING_RATE': 0.001, 'SAVE_PATH': '/home/sparclab/Desktop/Test_ESCA/python_ai/tl_orin_fan', 'TEST_DIR': None, 'TFRECORDS': ['/home/sparclab/Desktop/D-ESCA_v2/park_dataset_demo/mel_orin_fan']}}
+2025-06-10 10:42:29,245 - INFO - IMPORT_FILE: True
+2025-06-10 10:42:29,246 - INFO - Chế độ Folder, xử lý thư mục: /home/sparclab/Desktop/Abnomaly_Audio_Dataset/fanNormal
+2025-06-10 10:42:33,823 - INFO - Processing time for basefile_20250606_071147.wav: 4.576740026473999 seconds and Pred: 0.23945680622401577
+2025-06-10 10:42:34,254 - INFO - Processing time for basefile_20250606_071149.wav: 0.43046140670776367 seconds and Pred: 0.2379096793735613
+2025-06-10 10:42:34,612 - INFO - Processing time for basefile_20250606_071151.wav: 0.3580174446105957 seconds and Pred: 0.23743433075033255
+2025-06-10 10:42:34,965 - INFO - Processing time for basefile_20250606_071153.wav: 0.3526616096496582 seconds and Pred: 0.2359903445738351
+2025-06-10 10:42:35,325 - INFO - Processing time for basefile_20250606_071155.wav: 0.35955262184143066 seconds and Pred: 0.24004654730716152
+2025-06-10 10:42:35,679 - INFO - Processing time for basefile_20250606_071157.wav: 0.3529016971588135 seconds and Pred: 0.24669791414489026
+2025-06-10 10:42:36,040 - INFO - Processing time for basefile_20250606_071159.wav: 0.3604719638824463 seconds and Pred: 0.23679092931899956
+2025-06-10 10:42:36,407 - INFO - Processing time for basefile_20250606_071201.wav: 0.36713147163391113 seconds and Pred: 0.2415361795429273
+2025-06-10 10:42:36,766 - INFO - Processing time for basefile_20250606_071203.wav: 0.3584580421447754 seconds and Pred: 0.23755968197426547
+2025-06-10 10:42:37,141 - INFO - Processing time for basefile_20250606_071205.wav: 0.3748128414154053 seconds and Pred: 0.2365751159998767
+2025-06-10 10:42:37,508 - INFO - Processing time for basefile_20250606_071207.wav: 0.36655759811401367 seconds and Pred: 0.2358398589004331
+2025-06-10 10:42:37,873 - INFO - Processing time for basefile_20250606_071209.wav: 0.36404848098754883 seconds and Pred: 0.2387423653522289
+2025-06-10 10:42:38,238 - INFO - Processing time for basefile_20250606_071211.wav: 0.36542320251464844 seconds and Pred: 0.23479403622776315
+2025-06-10 10:42:38,632 - INFO - Processing time for basefile_20250606_071213.wav: 0.3932311534881592 seconds and Pred: 0.2362128076920811
+2025-06-10 10:42:38,988 - INFO - Processing time for basefile_20250606_071215.wav: 0.35528564453125 seconds and Pred: 0.2380639250738856
+2025-06-10 10:42:39,346 - INFO - Processing time for basefile_20250606_071217.wav: 0.3574199676513672 seconds and Pred: 0.23807058034533862
+2025-06-10 10:42:39,712 - INFO - Processing time for basefile_20250606_071219.wav: 0.3661932945251465 seconds and Pred: 0.24021222490984112
+2025-06-10 10:42:40,126 - INFO - Processing time for basefile_20250606_071221.wav: 0.41312718391418457 seconds and Pred: 0.23891264665922718
+2025-06-10 10:42:40,499 - INFO - Processing time for basefile_20250606_071223.wav: 0.37277817726135254 seconds and Pred: 0.23993790102796309
+2025-06-10 10:42:40,860 - INFO - Processing time for basefile_20250606_071225.wav: 0.3605518341064453 seconds and Pred: 0.23727814817779866
+2025-06-10 10:42:41,227 - INFO - Processing time for basefile_20250606_071227.wav: 0.3669567108154297 seconds and Pred: 0.23631855478147384
+2025-06-10 10:42:41,589 - INFO - Processing time for basefile_20250606_071229.wav: 0.36133551597595215 seconds and Pred: 0.23513050259676418
+2025-06-10 10:42:41,946 - INFO - Processing time for basefile_20250606_071231.wav: 0.3568596839904785 seconds and Pred: 0.23630675355342362
+2025-06-10 10:42:42,300 - INFO - Processing time for basefile_20250606_071233.wav: 0.3531324863433838 seconds and Pred: 0.23638225391458786
+2025-06-10 10:42:42,656 - INFO - Processing time for basefile_20250606_071235.wav: 0.35533976554870605 seconds and Pred: 0.23761826121822288
+2025-06-10 10:42:43,008 - INFO - Processing time for basefile_20250606_071237.wav: 0.35163164138793945 seconds and Pred: 0.23528068122871643
+2025-06-10 10:42:43,362 - INFO - Processing time for basefile_20250606_071239.wav: 0.353834867477417 seconds and Pred: 0.2358815046835152
+2025-06-10 10:42:43,738 - INFO - Processing time for basefile_20250606_071241.wav: 0.37525057792663574 seconds and Pred: 0.23654764529161476
+2025-06-10 10:42:44,089 - INFO - Processing time for basefile_20250606_071243.wav: 0.3507218360900879 seconds and Pred: 0.23349847832391898
+2025-06-10 10:42:44,446 - INFO - Processing time for basefile_20250606_071245.wav: 0.35686421394348145 seconds and Pred: 0.23466309934159665
+2025-06-10 10:42:44,803 - INFO - Processing time for basefile_20250606_071247.wav: 0.3561892509460449 seconds and Pred: 0.23653308401327422
+2025-06-10 10:42:45,155 - INFO - Processing time for basefile_20250606_071249.wav: 0.35193562507629395 seconds and Pred: 0.23834770098209312
+2025-06-10 10:42:45,518 - INFO - Processing time for basefile_20250606_071251.wav: 0.36231446266174316 seconds and Pred: 0.24036593131666975
+2025-06-10 10:42:45,869 - INFO - Processing time for basefile_20250606_071253.wav: 0.3508419990539551 seconds and Pred: 0.23628075061623285
+2025-06-10 10:42:46,224 - INFO - Processing time for basefile_20250606_071255.wav: 0.354597806930542 seconds and Pred: 0.23514915505642936
+2025-06-10 10:42:46,579 - INFO - Processing time for basefile_20250606_071257.wav: 0.35410332679748535 seconds and Pred: 0.24147053039460423
+2025-06-10 10:42:46,943 - INFO - Processing time for basefile_20250606_071259.wav: 0.3645668029785156 seconds and Pred: 0.23451807841549718
+2025-06-10 10:42:47,302 - INFO - Processing time for basefile_20250606_071301.wav: 0.35802197456359863 seconds and Pred: 0.23514808769266704
+2025-06-10 10:42:47,655 - INFO - Processing time for basefile_20250606_071303.wav: 0.35224151611328125 seconds and Pred: 0.24159886976953993
+2025-06-10 10:42:48,015 - INFO - Processing time for basefile_20250606_071305.wav: 0.35997819900512695 seconds and Pred: 0.23499824287047344
+2025-06-10 10:42:48,381 - INFO - Processing time for basefile_20250606_071307.wav: 0.3660852909088135 seconds and Pred: 0.23202295797612627
+2025-06-10 10:42:48,751 - INFO - Processing time for basefile_20250606_071309.wav: 0.36910462379455566 seconds and Pred: 0.2355150727841087
+2025-06-10 10:42:49,103 - INFO - Processing time for basefile_20250606_071311.wav: 0.3518867492675781 seconds and Pred: 0.23354728038455977
+2025-06-10 10:42:49,482 - INFO - Processing time for basefile_20250606_071313.wav: 0.3781464099884033 seconds and Pred: 0.23440476069620003
+2025-06-10 10:42:49,838 - INFO - Processing time for basefile_20250606_071315.wav: 0.355562686920166 seconds and Pred: 0.23439311233241497
+2025-06-10 10:42:50,227 - INFO - Processing time for basefile_20250606_071317.wav: 0.38883018493652344 seconds and Pred: 0.23608520080747136
+2025-06-10 10:42:50,585 - INFO - Processing time for basefile_20250606_071319.wav: 0.35720086097717285 seconds and Pred: 0.23562287083890698
+2025-06-10 10:42:50,950 - INFO - Processing time for basefile_20250606_071321.wav: 0.3653535842895508 seconds and Pred: 0.23339541784529771
+2025-06-10 10:42:51,304 - INFO - Processing time for basefile_20250606_071323.wav: 0.3536722660064697 seconds and Pred: 0.23738405681944516
+2025-06-10 10:42:51,669 - INFO - Processing time for basefile_20250606_071325.wav: 0.3645365238189697 seconds and Pred: 0.2347532803091263
+2025-06-10 10:42:52,026 - INFO - Processing time for basefile_20250606_071327.wav: 0.3561108112335205 seconds and Pred: 0.23346087733392965
+2025-06-10 10:42:52,393 - INFO - Processing time for basefile_20250606_071329.wav: 0.36707353591918945 seconds and Pred: 0.23397647590088552
+2025-06-10 10:42:52,803 - INFO - Processing time for basefile_20250606_071331.wav: 0.40949487686157227 seconds and Pred: 0.23525594259106766
+2025-06-10 10:42:53,159 - INFO - Processing time for basefile_20250606_071333.wav: 0.3549349308013916 seconds and Pred: 0.23730519552809382
+2025-06-10 10:42:53,546 - INFO - Processing time for basefile_20250606_071335.wav: 0.3870522975921631 seconds and Pred: 0.23702042163081785
+2025-06-10 10:42:53,917 - INFO - Processing time for basefile_20250606_071337.wav: 0.37067461013793945 seconds and Pred: 0.23466263371779034
+2025-06-10 10:42:54,269 - INFO - Processing time for basefile_20250606_071339.wav: 0.35172295570373535 seconds and Pred: 0.2358115463158865
+2025-06-10 10:42:54,632 - INFO - Processing time for basefile_20250606_071341.wav: 0.3626067638397217 seconds and Pred: 0.23787132818426396
+2025-06-10 10:42:54,983 - INFO - Processing time for basefile_20250606_071343.wav: 0.3505425453186035 seconds and Pred: 0.23809603645512623
+2025-06-10 10:42:55,334 - INFO - Processing time for basefile_20250606_071345.wav: 0.35036373138427734 seconds and Pred: 0.23780733658451003
+2025-06-10 10:42:55,720 - INFO - Processing time for basefile_20250606_071347.wav: 0.3852834701538086 seconds and Pred: 0.23753218923418212
+2025-06-10 10:42:56,071 - INFO - Processing time for basefile_20250606_071349.wav: 0.3512575626373291 seconds and Pred: 0.24559759030795214
+2025-06-10 10:42:56,428 - INFO - Processing time for basefile_20250606_071351.wav: 0.35616445541381836 seconds and Pred: 0.24137172207256744
+2025-06-10 10:42:56,796 - INFO - Processing time for basefile_20250606_071353.wav: 0.36818456649780273 seconds and Pred: 0.23851458847282297
+2025-06-10 10:42:57,154 - INFO - Processing time for basefile_20250606_071355.wav: 0.3571345806121826 seconds and Pred: 0.23743194069199292
+2025-06-10 10:42:57,528 - INFO - Processing time for basefile_20250606_071357.wav: 0.3738062381744385 seconds and Pred: 0.23547781051668537
+2025-06-10 10:42:57,878 - INFO - Processing time for basefile_20250606_071359.wav: 0.3491799831390381 seconds and Pred: 0.2365174740301374
+2025-06-10 10:42:58,235 - INFO - Processing time for basefile_20250606_071401.wav: 0.3565330505371094 seconds and Pred: 0.23564621163039573
+2025-06-10 10:42:58,594 - INFO - Processing time for basefile_20250606_071403.wav: 0.3587319850921631 seconds and Pred: 0.23403392711003262
+2025-06-10 10:42:58,951 - INFO - Processing time for basefile_20250606_071405.wav: 0.3566298484802246 seconds and Pred: 0.23250906509757568
+2025-06-10 10:42:59,302 - INFO - Processing time for basefile_20250606_071407.wav: 0.3507108688354492 seconds and Pred: 0.23368196783175393
+2025-06-10 10:42:59,655 - INFO - Processing time for basefile_20250606_071409.wav: 0.35281872749328613 seconds and Pred: 0.23290128327367007
+2025-06-10 10:43:00,034 - INFO - Processing time for basefile_20250606_071411.wav: 0.3781106472015381 seconds and Pred: 0.23493870825802765
+2025-06-10 10:43:00,405 - INFO - Processing time for basefile_20250606_071413.wav: 0.37058043479919434 seconds and Pred: 0.23408457573690936
+2025-06-10 10:43:00,765 - INFO - Processing time for basefile_20250606_071415.wav: 0.3595249652862549 seconds and Pred: 0.23630324704256642
+2025-06-10 10:43:01,119 - INFO - Processing time for basefile_20250606_071417.wav: 0.3537130355834961 seconds and Pred: 0.23531902197998916
+2025-06-10 10:43:01,473 - INFO - Processing time for basefile_20250606_071419.wav: 0.35411977767944336 seconds and Pred: 0.23502794624735296
+2025-06-10 10:43:01,835 - INFO - Processing time for basefile_20250606_071421.wav: 0.3615865707397461 seconds and Pred: 0.2345972454338877
+2025-06-10 10:43:02,187 - INFO - Processing time for basefile_20250606_071423.wav: 0.3510873317718506 seconds and Pred: 0.2342589030908973
+2025-06-10 10:43:02,542 - INFO - Processing time for basefile_20250606_071425.wav: 0.354931116104126 seconds and Pred: 0.23411708082325858
+2025-06-10 10:43:02,895 - INFO - Processing time for basefile_20250606_071427.wav: 0.35213398933410645 seconds and Pred: 0.23434976410349087
+2025-06-10 10:43:03,266 - INFO - Processing time for basefile_20250606_071429.wav: 0.3707554340362549 seconds and Pred: 0.23471755487627233
+2025-06-10 10:43:03,266 - INFO - Done!! Total files processed: 82
+2025-06-10 11:06:02,438 - WARNING - TensorRT unavailable, falling back to plain model: data type 'FLOAT' not understood
+2025-06-10 11:06:10,183 - INFO - Inference time: 5034.05 ms, MSE: 0.245500
+2025-06-10 11:06:10,610 - INFO - Inference time: 127.04 ms, MSE: 0.243815
+2025-06-10 11:06:10,975 - INFO - Inference time: 106.26 ms, MSE: 0.243353
+2025-06-10 11:06:11,335 - INFO - Inference time: 106.24 ms, MSE: 0.241931
+2025-06-10 11:06:11,714 - INFO - Inference time: 115.54 ms, MSE: 0.246074
+2025-06-10 11:06:12,084 - INFO - Inference time: 108.51 ms, MSE: 0.252707
+2025-06-10 11:06:12,445 - INFO - Inference time: 104.22 ms, MSE: 0.242725
+2025-06-10 11:06:12,807 - INFO - Inference time: 105.45 ms, MSE: 0.247605
+2025-06-10 11:06:13,172 - INFO - Inference time: 103.90 ms, MSE: 0.243577
+2025-06-10 11:06:13,527 - INFO - Inference time: 103.36 ms, MSE: 0.242669
+2025-06-10 11:06:13,888 - INFO - Inference time: 109.25 ms, MSE: 0.241700
+2025-06-10 11:06:14,246 - INFO - Inference time: 106.23 ms, MSE: 0.244710
+2025-06-10 11:06:14,601 - INFO - Inference time: 102.73 ms, MSE: 0.240639
+2025-06-10 11:06:14,972 - INFO - Inference time: 118.90 ms, MSE: 0.242231
+2025-06-10 11:06:15,340 - INFO - Inference time: 106.30 ms, MSE: 0.243930
+2025-06-10 11:06:15,705 - INFO - Inference time: 108.34 ms, MSE: 0.244046
+2025-06-10 11:06:16,079 - INFO - Inference time: 106.33 ms, MSE: 0.246251
+2025-06-10 11:06:16,441 - INFO - Inference time: 104.65 ms, MSE: 0.244857
+2025-06-10 11:06:16,802 - INFO - Inference time: 104.82 ms, MSE: 0.246018
+2025-06-10 11:06:17,165 - INFO - Inference time: 103.52 ms, MSE: 0.243338
+2025-06-10 11:06:17,523 - INFO - Inference time: 103.21 ms, MSE: 0.242320
+2025-06-10 11:06:17,885 - INFO - Inference time: 110.60 ms, MSE: 0.241039
+2025-06-10 11:06:18,262 - INFO - Inference time: 124.61 ms, MSE: 0.242354
+2025-06-10 11:06:18,621 - INFO - Inference time: 107.85 ms, MSE: 0.242390
+2025-06-10 11:06:18,987 - INFO - Inference time: 104.41 ms, MSE: 0.243679
+2025-06-10 11:06:19,348 - INFO - Inference time: 104.59 ms, MSE: 0.241340
+2025-06-10 11:06:19,714 - INFO - Inference time: 105.52 ms, MSE: 0.241724
+2025-06-10 11:06:20,087 - INFO - Inference time: 116.01 ms, MSE: 0.242195
+2025-06-10 11:06:20,492 - INFO - Inference time: 120.56 ms, MSE: 0.239521
+2025-06-10 11:06:20,868 - INFO - Inference time: 114.55 ms, MSE: 0.240710
+2025-06-10 11:06:21,230 - INFO - Inference time: 105.05 ms, MSE: 0.242532
+2025-06-10 11:06:21,603 - INFO - Inference time: 118.27 ms, MSE: 0.244245
+2025-06-10 11:06:21,971 - INFO - Inference time: 106.91 ms, MSE: 0.246211
+2025-06-10 11:06:22,331 - INFO - Inference time: 106.43 ms, MSE: 0.242277
+2025-06-10 11:06:22,704 - INFO - Inference time: 117.16 ms, MSE: 0.241095
+2025-06-10 11:06:23,075 - INFO - Inference time: 113.47 ms, MSE: 0.247200
+2025-06-10 11:06:23,431 - INFO - Inference time: 102.20 ms, MSE: 0.240318
+2025-06-10 11:06:23,806 - INFO - Inference time: 114.63 ms, MSE: 0.241075
+2025-06-10 11:06:24,174 - INFO - Inference time: 108.69 ms, MSE: 0.247753
+2025-06-10 11:06:24,543 - INFO - Inference time: 107.87 ms, MSE: 0.241008
+2025-06-10 11:06:24,930 - INFO - Inference time: 128.26 ms, MSE: 0.238141
+2025-06-10 11:06:25,297 - INFO - Inference time: 109.40 ms, MSE: 0.241583
+2025-06-10 11:06:25,665 - INFO - Inference time: 107.28 ms, MSE: 0.239599
+2025-06-10 11:06:26,029 - INFO - Inference time: 106.87 ms, MSE: 0.240648
+2025-06-10 11:06:26,405 - INFO - Inference time: 118.58 ms, MSE: 0.240312
+2025-06-10 11:06:26,782 - INFO - Inference time: 106.02 ms, MSE: 0.242222
+2025-06-10 11:06:27,168 - INFO - Inference time: 108.80 ms, MSE: 0.241708
+2025-06-10 11:06:27,526 - INFO - Inference time: 104.78 ms, MSE: 0.239414
+2025-06-10 11:06:27,891 - INFO - Inference time: 108.91 ms, MSE: 0.243428
+2025-06-10 11:06:28,276 - INFO - Inference time: 122.67 ms, MSE: 0.240765
+2025-06-10 11:06:28,649 - INFO - Inference time: 112.03 ms, MSE: 0.239518
+2025-06-10 11:06:29,011 - INFO - Inference time: 105.16 ms, MSE: 0.239948
+2025-06-10 11:06:29,366 - INFO - Inference time: 101.90 ms, MSE: 0.241295
+2025-06-10 11:06:29,725 - INFO - Inference time: 104.12 ms, MSE: 0.243266
+2025-06-10 11:06:30,092 - INFO - Inference time: 110.92 ms, MSE: 0.243013
+2025-06-10 11:06:30,455 - INFO - Inference time: 102.60 ms, MSE: 0.240571
+2025-06-10 11:06:30,814 - INFO - Inference time: 104.94 ms, MSE: 0.241759
+2025-06-10 11:06:31,180 - INFO - Inference time: 105.55 ms, MSE: 0.243835
+2025-06-10 11:06:31,557 - INFO - Inference time: 121.80 ms, MSE: 0.244177
+2025-06-10 11:06:31,936 - INFO - Inference time: 114.01 ms, MSE: 0.243758
+2025-06-10 11:06:32,305 - INFO - Inference time: 112.02 ms, MSE: 0.243743
+2025-06-10 11:06:32,667 - INFO - Inference time: 106.47 ms, MSE: 0.251965
+2025-06-10 11:06:33,038 - INFO - Inference time: 104.36 ms, MSE: 0.247210
+2025-06-10 11:06:33,398 - INFO - Inference time: 104.06 ms, MSE: 0.244508
+2025-06-10 11:06:33,754 - INFO - Inference time: 101.96 ms, MSE: 0.243443
+2025-06-10 11:06:34,118 - INFO - Inference time: 103.33 ms, MSE: 0.241510
+2025-06-10 11:06:34,476 - INFO - Inference time: 104.25 ms, MSE: 0.242418
+2025-06-10 11:06:34,872 - INFO - Inference time: 135.12 ms, MSE: 0.241528
+2025-06-10 11:06:35,247 - INFO - Inference time: 115.22 ms, MSE: 0.239959
+2025-06-10 11:06:35,611 - INFO - Inference time: 107.73 ms, MSE: 0.238570
+2025-06-10 11:06:35,977 - INFO - Inference time: 105.32 ms, MSE: 0.239689
+2025-06-10 11:06:36,342 - INFO - Inference time: 107.35 ms, MSE: 0.238931
+2025-06-10 11:06:36,718 - INFO - Inference time: 109.02 ms, MSE: 0.240830
+2025-06-10 11:06:37,100 - INFO - Inference time: 116.95 ms, MSE: 0.239918
+2025-06-10 11:06:37,465 - INFO - Inference time: 107.53 ms, MSE: 0.242765
+2025-06-10 11:06:37,836 - INFO - Inference time: 108.44 ms, MSE: 0.241326
+2025-06-10 11:06:38,217 - INFO - Inference time: 123.57 ms, MSE: 0.240962
+2025-06-10 11:06:38,582 - INFO - Inference time: 108.61 ms, MSE: 0.240541
+2025-06-10 11:06:38,952 - INFO - Inference time: 107.40 ms, MSE: 0.240159
+2025-06-10 11:06:39,313 - INFO - Inference time: 102.14 ms, MSE: 0.240342
+2025-06-10 11:06:39,675 - INFO - Inference time: 105.45 ms, MSE: 0.240478
+2025-06-10 11:06:40,044 - INFO - Inference time: 113.66 ms, MSE: 0.240778
+2025-06-10 11:25:18,008 - WARNING - TensorRT unavailable, falling back to plain model: data type 'FLOAT' not understood
+2025-06-10 11:25:26,244 - INFO - Inference time: 5042.60 ms, MSE: 0.245500
+2025-06-10 11:25:26,682 - INFO - Inference time: 128.66 ms, MSE: 0.243815
+2025-06-10 11:25:27,051 - INFO - Inference time: 109.62 ms, MSE: 0.243353
+2025-06-10 11:25:27,415 - INFO - Inference time: 105.27 ms, MSE: 0.241931
+2025-06-10 11:25:27,790 - INFO - Inference time: 110.93 ms, MSE: 0.246074
+2025-06-10 11:25:28,155 - INFO - Inference time: 105.27 ms, MSE: 0.252707
+2025-06-10 11:25:28,522 - INFO - Inference time: 108.02 ms, MSE: 0.242725
+2025-06-10 11:25:28,894 - INFO - Inference time: 104.55 ms, MSE: 0.247605
+2025-06-10 11:25:29,258 - INFO - Inference time: 102.71 ms, MSE: 0.243577
+2025-06-10 11:25:29,622 - INFO - Inference time: 106.64 ms, MSE: 0.242669
+2025-06-10 11:25:30,006 - INFO - Inference time: 119.97 ms, MSE: 0.241700
+2025-06-10 11:25:30,371 - INFO - Inference time: 104.16 ms, MSE: 0.244710
+2025-06-10 11:25:30,737 - INFO - Inference time: 102.83 ms, MSE: 0.240639
+2025-06-10 11:25:31,112 - INFO - Inference time: 115.15 ms, MSE: 0.242231
+2025-06-10 11:25:31,475 - INFO - Inference time: 105.57 ms, MSE: 0.243930
+2025-06-10 11:25:31,855 - INFO - Inference time: 104.31 ms, MSE: 0.244046
+2025-06-10 11:25:32,224 - INFO - Inference time: 106.30 ms, MSE: 0.246251
+2025-06-10 11:25:32,599 - INFO - Inference time: 108.04 ms, MSE: 0.244857
+2025-06-10 11:25:32,967 - INFO - Inference time: 109.53 ms, MSE: 0.246018
+2025-06-10 11:25:33,334 - INFO - Inference time: 103.53 ms, MSE: 0.243338
+2025-06-10 11:25:33,701 - INFO - Inference time: 102.46 ms, MSE: 0.242320
+2025-06-10 11:25:34,067 - INFO - Inference time: 107.75 ms, MSE: 0.241039
+2025-06-10 11:25:34,461 - INFO - Inference time: 135.96 ms, MSE: 0.242354
+2025-06-10 11:25:34,830 - INFO - Inference time: 107.43 ms, MSE: 0.242390
+2025-06-10 11:25:35,194 - INFO - Inference time: 105.03 ms, MSE: 0.243679
+2025-06-10 11:25:35,562 - INFO - Inference time: 105.56 ms, MSE: 0.241340
+2025-06-10 11:25:35,938 - INFO - Inference time: 114.40 ms, MSE: 0.241724
+2025-06-10 11:25:36,308 - INFO - Inference time: 106.19 ms, MSE: 0.242195
+2025-06-10 11:25:36,687 - INFO - Inference time: 107.31 ms, MSE: 0.239521
+2025-06-10 11:25:37,049 - INFO - Inference time: 106.29 ms, MSE: 0.240710
+2025-06-10 11:25:37,418 - INFO - Inference time: 101.92 ms, MSE: 0.242532
+2025-06-10 11:25:37,803 - INFO - Inference time: 124.64 ms, MSE: 0.244245
+2025-06-10 11:25:38,176 - INFO - Inference time: 107.42 ms, MSE: 0.246211
+2025-06-10 11:25:38,544 - INFO - Inference time: 105.69 ms, MSE: 0.242277
+2025-06-10 11:25:38,916 - INFO - Inference time: 109.24 ms, MSE: 0.241095
+2025-06-10 11:25:39,285 - INFO - Inference time: 104.19 ms, MSE: 0.247200
+2025-06-10 11:25:39,646 - INFO - Inference time: 102.88 ms, MSE: 0.240318
+2025-06-10 11:25:40,013 - INFO - Inference time: 108.12 ms, MSE: 0.241075
+2025-06-10 11:25:40,386 - INFO - Inference time: 105.71 ms, MSE: 0.247753
+2025-06-10 11:25:40,753 - INFO - Inference time: 105.13 ms, MSE: 0.241008
+2025-06-10 11:25:41,151 - INFO - Inference time: 125.31 ms, MSE: 0.238141
+2025-06-10 11:25:41,517 - INFO - Inference time: 108.66 ms, MSE: 0.241583
+2025-06-10 11:25:41,883 - INFO - Inference time: 106.57 ms, MSE: 0.239599
+2025-06-10 11:25:42,250 - INFO - Inference time: 104.12 ms, MSE: 0.240648
+2025-06-10 11:25:42,614 - INFO - Inference time: 103.68 ms, MSE: 0.240312
+2025-06-10 11:25:42,979 - INFO - Inference time: 106.87 ms, MSE: 0.242222
+2025-06-10 11:25:43,363 - INFO - Inference time: 103.37 ms, MSE: 0.241708
+2025-06-10 11:25:43,726 - INFO - Inference time: 103.80 ms, MSE: 0.239414
+2025-06-10 11:25:44,107 - INFO - Inference time: 114.98 ms, MSE: 0.243428
+2025-06-10 11:25:44,491 - INFO - Inference time: 122.08 ms, MSE: 0.240765
+2025-06-10 11:25:44,862 - INFO - Inference time: 109.08 ms, MSE: 0.239518
+2025-06-10 11:25:45,233 - INFO - Inference time: 106.25 ms, MSE: 0.239948
+2025-06-10 11:25:45,596 - INFO - Inference time: 103.68 ms, MSE: 0.241295
+2025-06-10 11:25:45,968 - INFO - Inference time: 107.45 ms, MSE: 0.243266
+2025-06-10 11:25:46,337 - INFO - Inference time: 105.76 ms, MSE: 0.243013
+2025-06-10 11:25:46,704 - INFO - Inference time: 104.33 ms, MSE: 0.240571
+2025-06-10 11:25:47,082 - INFO - Inference time: 107.19 ms, MSE: 0.241759
+2025-06-10 11:25:47,449 - INFO - Inference time: 105.98 ms, MSE: 0.243835
+2025-06-10 11:25:47,832 - INFO - Inference time: 121.22 ms, MSE: 0.244177
+2025-06-10 11:25:48,216 - INFO - Inference time: 107.90 ms, MSE: 0.243758
+2025-06-10 11:25:48,579 - INFO - Inference time: 104.42 ms, MSE: 0.243743
+2025-06-10 11:25:48,951 - INFO - Inference time: 108.92 ms, MSE: 0.251965
+2025-06-10 11:25:49,317 - INFO - Inference time: 107.04 ms, MSE: 0.247210
+2025-06-10 11:25:49,682 - INFO - Inference time: 104.08 ms, MSE: 0.244508
+2025-06-10 11:25:50,051 - INFO - Inference time: 104.99 ms, MSE: 0.243443
+2025-06-10 11:25:50,415 - INFO - Inference time: 103.50 ms, MSE: 0.241510
+2025-06-10 11:25:50,782 - INFO - Inference time: 102.44 ms, MSE: 0.242418
+2025-06-10 11:25:51,159 - INFO - Inference time: 119.84 ms, MSE: 0.241528
+2025-06-10 11:25:51,529 - INFO - Inference time: 106.68 ms, MSE: 0.239959
+2025-06-10 11:25:51,898 - INFO - Inference time: 105.64 ms, MSE: 0.238570
+2025-06-10 11:25:52,261 - INFO - Inference time: 104.51 ms, MSE: 0.239689
+2025-06-10 11:25:52,622 - INFO - Inference time: 102.89 ms, MSE: 0.238931
+2025-06-10 11:25:52,989 - INFO - Inference time: 107.57 ms, MSE: 0.240830
+2025-06-10 11:25:53,352 - INFO - Inference time: 103.95 ms, MSE: 0.239918
+2025-06-10 11:25:53,721 - INFO - Inference time: 104.63 ms, MSE: 0.242765
+2025-06-10 11:25:54,086 - INFO - Inference time: 105.71 ms, MSE: 0.241326
+2025-06-10 11:25:54,484 - INFO - Inference time: 131.94 ms, MSE: 0.240962
+2025-06-10 11:25:54,871 - INFO - Inference time: 120.05 ms, MSE: 0.240541
+2025-06-10 11:25:55,253 - INFO - Inference time: 122.25 ms, MSE: 0.240159
+2025-06-10 11:25:55,621 - INFO - Inference time: 105.73 ms, MSE: 0.240342
+2025-06-10 11:25:55,995 - INFO - Inference time: 111.12 ms, MSE: 0.240478
+2025-06-10 11:25:56,364 - INFO - Inference time: 108.31 ms, MSE: 0.240778
+2025-06-10 11:29:30,801 - WARNING - TensorRT unavailable, falling back to plain model: data type 'FLOAT' not understood
+2025-06-10 11:29:38,733 - INFO - Inference time: 5111.04 ms, MSE: 0.245500
+2025-06-10 11:29:39,184 - INFO - Inference time: 136.00 ms, MSE: 0.243815
+2025-06-10 11:29:39,543 - INFO - Inference time: 106.33 ms, MSE: 0.243353
+2025-06-10 11:29:39,901 - INFO - Inference time: 106.35 ms, MSE: 0.241931
+2025-06-10 11:29:40,270 - INFO - Inference time: 115.67 ms, MSE: 0.246074
+2025-06-10 11:29:40,637 - INFO - Inference time: 105.21 ms, MSE: 0.252707
+2025-06-10 11:29:40,998 - INFO - Inference time: 104.50 ms, MSE: 0.242725
+2025-06-10 11:29:41,363 - INFO - Inference time: 104.06 ms, MSE: 0.247605
+2025-06-10 11:29:41,721 - INFO - Inference time: 103.11 ms, MSE: 0.243577
+2025-06-10 11:29:42,085 - INFO - Inference time: 109.14 ms, MSE: 0.242669
+2025-06-10 11:29:42,453 - INFO - Inference time: 105.76 ms, MSE: 0.241700
+2025-06-10 11:29:42,812 - INFO - Inference time: 104.19 ms, MSE: 0.244710
+2025-06-10 11:29:43,178 - INFO - Inference time: 106.45 ms, MSE: 0.240639
+2025-06-10 11:29:43,552 - INFO - Inference time: 118.48 ms, MSE: 0.242231
+2025-06-10 11:29:43,914 - INFO - Inference time: 106.24 ms, MSE: 0.243930
+2025-06-10 11:29:44,282 - INFO - Inference time: 107.53 ms, MSE: 0.244046
+2025-06-10 11:29:44,643 - INFO - Inference time: 106.75 ms, MSE: 0.246251
+2025-06-10 11:29:45,003 - INFO - Inference time: 104.36 ms, MSE: 0.244857
+2025-06-10 11:29:45,363 - INFO - Inference time: 103.61 ms, MSE: 0.246018
+2025-06-10 11:29:45,726 - INFO - Inference time: 103.47 ms, MSE: 0.243338
+2025-06-10 11:29:46,091 - INFO - Inference time: 104.47 ms, MSE: 0.242320
+2025-06-10 11:29:46,458 - INFO - Inference time: 106.28 ms, MSE: 0.241039
+2025-06-10 11:29:46,832 - INFO - Inference time: 119.17 ms, MSE: 0.242354
+2025-06-10 11:29:47,216 - INFO - Inference time: 111.22 ms, MSE: 0.242390
+2025-06-10 11:29:47,586 - INFO - Inference time: 114.94 ms, MSE: 0.243679
+2025-06-10 11:29:47,952 - INFO - Inference time: 105.63 ms, MSE: 0.241340
+2025-06-10 11:29:48,313 - INFO - Inference time: 106.46 ms, MSE: 0.241724
+2025-06-10 11:29:48,676 - INFO - Inference time: 102.80 ms, MSE: 0.242195
+2025-06-10 11:29:49,044 - INFO - Inference time: 104.04 ms, MSE: 0.239521
+2025-06-10 11:29:49,400 - INFO - Inference time: 103.55 ms, MSE: 0.240710
+2025-06-10 11:29:49,756 - INFO - Inference time: 103.75 ms, MSE: 0.242532
+2025-06-10 11:29:50,135 - INFO - Inference time: 127.58 ms, MSE: 0.244245
+2025-06-10 11:29:50,512 - INFO - Inference time: 115.70 ms, MSE: 0.246211
+2025-06-10 11:29:50,881 - INFO - Inference time: 111.86 ms, MSE: 0.242277
+2025-06-10 11:29:51,256 - INFO - Inference time: 117.87 ms, MSE: 0.241095
+2025-06-10 11:29:51,645 - INFO - Inference time: 126.00 ms, MSE: 0.247200
+2025-06-10 11:29:52,019 - INFO - Inference time: 114.28 ms, MSE: 0.240318
+2025-06-10 11:29:52,406 - INFO - Inference time: 128.98 ms, MSE: 0.241075
+2025-06-10 11:29:52,787 - INFO - Inference time: 116.96 ms, MSE: 0.247753
+2025-06-10 11:29:53,150 - INFO - Inference time: 106.44 ms, MSE: 0.241008
+2025-06-10 11:29:53,539 - INFO - Inference time: 126.17 ms, MSE: 0.238141
+2025-06-10 11:29:53,908 - INFO - Inference time: 107.48 ms, MSE: 0.241583
+2025-06-10 11:29:54,275 - INFO - Inference time: 111.86 ms, MSE: 0.239599
+2025-06-10 11:29:54,634 - INFO - Inference time: 105.32 ms, MSE: 0.240648
+2025-06-10 11:29:54,990 - INFO - Inference time: 101.82 ms, MSE: 0.240312
+2025-06-10 11:29:55,352 - INFO - Inference time: 107.23 ms, MSE: 0.242222
+2025-06-10 11:29:55,726 - INFO - Inference time: 116.93 ms, MSE: 0.241708
+2025-06-10 11:29:56,087 - INFO - Inference time: 106.92 ms, MSE: 0.239414
+2025-06-10 11:29:56,456 - INFO - Inference time: 106.29 ms, MSE: 0.243428
+2025-06-10 11:29:56,835 - INFO - Inference time: 123.31 ms, MSE: 0.240765
+2025-06-10 11:29:57,201 - INFO - Inference time: 111.37 ms, MSE: 0.239518
+2025-06-10 11:29:57,564 - INFO - Inference time: 104.40 ms, MSE: 0.239948
+2025-06-10 11:29:57,922 - INFO - Inference time: 103.57 ms, MSE: 0.241295
+2025-06-10 11:29:58,289 - INFO - Inference time: 104.82 ms, MSE: 0.243266
+2025-06-10 11:29:58,646 - INFO - Inference time: 102.25 ms, MSE: 0.243013
+2025-06-10 11:29:59,005 - INFO - Inference time: 104.53 ms, MSE: 0.240571
+2025-06-10 11:29:59,372 - INFO - Inference time: 105.62 ms, MSE: 0.241759
+2025-06-10 11:29:59,745 - INFO - Inference time: 116.08 ms, MSE: 0.243835
+2025-06-10 11:30:00,138 - INFO - Inference time: 129.43 ms, MSE: 0.244177
+2025-06-10 11:30:00,507 - INFO - Inference time: 110.83 ms, MSE: 0.243758
+2025-06-10 11:30:00,867 - INFO - Inference time: 105.10 ms, MSE: 0.243743
+2025-06-10 11:30:01,247 - INFO - Inference time: 118.86 ms, MSE: 0.251965
+2025-06-10 11:30:01,608 - INFO - Inference time: 106.09 ms, MSE: 0.247210
+2025-06-10 11:30:01,977 - INFO - Inference time: 114.33 ms, MSE: 0.244508
+2025-06-10 11:30:02,351 - INFO - Inference time: 120.29 ms, MSE: 0.243443
+2025-06-10 11:30:02,708 - INFO - Inference time: 104.77 ms, MSE: 0.241510
+2025-06-10 11:30:03,070 - INFO - Inference time: 102.49 ms, MSE: 0.242418
+2025-06-10 11:30:03,469 - INFO - Inference time: 140.64 ms, MSE: 0.241528
+2025-06-10 11:30:03,884 - INFO - Inference time: 129.20 ms, MSE: 0.239959
+2025-06-10 11:30:04,265 - INFO - Inference time: 122.81 ms, MSE: 0.238570
+2025-06-10 11:30:04,633 - INFO - Inference time: 112.75 ms, MSE: 0.239689
+2025-06-10 11:30:04,996 - INFO - Inference time: 106.05 ms, MSE: 0.238931
+2025-06-10 11:30:05,357 - INFO - Inference time: 102.47 ms, MSE: 0.240830
+2025-06-10 11:30:05,713 - INFO - Inference time: 102.73 ms, MSE: 0.239918
+2025-06-10 11:30:06,071 - INFO - Inference time: 104.31 ms, MSE: 0.242765
+2025-06-10 11:30:06,434 - INFO - Inference time: 107.49 ms, MSE: 0.241326
+2025-06-10 11:30:06,824 - INFO - Inference time: 127.06 ms, MSE: 0.240962
+2025-06-10 11:30:07,226 - INFO - Inference time: 133.94 ms, MSE: 0.240541
+2025-06-10 11:30:07,594 - INFO - Inference time: 109.73 ms, MSE: 0.240159
+2025-06-10 11:30:07,956 - INFO - Inference time: 104.79 ms, MSE: 0.240342
+2025-06-10 11:30:08,319 - INFO - Inference time: 103.11 ms, MSE: 0.240478
+2025-06-10 11:30:08,683 - INFO - Inference time: 106.57 ms, MSE: 0.240778
+2025-06-10 11:37:28,406 - INFO - Config: {'DATASET': {'DATALOADER': {'BATCH_SIZE': 128, 'SHUFFLE': True}, 'PATH': {'ANOMALY': '/home/sparclab/Desktop/Abnomaly_Audio_Dataset/fanAbnomaly', 'NORMAL': '/home/sparclab/Desktop/Abnomaly_Audio_Dataset/fanNormal', 'TEST': None, 'TFRECORDS': ['/home/sparclab/Desktop/D-ESCA_v2/park_dataset_demo/mel_orin_fan']}, 'RATIO': {'TEST': 0.1, 'TRAIN': 0.8}}, 'DEVICE': {'JETSON': True, 'USE_TENSORRT': True}, 'MODEL': {'TYPE': 'vq_vae'}, 'POSTPROCESS': {'PATH_SAVE_THRESHOLD': '/home/sparclab/SPARC/ESCA/Code/train_on_PCv2/Results/'}, 'PREPROCESS': {'AUDIO_LEN': 2, 'FRAME_RATE': 44100, 'GAMMA': {'CHANNELS': 32, 'F_MIN': 100, 'HOP_TIME': 0.06, 'WINDOW_TIME': 0.12}, 'MEL': {'NFFT': 2048, 'N_BANDS': 32, 'SR': 16000}, 'SAMPLE_PER_FILE': 200, 'SEGMENT_LEN': 2, 'TYPE': 'gamma', 'USE_TF_GTGRAM': False}, 'REALTIME': {'CHANNELS': 1, 'FOLDER_PATH': '/home/sparclab/Desktop/Abnomaly_Audio_Dataset/fanNormal', 'IMPORT_FILE': True, 'LOG_PATH': '/home/sparclab/Desktop/Test_ESCA/python_ai/rt_result', 'MANUAL_THRESHOLD': 0.28, 'MAX': 35.66025924682617, 'MIN': -16.225692749023438, 'MODEL_PATH': '/home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fan', 'SAMPLESIZE': 16, 'SAMPLING_RATE': 44100, 'SECOND': 2, 'THRESHOLD': 0.025730421766638756, 'TRT_MODEL_PATH': '/home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fan/saved_model/vq_vae/vqvae32_fp16.engine'}, 'RECORD': {'ABNOMALY': False, 'CHANNEL': 0, 'CODEC': 0, 'DATASET_PATH': './dataset_mic_laptop_16k', 'DEVICE': 8, 'DEVICENAME': 'default', 'DURATION': 0, 'ENDIAN': 0, 'SAMPLERATE': 3, 'SAMPLESIZE': 1}, 'TRAINING': {'EPOCH': 10, 'LEARNING_RATE': 0.001, 'LOG_FOLDER': '/home/sparclab/Desktop/Test_ESCA/python_ai/result', 'PRETRAINED_WEIGHTS': '/home/sparclab/Desktop/Test_ESCA/python_ai/temp/saved_model', 'SAVE_PATH': '/home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fan'}, 'TRANSFER_LEARNING': {'ANOM_BATCH_SIZE': 128, 'BASED_WEIGHTS': '/home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fan/saved_model/vq_vae', 'BETA': 1, 'EPOCH': 20, 'LEARNING_RATE': 0.001, 'SAVE_PATH': '/home/sparclab/Desktop/Test_ESCA/python_ai/tl_orin_fan', 'TEST_DIR': None, 'TFRECORDS': ['/home/sparclab/Desktop/D-ESCA_v2/park_dataset_demo/mel_orin_fan']}}
+2025-06-10 11:37:28,406 - INFO - Loading plain TF model from /home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fan/saved_model/vq_vae
+2025-06-10 11:37:31,032 - INFO - Loading TRT engine: /home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fan/saved_model/vq_vae/vqvae32_fp16.engine
+2025-06-10 11:39:03,819 - INFO - Loading Keras SavedModel: /home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fan
+2025-06-10 11:39:52,783 - INFO - Loading Keras SavedModel: /home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fansaved_model/vq_vae
+2025-06-10 11:40:09,781 - INFO - Loading Keras SavedModel: /home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fan/saved_model/vq_vae
+2025-06-10 11:40:12,327 - INFO - Loading TensorRT engine: /home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fan/saved_model/vq_vae/vqvae32_fp16.engine
+2025-06-10 11:51:49,256 - WARNING - TensorRT unavailable, falling back to plain model: data type 'FLOAT' not understood
+2025-06-10 11:51:57,740 - INFO - Inference time: 5743.78 ms, MSE: 0.245500
+2025-06-10 11:51:58,155 - INFO - Inference time: 114.54 ms, MSE: 0.243815
+2025-06-10 11:51:58,529 - INFO - Inference time: 119.22 ms, MSE: 0.243353
+2025-06-10 11:51:58,887 - INFO - Inference time: 105.14 ms, MSE: 0.241931
+2025-06-10 11:51:59,252 - INFO - Inference time: 113.51 ms, MSE: 0.246074
+2025-06-10 11:51:59,618 - INFO - Inference time: 106.52 ms, MSE: 0.252707
+2025-06-10 11:51:59,975 - INFO - Inference time: 103.06 ms, MSE: 0.242725
+2025-06-10 11:52:00,339 - INFO - Inference time: 104.57 ms, MSE: 0.247605
+2025-06-10 11:52:00,699 - INFO - Inference time: 105.49 ms, MSE: 0.243577
+2025-06-10 11:52:01,077 - INFO - Inference time: 114.95 ms, MSE: 0.242669
+2025-06-10 11:52:01,473 - INFO - Inference time: 122.73 ms, MSE: 0.241700
+2025-06-10 11:52:01,830 - INFO - Inference time: 104.85 ms, MSE: 0.244710
+2025-06-10 11:52:02,213 - INFO - Inference time: 115.93 ms, MSE: 0.240639
+2025-06-10 11:52:02,596 - INFO - Inference time: 125.24 ms, MSE: 0.242231
+2025-06-10 11:52:02,975 - INFO - Inference time: 121.58 ms, MSE: 0.243930
+2025-06-10 11:52:03,350 - INFO - Inference time: 111.70 ms, MSE: 0.244046
+2025-06-10 11:52:03,719 - INFO - Inference time: 112.07 ms, MSE: 0.246251
+2025-06-10 11:52:04,092 - INFO - Inference time: 117.27 ms, MSE: 0.244857
+2025-06-10 11:52:04,470 - INFO - Inference time: 121.21 ms, MSE: 0.246017
+2025-06-10 11:52:04,849 - INFO - Inference time: 119.42 ms, MSE: 0.243338
+2025-06-10 11:52:05,229 - INFO - Inference time: 120.83 ms, MSE: 0.242320
+2025-06-10 11:52:05,595 - INFO - Inference time: 111.10 ms, MSE: 0.241039
+2025-06-10 11:52:05,991 - INFO - Inference time: 132.62 ms, MSE: 0.242354
+2025-06-10 11:52:06,426 - INFO - Inference time: 153.96 ms, MSE: 0.242390
+2025-06-10 11:52:06,808 - INFO - Inference time: 123.25 ms, MSE: 0.243679
+2025-06-10 11:52:07,194 - INFO - Inference time: 127.90 ms, MSE: 0.241340
+2025-06-10 11:52:07,584 - INFO - Inference time: 127.06 ms, MSE: 0.241724
+2025-06-10 11:52:08,008 - INFO - Inference time: 132.42 ms, MSE: 0.242195
+2025-06-10 11:52:08,393 - INFO - Inference time: 122.13 ms, MSE: 0.239521
+2025-06-10 11:52:08,762 - INFO - Inference time: 110.71 ms, MSE: 0.240710
+2025-06-10 11:52:09,121 - INFO - Inference time: 104.66 ms, MSE: 0.242532
+2025-06-10 11:52:09,518 - INFO - Inference time: 136.41 ms, MSE: 0.244245
+2025-06-10 11:52:09,896 - INFO - Inference time: 109.06 ms, MSE: 0.246211
+2025-06-10 11:52:10,256 - INFO - Inference time: 105.39 ms, MSE: 0.242277
+2025-06-10 11:52:10,627 - INFO - Inference time: 110.43 ms, MSE: 0.241095
+2025-06-10 11:52:10,983 - INFO - Inference time: 103.93 ms, MSE: 0.247200
+2025-06-10 11:52:11,352 - INFO - Inference time: 117.67 ms, MSE: 0.240318
+2025-06-10 11:52:11,715 - INFO - Inference time: 102.74 ms, MSE: 0.241075
+2025-06-10 11:52:12,083 - INFO - Inference time: 112.19 ms, MSE: 0.247753
+2025-06-10 11:52:12,452 - INFO - Inference time: 106.53 ms, MSE: 0.241008
+2025-06-10 11:52:12,860 - INFO - Inference time: 132.94 ms, MSE: 0.238141
+2025-06-10 11:52:13,246 - INFO - Inference time: 130.22 ms, MSE: 0.241583
+2025-06-10 11:52:13,612 - INFO - Inference time: 104.47 ms, MSE: 0.239599
+2025-06-10 11:52:13,971 - INFO - Inference time: 104.73 ms, MSE: 0.240648
+2025-06-10 11:52:14,334 - INFO - Inference time: 108.91 ms, MSE: 0.240312
+2025-06-10 11:52:14,697 - INFO - Inference time: 107.39 ms, MSE: 0.242222
+2025-06-10 11:52:15,059 - INFO - Inference time: 103.11 ms, MSE: 0.241708
+2025-06-10 11:52:15,428 - INFO - Inference time: 109.07 ms, MSE: 0.239414
+2025-06-10 11:52:15,788 - INFO - Inference time: 103.71 ms, MSE: 0.243428
+2025-06-10 11:52:16,177 - INFO - Inference time: 132.16 ms, MSE: 0.240765
+2025-06-10 11:52:16,565 - INFO - Inference time: 118.48 ms, MSE: 0.239518
+2025-06-10 11:52:16,938 - INFO - Inference time: 116.72 ms, MSE: 0.239948
+2025-06-10 11:52:17,316 - INFO - Inference time: 116.29 ms, MSE: 0.241295
+2025-06-10 11:52:17,707 - INFO - Inference time: 123.24 ms, MSE: 0.243266
+2025-06-10 11:52:18,075 - INFO - Inference time: 106.59 ms, MSE: 0.243013
+2025-06-10 11:52:18,447 - INFO - Inference time: 111.64 ms, MSE: 0.240571
+2025-06-10 11:52:18,848 - INFO - Inference time: 124.04 ms, MSE: 0.241759
+2025-06-10 11:52:19,226 - INFO - Inference time: 119.27 ms, MSE: 0.243835
+2025-06-10 11:52:19,639 - INFO - Inference time: 140.49 ms, MSE: 0.244177
+2025-06-10 11:52:20,032 - INFO - Inference time: 127.24 ms, MSE: 0.243758
+2025-06-10 11:52:20,424 - INFO - Inference time: 133.29 ms, MSE: 0.243743
+2025-06-10 11:52:20,832 - INFO - Inference time: 114.26 ms, MSE: 0.251965
+2025-06-10 11:52:21,211 - INFO - Inference time: 117.33 ms, MSE: 0.247210
+2025-06-10 11:52:21,602 - INFO - Inference time: 126.94 ms, MSE: 0.244508
+2025-06-10 11:52:21,970 - INFO - Inference time: 109.77 ms, MSE: 0.243443
+2025-06-10 11:52:22,364 - INFO - Inference time: 130.32 ms, MSE: 0.241510
+2025-06-10 11:52:22,790 - INFO - Inference time: 149.32 ms, MSE: 0.242418
+2025-06-10 11:52:23,196 - INFO - Inference time: 138.42 ms, MSE: 0.241528
+2025-06-10 11:52:23,565 - INFO - Inference time: 112.14 ms, MSE: 0.239959
+2025-06-10 11:52:23,938 - INFO - Inference time: 117.08 ms, MSE: 0.238570
+2025-06-10 11:52:24,302 - INFO - Inference time: 105.57 ms, MSE: 0.239689
+2025-06-10 11:52:24,667 - INFO - Inference time: 104.36 ms, MSE: 0.238931
+2025-06-10 11:52:25,055 - INFO - Inference time: 115.80 ms, MSE: 0.240830
+2025-06-10 11:52:25,428 - INFO - Inference time: 115.62 ms, MSE: 0.239918
+2025-06-10 11:52:25,799 - INFO - Inference time: 104.69 ms, MSE: 0.242765
+2025-06-10 11:52:26,160 - INFO - Inference time: 104.80 ms, MSE: 0.241326
+2025-06-10 11:52:26,570 - INFO - Inference time: 151.38 ms, MSE: 0.240962
+2025-06-10 11:52:26,942 - INFO - Inference time: 109.49 ms, MSE: 0.240541
+2025-06-10 11:52:27,309 - INFO - Inference time: 109.06 ms, MSE: 0.240159
+2025-06-10 11:52:27,681 - INFO - Inference time: 109.67 ms, MSE: 0.240342
+2025-06-10 11:52:28,063 - INFO - Inference time: 105.32 ms, MSE: 0.240478
+2025-06-10 11:52:28,434 - INFO - Inference time: 114.93 ms, MSE: 0.240778
+2025-06-10 11:56:15,468 - WARNING - TensorRT unavailable, falling back to plain model: data type 'FLOAT' not understood
+2025-06-10 12:01:29,762 - INFO - Folder Mode: 34351.49 ms
+2025-06-11 01:20:55,304 - INFO - Folder Mode: 40867.67 ms
+2025-06-11 01:22:07,450 - WARNING - TensorRT unavailable, falling back to plain model: expected str, bytes or os.PathLike object, not NoneType
+2025-06-11 01:22:47,839 - INFO - Folder Mode: 37006.17 ms
+2025-06-11 09:59:09,958 - WARNING - TensorRT unavailable, falling back to plain model: data type 'FLOAT' not understood
+2025-06-11 09:59:57,972 - INFO - Folder Mode: 42508.46 ms
+2025-06-11 10:00:17,298 - WARNING - TensorRT unavailable, falling back to plain model: data type 'FLOAT' not understood
+2025-06-11 10:00:58,942 - INFO - Folder Mode: 38153.60 ms

@@ -18,7 +18,7 @@ class ConfigManager:
 
     def _load_default_config(self):
         """Load default configuration from JSON file"""
-        default_path = "/home/haiminh/config.json"
+        default_path = "/home/sparclab/config.json"
         with open(default_path, 'r') as f:
             self._config = json.load(f)
 
