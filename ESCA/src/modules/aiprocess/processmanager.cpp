@@ -22,7 +22,7 @@ void ProcessManager::startPythonService()
     }
 
     qDebug() << "Current working directory:" << QDir::currentPath();
-    setStatement("python3 ~/Desktop/ESCA_Qt/python_ai/inference.py");
+    setStatement("python3 ~/Desktop/minh/ESCA_Qt/python_ai/inference.py");
     qInfo() << statement();
 
     startProcess();
@@ -38,11 +38,10 @@ void ProcessManager::stopPythonService()
 void ProcessManager::handleStandardOutput()
 {
     static QByteArray buffer;
-    buffer.append(m_process.readAllStandardOutput());  // Ghi nhận dữ liệu mới
+    buffer.append(m_process.readAllStandardOutput());
 
-    QList<QByteArray> lines = buffer.split('\n');  // Chia nhỏ theo dòng
+    QList<QByteArray> lines = buffer.split('\n');
 
-    // Nếu buffer không kết thúc bằng '\n', giữ lại dòng cuối để ghép với dữ liệu sau
     if (!buffer.endsWith("\n")) {
         buffer = lines.takeLast();
     } else {
@@ -52,20 +51,9 @@ void ProcessManager::handleStandardOutput()
     for (const QByteArray &line : lines) {
         QString outputStr = QString::fromUtf8(line).trimmed();
 
-        if (outputStr.isEmpty()) continue;  // Bỏ qua dòng rỗng
-
-        bool ok;
-        float predValue = outputStr.toFloat(&ok);
-
-        if (ok) {  // Nếu là số thực
-            qInfo() << "Predict Result:" << predValue;
-            emit resultReceived(predValue);
-        } else if (outputStr == "Done Folder Mode") {
-            emit doneProcess();
-        } else {  // Nếu là chuỗi cảnh báo
-            qWarning() << "Warning from Python:" << outputStr;
-            emit abnormalDetect(outputStr);
-        }
+        if (outputStr.isEmpty())
+            continue;
+        emit outputReceived(outputStr);
     }
 }
 

@@ -6,10 +6,12 @@ AIController::AIController(QObject *parent) : QObject(parent)
     // configManager = new ConfigurationManager(this);
     // sharedMemoryManager = new SharedMemoryManager(this);
     processManager = new ProcessManager(this);
-    // Kết nối tín hiệu từ ProcessManager tới AIController
-    connect(processManager, &ProcessManager::resultReceived, this, &AIController::handleInferenceResult);
-    connect(processManager, &ProcessManager::abnormalDetect, this, &AIController::handleAbnormalDetect);
-    connect(processManager, &ProcessManager::doneProcess, this, &AIController::handleDoneProcess);
+    parser = new InferenceOutputParser(this);
+
+    connect(processManager, &ProcessManager::outputReceived, parser, &InferenceOutputParser::parseLine);
+    connect(parser, &InferenceOutputParser::resultReceived, this, &AIController::handleInferenceResult);
+    connect(parser, &InferenceOutputParser::abnormalDetect, this, &AIController::handleAbnormalDetect);
+    connect(parser, &InferenceOutputParser::doneProcess, this, &AIController::handleDoneProcess);
 }
 
 AIController::~AIController()

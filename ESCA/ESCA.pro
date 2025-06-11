@@ -10,6 +10,7 @@ SOURCES += \
     src/config/configapp.cpp \
     src/modules/aiprocess/aicontroller.cpp \
     src/modules/aiprocess/configurationmanager.cpp \
+    src/modules/aiprocess/inferenceoutputparser.cpp \
     src/modules/aiprocess/processmanager.cpp \
     src/modules/aiprocess/sharedmemorymanager.cpp \
     src/modules/audiomanipulation/audiomanipulation.cpp \
@@ -52,6 +53,7 @@ HEADERS += \
     src/config/configapp.h \
     src/modules/aiprocess/aicontroller.h \
     src/modules/aiprocess/configurationmanager.h \
+    src/modules/aiprocess/inferenceoutputparser.h \
     src/modules/aiprocess/processmanager.h \
     src/modules/aiprocess/sharedmemorymanager.h \
     src/modules/audiomanipulation/audiomanipulation.h \

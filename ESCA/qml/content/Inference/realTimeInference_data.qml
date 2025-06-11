@@ -67,8 +67,10 @@ Rectangle {
             text: qsTr("Stop")
 
             onClicked: {
+                if (aiStatus) {
                 AIObject.stop();
                 RecordingObject.stopSharedMemory()
+                }
             }
         }
     }
