@@ -28,6 +28,7 @@ public slots:
 
 signals:
     void bufferChanged();
+    void sharedMemoryUnavailable();
 
 private:
     static constexpr key_t SHM_KEY = 0x1234;
@@ -49,7 +50,7 @@ private:
 
     static_assert(sizeof(struct sembuf) > 0, "struct sembuf is not defined");
 
-    bool attachSharedMemory(char*& shm_ptr);
+    bool attachSharedMemory(char*& shm_ptr, int maxRetries = 3, int backoffMs = 100, int timeoutMs = 0);
     void detachSharedMemory(char* shm_ptr);
 };
 
