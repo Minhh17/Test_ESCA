@@ -9,6 +9,7 @@
 #include <QMutex>
 #include <cstring>
 #include <iostream>
+#include <QWaitCondition>
 
 class SharedMemoryManager : public QThread {
     Q_OBJECT
@@ -41,6 +42,10 @@ private:
     int shm_id;
     int sem_id;
     volatile bool running;
+
+    QWaitCondition dataReady;
+    QMutex waitMutex;
+    bool hasNewData = false;
 
     QByteArray buffer;
     QMutex bufferMutex;

@@ -1,6 +1,7 @@
 #include "sharedmemorymanager.h"
 #include <QDebug>
 #include <QElapsedTimer>
+#include <QDateTime>
 
 SharedMemoryManager::SharedMemoryManager(QObject* parent)
     : QThread(parent),
@@ -100,13 +101,24 @@ void SharedMemoryManager::run() {
     char* shm_ptr = nullptr;
 
     while (running) {
-        //qDebug() << "Locking semaphore";
+        // Chờ đến khi có dữ liệu mới
+        waitMutex.lock();
+        if (!hasNewData && running) {
+            dataReady.wait(&waitMutex);  // Thread "ngủ"
+        }
+        hasNewData = false;
+        waitMutex.unlock();
+
+        if (!running) break;
+
+        // Khóa semaphore
+        qDebug() << "Locking semaphore";
         if (semop(sem_id, &sem_lock, 1) == -1) {
-            if (errno == EINTR) continue; // Bị gián đoạn bởi signal
+            if (errno == EINTR) continue;
             qCritical() << "semop lock failed:" << strerror(errno);
             break;
         }
-        //qDebug() << "Semaphore locked";
+        qDebug() << "Semaphore locked";
 
         if (!attachSharedMemory(shm_ptr)) {
             qWarning() << "Could not attach to shared memory";
@@ -114,11 +126,12 @@ void SharedMemoryManager::run() {
             continue;
         }
 
+        // Sao chép buffer vào shared memory
         {
             QMutexLocker locker(&bufferMutex);
             std::memset(shm_ptr, 0, shm_size);
             std::memcpy(shm_ptr, buffer.constData(),
-            std::min(static_cast<size_t>(buffer.size()), shm_size));
+                        std::min(static_cast<size_t>(buffer.size()), shm_size));
         }
 
         detachSharedMemory(shm_ptr);
@@ -127,8 +140,9 @@ void SharedMemoryManager::run() {
             qCritical() << "semop unlock failed:" << strerror(errno);
             break;
         }
-        //qDebug() << "Semaphore unlocked";
-        msleep(100); // Có thể điều chỉnh tùy theo yêu cầu realtime
+        qDebug() << "Semaphore unlocked";
+        qDebug() << QDateTime::currentDateTime().toString("hh:mm:ss.zzz") << "Shared memory updated";
+
     }
 
     // Cleanup trong trường hợp thoát bất thường
@@ -136,9 +150,18 @@ void SharedMemoryManager::run() {
 }
 
 void SharedMemoryManager::getAudioData(const QByteArray &data) {
-    QMutexLocker locker(&bufferMutex);
-    buffer = data; // Sử dụng move semantics thay vì copy nếu có thể
-    emit bufferChanged();
+    // QMutexLocker locker(&bufferMutex);
+    // buffer = data; // Sử dụng move semantics thay vì copy nếu có thể
+    // emit bufferChanged();
+    {
+        QMutexLocker locker(&bufferMutex);
+        buffer = data;
+        hasNewData = true;
+    }
+    waitMutex.lock();
+    dataReady.wakeOne();  // đánh thức thread đang chạy
+    waitMutex.unlock();
+
 }
 
 void SharedMemoryManager::stop() {
