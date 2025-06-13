@@ -19,10 +19,10 @@ Rectangle {
         id: usageChart
         anchors.fill: parent
         anchors.margins: 80
-        cpuData: rectangle.cpuData
-        gpuData: rectangle.gpuData
-        ramData: rectangle.ramData
-        tempData: rectangle.tempData
+        cpuData: BackendObject.cpuHistory
+        gpuData: BackendObject.gpuHistory
+        ramData: BackendObject.ramHistory
+        tempData: BackendObject.tempHistory
         mode: rectangle.chartMode
     }
 
@@ -87,22 +87,9 @@ Rectangle {
         }
     }
 
-
-    Timer {
-        interval: 1000
-        running: true
-        repeat: true
-        onTriggered: {
-            function push(arr,val){
-                arr.push(val)
-                if(arr.length>60) arr.shift()
-            }
-            push(cpuData, BackendObject.cpuPercentage)
-            push(gpuData, BackendObject.gpuPercentage)
-            push(ramData, BackendObject.ramPercentage)
-            push(tempData, BackendObject.temperature)
-            usageChart.requestPaint()
-        }
+    Connections {
+        target: BackendObject
+        onHistoryChanged: usageChart.requestPaint()
     }
 
     Row {
@@ -133,24 +120,6 @@ Rectangle {
                 }
             }
         }
-    }
-
-    // TEMP COMPONENT
-
-    Text {
-        id: diskUsage
-        x: 74
-        y: 32
-        width: 313
-        height: 40
-        color: "#ffffff"
-        text: BackendObject.diskText
-        font.pixelSize: 23
-        horizontalAlignment: Text.AlignLeft
-        verticalAlignment: Text.AlignVCenter
-        wrapMode: Text.Wrap
-        font.family: "Oxanium"
-        font.weight: Font.Normal
     }
 
 }

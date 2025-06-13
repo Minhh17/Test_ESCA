@@ -4,8 +4,18 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QCoreApplication>
+#include <QDir>
+#include <QTextStream>
+#include <QDateTime>
 
 SystemInformationController::SystemInformationController(QObject *parent) : QObject{parent} {
+
+    QString logFilePath = QDir::homePath() + "/health.log";
+    m_healthLog.setFileName(logFilePath);
+    if (!m_healthLog.open(QIODevice::Append | QIODevice::Text)) {
+        qWarning() << "Cannot open health log:" << logFilePath;
+    }
+
     m_timer.setInterval(3);
     m_timer.setSingleShot(false);
     m_timer.start(1000);
@@ -21,9 +31,25 @@ SystemInformationController::SystemInformationController(QObject *parent) : QObj
         disk_usage = getDisk();
 
         // For gpu and temperature
+        // For gpu and temperature
         auto res = getGpuTemp();
         gpu_usage = std::get<0>(res);
         temperature_value = std::get<1>(res);
+
+        appendHistory(m_cpuHistory, cpu_usage);
+        appendHistory(m_gpuHistory, gpu_usage);
+        appendHistory(m_ramHistory, ram_usage);
+        appendHistory(m_tempHistory, temperature_value);
+
+        if (m_healthLog.isOpen()) {
+            QTextStream out(&m_healthLog);
+            QString ts = QDateTime::currentDateTime().toString(Qt::ISODate);
+            out << ts << " [INFO] CPU=" << cpu_usage
+                << "% , GPU=" << gpu_usage
+                << "%, RAM=" << ram_usage
+                << "%, Temp=" << temperature_value << "\xC2\xB0" << "C" << "\n";
+            out.flush();
+        }
 
         // Emit
         emit cpuChanged();
@@ -31,6 +57,7 @@ SystemInformationController::SystemInformationController(QObject *parent) : QObj
         emit diskChanged();
         emit gpuChanged();
         emit temperatureChanged();
+        emit historyChanged();
     });
 }
 
@@ -154,3 +181,15 @@ int SystemInformationController::temperature() const { return temperature_value;
 QString SystemInformationController::temperatureText() const {
     return QString::number(temperature_value) + "°C";
 }
+
+void SystemInformationController::appendHistory(QVector<int>& list, int value)
+{
+    list.append(value);
+    if (list.size() > 300)
+        list.removeFirst();
+}
+
+QVector<int> SystemInformationController::cpuHistory() const { return m_cpuHistory; }
+QVector<int> SystemInformationController::gpuHistory() const { return m_gpuHistory; }
+QVector<int> SystemInformationController::ramHistory() const { return m_ramHistory; }
+QVector<int> SystemInformationController::tempHistory() const { return m_tempHistory; }
