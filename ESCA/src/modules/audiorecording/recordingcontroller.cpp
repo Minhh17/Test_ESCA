@@ -93,7 +93,8 @@ void RecordingController::startRecording()
 
 void RecordingController::stopRecording()
 {
-    disconnect(m_recordIO, &RecordIO::sendData, this, &RecordingController::handleDataReady);
+    if (m_recordIO)
+        disconnect(m_recordIO, &RecordIO::sendData, this, &RecordingController::handleDataReady);
     if (recStatus() == true) {
         m_audioFile->stopRecording();
         m_recordIO->audioInputStop();
@@ -115,7 +116,8 @@ void RecordingController::startSharedMemory(){
 
 void RecordingController::stopSharedMemory()
 {
-    disconnect(m_recordIO, &RecordIO::sendData, this, &RecordingController::handleSharedMemory);
+    if (m_recordIO)
+        disconnect(m_recordIO, &RecordIO::sendData, this, &RecordingController::handleSharedMemory);
     m_recordIO->audioInputStop();
     sharedMemoryManager->stop();
 }

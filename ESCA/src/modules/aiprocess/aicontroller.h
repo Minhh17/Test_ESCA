@@ -2,15 +2,16 @@
 #define AICONTROLLER_H
 
 #include <QObject>
-#include "processmanager.h"
 #include "sharedmemorymanager.h"
 #include "configurationmanager.h"
+#include "inferenceoutputparser.h"
+#include "inferenceengine.h"
 
 class AIController : public QObject
 {
     Q_OBJECT
 public:
-    explicit AIController(QObject *parent = nullptr);
+    explicit AIController(InferenceEngine *engine, QObject *parent = nullptr);
     ~AIController();
 
     Q_PROPERTY(bool inferenceStatus READ inferenceStatus WRITE setinferenceStatus NOTIFY inferenceStatusChanged FINAL)
@@ -51,7 +52,8 @@ private slots:
 private:
     // ConfigurationManager* configManager;
     // SharedMemoryManager* sharedMemoryManager;
-    ProcessManager* processManager;
+    //ProcessManager* processManager;
+    InferenceEngine* m_engine;
 
     QVector<float> m_predValue;
     bool m_inferenceStatus = false;

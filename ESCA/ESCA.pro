@@ -10,6 +10,7 @@ SOURCES += \
     src/config/configapp.cpp \
     src/modules/aiprocess/aicontroller.cpp \
     src/modules/aiprocess/configurationmanager.cpp \
+    src/modules/aiprocess/inferenceoutputparser.cpp \
     src/modules/aiprocess/processmanager.cpp \
     src/modules/aiprocess/sharedmemorymanager.cpp \
     src/modules/audiomanipulation/audiomanipulation.cpp \
@@ -20,6 +21,8 @@ SOURCES += \
     src/modules/audiorecording/recordingcontroller.cpp \
     src/modules/audiorecording/recordingschedule.cpp \
     src/modules/audiorecording/recordio.cpp \
+    src/modules/notification/alertmanager.cpp \
+    src/modules/notification/anomalylogger.cpp \
     src/modules/notification/notificationlogger.cpp \
     src/modules/systeminformation/systeminformationcontroller.cpp \
     src/modules/filemanager/filemanager.cpp \
@@ -52,6 +55,8 @@ HEADERS += \
     src/config/configapp.h \
     src/modules/aiprocess/aicontroller.h \
     src/modules/aiprocess/configurationmanager.h \
+    src/modules/aiprocess/inferenceengine.h \
+    src/modules/aiprocess/inferenceoutputparser.h \
     src/modules/aiprocess/processmanager.h \
     src/modules/aiprocess/sharedmemorymanager.h \
     src/modules/audiomanipulation/audiomanipulation.h \
@@ -64,6 +69,8 @@ HEADERS += \
  \    # src/modules/systeminformation/basicmonitor.h
     src/modules/audiorecording/recordio.h \
     src/modules/filemanager/FileIO.h \
+    src/modules/notification/alertmanager.h \
+    src/modules/notification/anomalylogger.h \
     src/modules/notification/notificationlogger.h \
     src/modules/systeminformation/systeminformationcontroller.h \
     src/modules/filemanager/filemanager.h \
@@ -84,6 +91,7 @@ DISTFILES += \
     qml/content/FileManager/fileManager.qml \
     qml/content/Inference/realTimeInference_data.qml \
     qml/content/Inference/realTimeInference_result.qml \
+    qml/content/Notification/AlertPopup.qml \
     qml/content/Notification/NotificationCenter.qml \
     qml/content/Notification/NotificationItem.qml \
     qml/content/RecordModule/AudioChart.qml \
@@ -96,3 +104,4 @@ DISTFILES += \
     qml/content/SystemInformation/systemInformation.qml \
     qml/content/component/NotificationManager.qml \
     qml/content/component/RamFrame.qml \
+    qml/content/component/UsageLineChart.qml

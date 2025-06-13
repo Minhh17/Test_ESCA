@@ -1,48 +1,49 @@
 #include "processmanager.h"
 #include <QDebug>
+#include <QCoreApplication>
 
 ProcessManager::ProcessManager(QObject *parent)
-    : Process(parent),
-    m_scriptPath("../../../../python_ai/inference/shared_memory_reader.py")
+    : InferenceEngine(parent),
+    m_scriptPath("~/Desktop/minh/ESCA_Qt/python_ai/inference.py"),
+    m_parser(new InferenceOutputParser(this))
 {
     connect(&m_process, &QProcess::readyRead, this, &ProcessManager::handleStandardOutput);
+    connect(m_parser, &InferenceOutputParser::resultReceived, this, &ProcessManager::resultReceived);
+    connect(m_parser, &InferenceOutputParser::abnormalDetect, this, &ProcessManager::abnormalDetect);
+    connect(m_parser, &InferenceOutputParser::doneProcess, this, &ProcessManager::doneProcess);
 }
 
 ProcessManager::~ProcessManager()
 {
-    stopPythonService();
-}
-
-void ProcessManager::startPythonService()
-{
-    qInfo() << Q_FUNC_INFO;
-    if(m_scriptPath.isEmpty()) {
-        qWarning() << "Python script path is not set.";
-        return;
-    }
-
-    qDebug() << "Current working directory:" << QDir::currentPath();
-    setStatement("python3 ~/Desktop/Test_ESCA/python_ai/inference.py");
-    qInfo() << statement();
-
-    startProcess();
-    start();
-}
-
-void ProcessManager::stopPythonService()
-{
-    qInfo() << Q_FUNC_INFO;
+    //stopPythonService();
     stop();
+}
+
+void ProcessManager::start()
+{
+    qDebug()<<"In handleStandardOutput prcmng" <<QStringLiteral("python3 %1").arg(m_scriptPath);
+    qInfo() << Q_FUNC_INFO;
+
+    setStatement(QStringLiteral("python3 %1").arg(m_scriptPath));
+    Process::start();
+
+}
+
+void ProcessManager::stop()
+{
+    qDebug()<<"In ProcessManager::stop prcmng";
+    qInfo() << Q_FUNC_INFO;
+    Process::stop();
 }
 
 void ProcessManager::handleStandardOutput()
 {
+    qDebug()<<"In handleStandardOutput prcmng";
     static QByteArray buffer;
-    buffer.append(m_process.readAllStandardOutput());  // Ghi nhận dữ liệu mới
+    buffer.append(m_process.readAllStandardOutput());
 
-    QList<QByteArray> lines = buffer.split('\n');  // Chia nhỏ theo dòng
+    QList<QByteArray> lines = buffer.split('\n');
 
-    // Nếu buffer không kết thúc bằng '\n', giữ lại dòng cuối để ghép với dữ liệu sau
     if (!buffer.endsWith("\n")) {
         buffer = lines.takeLast();
     } else {
@@ -52,20 +53,9 @@ void ProcessManager::handleStandardOutput()
     for (const QByteArray &line : lines) {
         QString outputStr = QString::fromUtf8(line).trimmed();
 
-        if (outputStr.isEmpty()) continue;  // Bỏ qua dòng rỗng
-
-        bool ok;
-        float predValue = outputStr.toFloat(&ok);
-
-        if (ok) {  // Nếu là số thực
-            qInfo() << "Predict Result:" << predValue;
-            emit resultReceived(predValue);
-        } else if (outputStr == "Done Folder Mode") {
-            emit doneProcess();
-        } else {  // Nếu là chuỗi cảnh báo
-            qWarning() << "Warning from Python:" << outputStr;
-            emit abnormalDetect(outputStr);
-        }
+        if (outputStr.isEmpty())
+            continue;
+        m_parser->parseLine(outputStr);
     }
 }
 

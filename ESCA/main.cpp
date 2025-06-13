@@ -11,11 +11,14 @@
 #include "./src/modules/systeminformation/systeminformationcontroller.h"
 #include "./src/modules/filemanager/FileIO.h"
 #include "./src/modules/aiprocess/aicontroller.h"
+#include "./src/modules/aiprocess/processmanager.h"
 #include "./src/modules/aiprocess/configurationmanager.h"
 #include "./src/config/configapp.h"
 #include "./src/modules/transferlearning/transfercontroller.h"
 #include "./src/modules/transferlearning/transferconfig.h"
 #include "./src/modules/notification/notificationlogger.h"
+#include "./src/modules/notification/alertmanager.h"
+#include "./src/modules/notification/anomalylogger.h"
 
 int main(int argc, char *argv[])
 {
@@ -37,17 +40,25 @@ int main(int argc, char *argv[])
     }
 
     RecordingController recordingController;
+
     SystemInformationController systemInformationController;
-    AIController aiController;
-    TransferController transferController;
+
+    ProcessManager processManager;
+    AIController aiController(&processManager);
+    ConfigurationManager configManager;
+    configManager.loadConfig();
+
     NotificationLogger notificationLogger;
+    AnomalyLogger anomalyLogger;
+    AlertManager alertManager(&notificationLogger, &anomalyLogger);
 
     // AudioConfig audioConfig;
     QQmlApplicationEngine engine;
 
     // Khởi tạo ConfigurationManager và tải cấu hình của Inference
-    ConfigurationManager configManager;
-    configManager.loadConfig();
+
+
+    TransferController transferController;
     TransferConfig transferConfig;
     transferConfig.loadConfig();
 
@@ -63,6 +74,7 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("TransferConfig", &transferConfig);
 
     engine.rootContext()->setContextProperty("NotificationLoggerCpp", &notificationLogger);
+    engine.rootContext()->setContextProperty("AlertManager", &alertManager);
 
     qmlRegisterType<FileIO>("FileIO", 1, 0, "FileIO");
 
