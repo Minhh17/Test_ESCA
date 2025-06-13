@@ -25,6 +25,11 @@ ApplicationWindow {
         z: 100
     }
 
+    AlertPopup {
+        id: alertPopup
+        onResponded: AlertManager.handleUserResponse(confirmed, note)
+    }
+
     TopBar {
         id: topbar
     }
@@ -48,13 +53,26 @@ ApplicationWindow {
         target: AIObject
         onAbnomalDetectChanged: {
 
-                notificationCenter.showNotification(AIObject.abnomalDetect, "warning", 1);
+            AlertManager.triggerAlert(AIObject.abnomalDetect, 0)
+            //notificationCenter.showNotification(AIObject.abnomalDetect, "warning", 1);
 
         }
         onDoneDetectChanged: {
             if (AIObject.inferenceStatus === false) {
                 // notificationCenter.showNotification("Inference with Audio Folder Done", "info", 1);
             }
+        }
+    }
+
+    Connections {
+        target: AlertManager
+        onShowLocalAlert: {
+            alertPopup.note = ""
+            alertPopup.message = message
+            alertPopup.open()
+        }
+        onEscalateAlert: {
+            notificationCenter.showNotification(message + " (Escalated)", "error", 2)
         }
     }
 
