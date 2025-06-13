@@ -14,7 +14,6 @@
 
 class SystemInformationController : public QObject
 {
-
     Q_OBJECT
     
     Q_PROPERTY(int cpuPercentage READ cpuPercentage NOTIFY cpuChanged)
@@ -78,7 +77,6 @@ private:
     std::tuple<double, double> getGpuTemp();
     int parseLine(char* line);
     double getDisk();
-
 
     void appendHistory(QVector<int>& list, int value);
 
