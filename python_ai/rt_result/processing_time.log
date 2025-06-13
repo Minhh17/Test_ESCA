@@ -2952,3 +2952,8 @@
 2025-06-11 09:59:57,972 - INFO - Folder Mode: 42508.46 ms
 2025-06-11 10:00:17,298 - WARNING - TensorRT unavailable, falling back to plain model: data type 'FLOAT' not understood
 2025-06-11 10:00:58,942 - INFO - Folder Mode: 38153.60 ms
+2025-06-12 10:15:50,506 - WARNING - TensorRT unavailable, falling back to plain model: name 'dtype_in' is not defined
+2025-06-12 10:16:30,475 - INFO - Folder Mode: 36629.46 ms
+2025-06-12 13:17:23,956 - INFO - Folder Mode: 21381.45 ms
+2025-06-12 13:18:24,509 - INFO - Folder Mode: 21451.26 ms
+2025-06-12 13:19:29,627 - INFO - Folder Mode: 35765.04 ms

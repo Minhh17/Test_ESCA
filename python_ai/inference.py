@@ -62,6 +62,10 @@ if USE_TENSORRT:
         import pycuda.autoinit
         print("USE_TENSORRT")
         def load_model_fn():
+            if not TRT_ENGINE_PATH or not os.path.exists(TRT_ENGINE_PATH):
+                logger.warning("TRT engine path '%s' is invalid. Falling back to plain model.", TRT_ENGINE_PATH)
+                raise FileNotFoundError(TRT_ENGINE_PATH)
+                
             trt_logger = trt.Logger(trt.Logger.WARNING)
             with open(TRT_ENGINE_PATH, 'rb') as f:
                 runtime = trt.Runtime(trt_logger)
@@ -69,8 +73,17 @@ if USE_TENSORRT:
             context = engine.create_execution_context()
             in_shape  = tuple(engine.get_binding_shape(0))
             out_shape = tuple(engine.get_binding_shape(1))
-            dtype_in  = np.dtype(engine.get_binding_dtype(0).name)
-            dtype_out = np.dtype(engine.get_binding_dtype(1).name)
+            
+            dtype_map = {
+                trt.DataType.FLOAT: np.float32,
+                trt.DataType.HALF: np.float16,
+                trt.DataType.INT8: np.int8,
+                trt.DataType.INT32: np.int32,
+                trt.DataType.BOOL: np.bool_
+            }
+            dtype_in  = dtype_map[engine.get_binding_dtype(0)]
+            dtype_out = dtype_map[engine.get_binding_dtype(1)]         
+            
             try:
                 h_in  = cuda.pagelocked_empty(trt.volume(in_shape), dtype=dtype_in)
                 h_out = cuda.pagelocked_empty(trt.volume(out_shape), dtype=dtype_out)
@@ -93,6 +106,7 @@ if USE_TENSORRT:
         run_model = load_model_fn()
     except Exception as e:
         logger.warning("TensorRT unavailable, falling back to plain model: %s", e)
+        print("TensorRT init failed, using plain model")
         USE_TENSORRT = False
 
 if not USE_TENSORRT:
