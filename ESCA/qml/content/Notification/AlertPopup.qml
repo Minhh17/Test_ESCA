@@ -7,6 +7,11 @@ Popup {
     property string note: ""
     signal responded(bool confirmed, string note)
 
+    onOpened: {
+        noteField.text = ""
+        note = ""
+    }
+
     modal: true
     focus: true
     width: 300
@@ -33,8 +38,9 @@ Popup {
         TextArea {
             id: noteField
             width: parent.width
-            placeholderText: qsTr("Nguyên nhân...")
+            placeholderText: qsTr("Nguyên nhân: ")
             onTextChanged: root.note = text
+            color: "white"
         }
         Row {
             spacing: 20

@@ -67,6 +67,7 @@ ApplicationWindow {
     Connections {
         target: AlertManager
         onShowLocalAlert: {
+            alertPopup.note = ""
             alertPopup.message = message
             alertPopup.open()
         }

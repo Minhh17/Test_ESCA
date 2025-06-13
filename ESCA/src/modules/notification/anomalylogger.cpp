@@ -1,8 +1,8 @@
 #include "anomalylogger.h"
 #include <QDebug>
 
-AnomalyLogger::AnomalyLogger(QObject *parent)
-    : QObject(parent)
+    AnomalyLogger::AnomalyLogger(QObject *parent)
+: QObject(parent)
 {
     QString logFilePath = QDir::homePath() + "/anomaly_history.log";
     m_logFile.setFileName(logFilePath);

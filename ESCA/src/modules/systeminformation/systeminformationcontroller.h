@@ -20,6 +20,11 @@ class SystemInformationController : public QObject
     Q_PROPERTY(QString ramText READ ramText NOTIFY ramChanged)
     Q_PROPERTY(QString diskText READ diskText NOTIFY diskChanged)
 
+    Q_PROPERTY(int gpuPercentage READ gpuPercentage NOTIFY gpuChanged)
+    Q_PROPERTY(QString gpuText READ gpuText NOTIFY gpuChanged)
+    Q_PROPERTY(int temperature READ temperature NOTIFY temperatureChanged)
+    Q_PROPERTY(QString temperatureText READ temperatureText NOTIFY temperatureChanged)
+
 public:
     explicit SystemInformationController(QObject *parent = nullptr);
 
@@ -27,6 +32,8 @@ signals:
     void cpuChanged();
     void ramChanged();
     void diskChanged();
+    void gpuChanged();
+    void temperatureChanged();
 
 private:
     int cpuPercentage() const;
@@ -46,13 +53,22 @@ private:
 
     int disk_usage = 0;
 
+    int gpu_usage = 0;
+    int temperature_value = 0;
+
     unsigned int user, total = 0;
     std::tuple<unsigned int, unsigned int> readFile();
 
     double getCpu();
     double getRam();
+    std::tuple<double, double> getGpuTemp();
     int parseLine(char* line);
     double getDisk();
+
+    int gpuPercentage() const;
+    QString gpuText() const;
+    int temperature() const;
+    QString temperatureText() const;
 };
 
 #endif // SYSTEMINFORMATIONCONTROLLER_H

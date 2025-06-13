@@ -104,3 +104,4 @@ DISTFILES += \
     qml/content/SystemInformation/systemInformation.qml \
     qml/content/component/NotificationManager.qml \
     qml/content/component/RamFrame.qml \
+    qml/content/component/UsageLineChart.qml

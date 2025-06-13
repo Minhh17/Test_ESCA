@@ -19,10 +19,16 @@ void AlertManager::triggerAlert(const QString &message, float score)
     }
     m_recentAlerts.enqueue(now);
 
+    m_currentMessage = message;
+    m_currentScore = score;
+
+    if (shouldEscalate()) {
+        escalate(QStringLiteral("repeated"));
+        return;
+    }
+
     if (!m_alertActive) {
         m_alertActive = true;
-        m_currentMessage = message;
-        m_currentScore = score;
         if (m_logger) {
             m_logger->logNotification(QStringLiteral("Level1 alert: %1 (score %2)")
                                           .arg(message)
@@ -30,18 +36,7 @@ void AlertManager::triggerAlert(const QString &message, float score)
                                           "warning", 1);
         }
         emit showLocalAlert(message);
-        m_timer.start(5000); // wait 5 seconds for response
-    }
-
-    if (shouldEscalate()) {
-        if (m_anomalyLogger)
-            m_anomalyLogger->logAnomaly(message, m_currentScore,
-                                        QStringLiteral("repeated"));
-        if (m_logger)
-            m_logger->logNotification("Repeated abnormal sound detected:",
-                                      "error", 2);
-        emit escalateAlert(message);
-        m_recentAlerts.clear();
+        m_timer.start(m_responseTimeoutMs);
     }
 }
 
@@ -55,28 +50,38 @@ void AlertManager::handleUserResponse(bool confirmed, const QString &note)
     if (m_anomalyLogger)
         m_anomalyLogger->logAnomaly(m_currentMessage, m_currentScore, note);
 
-    if (m_logger) {
-        if (confirmed)
+    if (confirmed) {
+        if (m_logger)
             m_logger->logNotification("Alert confirmed: " + m_currentMessage,
                                       "info", 1);
-        else
-            m_logger->logNotification("Escalating alert: " + m_currentMessage,
-                                      "error", 2);
+        m_recentAlerts.clear();
+        m_alertActive = false;
+        m_currentMessage.clear();
+    } else {
+        escalate(note.isEmpty() ? QStringLiteral("operator unclear") : note);
     }
-
-    if (!confirmed)
-        emit escalateAlert(m_currentMessage);
-
-    m_alertActive = false;
-    m_currentMessage.clear();
 }
 
 void AlertManager::onResponseTimeout()
 {
-    handleUserResponse(false, QStringLiteral("timeout"));
+    escalate(QStringLiteral("timeout"));
 }
 
 bool AlertManager::shouldEscalate() const
 {
     return m_recentAlerts.size() >= m_escalationThreshold;
+}
+
+void AlertManager::escalate(const QString &reason)
+{
+    if (m_anomalyLogger)
+        m_anomalyLogger->logAnomaly(m_currentMessage, m_currentScore, reason);
+    if (m_logger)
+        m_logger->logNotification("Escalating alert: " + m_currentMessage,
+                                  "error", 2);
+    emit escalateAlert(m_currentMessage);
+    m_timer.stop();
+    m_alertActive = false;
+    m_currentMessage.clear();
+    m_recentAlerts.clear();
 }

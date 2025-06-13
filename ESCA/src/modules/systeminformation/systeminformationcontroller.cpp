@@ -1,5 +1,9 @@
 #include "systeminformationcontroller.h"
 #include <QDebug>
+#include <QProcess>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QCoreApplication>
 
 SystemInformationController::SystemInformationController(QObject *parent) : QObject{parent} {
     m_timer.setInterval(3);
@@ -16,10 +20,17 @@ SystemInformationController::SystemInformationController(QObject *parent) : QObj
         // For disk
         disk_usage = getDisk();
 
-        // Both
+        // For gpu and temperature
+        auto res = getGpuTemp();
+        gpu_usage = std::get<0>(res);
+        temperature_value = std::get<1>(res);
+
+        // Emit
         emit cpuChanged();
         emit ramChanged();
         emit diskChanged();
+        emit gpuChanged();
+        emit temperatureChanged();
     });
 }
 
@@ -110,4 +121,36 @@ QString SystemInformationController::ramText() const {
 
 QString SystemInformationController::diskText() const {
     return "Disk usage: " + QString::number(disk_usage) + "%";
+}
+
+
+std::tuple<double, double> SystemInformationController::getGpuTemp()
+{
+    double gpu = 0;
+    double temp = 0;
+    QProcess process;
+    QString scriptPath = QCoreApplication::applicationDirPath() + "/../python_ai/system_info.py";
+    process.start("python3", QStringList() << scriptPath);
+    if (process.waitForFinished(1000)) {
+        QByteArray out = process.readAllStandardOutput().trimmed();
+        QJsonDocument doc = QJsonDocument::fromJson(out);
+        if (!doc.isNull() && doc.isObject()) {
+            QJsonObject obj = doc.object();
+            gpu = obj.value("gpu").toDouble();
+            temp = obj.value("temperature").toDouble();
+        }
+    }
+    return {gpu, temp};
+}
+
+int SystemInformationController::gpuPercentage() const { return gpu_usage; }
+
+QString SystemInformationController::gpuText() const {
+    return QString::number(gpu_usage) + "%";
+}
+
+int SystemInformationController::temperature() const { return temperature_value; }
+
+QString SystemInformationController::temperatureText() const {
+    return QString::number(temperature_value) + "°C";
 }

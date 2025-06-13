@@ -29,6 +29,7 @@ private slots:
 
 private:
     bool shouldEscalate() const;
+    void escalate(const QString &reason);
 
     NotificationLogger *m_logger;
     AnomalyLogger *m_anomalyLogger;
@@ -38,7 +39,8 @@ private:
     bool m_alertActive = false;
     QQueue<QDateTime> m_recentAlerts;
     const int m_escalationThreshold = 3;
-    const int m_escalationWindowSec = 30;
+    const int m_escalationWindowSec = 60;
+    const int m_responseTimeoutMs = 5000;
 };
 
 #endif // ALERTMANAGER_H
