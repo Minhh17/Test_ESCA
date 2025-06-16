@@ -268,10 +268,10 @@ void ConfigurationManager::applyConfig(const QJsonObject& realtime)
         setImportFile(realtime["IMPORT_FILE"].toBool());
     }
     if (realtime.contains("MODEL_PATH") && realtime["MODEL_PATH"].isString()) {
-        setImportFile(realtime["MODEL_PATH"].isString());
+        setModelPath(realtime["MODEL_PATH"].toString());
     }
     if (realtime.contains("FOLDER_PATH") && realtime["FOLDER_PATH"].isString()) {
-        setImportFile(realtime["FOLDER_PATH"].isString());
+        setFolderPath(realtime["FOLDER_PATH"].toString());
     }
 }
 

@@ -1,14 +1,14 @@
 #include "recordingcontroller.h"
 #include <QDebug>
+#include <memory>
 
 RecordingController::RecordingController(QObject *parent)
     : QObject(parent)
-    , m_recordIO(new RecordIO())
-    , m_recordingChart(new RecordingChart())
-    , m_audioConfig(new AudioConfig())
+    , m_recordIO(new RecordIO(this))
+    , m_recordingChart(new RecordingChart(this))
+    , m_audioConfig(new AudioConfig(this))
     , m_audioFile(nullptr)
     , m_audioFileThread(nullptr)
-    , m_recordingSchedule(nullptr)
     , m_format(m_audioConfig->format())
     , m_recStatus(false)
     , sharedMemoryManager(new SharedMemoryManager(this))
@@ -44,11 +44,8 @@ RecordingController::~RecordingController()
         m_audioFileThread->quit();
         m_audioFileThread->wait();
     }
-    delete m_audioFile;
-    delete m_audioFileThread;
-    delete m_recordingChart;
-    delete m_recordIO;
-    delete m_audioConfig;
+    m_audioFile.reset();
+    m_audioFileThread.reset();
     qDebug() << "RecordingController destroyed.";
 }
 
@@ -62,11 +59,13 @@ void RecordingController::startRecording()
     m_outputDir = m_audioConfig->listOutput();
     qDebug()<< "m_outputDir"<< m_outputDir;
 
-    m_audioFile = new AudioFile(m_outputDir, m_format, 2.0);
+    //m_audioFile = new AudioFile(m_outputDir, m_format, 2.0);
+    m_audioFile = std::make_unique<AudioFile>(m_outputDir, m_format, 2.0);
 
     // Đảm bảo thread chưa chạy thì start lại
     if (!m_audioFileThread) {
-        m_audioFileThread = new QThread();
+        //m_audioFileThread = new QThread();
+        m_audioFileThread = std::make_unique<QThread>();
     } else if (m_audioFileThread->isRunning()) {
         m_audioFileThread->quit();
         m_audioFileThread->wait();
@@ -96,11 +95,17 @@ void RecordingController::stopRecording()
     if (m_recordIO)
         disconnect(m_recordIO, &RecordIO::sendData, this, &RecordingController::handleDataReady);
     if (recStatus() == true) {
-        m_audioFile->stopRecording();
+        if (m_audioFile) {
+            m_audioFile->stopRecording();
+        }
         m_recordIO->audioInputStop();
+        if (m_audioFileThread && m_audioFileThread->isRunning()) {
+            m_audioFileThread->quit();
+            m_audioFileThread->wait();
+        }
+        m_audioFile.reset();
+        m_audioFileThread.reset();
         qInfo() << "Stop recording";
-        // m_recordingChart = nullptr;
-        // m_recordIO = nullptr;
     }
     setRecStatus(false);   
 }

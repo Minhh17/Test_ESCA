@@ -8,10 +8,10 @@
 #include <QQmlEngine>
 #include <QThread>
 #include <QMutex>
+#include <memory>
 
 #include "../../config/config.h"
 
-#include "recordingschedule.h"
 #include "recordingchart.h"
 #include "audioconfig.h"
 #include "audiofile.h"
@@ -44,14 +44,13 @@ private slots:
     void handleSharedMemory(const QByteArray &data);
 
 private:
-    RecordingSchedule* m_recordingSchedule;
     RecordIO* m_recordIO;
     RecordingChart* m_recordingChart;
     AudioConfig* m_audioConfig;
-    AudioFile* m_audioFile;
+    std::unique_ptr<AudioFile> m_audioFile;
     SharedMemoryManager* sharedMemoryManager;
 
-    QThread *m_audioFileThread;
+    std::unique_ptr<QThread> m_audioFileThread;
     QAudioFormat m_format;
     QMutex m_mutex;
     QString m_outputDir;

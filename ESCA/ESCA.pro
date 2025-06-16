@@ -19,7 +19,6 @@ SOURCES += \
     src/modules/audiorecording/recorddevice.cpp \
     src/modules/audiorecording/recordingchart.cpp \
     src/modules/audiorecording/recordingcontroller.cpp \
-    src/modules/audiorecording/recordingschedule.cpp \
     src/modules/audiorecording/recordio.cpp \
     src/modules/notification/alertmanager.cpp \
     src/modules/notification/anomalylogger.cpp \
@@ -65,7 +64,6 @@ HEADERS += \
     src/modules/audiorecording/recorddevice.h \
     src/modules/audiorecording/recordingchart.h \
     src/modules/audiorecording/recordingcontroller.h \
-    src/modules/audiorecording/recordingschedule.h \
  \    # src/modules/systeminformation/basicmonitor.h
     src/modules/audiorecording/recordio.h \
     src/modules/filemanager/FileIO.h \
