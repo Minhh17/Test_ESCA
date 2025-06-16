@@ -179,8 +179,8 @@ std::tuple<double, double> SystemInformationController::getGpuTemp()
         temp = obj.value("temperature").toDouble();
         if (obj.contains("error"))
             qWarning() << "system_info.py error:" << obj.value("error").toString();
-        qDebug() << "GPU key" << obj.value("gpu_key").toString()
-                 << "Temp key" << obj.value("temp_key").toString();
+        // qDebug() << "GPU key" << obj.value("gpu_key").toString()
+        //          << "Temp key" << obj.value("temp_key").toString();
     } else {
         qWarning() << "Failed to parse system_info.py output:" << out;
     }

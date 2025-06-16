@@ -30,6 +30,7 @@ SOURCES += \
     src/modules/transferlearning/rocmanager.cpp \
     src/modules/transferlearning/transferconfig.cpp \
     src/modules/transferlearning/transfercontroller.cpp \
+    src/modules/transferlearning/transferlogparser.cpp \
     src/modules/transferlearning/transferprocmng.cpp
 
 # RESOURCES += qml.qrc
@@ -77,6 +78,8 @@ HEADERS += \
     src/modules/transferlearning/rocmanager.h \
     src/modules/transferlearning/transferconfig.h \
     src/modules/transferlearning/transfercontroller.h \
+    src/modules/transferlearning/transferengine.h \
+    src/modules/transferlearning/transferlogparser.h \
     src/modules/transferlearning/transferprocmng.h
 
 DISTFILES += \

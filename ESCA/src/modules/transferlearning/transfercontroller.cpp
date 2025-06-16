@@ -1,27 +1,31 @@
 #include "transfercontroller.h"
 #include <QDebug>
 
-TransferController::TransferController(QObject *parent)
-    :QObject(parent)
+TransferController::TransferController(TransferEngine* engine,
+                                       HistogramManager* hist,
+                                       PRManager* pr,
+                                       ROCManager* roc,
+                                       QObject *parent)
+    :QObject(parent),
+    transferProcMng(engine ? engine : new TransferProcMng(this)),
+    m_histogram(hist ? hist : new HistogramManager(this)),
+    m_prManager(pr ? pr : new PRManager(this)),
+    m_rocManager(roc ? roc : new ROCManager(this))
 {
-    transferProcMng = new TransferProcMng(this);
-    m_histogram = new HistogramManager(this);
-    m_prManager = new PRManager(this);
-    m_rocManager = new ROCManager(this);
 
     qmlRegisterSingletonInstance("TransHistoImport", 1, 0, "TransHisto", m_histogram);
     qmlRegisterSingletonInstance("TransPRImport", 1, 0, "TransPR", m_prManager);
     qmlRegisterSingletonInstance("TransROCImport", 1, 0, "TransROC", m_rocManager);
 
     // Kết nối tín hiệu từ TransferProcMng tới TransferController
-    connect(transferProcMng, &TransferProcMng::epochProgressUpdated, this, &TransferController::updateEpochProgress);
-    connect(transferProcMng, &TransferProcMng::epochSummaryUpdated, this, &TransferController::updateLogSummary);
-    connect(transferProcMng, &TransferProcMng::histogramUpdated, m_histogram, &HistogramManager::updateEpochData);
-    connect(transferProcMng, &TransferProcMng::prCurveUpdated, m_prManager, &PRManager::computePRCurve);
-    connect(transferProcMng, &TransferProcMng::rocCurveUpdated, m_rocManager, &ROCManager::computeROCCurve);
+    connect(transferProcMng, &TransferEngine::epochProgressUpdated, this, &TransferController::updateEpochProgress);
+    connect(transferProcMng, &TransferEngine::epochSummaryUpdated, this, &TransferController::updateLogSummary);
+    connect(transferProcMng, &TransferEngine::histogramUpdated, m_histogram, &HistogramManager::updateEpochData);
+    connect(transferProcMng, &TransferEngine::prCurveUpdated, m_prManager, &PRManager::computePRCurve);
+    connect(transferProcMng, &TransferEngine::rocCurveUpdated, m_rocManager, &ROCManager::computeROCCurve);
 
-    // Kết nối tín hiệu khi process hoàn thành
-    QObject::connect(transferProcMng, &TransferProcMng::transFinished, this, &TransferController::stop);
+    // Kết nối tín hiệu khi process hoàn thành    
+    QObject::connect(transferProcMng, &TransferEngine::transFinished, this, &TransferController::stop);
     setEpoch(0);
 }
 
@@ -37,13 +41,13 @@ void TransferController::start()
     //     qWarning() << "Failed to load configuration.";
     //     return;
     // }
-    transferProcMng->startPythonService();
+    transferProcMng->start();
     setTlStatus(true);
 }
 
 void TransferController::stop()
 {
-    transferProcMng->stopPythonService();
+    transferProcMng->stop();
     setTlStatus(false);
     setEpoch(0);
 }

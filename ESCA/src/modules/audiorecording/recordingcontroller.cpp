@@ -74,12 +74,12 @@ void RecordingController::startRecording()
     m_recordIO->startAudioInput(m_format, deviceInfo);
     qInfo() << "format before thread" << m_format;
 
-    m_audioFile->moveToThread(m_audioFileThread);   // cho AudioFile vào thread riêng
+    m_audioFile->moveToThread(m_audioFileThread.get()); // cho AudioFile vào thread riêng
 
     // Kết nối các signal và slot để quản lý thread và AudioFile
-    connect(m_audioFileThread, &QThread::started, m_audioFile, &AudioFile::startRecording);
-    connect(m_audioFile, &AudioFile::destroyed, m_audioFileThread, &QThread::quit);
-    connect(m_audioFile, &AudioFile::destroyed, m_audioFileThread, &QObject::deleteLater);
+    connect(m_audioFileThread.get(), &QThread::started, m_audioFile.get(), &AudioFile::startRecording);
+    connect(m_audioFile.get(), &AudioFile::destroyed, m_audioFileThread.get(), &QThread::quit);
+    connect(m_audioFile.get(), &AudioFile::destroyed, m_audioFileThread.get(), &QObject::deleteLater);
 
     // Start thread
     m_audioFileThread->start();
@@ -157,14 +157,14 @@ void RecordingController::handleDataReady(const QByteArray &data)
         if (duration == "2s"){
             // Chuyển tiếp dữ liệu cho AudioFile để xử lý buffering và ghi file
             if (m_audioFile) {
-                QMetaObject::invokeMethod(m_audioFile, "writeAudioData",
+                QMetaObject::invokeMethod(m_audioFile.get(), "writeAudioData",
                                           Qt::QueuedConnection,
                                           Q_ARG(QByteArray, dataToSend));
             }
         }
         else {
             if (m_audioFile) {
-                QMetaObject::invokeMethod(m_audioFile, "writeDataForever",
+                QMetaObject::invokeMethod(m_audioFile.get(), "writeDataForever",
                                           Qt::QueuedConnection,
                                           Q_ARG(QByteArray, dataToSend));
             }
