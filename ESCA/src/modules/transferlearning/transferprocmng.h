@@ -2,7 +2,8 @@
 #ifndef TRANSFERPROCMNG_H
 #define TRANSFERPROCMNG_H
 
-#include "../ESCA/src/common/process/process.h"
+#include "transferengine.h"
+#include "transferlogparser.h"
 #include <QDir>
 #include <QRegularExpression>
 #include <QRegularExpressionMatchIterator>
@@ -10,7 +11,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 
-class TransferProcMng : public Process
+class TransferProcMng : public TransferEngine
 {
     Q_OBJECT
 
@@ -18,21 +19,14 @@ public:
     explicit TransferProcMng(QObject *parent = nullptr);
     ~TransferProcMng();
 
-    void startPythonService();
-    void stopPythonService();
+    void start() override;
+    void stop() override;
 
-    void setScriptPath(const QString &path);
-    QString scriptPath() const;
+    void setScriptPath(const QString &path) override;
+    QString scriptPath() const override;
 
 signals:
-    void logUpdated(int, int, QString, QVariantMap);
-    void epochProgressUpdated(int, int);
-    void epochSummaryUpdated(QString);
-    void progressUpdated(QString);
-    void histogramUpdated(QVector<double>);
-    void prCurveUpdated(const QVector<double>& recall, const QVector<double>& precision);
-    void rocCurveUpdated(const QVector<double>& fpr, const QVector<double>& tpr);
-    void transFinished();
+    void logUpdated(int, int, QString, QVariantMap); // preserved for compatibility
 
 public slots:
     void handleStandardOutput();
@@ -44,6 +38,7 @@ private:
     int m_totalEpoch = 0;
     QVariantMap m_details;
     QString m_buffer;  // Dùng buffer để ghép dữ liệu khi bị cắt
+    TransferLogParser *m_parser;
 
 };
 

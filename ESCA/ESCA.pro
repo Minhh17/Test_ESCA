@@ -19,7 +19,6 @@ SOURCES += \
     src/modules/audiorecording/recorddevice.cpp \
     src/modules/audiorecording/recordingchart.cpp \
     src/modules/audiorecording/recordingcontroller.cpp \
-    src/modules/audiorecording/recordingschedule.cpp \
     src/modules/audiorecording/recordio.cpp \
     src/modules/notification/alertmanager.cpp \
     src/modules/notification/anomalylogger.cpp \
@@ -31,6 +30,7 @@ SOURCES += \
     src/modules/transferlearning/rocmanager.cpp \
     src/modules/transferlearning/transferconfig.cpp \
     src/modules/transferlearning/transfercontroller.cpp \
+    src/modules/transferlearning/transferlogparser.cpp \
     src/modules/transferlearning/transferprocmng.cpp
 
 # RESOURCES += qml.qrc
@@ -65,7 +65,6 @@ HEADERS += \
     src/modules/audiorecording/recorddevice.h \
     src/modules/audiorecording/recordingchart.h \
     src/modules/audiorecording/recordingcontroller.h \
-    src/modules/audiorecording/recordingschedule.h \
  \    # src/modules/systeminformation/basicmonitor.h
     src/modules/audiorecording/recordio.h \
     src/modules/filemanager/FileIO.h \
@@ -79,6 +78,8 @@ HEADERS += \
     src/modules/transferlearning/rocmanager.h \
     src/modules/transferlearning/transferconfig.h \
     src/modules/transferlearning/transfercontroller.h \
+    src/modules/transferlearning/transferengine.h \
+    src/modules/transferlearning/transferlogparser.h \
     src/modules/transferlearning/transferprocmng.h
 
 DISTFILES += \

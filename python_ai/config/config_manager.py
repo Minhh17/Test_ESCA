@@ -1,4 +1,5 @@
 import json
+import os
 from pathlib import Path
 from typing import Any, Dict
 
@@ -18,8 +19,13 @@ class ConfigManager:
 
     def _load_default_config(self):
         """Load default configuration from JSON file"""
-        default_path = "/home/haiminh/config.json"
-        with open(default_path, 'r') as f:
+        env_path = os.getenv("ESCA_CONFIG_PATH")
+        if env_path:
+            default_path = Path(env_path)
+        else:
+            default_path = Path.home() / "config.json"
+
+        with open(default_path, 'r', encoding='utf-8') as f:
             self._config = json.load(f)
 
     def update_from_file(self, config_path: str):
