@@ -26,6 +26,7 @@ SOURCES += \
     src/modules/systeminformation/systeminformationcontroller.cpp \
     src/modules/filemanager/filemanager.cpp \
     src/modules/transferlearning/histogrammanager.cpp \
+    src/modules/transferlearning/metricsmanagerbase.cpp \
     src/modules/transferlearning/prmanager.cpp \
     src/modules/transferlearning/rocmanager.cpp \
     src/modules/transferlearning/transferconfig.cpp \
@@ -74,6 +75,7 @@ HEADERS += \
     src/modules/systeminformation/systeminformationcontroller.h \
     src/modules/filemanager/filemanager.h \
     src/modules/transferlearning/histogrammanager.h \
+    src/modules/transferlearning/metricsmanagerbase.h \
     src/modules/transferlearning/prmanager.h \
     src/modules/transferlearning/rocmanager.h \
     src/modules/transferlearning/transferconfig.h \

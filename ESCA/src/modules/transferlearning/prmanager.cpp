@@ -5,8 +5,7 @@
 #include <QJsonObject>
 
 PRManager::PRManager(QObject *parent)
-    : QObject(parent),
-    m_epochCount(0)
+    : MetricsManagerBase(parent)
 {
 }
 
@@ -15,8 +14,7 @@ void PRManager::computePRCurve(const QVector<double>& recall, const QVector<doub
     m_allPRData.append(qMakePair(recall, precision));
     m_epochCount++;
 
-    if (m_epochCount == 1 || m_epochCount == 20 ||
-        m_epochCount == 40 || m_epochCount == 60 || m_epochCount == 81)
+    if (isImportantEpoch(m_epochCount))
     {
         updateImportantPRCurves();
     }
@@ -24,7 +22,7 @@ void PRManager::computePRCurve(const QVector<double>& recall, const QVector<doub
 
 void PRManager::updateImportantPRCurves()
 {
-    m_importantPRCurves.clear();
+    QVariantList list;
     // Các index của epoch mẫu: 0, 19, 39, 59, 80
     QList<int> indices = {0, 19, 39, 59, 80};
     for (int idx : indices) {
@@ -39,10 +37,10 @@ void PRManager::updateImportantPRCurves()
             epochMap["epoch"] = idx + 1;
             epochMap["recall"] = recallList;
             epochMap["precision"] = precisionList;
-            m_importantPRCurves.append(epochMap);
+            list.append(epochMap);
         }
     }
-    emit importantPRCurvesChanged();
+    setImportantMetrics(list);
 }
 
 bool PRManager::saveAllPRData(const QString &fileName)
@@ -76,5 +74,5 @@ bool PRManager::saveAllPRData(const QString &fileName)
 
 QVariantList PRManager::importantPRCurves() const
 {
-    return m_importantPRCurves;
+    return importantMetrics();
 }
