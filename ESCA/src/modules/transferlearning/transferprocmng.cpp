@@ -1,8 +1,10 @@
 #include "transferprocmng.h"
 #include <QDebug>
+#include <QString>
 
 TransferProcMng::TransferProcMng(QObject *parent)
     : TransferEngine(parent),
+    m_scriptPath("/home/haiminh/Desktop/D-ESCA_v2/tools/tl_training.py -cfg ./config/default.py -f '' "),
     m_parser(new TransferLogParser(this))
 {
     connect(&m_process, &QProcess::readyRead, this, &TransferProcMng::handleStandardOutput);
@@ -31,15 +33,13 @@ void TransferProcMng::start()
         qWarning() << "Script path is not set";
         return;
     }
-    setStatement(QStringLiteral("python3 %1").arg(m_scriptPath));
+    setStatement("export PYTHONPATH=~/Desktop/D-ESCA_v2:$PYTHONPATH && python3 ~/Desktop/D-ESCA_v2/tools/tl_training.py");
 
-    startProcess();
     Process::start();
 }
 
 void TransferProcMng::stop()
 {
-    m_epoch = 0;
     qInfo() << Q_FUNC_INFO;
     Process::stop();
 }
@@ -49,6 +49,7 @@ void TransferProcMng::handleStandardOutput()
     QByteArray data = m_process.readAll();
     m_buffer += QString::fromUtf8(data);
 
+    qInfo() << "Python result :" << m_buffer;
     int newlineIndex = m_buffer.indexOf('\n');
     while (newlineIndex != -1) {
         QString line = m_buffer.left(newlineIndex).trimmed();

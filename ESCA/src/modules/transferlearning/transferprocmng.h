@@ -4,12 +4,6 @@
 
 #include "transferengine.h"
 #include "transferlogparser.h"
-#include <QDir>
-#include <QRegularExpression>
-#include <QRegularExpressionMatchIterator>
-#include <QJsonArray>
-#include <QJsonDocument>
-#include <QJsonObject>
 
 class TransferProcMng : public TransferEngine
 {
@@ -34,9 +28,6 @@ public slots:
 
 private:
     QString m_scriptPath;
-    int m_epoch = 0;
-    int m_totalEpoch = 0;
-    QVariantMap m_details;
     QString m_buffer;  // Dùng buffer để ghép dữ liệu khi bị cắt
     TransferLogParser *m_parser;
 

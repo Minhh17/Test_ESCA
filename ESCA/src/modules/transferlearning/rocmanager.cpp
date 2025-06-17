@@ -5,8 +5,7 @@
 #include <QJsonObject>
 
 ROCManager::ROCManager(QObject *parent)
-    : QObject(parent),
-    m_epochCount(0)
+    : MetricsManagerBase(parent)
 {
 }
 
@@ -18,8 +17,7 @@ void ROCManager::computeROCCurve(const QVector<double>& fpr, const QVector<doubl
 
     // Nếu epoch vừa nhận là một trong các epoch quan trọng, cập nhật lại danh sách
     // (ví dụ: epoch 1, 20, 40, 60, 81 tương ứng với chỉ số 0, 19, 39, 59, 80)
-    if (m_epochCount == 1 || m_epochCount == 20 ||
-        m_epochCount == 40 || m_epochCount == 60 || m_epochCount == 81)
+    if (isImportantEpoch(m_epochCount))
     {
         updateImportantROCCurves();
     }
@@ -27,7 +25,7 @@ void ROCManager::computeROCCurve(const QVector<double>& fpr, const QVector<doubl
 
 void ROCManager::updateImportantROCCurves()
 {
-    m_importantROCCurves.clear();
+    QVariantList list;
     // Danh sách các chỉ số quan trọng (0-based): 0, 19, 39, 59, 80
     QList<int> indices = {0, 19, 39, 59, 80};
     for (int idx : indices) {
@@ -42,10 +40,10 @@ void ROCManager::updateImportantROCCurves()
             epochMap["epoch"] = idx + 1;  // Hiển thị epoch bắt đầu từ 1
             epochMap["fpr"] = fprList;
             epochMap["tpr"] = tprList;
-            m_importantROCCurves.append(epochMap);
+            list.append(epochMap);
         }
     }
-    emit importantROCCurvesChanged();
+    setImportantMetrics(list);
 }
 
 bool ROCManager::saveAllROCData(const QString &fileName)
@@ -79,5 +77,5 @@ bool ROCManager::saveAllROCData(const QString &fileName)
 
 QVariantList ROCManager::importantROCCurves() const
 {
-    return m_importantROCCurves;
+    return importantMetrics();
 }
