@@ -5,29 +5,30 @@
 #include <QJsonObject>
 
 PRManager::PRManager(QObject *parent)
-    : MetricsManagerBase(parent)
+    : MetricsManagerBase(parent),
+    m_allPRData(std::make_unique<QVector<QPair<QVector<double>, QVector<double>>>>())
 {
 }
 
 void PRManager::computePRCurve(const QVector<double>& recall, const QVector<double>& precision)
-{
-    m_allPRData.append(qMakePair(recall, precision));
+{    
+    m_allPRData->append(qMakePair(recall, precision));
     m_epochCount++;
 
     if (isImportantEpoch(m_epochCount))
     {
-        updateImportantPRCurves();
+        updateImportantMetrics();
     }
 }
 
-void PRManager::updateImportantPRCurves()
+void PRManager::updateImportantMetrics()
 {
     QVariantList list;
     // Các index của epoch mẫu: 0, 19, 39, 59, 80
     QList<int> indices = {0, 19, 39, 59, 80};
     for (int idx : indices) {
-        if (idx < m_allPRData.size()) {
-            const QPair<QVector<double>, QVector<double>> &pair = m_allPRData[idx];
+        if (idx < m_allPRData->size()) {
+            const QPair<QVector<double>, QVector<double>> &pair = m_allPRData->at(idx);
             QVariantList recallList, precisionList;
             for (double r : pair.first)
                 recallList.append(r);
@@ -46,11 +47,11 @@ void PRManager::updateImportantPRCurves()
 bool PRManager::saveAllPRData(const QString &fileName)
 {
     QJsonArray epochsArray;
-    for (int i = 0; i < m_allPRData.size(); i++) {
+    for (int i = 0; i < m_allPRData->size(); i++) {
         QJsonObject epochObj;
         QJsonArray recallArray;
         QJsonArray precisionArray;
-        const QPair<QVector<double>, QVector<double>> &pair = m_allPRData[i];
+        const QPair<QVector<double>, QVector<double>> &pair = m_allPRData->at(i);
         for (double r : pair.first)
             recallArray.append(r);
         for (double p : pair.second)

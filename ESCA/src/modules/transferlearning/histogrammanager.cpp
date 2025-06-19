@@ -7,12 +7,13 @@
 
 HistogramManager::HistogramManager(QObject *parent)
     : MetricsManagerBase(parent),
+    m_allEpochs(std::make_unique<QVector<QVector<double>>>()),
     minValue(0.0),
     maxValue(0.0)
 {
 }
 
-QVector<int> HistogramManager::computeHistogram(QVector<double>& data, int bins)
+QVector<int> HistogramManager::computeHistogram(const QVector<double>& data, int bins)
 {
     QVector<int> hist(bins, 0);
     if(data.isEmpty())
@@ -37,14 +38,14 @@ QVector<int> HistogramManager::computeHistogram(QVector<double>& data, int bins)
     return hist;
 }
 
-void HistogramManager::updateImportantHistograms()
+void HistogramManager::updateImportantMetrics()
 {
     QVariantList list;
     // Chọn các epoch: epoch 1, 20, 40, 60, 81 (index 0, 19, 39, 59, 80)
     QList<int> indices = {0, 19, 39, 59, 80};
     for (int idx : indices) {
-        if (idx < m_allEpochs.size()) {
-            QVector<int> hist = computeHistogram(m_allEpochs[idx], 30);
+        if (idx < m_allEpochs->size()) {
+            QVector<int> hist = computeHistogram(m_allEpochs->at(idx), 30);
             QVariantList histVariant;
             for (int count : hist)
                 histVariant.append(count);
@@ -62,19 +63,19 @@ void HistogramManager::updateImportantHistograms()
 void HistogramManager::updateEpochData(QVector<double> values)
 {
     // Lưu raw data của epoch mới
-    m_allEpochs.append(values);
+    m_allEpochs->append(values);
     m_epochCount++;
 
     // Nếu epoch vừa nhận là một trong các epoch quan trọng, cập nhật lại danh sách
     if (isImportantEpoch(m_epochCount)) {
-        updateImportantHistograms();
+        updateImportantMetrics();
     }
 }
 
 bool HistogramManager::saveAllRawData(const QString &fileName)
 {
     QJsonArray epochsArray;
-    for (const QVector<double>& epoch : m_allEpochs) {
+    for (const QVector<double>& epoch : *m_allEpochs) {
         QJsonArray epochArray;
         for (double v : epoch)
             epochArray.append(v);

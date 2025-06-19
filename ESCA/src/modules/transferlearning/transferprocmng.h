@@ -4,6 +4,7 @@
 
 #include "transferengine.h"
 #include "transferlogparser.h"
+#include <memory>
 
 class TransferProcMng : public TransferEngine
 {
@@ -29,7 +30,7 @@ public slots:
 private:
     QString m_scriptPath;
     QString m_buffer;  // Dùng buffer để ghép dữ liệu khi bị cắt
-    TransferLogParser *m_parser;
+    std::unique_ptr<TransferLogParser> m_parser;
 
 };
 

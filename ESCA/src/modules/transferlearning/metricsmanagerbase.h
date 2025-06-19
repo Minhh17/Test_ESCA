@@ -11,6 +11,7 @@ class MetricsManagerBase : public QObject
     Q_PROPERTY(QVariantList importantMetrics READ importantMetrics NOTIFY importantMetricsChanged)
 public:
     explicit MetricsManagerBase(QObject *parent = nullptr);
+    virtual ~MetricsManagerBase() = default;
 
     QVariantList importantMetrics() const;
 
@@ -19,6 +20,7 @@ signals:
 
 public slots:
     virtual void reset();
+    virtual void updateImportantMetrics() = 0;
 
 protected:
     bool isImportantEpoch(int epoch) const;

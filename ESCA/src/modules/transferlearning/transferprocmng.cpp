@@ -1,11 +1,12 @@
 #include "transferprocmng.h"
 #include <QDebug>
 #include <QString>
+#include <QtConcurrent>
 
 TransferProcMng::TransferProcMng(QObject *parent)
     : TransferEngine(parent),
     m_scriptPath("/home/haiminh/Desktop/D-ESCA_v2/tools/tl_training.py -cfg ./config/default.py -f '' "),
-    m_parser(new TransferLogParser(this))
+    m_parser(std::make_unique<TransferLogParser>(this))
 {
     connect(&m_process, &QProcess::readyRead, this, &TransferProcMng::handleStandardOutput);
     connect(&m_process,
@@ -13,12 +14,12 @@ TransferProcMng::TransferProcMng(QObject *parent)
             this,
             &TransferProcMng::handleProcessFinished);
 
-    connect(m_parser, &TransferLogParser::epochProgressUpdated, this, &TransferProcMng::epochProgressUpdated);
-    connect(m_parser, &TransferLogParser::epochSummaryUpdated, this, &TransferProcMng::epochSummaryUpdated);
-    connect(m_parser, &TransferLogParser::histogramUpdated, this, &TransferProcMng::histogramUpdated);
-    connect(m_parser, &TransferLogParser::prCurveUpdated, this, &TransferProcMng::prCurveUpdated);
-    connect(m_parser, &TransferLogParser::rocCurveUpdated, this, &TransferProcMng::rocCurveUpdated);
-    connect(m_parser, &TransferLogParser::finished, this, &TransferProcMng::transFinished);
+    connect(m_parser.get(), &TransferLogParser::epochProgressUpdated, this, &TransferProcMng::epochProgressUpdated);
+    connect(m_parser.get(), &TransferLogParser::epochSummaryUpdated, this, &TransferProcMng::epochSummaryUpdated);
+    connect(m_parser.get(), &TransferLogParser::histogramUpdated, this, &TransferProcMng::histogramUpdated);
+    connect(m_parser.get(), &TransferLogParser::prCurveUpdated, this, &TransferProcMng::prCurveUpdated);
+    connect(m_parser.get(), &TransferLogParser::rocCurveUpdated, this, &TransferProcMng::rocCurveUpdated);
+    connect(m_parser.get(), &TransferLogParser::finished, this, &TransferProcMng::transFinished);
 }
 
 TransferProcMng::~TransferProcMng()
@@ -55,8 +56,8 @@ void TransferProcMng::handleStandardOutput()
         QString line = m_buffer.left(newlineIndex).trimmed();
         m_buffer.remove(0, newlineIndex + 1);
 
-        if (!line.isEmpty()) {
-            m_parser->parseLine(line);
+        if (!line.isEmpty()) {            
+            QtConcurrent::run(m_parser.get(), &TransferLogParser::parseLine, line);
         }
 
         newlineIndex = m_buffer.indexOf('\n');

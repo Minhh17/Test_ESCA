@@ -5,6 +5,7 @@
 #include <QVector>
 #include <QVariant>
 #include <QVariantList>
+#include <memory>
 
 class HistogramManager : public MetricsManagerBase
 {
@@ -34,15 +35,15 @@ signals:
 
 private:
     // Lưu toàn bộ raw data của từng epoch
-    QVector<QVector<double>> m_allEpochs;
+    std::unique_ptr<QVector<QVector<double>>> m_allEpochs;
     // Min max values for histogram range
     double minValue;
     double maxValue;
 
     // Tính histogram từ raw data với số bins cho trước (mặc định 30)
-    QVector<int> computeHistogram(QVector<double>& data, int bins = 30);
-    // Cập nhật lại m_importantHistograms từ m_allEpochs
-    void updateImportantHistograms();
+    QVector<int> computeHistogram(const QVector<double>& data, int bins = 30);
+    // Cập nhật lại m_importantMetrics từ m_allEpochs
+    void updateImportantMetrics() override;
 };
 
 #endif // HISTOGRAMMANAGER_H
