@@ -6,6 +6,7 @@
 #include <QVariant>
 #include <QVariantList>
 #include <QPair>
+#include <memory>
 
 class PRManager : public MetricsManagerBase
 {
@@ -28,9 +29,9 @@ signals:
 
 private:
     // Mỗi phần tử là một pair: first = recall, second = precision
-    QVector<QPair<QVector<double>, QVector<double>>> m_allPRData;
+    std::unique_ptr<QVector<QPair<QVector<double>, QVector<double>>>> m_allPRData;
 
-    void updateImportantPRCurves();
+    void updateImportantMetrics() override;
 };
 
 #endif // PRMANAGER_H

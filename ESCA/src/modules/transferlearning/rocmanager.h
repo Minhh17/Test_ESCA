@@ -6,6 +6,7 @@
 #include <QVariant>
 #include <QVariantList>
 #include <QPair>
+#include <memory>
 
 class ROCManager : public MetricsManagerBase
 {
@@ -31,11 +32,11 @@ signals:
 private:
     // Lưu toàn bộ dữ liệu ROC của từng epoch:
     // Mỗi phần tử là một pair: first = fpr, second = tpr
-    QVector<QPair<QVector<double>, QVector<double>>> m_allROCData;
+    std::unique_ptr<QVector<QPair<QVector<double>, QVector<double>>>> m_allROCData;
 
     // Property chứa các ROC Curve của các epoch quan trọng (epoch 1, 20, 40, 60, 81)
     // Hàm cập nhật lại m_importantROCCurves từ m_allROCData
-    void updateImportantROCCurves();
+    void updateImportantMetrics() override;
 
 };
 

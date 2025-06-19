@@ -5,32 +5,33 @@
 #include <QJsonObject>
 
 ROCManager::ROCManager(QObject *parent)
-    : MetricsManagerBase(parent)
+    : MetricsManagerBase(parent),
+    m_allROCData(std::make_unique<QVector<QPair<QVector<double>, QVector<double>>>>())
 {
 }
 
 void ROCManager::computeROCCurve(const QVector<double>& fpr, const QVector<double>& tpr)
 {
     // Lưu dữ liệu ROC của epoch mới vào container
-    m_allROCData.append(qMakePair(fpr, tpr));
+    m_allROCData->append(qMakePair(fpr, tpr));
     m_epochCount++;
 
     // Nếu epoch vừa nhận là một trong các epoch quan trọng, cập nhật lại danh sách
     // (ví dụ: epoch 1, 20, 40, 60, 81 tương ứng với chỉ số 0, 19, 39, 59, 80)
     if (isImportantEpoch(m_epochCount))
-    {
-        updateImportantROCCurves();
+    {        
+        updateImportantMetrics();
     }
 }
 
-void ROCManager::updateImportantROCCurves()
+void ROCManager::updateImportantMetrics()
 {
     QVariantList list;
     // Danh sách các chỉ số quan trọng (0-based): 0, 19, 39, 59, 80
     QList<int> indices = {0, 19, 39, 59, 80};
     for (int idx : indices) {
-        if (idx < m_allROCData.size()) {
-            const QPair<QVector<double>, QVector<double>> &pair = m_allROCData[idx];
+        if (idx < m_allROCData->size()) {
+            const QPair<QVector<double>, QVector<double>> &pair = m_allROCData->at(idx);
             QVariantList fprList, tprList;
             for (double v : pair.first)
                 fprList.append(v);
@@ -49,11 +50,11 @@ void ROCManager::updateImportantROCCurves()
 bool ROCManager::saveAllROCData(const QString &fileName)
 {
     QJsonArray epochsArray;
-    for (int i = 0; i < m_allROCData.size(); i++) {
+    for (int i = 0; i < m_allROCData->size(); i++) {
         QJsonObject epochObj;
         QJsonArray fprArray;
         QJsonArray tprArray;
-        const QPair<QVector<double>, QVector<double>> &pair = m_allROCData[i];
+        const QPair<QVector<double>, QVector<double>> &pair = m_allROCData->at(i);
         for (double v : pair.first)
             fprArray.append(v);
         for (double v : pair.second)

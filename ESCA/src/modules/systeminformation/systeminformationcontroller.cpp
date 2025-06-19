@@ -16,9 +16,9 @@ SystemInformationController::SystemInformationController(QObject *parent) : QObj
         qWarning() << "Cannot open health log:" << logFilePath;
     }
 
-    m_timer.setInterval(3);
+    m_timer.setInterval(1000);
     m_timer.setSingleShot(false);
-    m_timer.start(1000);
+    m_timer.start();
     connect(&m_timer, &QTimer::timeout, this, [this]() {
 
         // For cpu
