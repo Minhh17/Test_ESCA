@@ -129,9 +129,12 @@ def preprocess_audio(audio: np.ndarray) -> np.ndarray:
 
 # --- Prediction & Reporting ---
 def predict_and_report(audio: np.ndarray):
+    start = time.perf_counter()
     inp = preprocess_audio(audio)
     
     pred = run_model(inp)
+    
+    duration = time.perf_counter() - start
     
     mse = float(np.mean((inp - pred) ** 2))
     
@@ -139,6 +142,8 @@ def predict_and_report(audio: np.ndarray):
         print("Anomaly detected!!", flush=True)
         
     print(f"{mse:.10f}", flush=True)
+    logger.info("Inference time: %.2f ms, MSE: %.6f", duration, mse)
+    return mse, duration
 
 
 def signal_handler(signum, frame):
@@ -199,7 +204,7 @@ def process_realtime():
 
         audio_array = np.frombuffer(raw_data, dtype=np.int16)
 
-        mse = predict_and_report(audio_array)
+        mse, duration = predict_and_report(audio_array)
         if mse is None:
             continue
 
@@ -208,6 +213,7 @@ def process_realtime():
             print("Anomaly detected!", flush=True)
         # print(f"Predict Result: {mse}", flush=True)
         print(mse, flush=True)
+        logger.info("Inference time: %.2f ms, MSE: %.6f", duration, mse)
 
         # Đảm bảo đọc đúng mỗi 2 giây
         elapsed = time.time() - cycle_start
@@ -217,10 +223,24 @@ def process_realtime():
 # --- Folder Processing ---
 def process_folder():
     files = sorted(f for f in os.listdir(FOLDER_PATH) if f.lower().endswith('.wav'))
+    
+    mses = []
+    times = []
+    
     for f in files:
         with wave.open(os.path.join(FOLDER_PATH, f), 'rb') as wf:
             audio = np.frombuffer(wf.readframes(wf.getnframes()), dtype=np.int16)
-        predict_and_report(audio)
+            
+        mse, duration = predict_and_report(audio)
+        if mse is None:
+            continue
+        mses.append(mse)
+        times.append(duration)
+    if mses:
+        avg_mse = float(np.mean(mses))
+        avg_time = float(np.mean(times))
+        logger.info("Average MSE: %.6f, Average inference time: %.2f ms", avg_mse, avg_time)
+        print(f"Average MSE: {avg_mse:.6f}, Average inference time: {avg_time:.2f} ms")
     print("Done Folder Mode")
 
 # --- Cleanup ---
