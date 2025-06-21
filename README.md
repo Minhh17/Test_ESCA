@@ -31,6 +31,12 @@ cycle is written to `REALTIME.LOG_PATH/processing_time.log` (as configured in
 `python_ai/config/default.json`). Compare these timings before and after
 enabling TensorRT on Jetson to quantify the speed‑up for your report.
 
+### Data Storage
+
+Set the environment variable `ESCA_DATA_PATH` to control where files such as
+`config.json`, `health.log` and `processing_time.log` are stored. If not set, all
+logs and configuration will be kept under `~/data_storage`.
+
 ### GPU Gammatone Pre-processing
 
 Set `"USE_TF_GTGRAM": true` in the same configuration to offload the
