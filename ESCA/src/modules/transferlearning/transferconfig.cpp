@@ -1,4 +1,5 @@
 #include "transferconfig.h"
+#include "../../common/storage/datastorage.h"
 
 TransferConfig::TransferConfig(QObject *parent)
     : QObject(parent),
@@ -11,7 +12,7 @@ TransferConfig::TransferConfig(QObject *parent)
     m_epoch(81),
     m_beta(0.0)
 {
-    m_filePath = QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + QDir::separator() + "config.json";
+    m_filePath = DataStorage::filePath("config.json");
 }
 
 QString TransferConfig::baseWeightPath() const { return m_baseWeightPath; }

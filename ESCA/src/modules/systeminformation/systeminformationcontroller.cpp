@@ -1,4 +1,5 @@
 #include "systeminformationcontroller.h"
+#include "../../common/storage/datastorage.h"
 #include <QDebug>
 #include <QProcess>
 #include <QJsonDocument>
@@ -10,7 +11,7 @@
 
 SystemInformationController::SystemInformationController(QObject *parent) : QObject{parent} {
 
-    QString logFilePath = QDir::homePath() + "/health.log";
+    QString logFilePath = DataStorage::filePath("health.log");
     m_healthLog.setFileName(logFilePath);
     if (!m_healthLog.open(QIODevice::Append | QIODevice::Text)) {
         qWarning() << "Cannot open health log:" << logFilePath;
