@@ -52,6 +52,7 @@ else: unix:!android: target.path = /home/haiminh/Desktop
 HEADERS += \
     # src/common/chartview.h \
     src/common/process/process.h \
+    src/common/storage/datastorage.h \
     src/config/config.h \
     src/config/configapp.h \
     src/modules/aiprocess/aicontroller.h \

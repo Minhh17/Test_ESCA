@@ -1,14 +1,14 @@
 #include "audioconfig.h"
+#include "../../common/storage/datastorage.h"
 #include <QDir>
 
 AudioConfig::AudioConfig(QObject *parent) : QObject{parent}
 {
-    appDataPath = QStandardPaths::writableLocation(QStandardPaths::HomeLocation)+ QDir::separator() + "config.json";
+    appDataPath = DataStorage::filePath("config.json");
     qDebug()<< "Config File is exist!" << appDataPath;
     QFile configFile(appDataPath);
 
-    m_listOutput = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
-
+    m_listOutput = DataStorage::basePath();
     qDebug()<< "Home Location" << listOutput();
 
     if (!configFile.exists()) {

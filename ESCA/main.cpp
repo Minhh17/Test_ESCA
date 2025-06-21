@@ -19,6 +19,7 @@
 #include "./src/modules/notification/notificationlogger.h"
 #include "./src/modules/notification/alertmanager.h"
 #include "./src/modules/notification/anomalylogger.h"
+#include "./src/common/storage/datastorage.h"
 
 int main(int argc, char *argv[])
 {
@@ -27,11 +28,11 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationDomain("sparc.com");
     QCoreApplication::setApplicationName("ESCA");
 
-    QString homeDir = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
+    QString homeDir = DataStorage::basePath();
     // Tạo thư mục nếu chưa tồn tại
     QDir().mkpath(homeDir);
 
-    QString filePath = homeDir + QDir::separator() + "config.json";
+    QString filePath = DataStorage::filePath("config.json");
     QFile configPath(filePath);
 
     if (!configPath.exists()) {
