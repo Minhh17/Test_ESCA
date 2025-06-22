@@ -70,7 +70,7 @@
         "DEVICENAME": "default",
         "DURATION": 0,
         "ENDIAN": 0,
-        "SAMPLERATE": 0,
+        "SAMPLERATE": 3,
         "SAMPLESIZE": 1
     },
     "TRAINING": {
