@@ -120,9 +120,10 @@ def predict_and_report(audio: np.ndarray):
     duration = (time.perf_counter() - start) * 1e3
     mse = float(np.mean((inp - pred) ** 2))
     logger.info("Inference time: %.2f ms, MSE: %.6f", duration, mse)
+
     if mse > MANUAL_THRESHOLD:
         print("Anomaly detected!!", flush=True)
-
+        
     print(f"{mse:.10f}", flush=True)
 
 
@@ -191,6 +192,7 @@ def process_realtime():
             continue
 
         # Kiểm tra anomaly
+
         if mse > MANUAL_THRESHOLD:
             print("Anomaly detected!", flush=True)
         # print(f"Predict Result: {mse}", flush=True)
