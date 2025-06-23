@@ -9,12 +9,17 @@
 #include "histogrammanager.h"
 #include "prmanager.h"
 #include "rocmanager.h"
+#include "transferengine.h"
 
 class TransferController : public QObject
 {
     Q_OBJECT
 public:
-    explicit TransferController(QObject *parent = nullptr);
+    explicit TransferController(TransferEngine* engine = nullptr,
+                                HistogramManager* hist = nullptr,
+                                PRManager* pr = nullptr,
+                                ROCManager* roc = nullptr,
+                                QObject *parent = nullptr);
     ~TransferController();
 
     Q_PROPERTY(bool tlStatus READ tlStatus WRITE setTlStatus NOTIFY tlStatusChanged FINAL)
@@ -49,7 +54,7 @@ public slots:
     void updateLogSummary(const QString &summary);
 
 private:
-    TransferProcMng* transferProcMng;
+    TransferEngine* transferProcMng;
     HistogramManager* m_histogram;
     PRManager* m_prManager;
     ROCManager* m_rocManager;

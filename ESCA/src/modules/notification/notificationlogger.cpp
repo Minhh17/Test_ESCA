@@ -1,11 +1,12 @@
 #include "notificationlogger.h"
+#include "../../common/storage/datastorage.h"
 #include <QDebug>
 
 NotificationLogger::NotificationLogger(QObject *parent)
     : QObject(parent)
 {
-    // File log nằm trong thư mục home
-    QString logFilePath = QDir::homePath() + "/notification_history.log";
+    // File log trong thư mục DataStorage
+    QString logFilePath = DataStorage::filePath("notification_history.log");
     m_logFile.setFileName(logFilePath);
     if (!m_logFile.open(QIODevice::Append | QIODevice::Text)) {
         qWarning() << "Không mở được file log:" << logFilePath;

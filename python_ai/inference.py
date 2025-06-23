@@ -15,6 +15,7 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 
 from config.config_manager import ConfigManager
+from data_storage import file_path
 
 # --- Configuration ---
 config = ConfigManager()
@@ -41,13 +42,13 @@ MIN_VAL    = data['min']
 MAX_VAL    = data['max']
 THRESHOLD    = data['threshold']
 
-print(f"MIN_VAL: {MIN_VAL}, MAX_VAL: {MAX_VAL}, THRESHOLD: {THRESHOLD}")
+#print(f"MIN_VAL: {MIN_VAL}, MAX_VAL: {MAX_VAL}, THRESHOLD: {THRESHOLD}")
 
 # Shared memory keys and size
 SHM_KEY, SEM_KEY, SHM_SIZE = 0x1234, 0x5678, 176400  # 2s of int16 samples
 
 # --- Logging Setup ---
-log_dir = config.get("REALTIME.LOG_PATH", "./logs")
+log_dir = config.get("REALTIME.LOG_PATH", file_path("logs"))
 os.makedirs(log_dir, exist_ok=True)
 logging.basicConfig(
     filename=os.path.join(log_dir, "processing_time.log"),
@@ -159,7 +160,9 @@ def predict_and_report(audio: np.ndarray):
     duration = time.perf_counter() - start
     
     mse = float(np.mean((inp - pred) ** 2))
-    
+
+    logger.info("Inference time: %.8f ms, MSE: %.6f", duration, mse)
+
     if mse > MANUAL_THRESHOLD:
         print("Anomaly detected!!", flush=True)
         
@@ -224,6 +227,7 @@ def process_realtime():
             print(f"⚠️ Warning: Expected {SHM_SIZE} bytes but got {len(raw_data)} bytes!")
             continue
 
+        #print(raw_data, flush=True)
         audio_array = np.frombuffer(raw_data, dtype=np.int16)
 
         mse, duration = predict_and_report(audio_array)
@@ -231,6 +235,7 @@ def process_realtime():
             continue
 
         # Kiểm tra anomaly
+
         if mse > MANUAL_THRESHOLD:
             print("Anomaly detected!", flush=True)
         # print(f"Predict Result: {mse}", flush=True)

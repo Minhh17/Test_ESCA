@@ -1,10 +1,11 @@
 #include "anomalylogger.h"
+#include "../../common/storage/datastorage.h"
 #include <QDebug>
 
     AnomalyLogger::AnomalyLogger(QObject *parent)
 : QObject(parent)
 {
-    QString logFilePath = QDir::homePath() + "/anomaly_history.log";
+    QString logFilePath = DataStorage::filePath("anomaly_history.log");
     m_logFile.setFileName(logFilePath);
     if (!m_logFile.open(QIODevice::Append | QIODevice::Text)) {
         qWarning() << "Cannot open anomaly log file:" << logFilePath;

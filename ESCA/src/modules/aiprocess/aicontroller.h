@@ -28,7 +28,6 @@ public:
     void setinferenceStatus(bool newInferenceStatus);
 
 
-
     bool doneDetect() const;
     void setDoneDetect(bool newDoneDetect);
 
@@ -58,7 +57,7 @@ private:
     QVector<float> m_predValue;
     bool m_inferenceStatus = false;
     QString m_abnomalDetect = "";
-    bool m_doneDetect;
+    bool m_doneDetect = false;
 };
 
 #endif // AICONTROLLER_H

@@ -1,4 +1,5 @@
 #include "systeminformationcontroller.h"
+#include "../../common/storage/datastorage.h"
 #include <QDebug>
 #include <QProcess>
 #include <QJsonDocument>
@@ -10,15 +11,15 @@
 
 SystemInformationController::SystemInformationController(QObject *parent) : QObject{parent} {
 
-    QString logFilePath = QDir::homePath() + "/health.log";
+    QString logFilePath = DataStorage::filePath("health.log");
     m_healthLog.setFileName(logFilePath);
     if (!m_healthLog.open(QIODevice::Append | QIODevice::Text)) {
         qWarning() << "Cannot open health log:" << logFilePath;
     }
 
-    m_timer.setInterval(3);
+    m_timer.setInterval(1000);
     m_timer.setSingleShot(false);
-    m_timer.start(1000);
+    m_timer.start();
     connect(&m_timer, &QTimer::timeout, this, [this]() {
 
         // For cpu
@@ -158,14 +159,35 @@ std::tuple<double, double> SystemInformationController::getGpuTemp()
     QProcess process;
     QString scriptPath = "/home/sparclab/Desktop/Test_ESCA/python_ai/system_info.py";
     process.start("python3", QStringList() << scriptPath);
-    if (process.waitForFinished(1000)) {
-        QByteArray out = process.readAllStandardOutput().trimmed();
-        QJsonDocument doc = QJsonDocument::fromJson(out);
-        if (!doc.isNull() && doc.isObject()) {
-            QJsonObject obj = doc.object();
-            gpu = obj.value("gpu").toDouble();
-            temp = obj.value("temperature").toDouble();
-        }
+
+    if (!process.waitForStarted(1000)) {
+        qWarning() << "system_info.py did not start:" << process.errorString();
+        return {gpu, temp};
+    }
+
+    if (!process.waitForFinished(5000)) {
+        qWarning() << "system_info.py timeout";
+        process.kill();
+        return {gpu, temp};
+    }
+
+    QByteArray out = process.readAllStandardOutput().trimmed();
+    QByteArray err = process.readAllStandardError().trimmed();
+    if (!err.isEmpty())
+        qWarning() << "system_info.py stderr:" << err;
+
+    QJsonDocument doc = QJsonDocument::fromJson(out);
+    if (!doc.isNull() && doc.isObject()) {
+        QJsonObject obj = doc.object();
+        gpu = obj.value("gpu").toDouble();
+        temp = obj.value("temperature").toDouble();
+        if (obj.contains("error"))
+            qWarning() << "system_info.py error:" << obj.value("error").toString();
+        // qDebug() << "GPU key" << obj.value("gpu_key").toString()
+        //          << "Temp key" << obj.value("temp_key").toString();
+    } else {
+        qWarning() << "Failed to parse system_info.py output:" << out;
+
     }
     return {gpu, temp};
 }

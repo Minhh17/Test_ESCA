@@ -1,5 +1,6 @@
 // ConfigurationManager.cpp
 #include "configurationmanager.h"
+#include "../../common/storage/datastorage.h"
 #include <QDebug>
 
 ConfigurationManager::ConfigurationManager(QObject *parent) : QObject(parent),
@@ -16,7 +17,7 @@ ConfigurationManager::ConfigurationManager(QObject *parent) : QObject(parent),
     m_max(1.0),
     m_min(0.0)
 {
-    m_filePath = QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + QDir::separator() + "config.json";
+    m_filePath = DataStorage::filePath("config.json");
 }
 
 ConfigurationManager::~ConfigurationManager()
@@ -133,6 +134,8 @@ bool ConfigurationManager::saveConfig() const {
     realtimeConfig["THRESHOLD"] = m_threshold;
     realtimeConfig["MAX"] = m_max;
     realtimeConfig["MIN"] = m_min;
+
+    realtimeConfig["TRT_MODEL_PATH"] = "";
 
     rootObject["REALTIME"] = realtimeConfig; // Ghi đè hoặc thêm phần REALTIME
 
@@ -268,10 +271,10 @@ void ConfigurationManager::applyConfig(const QJsonObject& realtime)
         setImportFile(realtime["IMPORT_FILE"].toBool());
     }
     if (realtime.contains("MODEL_PATH") && realtime["MODEL_PATH"].isString()) {
-        setImportFile(realtime["MODEL_PATH"].isString());
+        setModelPath(realtime["MODEL_PATH"].toString());
     }
     if (realtime.contains("FOLDER_PATH") && realtime["FOLDER_PATH"].isString()) {
-        setImportFile(realtime["FOLDER_PATH"].isString());
+        setFolderPath(realtime["FOLDER_PATH"].toString());
     }
 }
 

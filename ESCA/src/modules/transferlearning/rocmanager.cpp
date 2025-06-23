@@ -5,34 +5,33 @@
 #include <QJsonObject>
 
 ROCManager::ROCManager(QObject *parent)
-    : QObject(parent),
-    m_epochCount(0)
+    : MetricsManagerBase(parent),
+    m_allROCData(std::make_unique<QVector<QPair<QVector<double>, QVector<double>>>>())
 {
 }
 
 void ROCManager::computeROCCurve(const QVector<double>& fpr, const QVector<double>& tpr)
 {
     // Lưu dữ liệu ROC của epoch mới vào container
-    m_allROCData.append(qMakePair(fpr, tpr));
+    m_allROCData->append(qMakePair(fpr, tpr));
     m_epochCount++;
 
     // Nếu epoch vừa nhận là một trong các epoch quan trọng, cập nhật lại danh sách
     // (ví dụ: epoch 1, 20, 40, 60, 81 tương ứng với chỉ số 0, 19, 39, 59, 80)
-    if (m_epochCount == 1 || m_epochCount == 20 ||
-        m_epochCount == 40 || m_epochCount == 60 || m_epochCount == 81)
-    {
-        updateImportantROCCurves();
+    if (isImportantEpoch(m_epochCount))
+    {        
+        updateImportantMetrics();
     }
 }
 
-void ROCManager::updateImportantROCCurves()
+void ROCManager::updateImportantMetrics()
 {
-    m_importantROCCurves.clear();
+    QVariantList list;
     // Danh sách các chỉ số quan trọng (0-based): 0, 19, 39, 59, 80
     QList<int> indices = {0, 19, 39, 59, 80};
     for (int idx : indices) {
-        if (idx < m_allROCData.size()) {
-            const QPair<QVector<double>, QVector<double>> &pair = m_allROCData[idx];
+        if (idx < m_allROCData->size()) {
+            const QPair<QVector<double>, QVector<double>> &pair = m_allROCData->at(idx);
             QVariantList fprList, tprList;
             for (double v : pair.first)
                 fprList.append(v);
@@ -42,20 +41,20 @@ void ROCManager::updateImportantROCCurves()
             epochMap["epoch"] = idx + 1;  // Hiển thị epoch bắt đầu từ 1
             epochMap["fpr"] = fprList;
             epochMap["tpr"] = tprList;
-            m_importantROCCurves.append(epochMap);
+            list.append(epochMap);
         }
     }
-    emit importantROCCurvesChanged();
+    setImportantMetrics(list);
 }
 
 bool ROCManager::saveAllROCData(const QString &fileName)
 {
     QJsonArray epochsArray;
-    for (int i = 0; i < m_allROCData.size(); i++) {
+    for (int i = 0; i < m_allROCData->size(); i++) {
         QJsonObject epochObj;
         QJsonArray fprArray;
         QJsonArray tprArray;
-        const QPair<QVector<double>, QVector<double>> &pair = m_allROCData[i];
+        const QPair<QVector<double>, QVector<double>> &pair = m_allROCData->at(i);
         for (double v : pair.first)
             fprArray.append(v);
         for (double v : pair.second)
@@ -79,5 +78,5 @@ bool ROCManager::saveAllROCData(const QString &fileName)
 
 QVariantList ROCManager::importantROCCurves() const
 {
-    return m_importantROCCurves;
+    return importantMetrics();
 }
