@@ -80,6 +80,12 @@ if USE_TENSORRT:
                 engine = runtime.deserialize_cuda_engine(f.read())
             context = engine.create_execution_context()
             in_shape = tuple(engine.get_binding_shape(0))
+            
+            dtype0 = engine.get_binding_dtype(0)
+            dtype1 = engine.get_binding_dtype(1)
+            logger.info("engine type: %s %s ", dtype0, dtype1)
+            logger.info("engine type: %s %s", dtype0.name, dtype1.name)                    
+            
             if any(d <= 0 for d in in_shape):
                 # Engine was built with dynamic shapes; set the expected input
                 # dimensions (batch=1, channels=1, 32x32) before allocating
