@@ -58,8 +58,11 @@ private:
     QByteArray audioBuffer1;
     QByteArray audioBuffer2;
     bool m_usingBuffer1;
+    
+    size_t m_chunkSize;
 
-    const size_t chunkSize = 176400;
+    size_t computeChunkSize() const;
+
     
     bool m_recStatus;
 };

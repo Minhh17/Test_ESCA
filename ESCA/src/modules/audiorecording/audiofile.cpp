@@ -84,7 +84,7 @@ void AudioFile::createFile() {
 
     dataSize = 0; // Reset dataSize cho file mới
     writeWavHeader();
-    qDebug() << "Created file:" << fileName;
+    //qDebug() << "Created file:" << fileName;
 }
 
 void AudioFile::writeWavHeader() {
@@ -173,7 +173,7 @@ void AudioFile::writeAudioData(const QByteArray &data) {
     while (currentBuffer.size() >= m_chunkSize) {
         // Ghi dữ liệu vào file
         QByteArray chunk = currentBuffer.left(m_chunkSize);
-        qDebug() << "Data before writing to WAV - First 10 bytes: " << chunk.mid(0, 10);
+        //qDebug() << "Data before writing to WAV - First 10 bytes: " << chunk.mid(0, 10);
         m_outFile.write(chunk);
         m_outFile.flush();
         dataSize = m_chunkSize; // Cập nhật dataSize cho chunk này
@@ -205,5 +205,5 @@ void AudioFile::finalizeWavHeader(quint32 dataSize) {
     out << dataSize;
 
     m_outFile.close();
-    qDebug() << "Finalized file with dataSize:" << dataSize;
+    //qDebug() << "Finalized file with dataSize:" << dataSize;
 }

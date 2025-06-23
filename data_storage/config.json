@@ -5,11 +5,11 @@
             "SHUFFLE": true
         },
         "PATH": {
-            "ANOMALY": "/home/haiminh/Desktop/fanDataset/abnomalyTarget",
-            "NORMAL": "/home/haiminh/Desktop/fanDataset/normalTarget",
+            "ANOMALY": "/home/sparclab/Desktop/Abnomaly_Audio_Dataset/fanAbnomaly",
+            "NORMAL": "/home/sparclab/Desktop/Abnomaly_Audio_Dataset/fanNormal",
             "TEST": null,
             "TFRECORDS": [
-                "/home/haiminh/Desktop/D-ESCA_v2/park_dataset_demo/mel_data"
+                "/home/sparclab/Desktop/D-ESCA_v2/park_dataset_demo/mel_orin_fan"
             ]
         },
         "RATIO": {
@@ -18,14 +18,14 @@
         }
     },
     "DEVICE": {
-        "JETSON": false,
-        "USE_TENSORRT": false
+        "JETSON": true,
+        "USE_TENSORRT": true
     },
     "MODEL": {
         "TYPE": "vq_vae"
     },
     "POSTPROCESS": {
-        "PATH_SAVE_THRESHOLD": "/home/thanhho/SPARC/ESCA/Code/train_on_PCv2/Results/"
+        "PATH_SAVE_THRESHOLD": "/home/sparclab/SPARC/ESCA/Code/train_on_PCv2/Results/"
     },
     "PREPROCESS": {
         "AUDIO_LEN": 2,
@@ -44,21 +44,21 @@
         "SAMPLE_PER_FILE": 200,
         "SEGMENT_LEN": 2,
         "TYPE": "gamma",
-        "USE_TF_GTGRAM": true
+        "USE_TF_GTGRAM": false
     },
     "REALTIME": {
         "CHANNELS": 1,
-        "FOLDER_PATH": "/home/haiminh/Desktop/Data_Predictive_Maintainance/abnormal/newAngle",
+        "FOLDER_PATH": "/home/haiminh/Desktop/ESCA_Qt/ESCA/data",
         "IMPORT_FILE": false,
-        "LOG_PATH": "/home/haiminh/Desktop/minh/ESCA_Qt/python_ai/rt_result",
-        "MANUAL_THRESHOLD": 0.04,
-        "MAX": 51.67738342285156,
-        "MIN": -23.14520263671875,
-        "MODEL_PATH": "/home/haiminh/Desktop/minh/ESCA_Qt/python_ai/result",
+        "LOG_PATH": "/home/haiminh/Desktop/Anomaly_Detection/D-ESCA_v2/Results/rt_test_results",
+        "MANUAL_THRESHOLD": 0.01,
+        "MAX": 1,
+        "MIN": 0,
+        "MODEL_PATH": "/home/haiminh/Desktop/ESCA_Qt/python_ai/result",
         "SAMPLESIZE": 16,
         "SAMPLING_RATE": 44100,
         "SECOND": 2,
-        "THRESHOLD": 0.002630938310176134,
+        "THRESHOLD": 0,
         "TRT_MODEL_PATH": ""
     },
     "RECORD": {
@@ -66,7 +66,7 @@
         "CHANNEL": 0,
         "CODEC": 0,
         "DATASET_PATH": "./dataset_mic_laptop_16k",
-        "DEVICE": 0,
+        "DEVICE": 8,
         "DEVICENAME": "default",
         "DURATION": 0,
         "ENDIAN": 0,
@@ -74,22 +74,22 @@
         "SAMPLESIZE": 1
     },
     "TRAINING": {
-        "EPOCH": 15,
+        "EPOCH": 10,
         "LEARNING_RATE": 0.001,
-        "LOG_FOLDER": "/home/haiminh/Desktop/info.txt",
-        "PRETRAINED_WEIGHTS": "/home/haiminh/Desktop/minh/ESCA_Qt/python_ai/temp/saved_model",
-        "SAVE_PATH": "/home/haiminh/Desktop/minh/ESCA_Qt/python_ai/resultFan"
+        "LOG_FOLDER": "/home/sparclab/Desktop/Test_ESCA/python_ai/result",
+        "PRETRAINED_WEIGHTS": "/home/sparclab/Desktop/Test_ESCA/python_ai/temp/saved_model",
+        "SAVE_PATH": "/home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fan"
     },
     "TRANSFER_LEARNING": {
         "ANOM_BATCH_SIZE": 128,
-        "BASED_WEIGHTS": "/home/haiminh/Desktop/D-ESCA_v2/Results/tl-training_results/Target3/saved_model/vq_vae",
+        "BASED_WEIGHTS": "/home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fan/saved_model/vq_vae",
         "BETA": 1,
-        "EPOCH": 5,
+        "EPOCH": 20,
         "LEARNING_RATE": 0.001,
-        "SAVE_PATH": "/home/haiminh/Desktop/D-ESCA_v2/Results/tl-training_results/Target2",
+        "SAVE_PATH": "/home/sparclab/Desktop/Test_ESCA/python_ai/tl_orin_fan",
         "TEST_DIR": null,
         "TFRECORDS": [
-            "/home/haiminh/Desktop/D-ESCA_v2/park_dataset_demo/mel_data"
+            "/home/sparclab/Desktop/D-ESCA_v2/park_dataset_demo/mel_orin_fan"
         ]
     }
 }

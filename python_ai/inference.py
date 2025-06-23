@@ -44,8 +44,9 @@ THRESHOLD    = data['threshold']
 
 #print(f"MIN_VAL: {MIN_VAL}, MAX_VAL: {MAX_VAL}, THRESHOLD: {THRESHOLD}")
 
-# Shared memory keys and size
-SHM_KEY, SEM_KEY, SHM_SIZE = 0x1234, 0x5678, 176400  # 2s of int16 samples
+# Shared memory keys and size computed from audio settings
+SHM_KEY, SEM_KEY = 0x1234, 0x5678
+SHM_SIZE = int(FRAME_RATE * 2 * 1 * 2) # 2 seconds of 16-bit mono audio
 
 # --- Logging Setup ---
 log_dir = config.get("REALTIME.LOG_PATH", file_path("logs"))

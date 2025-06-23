@@ -22,6 +22,9 @@ RecordingController::RecordingController(QObject *parent)
     connect(this, &RecordingController::sendChartData, m_recordingChart, &RecordingChart::onSendChartData);
 
     qInfo()<<"format in ini: "<<m_audioConfig->format();
+    
+    m_chunkSize = computeChunkSize();
+    sharedMemoryManager->setSharedMemorySize(m_chunkSize);
 
     if (!sharedMemoryManager->init_ipc()) {
         qDebug() << "Failed to initialize IPC.";
@@ -53,14 +56,22 @@ void RecordingController::startRecording()
 {
     connect(m_recordIO, &RecordIO::sendData, this, &RecordingController::handleDataReady);
     m_format = m_audioConfig->format();
-    qDebug()<< "format"<< m_format;
+    //qDebug()<< "format"<< m_format;
+        
+    m_chunkSize = computeChunkSize();
+    sharedMemoryManager->setSharedMemorySize(m_chunkSize);
 
     QAudioDeviceInfo deviceInfo = m_audioConfig->deviceInfo();
     m_outputDir = m_audioConfig->listOutput();
     qDebug()<< "m_outputDir"<< m_outputDir;
 
     //m_audioFile = new AudioFile(m_outputDir, m_format, 2.0);
-    m_audioFile = std::make_unique<AudioFile>(m_outputDir, m_format, 2.0);
+        QString durStr = m_audioConfig->duration();
+    bool ok = false;
+    double durationSec = durStr.remove('s').toDouble(&ok);
+    if (!ok || durationSec <= 0)
+        durationSec = 2.0;
+    m_audioFile = std::make_unique<AudioFile>(m_outputDir, m_format, durationSec);
 
     // Đảm bảo thread chưa chạy thì start lại
     if (!m_audioFileThread) {
@@ -72,7 +83,7 @@ void RecordingController::startRecording()
     }
 
     m_recordIO->startAudioInput(m_format, deviceInfo);
-    qInfo() << "format before thread" << m_format;
+    //qInfo() << "format before thread" << m_format;
 
     m_audioFile->moveToThread(m_audioFileThread.get()); // cho AudioFile vào thread riêng
 
@@ -85,7 +96,7 @@ void RecordingController::startRecording()
     m_audioFileThread->start();
 
     setRecStatus(true);
-    qInfo() << "Start recording with format" << m_format;
+   // qInfo() << "Start recording with format" << m_format;
 
     // qDebug() << "Producer Record is running.";
 }
@@ -114,9 +125,13 @@ void RecordingController::startSharedMemory(){
     connect(m_recordIO, &RecordIO::sendData, this, &RecordingController::handleSharedMemory);
 
     QAudioDeviceInfo deviceInfo = m_audioConfig->deviceInfo();
+    
+    m_chunkSize = computeChunkSize();
+    sharedMemoryManager->setSharedMemorySize(m_chunkSize);
+    
     sharedMemoryManager->start();
     m_recordIO->startAudioInput(m_format, deviceInfo);
-    qInfo() << "format before shm" << m_format;
+    //qInfo() << "format before shm" << m_format;
 }
 
 void RecordingController::stopSharedMemory()
@@ -139,9 +154,9 @@ void RecordingController::handleDataReady(const QByteArray &data)
     // qDebug() << "handleDataReady() at" << QDateTime::currentDateTime().toString("hh:mm:ss.zzz")
     //          << "buffer size:" << activeBuffer.size();
 
-    if (activeBuffer.size() >= 176400) {
-        QByteArray dataToSend = activeBuffer.left(176400);
-        activeBuffer.remove(0, 176400);
+    if (activeBuffer.size() >= static_cast<int>(m_chunkSize)) {
+        QByteArray dataToSend = activeBuffer.left(m_chunkSize);
+        activeBuffer.remove(0, m_chunkSize);
 
         // Swap buffer
         m_usingBuffer1 = !m_usingBuffer1;
@@ -181,10 +196,10 @@ void RecordingController::handleSharedMemory(const QByteArray &data) {
 
     activeBuffer.append(data);
 
-    if (activeBuffer.size() >= 176400) {
-        QByteArray dataToSend = activeBuffer.left(176400);
-        activeBuffer.remove(0, 176400);
-        qDebug() << "Real-time SharedMemory - First 10 bytes: " << dataToSend.mid(0, 30);
+    if (activeBuffer.size() >= static_cast<int>(m_chunkSize)) {
+        QByteArray dataToSend = activeBuffer.left(m_chunkSize);
+        activeBuffer.remove(0, m_chunkSize);
+        //qDebug() << "Real-time SharedMemory - First 10 bytes: " << dataToSend.mid(0, 30);
         m_usingBuffer1 = !m_usingBuffer1;
         sharedMemoryManager->getAudioData(dataToSend);
     }
@@ -201,4 +216,18 @@ void RecordingController::setRecStatus(bool newRecStatus)
         return;
     m_recStatus = newRecStatus;
     emit recStatusChanged();
+}
+
+
+size_t RecordingController::computeChunkSize() const
+{
+    QAudioFormat fmt = m_audioConfig->format();
+    QString durStr = m_audioConfig->duration();
+    bool ok = false;
+    double durationSec = durStr.remove('s').toDouble(&ok);
+    if (!ok || durationSec <= 0)
+        durationSec = 2.0;
+
+    size_t bytesPerSample = static_cast<size_t>(fmt.sampleSize() / 8);
+    return static_cast<size_t>(fmt.sampleRate() * bytesPerSample * fmt.channelCount() * durationSec);
 }
