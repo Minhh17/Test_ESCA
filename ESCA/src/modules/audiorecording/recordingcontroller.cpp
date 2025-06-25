@@ -160,10 +160,6 @@ void RecordingController::handleDataReady(const QByteArray &data)
     // static QDateTime lastSwapTime = QDateTime::currentDateTime();
     QByteArray &activeBuffer = m_usingBuffer1 ? audioBuffer1 : audioBuffer2;
 
-    if (activeBuffer.isEmpty()) {
-        LatencyTracker::chunkStarted();
-    }
-
     activeBuffer.append(data);
 
     // Log kích thước buffer và thời gian
@@ -176,7 +172,7 @@ void RecordingController::handleDataReady(const QByteArray &data)
 
         // Swap buffer
         m_usingBuffer1 = !m_usingBuffer1;
-        LatencyTracker::bufferSent();
+
         // lastSwapTime = swapStartTime;
 
         // qDebug() << "Real-time data - First 10 bytes: " << dataToSend.mid(0, 10);
@@ -188,6 +184,7 @@ void RecordingController::handleDataReady(const QByteArray &data)
 
         if (duration == "2s"){
             // Chuyển tiếp dữ liệu cho AudioFile để xử lý buffering và ghi file
+
             if (m_audioFile) {
                 QMetaObject::invokeMethod(m_audioFile.get(), "writeAudioData",
                                           Qt::QueuedConnection,
@@ -214,10 +211,12 @@ void RecordingController::handleSharedMemory(const QByteArray &data) {
     activeBuffer.append(data);
 
     if (activeBuffer.size() >= static_cast<int>(m_chunkSize)) {
+        LatencyTracker::chunkStarted();
         QByteArray dataToSend = activeBuffer.left(m_chunkSize);
         activeBuffer.remove(0, m_chunkSize);
         //qDebug() << "Real-time SharedMemory - First 10 bytes: " << dataToSend.mid(0, 30);
         m_usingBuffer1 = !m_usingBuffer1;
+        LatencyTracker::bufferSent();
         sharedMemoryManager->getAudioData(dataToSend);
     }
 }

@@ -1,5 +1,6 @@
 #include "aicontroller.h"
 #include "processmanager.h"
+#include "latencytracker.h"
 #include <QDebug>
 
 AIController::AIController(InferenceEngine *engine, QObject *parent)
@@ -21,6 +22,7 @@ AIController::~AIController()
 void AIController::start()
 {
     qDebug()<<"In AIController::start";
+    LatencyTracker::reset();
     //processManager->startPythonService();
     if (m_engine)
         m_engine->start();
@@ -33,6 +35,7 @@ void AIController::stop()
     if (m_engine)
         m_engine->stop();
     setinferenceStatus(false);
+    LatencyTracker::writeSummary();
 }
 
 void AIController::handleInferenceResult(const float predValue)
