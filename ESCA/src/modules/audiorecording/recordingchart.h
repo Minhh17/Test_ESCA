@@ -10,7 +10,7 @@
 class CircuitBuffer {
 
 public:
-    explicit CircuitBuffer();
+    explicit CircuitBuffer(size_t size = 88200);
 
     void add(float value);
     std::vector<float> getBuffer() const;
@@ -31,7 +31,7 @@ class RecordingChart : public QObject
     Q_PROPERTY(QVariant audioSeries READ audioSeries WRITE setAudioSeries NOTIFY audioSeriesChanged FINAL)
 
 public:
-    explicit RecordingChart(QObject *parent = nullptr);
+    explicit RecordingChart(size_t bufferSize = 88200, QObject *parent = nullptr);
     ~RecordingChart();
     
     QVariant audioSeries() const;

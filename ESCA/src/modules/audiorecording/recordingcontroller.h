@@ -61,6 +61,7 @@ private:
     bool m_usingBuffer1;
 
     size_t m_chunkSize = 0;
+    int m_durationSec = 2;
     
     bool m_recStatus;
 };

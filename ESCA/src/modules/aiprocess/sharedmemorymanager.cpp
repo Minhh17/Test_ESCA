@@ -1,4 +1,5 @@
 #include "sharedmemorymanager.h"
+#include "latencytracker.h"
 #include <QDebug>
 #include <QElapsedTimer>
 #include <QDateTime>
@@ -112,13 +113,13 @@ void SharedMemoryManager::run() {
         if (!running) break;
 
         // Khóa semaphore
-        qDebug() << "Locking semaphore";
+        //qDebug() << "Locking semaphore";
         if (semop(sem_id, &sem_lock, 1) == -1) {
             if (errno == EINTR) continue;
             qCritical() << "semop lock failed:" << strerror(errno);
             break;
         }
-        qDebug() << "Semaphore locked";
+        //qDebug() << "Semaphore locked";
 
         if (!attachSharedMemory(shm_ptr)) {
             qWarning() << "Could not attach to shared memory";
@@ -140,7 +141,8 @@ void SharedMemoryManager::run() {
             qCritical() << "semop unlock failed:" << strerror(errno);
             break;
         }
-        qDebug() << "Semaphore unlocked";
+        //qDebug() << "Semaphore unlocked";
+        LatencyTracker::shmWritten();
         qDebug() << QDateTime::currentDateTime().toString("hh:mm:ss.zzz") << "Shared memory updated";
 
     }

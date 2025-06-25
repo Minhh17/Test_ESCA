@@ -119,12 +119,25 @@ def preprocess_audio(audio: np.ndarray) -> np.ndarray:
 
 # --- Prediction & Reporting ---
 def predict_and_report(audio: np.ndarray):
+    process_start = time.perf_counter()
+    logger.info("Chunk start: %.6f", process_start)
+    t0 = time.perf_counter()
+
     inp = preprocess_audio(audio)
+
+    gfcc_ms = (time.perf_counter() - t0) * 1e3
+    print(f"METRIC gfcc_ms {gfcc_ms:.3f}", flush=True)
+
     start = time.perf_counter()
     pred = run_model(inp)
-    duration = (time.perf_counter() - start) * 1e3
+
+    infer_ms = (time.perf_counter() - start) * 1e3
+    print(f"METRIC infer_ms {infer_ms:.3f}", flush=True)
+
     mse = float(np.mean((inp - pred) ** 2))
-    logger.info("Inference time: %.2f ms, MSE: %.6f", duration, mse)
+    logger.info("Inference time: %.6f ms, MSE: %.6f", infer_ms, mse)
+    logger.info("Chunk end: %.6f", time.perf_counter())
+
 
     if mse > MANUAL_THRESHOLD:
         print("Anomaly detected!!", flush=True)
@@ -179,9 +192,12 @@ def process_realtime():
         last_read_time = cycle_start  # Cập nhật thời điểm đọc mới nhất
 
         try:
+            t0 = time.perf_counter()    
             semaphore.acquire()
             raw_data = bytearray(shm.read(SHM_SIZE))
             semaphore.release()
+            read_ms = (time.perf_counter() - t0) * 1e3
+            print(f"METRIC read_ms {read_ms:.3f}", flush=True)
         except sysv_ipc.BusyError:
             print("Semaphore is busy. Skipping this cycle.")
             continue

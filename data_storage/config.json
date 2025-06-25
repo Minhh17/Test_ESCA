@@ -19,7 +19,7 @@
     },
     "DEVICE": {
         "JETSON": false,
-        "USE_TENSORRT": true
+        "USE_TENSORRT": false
     },
     "MODEL": {
         "TYPE": "vq_vae"
@@ -49,7 +49,7 @@
     "REALTIME": {
         "CHANNELS": 1,
         "FOLDER_PATH": "/home/haiminh/Desktop/Data_Predictive_Maintainance/abnormal/newAngle",
-        "IMPORT_FILE": true,
+        "IMPORT_FILE": false,
         "LOG_PATH": "/home/haiminh/Desktop/minh/ESCA_Qt/python_ai/rt_result",
         "MANUAL_THRESHOLD": 0.04,
         "MAX": 51.67738342285156,
@@ -68,7 +68,7 @@
         "DATASET_PATH": "./dataset_mic_laptop_16k",
         "DEVICE": 0,
         "DEVICENAME": "default",
-        "DURATION": 0,
+        "DURATION": 1,
         "ENDIAN": 0,
         "SAMPLERATE": 3,
         "SAMPLESIZE": 1
