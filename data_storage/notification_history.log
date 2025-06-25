@@ -8,3 +8,1213 @@
 2025-06-23T07:29:31 [success] (Priority: 1): Record-Config completed successfully.
 2025-06-23T07:32:39 [success] (Priority: 1): Record-Config completed successfully.
 2025-06-23T10:27:35 [success] (Priority: 1): Record-Config completed successfully.
+2025-06-23T12:27:06 [warning] (Priority: 1): Level1 alert: USE_TENSORRT (score 0.00)
+2025-06-23T12:27:11 [info] (Priority: 1): Alert confirmed: TensorRT init failed, using plain model
+2025-06-23T12:27:28 [warning] (Priority: 1): Level1 alert: Average MSE: 0.209763, Average inference time: 0.486443 ms (score 0.00)
+2025-06-23T12:27:32 [error] (Priority: 2): Escalating alert: Average MSE: 0.209763, Average inference time: 0.486443 ms
+2025-06-23T12:27:32 [error] (Priority: 2): Average MSE: 0.209763, Average inference time: 0.486443 ms (Escalated)
+2025-06-23T12:28:03 [warning] (Priority: 1): Level1 alert: USE_TENSORRT (score 0.00)
+2025-06-23T12:28:03 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:28:03 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:28:04 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:28:04 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:28:04 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:28:05 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:28:06 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:28:06 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:28:06 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:28:07 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:28:07 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:28:07 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:28:07 [info] (Priority: 1): Alert confirmed: Anomaly detected!!
+2025-06-23T12:28:08 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:28:08 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:28:08 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:28:09 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:28:09 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:28:09 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:28:10 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:28:11 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:28:11 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:28:11 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:28:12 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:28:12 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:28:12 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:28:13 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:28:13 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:28:13 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:28:14 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:28:14 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:28:15 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:28:15 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:28:15 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:28:16 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:28:20 [error] (Priority: 2): Escalating alert: Average MSE: 0.274216, Average inference time: 0.480347 ms
+2025-06-23T12:28:20 [error] (Priority: 2): Average MSE: 0.274216, Average inference time: 0.480347 ms (Escalated)
+2025-06-23T12:28:57 [warning] (Priority: 1): Level1 alert: USE_TENSORRT (score 0.00)
+2025-06-23T12:29:02 [error] (Priority: 2): Escalating alert: TensorRT init failed, using plain model
+2025-06-23T12:29:02 [error] (Priority: 2): TensorRT init failed, using plain model (Escalated)
+2025-06-23T12:29:18 [warning] (Priority: 1): Level1 alert: Average MSE: 0.222179, Average inference time: 0.431586 ms (score 0.00)
+2025-06-23T12:29:21 [info] (Priority: 1): Alert confirmed: Average MSE: 0.222179, Average inference time: 0.431586 ms
+2025-06-23T12:29:46 [warning] (Priority: 1): Level1 alert: USE_TENSORRT (score 0.00)
+2025-06-23T12:29:50 [error] (Priority: 2): Escalating alert: TensorRT init failed, using plain model
+2025-06-23T12:29:50 [error] (Priority: 2): TensorRT init failed, using plain model (Escalated)
+2025-06-23T12:29:52 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:29:56 [info] (Priority: 1): Alert confirmed: Anomaly detected!!
+2025-06-23T12:30:07 [warning] (Priority: 1): Level1 alert: Average MSE: 0.243143, Average inference time: 0.420075 ms (score 0.00)
+2025-06-23T12:30:12 [error] (Priority: 2): Escalating alert: Average MSE: 0.243143, Average inference time: 0.420075 ms
+2025-06-23T12:30:12 [error] (Priority: 2): Average MSE: 0.243143, Average inference time: 0.420075 ms (Escalated)
+2025-06-23T12:30:49 [success] (Priority: 1): Transfer Learning Params saved.
+2025-06-23T12:32:57 [success] (Priority: 1): Transfer Dataset saved
+2025-06-23T12:33:13 [success] (Priority: 1): Transfer Dataset saved
+2025-06-23T12:33:23 [success] (Priority: 1): Transfer Dataset saved
+2025-06-23T12:35:07 [info] (Priority: 1): Transfer Learning training completed.
+2025-06-23T12:36:02 [warning] (Priority: 1): Level1 alert: USE_TENSORRT (score 0.00)
+2025-06-23T12:36:05 [info] (Priority: 1): Alert confirmed: TensorRT init failed, using plain model
+2025-06-23T12:36:23 [warning] (Priority: 1): Level1 alert: Average MSE: 0.000086, Average inference time: 0.511919 ms (score 0.00)
+2025-06-23T12:36:27 [info] (Priority: 1): Alert confirmed: Average MSE: 0.000086, Average inference time: 0.511919 ms
+2025-06-23T12:36:52 [warning] (Priority: 1): Level1 alert: USE_TENSORRT (score 0.00)
+2025-06-23T12:36:55 [info] (Priority: 1): Alert confirmed: TensorRT init failed, using plain model
+2025-06-23T12:37:36 [warning] (Priority: 1): Level1 alert: USE_TENSORRT (score 0.00)
+2025-06-23T12:37:37 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:37:37 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:37:37 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:37:38 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:37:38 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:37:38 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:37:39 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:37:39 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:37:40 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:37:40 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:37:40 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:37:41 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:37:41 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:37:41 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:37:42 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:37:43 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:37:43 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:37:43 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:37:44 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:37:44 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:37:44 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:37:45 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:37:45 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:37:45 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:37:46 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:37:46 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:37:46 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:37:47 [info] (Priority: 1): Alert confirmed: Anomaly detected!!
+2025-06-23T12:37:47 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:37:48 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:37:48 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:37:48 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:37:48 [info] (Priority: 1): Alert confirmed: Anomaly detected!!
+2025-06-23T12:37:48 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:37:49 [info] (Priority: 1): Alert confirmed: Anomaly detected!!
+2025-06-23T12:37:49 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:37:49 [info] (Priority: 1): Alert confirmed: Average MSE: 0.274216, Average inference time: 0.469649 ms
+2025-06-23T12:48:18 [warning] (Priority: 1): Level1 alert: USE_TENSORRT (score 0.00)
+2025-06-23T12:48:19 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:48:19 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:48:19 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:48:20 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:48:20 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:48:20 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:48:21 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:48:21 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:48:22 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:48:22 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:48:22 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:48:23 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:48:24 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:48:24 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:48:24 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:48:25 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:48:25 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:48:25 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:48:26 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:48:26 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:48:26 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:48:27 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:48:27 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:48:28 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:48:28 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:48:28 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:48:29 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:48:29 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:48:29 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:48:30 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:48:31 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:48:31 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:48:31 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:48:31 [error] (Priority: 2): Escalating alert: Average MSE: 0.274216, Average inference time: 0.522654 ms
+2025-06-23T12:48:31 [error] (Priority: 2): Average MSE: 0.274216, Average inference time: 0.522654 ms (Escalated)
+2025-06-23T12:49:13 [warning] (Priority: 1): Level1 alert: USE_TENSORRT (score 0.00)
+2025-06-23T12:49:16 [info] (Priority: 1): Alert confirmed: TensorRT init failed, using plain model
+2025-06-23T12:50:03 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:50:08 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:50:08 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:50:18 [warning] (Priority: 1): Level1 alert: Average MSE: 0.225028, Average inference time: 0.384807 ms (score 0.00)
+2025-06-23T12:50:23 [error] (Priority: 2): Escalating alert: Average MSE: 0.225028, Average inference time: 0.384807 ms
+2025-06-23T12:50:23 [error] (Priority: 2): Average MSE: 0.225028, Average inference time: 0.384807 ms (Escalated)
+2025-06-23T12:52:43 [warning] (Priority: 1): Level1 alert: USE_TENSORRT (score 0.00)
+2025-06-23T12:52:43 [error] (Priority: 2): Escalating alert: Shared memory connected.
+2025-06-23T12:52:43 [error] (Priority: 2): Shared memory connected. (Escalated)
+2025-06-23T12:52:43 [warning] (Priority: 1): Level1 alert: Semaphore connected. (score 0.00)
+2025-06-23T12:52:48 [error] (Priority: 2): Escalating alert: Semaphore connected.
+2025-06-23T12:52:48 [error] (Priority: 2): Semaphore connected. (Escalated)
+2025-06-23T12:53:20 [warning] (Priority: 1): Level1 alert: USE_TENSORRT (score 0.00)
+2025-06-23T12:53:20 [error] (Priority: 2): Escalating alert: Shared memory connected.
+2025-06-23T12:53:20 [error] (Priority: 2): Shared memory connected. (Escalated)
+2025-06-23T12:53:20 [warning] (Priority: 1): Level1 alert: Semaphore connected. (score 0.00)
+2025-06-23T12:53:24 [error] (Priority: 2): Escalating alert: Semaphore connected.
+2025-06-23T12:53:24 [error] (Priority: 2): Semaphore connected. (Escalated)
+2025-06-23T12:54:02 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:54:04 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:54:04 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:54:04 [warning] (Priority: 1): Level1 alert: Anomaly detected! (score 0.00)
+2025-06-23T12:54:04 [info] (Priority: 1): Alert confirmed: Anomaly detected!
+2025-06-23T12:54:12 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:54:17 [error] (Priority: 2): Escalating alert: Anomaly detected!
+2025-06-23T12:54:17 [error] (Priority: 2): Anomaly detected! (Escalated)
+2025-06-23T12:54:48 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:54:52 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:54:52 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:54:52 [warning] (Priority: 1): Level1 alert: Anomaly detected! (score 0.00)
+2025-06-23T12:54:54 [error] (Priority: 2): Escalating alert: Anomaly detected!
+2025-06-23T12:54:54 [error] (Priority: 2): Anomaly detected! (Escalated)
+2025-06-23T12:54:56 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:54:58 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:54:58 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:54:58 [warning] (Priority: 1): Level1 alert: Anomaly detected! (score 0.00)
+2025-06-23T12:55:03 [error] (Priority: 2): Escalating alert: Anomaly detected!
+2025-06-23T12:55:03 [error] (Priority: 2): Anomaly detected! (Escalated)
+2025-06-23T12:55:26 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:55:27 [info] (Priority: 1): Alert confirmed: Anomaly detected!
+2025-06-23T12:55:48 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:55:50 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-23T12:55:50 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-23T12:55:50 [warning] (Priority: 1): Level1 alert: Anomaly detected! (score 0.00)
+2025-06-23T12:55:54 [info] (Priority: 1): Alert confirmed: Anomaly detected!
+2025-06-23T12:57:08 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-23T12:57:13 [error] (Priority: 2): Escalating alert: Anomaly detected!
+2025-06-23T12:57:13 [error] (Priority: 2): Anomaly detected! (Escalated)
+2025-06-23T12:58:08 [warning] (Priority: 1): Level1 alert: USE_TENSORRT (score 0.00)
+2025-06-23T12:58:08 [error] (Priority: 2): Escalating alert: Shared memory connected.
+2025-06-23T12:58:08 [error] (Priority: 2): Shared memory connected. (Escalated)
+2025-06-23T12:58:08 [warning] (Priority: 1): Level1 alert: Semaphore connected. (score 0.00)
+2025-06-23T12:58:11 [info] (Priority: 1): Alert confirmed: Semaphore connected.
+2025-06-23T12:58:42 [warning] (Priority: 1): Level1 alert: USE_TENSORRT (score 0.00)
+2025-06-23T12:58:42 [error] (Priority: 2): Escalating alert: Shared memory connected.
+2025-06-23T12:58:42 [error] (Priority: 2): Shared memory connected. (Escalated)
+2025-06-23T12:58:42 [warning] (Priority: 1): Level1 alert: Semaphore connected. (score 0.00)
+2025-06-23T12:58:45 [info] (Priority: 1): Alert confirmed: Semaphore connected.
+2025-06-23T13:49:16 [warning] (Priority: 1): Level1 alert: USE_TENSORRT (score 0.00)
+2025-06-23T13:49:16 [error] (Priority: 2): Escalating alert: Shared memory connected.
+2025-06-23T13:49:16 [error] (Priority: 2): Shared memory connected. (Escalated)
+2025-06-23T13:49:16 [warning] (Priority: 1): Level1 alert: Semaphore connected. (score 0.00)
+2025-06-23T13:49:21 [error] (Priority: 2): Escalating alert: Semaphore connected.
+2025-06-23T13:49:21 [error] (Priority: 2): Semaphore connected. (Escalated)
+2025-06-24T11:03:40 [warning] (Priority: 1): Level1 alert: USE_TENSORRT (score 0.00)
+2025-06-24T11:03:40 [error] (Priority: 2): Escalating alert: Shared memory connected.
+2025-06-24T11:03:40 [error] (Priority: 2): Shared memory connected. (Escalated)
+2025-06-24T11:03:40 [warning] (Priority: 1): Level1 alert: Semaphore connected. (score 0.00)
+2025-06-24T11:03:45 [error] (Priority: 2): Escalating alert: Semaphore connected.
+2025-06-24T11:03:45 [error] (Priority: 2): Semaphore connected. (Escalated)
+2025-06-24T11:05:38 [success] (Priority: 1): Record-Config completed successfully.
+2025-06-24T11:06:24 [warning] (Priority: 1): Level1 alert: USE_TENSORRT (score 0.00)
+2025-06-24T11:06:25 [error] (Priority: 2): Escalating alert: Shared memory connected.
+2025-06-24T11:06:25 [error] (Priority: 2): Shared memory connected. (Escalated)
+2025-06-24T11:06:25 [warning] (Priority: 1): Level1 alert: Semaphore connected. (score 0.00)
+2025-06-24T11:06:30 [error] (Priority: 2): Escalating alert: Semaphore connected.
+2025-06-24T11:06:30 [error] (Priority: 2): Semaphore connected. (Escalated)
+2025-06-24T11:07:55 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:07:57 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:07:57 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:07:57 [warning] (Priority: 1): Level1 alert: Anomaly detected! (score 0.00)
+2025-06-24T11:07:59 [error] (Priority: 2): Escalating alert: Anomaly detected!
+2025-06-24T11:07:59 [error] (Priority: 2): Anomaly detected! (Escalated)
+2025-06-24T11:08:01 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:08:03 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:08:03 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:08:03 [warning] (Priority: 1): Level1 alert: Anomaly detected! (score 0.00)
+2025-06-24T11:08:05 [error] (Priority: 2): Escalating alert: Anomaly detected!
+2025-06-24T11:08:05 [error] (Priority: 2): Anomaly detected! (Escalated)
+2025-06-24T11:08:09 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:08:11 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:08:11 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:08:11 [warning] (Priority: 1): Level1 alert: Anomaly detected! (score 0.00)
+2025-06-24T11:08:13 [error] (Priority: 2): Escalating alert: Anomaly detected!
+2025-06-24T11:08:13 [error] (Priority: 2): Anomaly detected! (Escalated)
+2025-06-24T11:08:15 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:08:17 [info] (Priority: 1): Alert confirmed: Anomaly detected!
+2025-06-24T11:09:30 [warning] (Priority: 1): Level1 alert: USE_TENSORRT (score 0.00)
+2025-06-24T11:09:30 [error] (Priority: 2): Escalating alert: Shared memory connected.
+2025-06-24T11:09:30 [error] (Priority: 2): Shared memory connected. (Escalated)
+2025-06-24T11:09:30 [warning] (Priority: 1): Level1 alert: Semaphore connected. (score 0.00)
+2025-06-24T11:09:35 [error] (Priority: 2): Escalating alert: Semaphore connected.
+2025-06-24T11:09:35 [error] (Priority: 2): Semaphore connected. (Escalated)
+2025-06-24T11:10:10 [warning] (Priority: 1): Level1 alert: USE_TENSORRT (score 0.00)
+2025-06-24T11:10:10 [error] (Priority: 2): Escalating alert: Shared memory connected.
+2025-06-24T11:10:10 [error] (Priority: 2): Shared memory connected. (Escalated)
+2025-06-24T11:10:10 [warning] (Priority: 1): Level1 alert: Semaphore connected. (score 0.00)
+2025-06-24T11:10:13 [info] (Priority: 1): Alert confirmed: Semaphore connected.
+2025-06-24T11:43:35 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:35 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:35 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:36 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:36 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:36 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:36 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:37 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:37 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:37 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:37 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:37 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:38 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:38 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:38 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:38 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:39 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:39 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:39 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:39 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:39 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:39 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:40 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:40 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:40 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:40 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:40 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:41 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:41 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:41 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:41 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:42 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:42 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:42 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:42 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:42 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:42 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:43 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:43 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:43 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:44 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:44 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:44 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:44 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:44 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:44 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:45 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:45 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:45 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:45 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:45 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:46 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:46 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:46 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:46 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:47 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:47 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:47 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:47 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:47 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:48 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:48 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:48 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:48 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:49 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:49 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:49 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:49 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:49 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:49 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:50 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:50 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:50 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:50 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:50 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:51 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:51 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:51 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:51 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:52 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:52 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:52 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:52 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:52 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:52 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:53 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:53 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:53 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:54 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:54 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:54 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:54 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:54 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:54 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:55 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:55 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:55 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:55 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:55 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:56 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:56 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:56 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:56 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:57 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:57 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:57 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:57 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:57 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:57 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:58 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:58 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:58 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:58 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:58 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:59 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:43:59 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:43:59 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:43:59 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:00 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:00 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:00 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:00 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:00 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:01 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:01 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:01 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:01 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:02 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:02 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:02 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:02 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:02 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:02 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:03 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:03 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:03 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:03 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:03 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:04 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:04 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:04 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:04 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:05 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:05 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:05 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:05 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:05 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:05 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:06 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:06 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:06 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:06 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:06 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:07 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:07 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:07 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:07 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:08 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:08 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:08 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:08 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:08 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:09 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:09 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:09 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:09 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:10 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:10 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:10 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:10 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:10 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:10 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:11 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:11 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:11 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:11 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:11 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:12 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:12 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:12 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:12 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:13 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:13 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:13 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:13 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:13 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:14 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:14 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:14 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:14 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:15 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:15 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:15 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:15 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:15 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:15 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:16 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:16 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:16 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:16 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:16 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:17 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:17 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:17 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:17 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:18 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:18 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:18 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:18 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:18 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:19 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:19 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:19 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:19 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:20 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:20 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:20 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:20 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:20 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:20 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:21 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:21 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:21 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:21 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:21 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:22 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:22 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:22 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:22 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:23 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:23 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:23 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:24 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:24 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:24 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:24 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:24 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:24 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:25 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:25 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:26 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:26 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:26 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:26 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:26 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:26 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:26 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:27 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:27 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:27 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:27 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:27 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:28 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:28 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:28 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:28 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:29 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:29 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:29 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:29 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:29 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:30 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:30 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:30 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:30 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:31 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:31 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:31 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:31 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:31 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:31 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:32 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:32 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:32 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:32 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:32 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:33 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:33 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:33 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:33 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:34 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:34 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:34 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:35 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:35 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:35 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:35 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:35 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:36 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:36 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:36 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:36 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:37 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:37 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:37 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:37 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:37 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:38 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:38 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:38 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:38 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:39 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:39 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:39 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:39 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:39 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:40 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:40 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:40 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:40 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:41 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:41 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:41 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:41 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:41 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:42 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:42 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:42 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:42 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:43 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:43 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:43 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:43 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:43 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:43 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:44 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:44 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:44 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:44 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:44 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:45 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:45 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:45 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:45 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:46 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:46 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:46 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:46 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:46 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:47 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:47 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:47 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:47 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:48 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:48 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:48 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:48 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:48 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:48 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:49 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:49 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:49 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:50 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:50 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:50 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:50 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:50 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:50 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:51 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:51 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:51 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:51 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:51 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:52 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:52 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:52 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:52 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:53 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:53 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:53 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:53 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:53 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:53 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:54 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:54 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:54 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:54 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:54 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:55 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:55 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:55 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:55 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:56 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:56 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:56 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:56 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:56 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:57 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:57 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:57 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:57 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:58 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:58 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:58 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:58 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:58 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:58 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:44:59 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:44:59 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:44:59 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:00 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:00 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:00 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:00 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:00 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:00 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:01 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:01 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:01 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:01 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:01 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:02 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:02 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:02 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:02 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:03 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:03 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:03 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:03 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:03 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:03 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:04 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:04 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:04 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:04 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:04 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:05 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:05 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:05 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:05 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:06 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:06 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:06 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:06 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:06 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:07 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:07 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:07 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:07 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:08 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:08 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:08 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:09 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:09 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:09 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:09 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:09 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:10 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:10 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:10 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:10 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:11 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:11 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:11 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:12 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:12 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:12 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:12 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:12 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:12 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:13 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:13 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:13 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:14 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:14 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:14 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:14 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:14 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:15 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:15 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:15 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:15 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:16 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:16 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:16 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:16 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:16 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:16 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:17 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:17 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:17 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:18 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:18 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:18 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:18 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:18 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:18 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:19 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:19 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:19 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:19 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:19 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:20 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:20 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:20 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:20 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:21 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:45:21 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:45:21 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:45:21 [error] (Priority: 2): Escalating alert: Average MSE: 0.131807, Average inference time: 0.228635 ms
+2025-06-24T11:45:21 [error] (Priority: 2): Average MSE: 0.131807, Average inference time: 0.228635 ms (Escalated)
+2025-06-24T11:46:47 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:46:47 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:46:47 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:46:47 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:46:48 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:46:48 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:46:48 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:46:48 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:46:48 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:46:49 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:46:49 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:46:49 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:46:49 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:46:50 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:46:50 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:46:50 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:46:50 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:46:50 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:46:50 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:46:51 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:46:51 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:46:51 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:46:52 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:46:52 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:46:52 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:46:52 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:46:52 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:46:52 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:46:53 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:46:53 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:46:53 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:46:53 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:46:53 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:46:54 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:46:54 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:46:54 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:46:54 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:46:55 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:46:55 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:46:55 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:46:55 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:46:55 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:46:55 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:46:56 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:46:56 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:46:56 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:46:56 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:46:56 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:46:57 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:46:57 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:46:57 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:46:57 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:46:58 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:46:58 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:46:58 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:46:58 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:46:58 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:46:59 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:46:59 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:46:59 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:46:59 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:00 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:00 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:00 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:00 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:00 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:00 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:01 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:01 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:01 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:01 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:01 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:02 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:02 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:02 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:02 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:03 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:03 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:03 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:03 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:03 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:03 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:04 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:04 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:04 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:05 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:05 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:05 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:05 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:05 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:05 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:06 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:06 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:06 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:06 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:06 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:07 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:07 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:07 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:07 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:08 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:08 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:08 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:08 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:08 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:08 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:09 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:09 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:09 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:09 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:09 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:10 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:10 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:10 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:10 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:11 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:11 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:11 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:11 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:11 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:12 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:12 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:12 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:12 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:13 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:13 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:13 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:13 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:13 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:13 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:14 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:14 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:14 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:14 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:14 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:15 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:15 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:15 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:15 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:16 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:16 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:16 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:16 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:16 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:17 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:17 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:17 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:17 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:18 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:18 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:18 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:18 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:18 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:18 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:19 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:19 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:19 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:19 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:19 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:20 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:20 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:20 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:20 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:21 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:21 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:21 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:21 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:21 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:22 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:22 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:22 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:22 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:23 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:23 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:23 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:23 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:23 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:23 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:24 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:24 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:24 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:25 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:25 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:25 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:25 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:25 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:25 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:26 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:26 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:26 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:26 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:26 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:27 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:27 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:27 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:27 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:28 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:28 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:28 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:28 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:28 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:28 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:29 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:29 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:29 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:29 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:29 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:30 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:30 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:30 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:30 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:31 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:31 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:31 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:31 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:31 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:32 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:32 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:32 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:32 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:33 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:33 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:33 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:33 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:33 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:33 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:34 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:34 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:34 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:34 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:34 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:35 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:35 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:35 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:35 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:36 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:36 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:36 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:36 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:36 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:37 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:37 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:37 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:37 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:38 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:38 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:38 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:38 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:38 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:38 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:39 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:39 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:39 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:39 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:39 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:40 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:40 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:40 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:40 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:41 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:41 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:41 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:41 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:41 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:42 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:42 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:42 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:42 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:43 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:43 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:43 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:43 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:43 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:43 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:44 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:44 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:44 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:44 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:44 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:45 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:45 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:45 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:45 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:46 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:46 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:46 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:46 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:46 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:47 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:47 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:47 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:47 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:48 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:48 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:48 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:48 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:48 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:48 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:49 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:49 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:49 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:49 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:49 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:50 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:50 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:50 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:50 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:51 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:51 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:51 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:51 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:51 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:51 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:52 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:52 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:52 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:53 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:53 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:53 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:53 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:53 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:53 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:54 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:54 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:54 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:54 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:54 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:55 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:55 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:55 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:55 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:56 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:56 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:56 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:56 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:56 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:57 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:57 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:57 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:57 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:58 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:58 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:58 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:58 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:58 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:58 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:59 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:59 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:47:59 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:47:59 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:47:59 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:00 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:00 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:00 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:00 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:01 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:01 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:01 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:01 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:01 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:01 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:02 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:02 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:02 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:03 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:03 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:03 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:03 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:03 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:03 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:04 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:04 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:04 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:04 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:04 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:05 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:05 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:05 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:05 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:06 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:06 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:06 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:06 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:06 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:06 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:07 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:07 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:07 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:07 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:07 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:08 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:08 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:08 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:08 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:09 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:09 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:09 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:09 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:09 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:10 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:10 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:10 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:10 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:11 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:11 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:11 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:11 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:11 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:11 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:12 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:12 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:12 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:12 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:12 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:13 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:13 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:13 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:13 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:14 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:14 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:14 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:14 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:14 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:14 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:15 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:15 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:15 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:16 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:16 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:16 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:16 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:16 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:16 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:17 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:17 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:17 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:17 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:17 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:18 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:18 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:18 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:18 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:19 [info] (Priority: 1): Alert confirmed: Anomaly detected!!
+2025-06-24T11:48:19 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:20 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:20 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:20 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:20 [info] (Priority: 1): Alert confirmed: Anomaly detected!!
+2025-06-24T11:48:20 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:21 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:21 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:21 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:21 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:21 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T11:48:22 [warning] (Priority: 1): Level1 alert: Anomaly detected!! (score 0.00)
+2025-06-24T11:48:27 [error] (Priority: 2): Escalating alert: Anomaly detected!!
+2025-06-24T11:48:27 [error] (Priority: 2): Anomaly detected!! (Escalated)
+2025-06-24T12:55:08 [info] (Priority: 1): Transfer Learning training completed.

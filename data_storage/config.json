@@ -5,11 +5,11 @@
             "SHUFFLE": true
         },
         "PATH": {
-            "ANOMALY": "/home/sparclab/Desktop/Abnomaly_Audio_Dataset/fanAbnomaly",
-            "NORMAL": "/home/sparclab/Desktop/Abnomaly_Audio_Dataset/fanNormal",
+            "ANOMALY": "/home/sparclab/Desktop/Test_ESCA/data_storage/fanAbnomaly",
+            "NORMAL": "/home/sparclab/Desktop/Test_ESCA/data_storage/fanAllNormal",
             "TEST": null,
             "TFRECORDS": [
-                "/home/sparclab/Desktop/D-ESCA_v2/park_dataset_demo/mel_orin_fan"
+                "/home/sparclab/Desktop/Test_ESCA/data_storage/tfrecordFan"
             ]
         },
         "RATIO": {
@@ -19,7 +19,7 @@
     },
     "DEVICE": {
         "JETSON": true,
-        "USE_TENSORRT": true
+        "USE_TENSORRT": false
     },
     "MODEL": {
         "TYPE": "vq_vae"
@@ -29,7 +29,7 @@
     },
     "PREPROCESS": {
         "AUDIO_LEN": 2,
-        "FRAME_RATE": 44100,
+        "FRAME_RATE": 16000,
         "GAMMA": {
             "CHANNELS": 32,
             "F_MIN": 100,
@@ -48,17 +48,17 @@
     },
     "REALTIME": {
         "CHANNELS": 1,
-        "FOLDER_PATH": "/home/haiminh/Desktop/ESCA_Qt/ESCA/data",
-        "IMPORT_FILE": false,
-        "LOG_PATH": "/home/haiminh/Desktop/Anomaly_Detection/D-ESCA_v2/Results/rt_test_results",
-        "MANUAL_THRESHOLD": 0.01,
-        "MAX": 1,
-        "MIN": 0,
-        "MODEL_PATH": "/home/haiminh/Desktop/ESCA_Qt/python_ai/result",
+        "FOLDER_PATH": "/home/sparclab/Downloads/newBear/nor",
+        "IMPORT_FILE": true,
+        "LOG_PATH": "/home/sparclab/Desktop/Test_ESCA/python_ai/rt_result",
+        "MANUAL_THRESHOLD": 7.89e-05,
+        "MAX": 31.466527938842773,
+        "MIN": -16.270967483520508,
+        "MODEL_PATH": "/home/sparclab/Downloads/bear_Result",
         "SAMPLESIZE": 16,
         "SAMPLING_RATE": 44100,
         "SECOND": 2,
-        "THRESHOLD": 0,
+        "THRESHOLD": 0.01625131443142891,
         "TRT_MODEL_PATH": ""
     },
     "RECORD": {
@@ -86,10 +86,10 @@
         "BETA": 1,
         "EPOCH": 20,
         "LEARNING_RATE": 0.001,
-        "SAVE_PATH": "/home/sparclab/Desktop/Test_ESCA/python_ai/tl_orin_fan",
+        "SAVE_PATH": "/home/sparclab/Desktop/Test_ESCA/python_ai/tl_resultFan",
         "TEST_DIR": null,
         "TFRECORDS": [
-            "/home/sparclab/Desktop/D-ESCA_v2/park_dataset_demo/mel_orin_fan"
+            "/home/sparclab/Desktop/Test_ESCA/data_storage/tfrecordFanTarget"
         ]
     }
 }
