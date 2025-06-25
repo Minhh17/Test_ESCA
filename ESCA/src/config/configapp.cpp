@@ -72,19 +72,23 @@ void ConfigApp::generateConfig() {
 
     // REALTIME
     QJsonObject realtime;
-    realtime["CHANNEL"] = 1;
-    realtime["SAMPLE_RATE"]=44100;
-    realtime["SAMPLE_SIZE"]=16;
+    int rtChannel = 1;
+    int rtRate = 44100;
+    int rtSize = 16;
+    int rtSecond = 2;
+    realtime["CHANNEL"] = rtChannel;
+    realtime["SAMPLE_RATE"] = rtRate;
+    realtime["SAMPLE_SIZE"] = rtSize;
     realtime["IMPORT_FILE"]=false;
     realtime["FOLDER_PATH"]="/home/haiminh/Desktop/ESCA_Qt/ESCA/data";
     realtime["LOG_PATH"] = "/home/haiminh/Desktop/Anomaly_Detection/D-ESCA_v2/Results/rt_test_results";
     realtime["MODEL_PATH"]= "/home/haiminh/Desktop/ESCA_Qt/python_ai/result",
     realtime["MANUAL_THRESHOLD"] = 0.01;
     realtime["RUNTIME"] = 1000;
-    realtime["SECOND"] = 2;
+    realtime["SECOND"] = rtSecond;
     realtime["SHARED_MEMORY_KEY"] = "0xDEADBEEF";
     realtime["SEMAPHORE_KEY"] = "0xBEEFDEAD";
-    realtime["BUFFER_SIZE"] = 176400;
+    realtime["BUFFER_SIZE"] = rtChannel * rtRate * (rtSize / 8) * rtSecond;
     realtime["MIN"] = -23.14520263671875;
     realtime["MAX"] = 51.67738342285156;
     realtime["THRESHOLD"] = 0.002630938310176134;

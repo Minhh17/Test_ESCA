@@ -14,7 +14,7 @@
 class SharedMemoryManager : public QThread {
     Q_OBJECT
 public:
-    explicit SharedMemoryManager(QObject* parent = nullptr);
+    explicit SharedMemoryManager(size_t bufferSize, QObject* parent = nullptr);
     ~SharedMemoryManager() override;
 
     bool init_ipc();
@@ -33,8 +33,7 @@ signals:
 
 private:
     static constexpr key_t SHM_KEY = 0x1234;
-    static constexpr key_t SEM_KEY = 0x5678;
-    static constexpr size_t SHM_SIZE = 176400; // 2s @ 44100Hz, 1ch, 16bit
+    static constexpr key_t SEM_KEY = 0x5678; // 2s @ 44100Hz, 1ch, 16bit
 
     key_t shm_key;
     key_t sem_key;

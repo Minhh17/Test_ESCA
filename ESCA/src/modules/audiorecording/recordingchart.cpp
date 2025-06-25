@@ -1,7 +1,7 @@
 #include "recordingchart.h"
 #include <QDebug>
 
-CircuitBuffer::CircuitBuffer() : buffer(88200), head(0), tail(0), isFull(false) {}
+CircuitBuffer::CircuitBuffer(size_t size) : buffer(size), head(0), tail(0), isFull(false) {}
 
 void CircuitBuffer::add(float value)
 {
@@ -30,7 +30,8 @@ size_t CircuitBuffer::size() const
     return buffer.size();
 }
 
-RecordingChart::RecordingChart(QObject *parent) : QObject{parent}
+RecordingChart::RecordingChart(size_t bufferSize, QObject *parent)
+    : QObject{parent}, buffer(bufferSize)
 {
 
 }

@@ -9,6 +9,7 @@
 #include <QThread>
 #include <QMutex>
 #include <memory>
+#include <QFile>
 
 #include "../../config/config.h"
 
@@ -59,7 +60,8 @@ private:
     QByteArray audioBuffer2;
     bool m_usingBuffer1;
 
-    const size_t chunkSize = 176400;
+    size_t m_chunkSize = 0;
+    int m_durationSec = 2;
     
     bool m_recStatus;
 };
