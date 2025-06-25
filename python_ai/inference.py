@@ -42,7 +42,12 @@ THRESHOLD    = data['threshold']
 #print(f"MIN_VAL: {MIN_VAL}, MAX_VAL: {MAX_VAL}, THRESHOLD: {THRESHOLD}")
 
 # Shared memory keys and size
-SHM_KEY, SEM_KEY, SHM_SIZE = 0x1234, 0x5678, 176400  # 2s of int16 samples
+SAMPLE_RATE   = config.get("REALTIME.SAMPLING_RATE", 44100)
+CHANNELS_RT   = config.get("REALTIME.CHANNELS", 1)
+SAMPLE_SIZE   = config.get("REALTIME.SAMPLESIZE", 16)
+DURATION_SEC  = config.get("REALTIME.SECOND", 2)
+SHM_KEY, SEM_KEY = 0x1234, 0x5678
+SHM_SIZE = SAMPLE_RATE * CHANNELS_RT * (SAMPLE_SIZE // 8) * DURATION_SEC
 
 # --- Logging Setup ---
 log_dir = config.get("REALTIME.LOG_PATH", file_path("logs"))
@@ -158,8 +163,9 @@ def wait_for_shared_memory():
 
 
 def process_realtime():
-    """Xử lý Real-time: Đọc shared memory và inference mỗi 2 giây."""
-    cycle_duration = 2.0  # Đảm bảo đúng chu kỳ 2 giây
+    """Handle real-time inference using the configured buffer duration."""
+    cycle_duration = float(DURATION_SEC)
+
     last_read_time = time.time()
 
     while True:

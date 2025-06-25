@@ -1,6 +1,10 @@
 #include "recordingcontroller.h"
 #include <QDebug>
 #include <memory>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QFile>
+#include "../../common/storage/datastorage.h"
 
 RecordingController::RecordingController(QObject *parent)
     : QObject(parent)
@@ -11,7 +15,8 @@ RecordingController::RecordingController(QObject *parent)
     , m_audioFileThread(nullptr)
     , m_format(m_audioConfig->format())
     , m_recStatus(false)
-    , sharedMemoryManager(new SharedMemoryManager(this))
+    , m_chunkSize(0)
+    , sharedMemoryManager(nullptr)
 {
     qmlRegisterSingletonInstance("AudioChartImport", 1, 0, "AudioChart", m_recordingChart);
     qmlRegisterSingletonInstance("AudioConfigImport", 1, 0, "AudioConfig", m_audioConfig);
@@ -21,7 +26,21 @@ RecordingController::RecordingController(QObject *parent)
 
     connect(this, &RecordingController::sendChartData, m_recordingChart, &RecordingChart::onSendChartData);
 
-    qInfo()<<"format in ini: "<<m_audioConfig->format();
+    qInfo() << "format in ini: " << m_audioConfig->format();
+
+    QFile cfg(DataStorage::filePath("config.json"));
+    int sr = 44100, ch = 1, ss = 16, sec = 2;
+    if (cfg.open(QIODevice::ReadOnly)) {
+        QJsonDocument doc = QJsonDocument::fromJson(cfg.readAll());
+        QJsonObject rt = doc.object().value("REALTIME").toObject();
+        sr  = rt.value("SAMPLING_RATE").toInt(sr);
+        ch  = rt.value("CHANNELS").toInt(ch);
+        ss  = rt.value("SAMPLESIZE").toInt(ss);
+        sec = rt.value("SECOND").toInt(sec);
+    }
+    m_chunkSize = sr * ch * (ss / 8) * sec;
+    sharedMemoryManager = new SharedMemoryManager(m_chunkSize, this);
+
 
     if (!sharedMemoryManager->init_ipc()) {
         qDebug() << "Failed to initialize IPC.";
@@ -46,6 +65,8 @@ RecordingController::~RecordingController()
     }
     m_audioFile.reset();
     m_audioFileThread.reset();
+    delete sharedMemoryManager;
+    sharedMemoryManager = nullptr;
     qDebug() << "RecordingController destroyed.";
 }
 
@@ -125,6 +146,7 @@ void RecordingController::stopSharedMemory()
         disconnect(m_recordIO, &RecordIO::sendData, this, &RecordingController::handleSharedMemory);
     m_recordIO->audioInputStop();
     sharedMemoryManager->stop();
+    sharedMemoryManager->wait();
 }
 
 void RecordingController::handleDataReady(const QByteArray &data)
@@ -139,9 +161,9 @@ void RecordingController::handleDataReady(const QByteArray &data)
     // qDebug() << "handleDataReady() at" << QDateTime::currentDateTime().toString("hh:mm:ss.zzz")
     //          << "buffer size:" << activeBuffer.size();
 
-    if (activeBuffer.size() >= 176400) {
-        QByteArray dataToSend = activeBuffer.left(176400);
-        activeBuffer.remove(0, 176400);
+    if (activeBuffer.size() >= static_cast<int>(m_chunkSize)) {
+        QByteArray dataToSend = activeBuffer.left(m_chunkSize);
+        activeBuffer.remove(0, m_chunkSize);
 
         // Swap buffer
         m_usingBuffer1 = !m_usingBuffer1;
@@ -181,9 +203,9 @@ void RecordingController::handleSharedMemory(const QByteArray &data) {
 
     activeBuffer.append(data);
 
-    if (activeBuffer.size() >= 176400) {
-        QByteArray dataToSend = activeBuffer.left(176400);
-        activeBuffer.remove(0, 176400);
+    if (activeBuffer.size() >= static_cast<int>(m_chunkSize)) {
+        QByteArray dataToSend = activeBuffer.left(m_chunkSize);
+        activeBuffer.remove(0, m_chunkSize);
         qDebug() << "Real-time SharedMemory - First 10 bytes: " << dataToSend.mid(0, 30);
         m_usingBuffer1 = !m_usingBuffer1;
         sharedMemoryManager->getAudioData(dataToSend);

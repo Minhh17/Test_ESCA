@@ -22,8 +22,15 @@ class ConfigurationManager : public QObject
     Q_PROPERTY(bool importFile READ importFile WRITE setImportFile NOTIFY importFileChanged)
     Q_PROPERTY(QString modelPath READ modelPath WRITE setModelPath NOTIFY modelPathChanged FINAL)
     Q_PROPERTY(double threshold READ threshold WRITE setThreshold NOTIFY thresholdChanged FINAL)
+    Q_PROPERTY(double max READ max WRITE setMax NOTIFY maxChanged FINAL)
+    Q_PROPERTY(double min READ min WRITE setMin NOTIFY minChanged FINAL)
     Q_PROPERTY(QString folderPath READ folderPath WRITE setFolderPath NOTIFY folderPathChanged FINAL)
-
+    Q_PROPERTY(bool useTensorRT READ useTensorRT WRITE setUseTensorRT NOTIFY useTensorRTChanged FINAL)
+    Q_PROPERTY(QString trtModelPath READ trtModelPath WRITE setTrtModelPath NOTIFY trtModelPathChanged FINAL)
+    Q_PROPERTY(int gfccChannels READ gfccChannels WRITE setGfccChannels NOTIFY gfccChannelsChanged FINAL)
+    Q_PROPERTY(double gfccFMin READ gfccFMin WRITE setGfccFMin NOTIFY gfccFMinChanged FINAL)
+    Q_PROPERTY(double gfccWindowTime READ gfccWindowTime WRITE setGfccWindowTime NOTIFY gfccWindowTimeChanged FINAL)
+    Q_PROPERTY(double gfccHopTime READ gfccHopTime WRITE setGfccHopTime NOTIFY gfccHopTimeChanged FINAL)
 public:
     explicit ConfigurationManager(QObject *parent = nullptr);
     ~ConfigurationManager();
@@ -66,6 +73,25 @@ public:
     int sampleSize() const;
     void setSampleSize(int newSampleSize);
 
+
+    bool useTensorRT() const;
+    void setUseTensorRT(bool newUseTensorRT);
+
+    QString trtModelPath() const;
+    void setTrtModelPath(const QString &newTrtModelPath);
+
+    int gfccChannels() const;
+    void setGfccChannels(int newChannels);
+
+    double gfccFMin() const;
+    void setGfccFMin(double newFMin);
+
+    double gfccWindowTime() const;
+    void setGfccWindowTime(double newWindow);
+
+    double gfccHopTime() const;
+    void setGfccHopTime(double newHop);
+
 signals:
     void logPathChanged();
     void manualThresholdChanged();
@@ -77,10 +103,19 @@ signals:
     void modelPathChanged();
 
     void thresholdChanged();
+    void maxChanged();
+    void minChanged();
 
     void folderPathChanged();
 
     void sampleSizeChanged();
+
+    void useTensorRTChanged();
+    void trtModelPathChanged();
+    void gfccChannelsChanged();
+    void gfccFMinChanged();
+    void gfccWindowTimeChanged();
+    void gfccHopTimeChanged();
 
 private:
     QString m_logPath;
@@ -105,6 +140,13 @@ private:
     double m_max;
     double m_min;
     QString m_folderPath;
+
+    bool m_useTensorRT;
+    QString m_trtModelPath;
+    int m_gfccChannels;
+    double m_gfccFMin;
+    double m_gfccWindowTime;
+    double m_gfccHopTime;
 };
 
 #endif // CONFIGURATIONMANAGER_H

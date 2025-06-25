@@ -3,11 +3,11 @@
 #include <QElapsedTimer>
 #include <QDateTime>
 
-SharedMemoryManager::SharedMemoryManager(QObject* parent)
+SharedMemoryManager::SharedMemoryManager(size_t bufferSize, QObject* parent)
     : QThread(parent),
     shm_key(SHM_KEY),
     sem_key(SEM_KEY),
-    shm_size(SHM_SIZE),
+    shm_size(bufferSize),
     shm_id(-1),
     sem_id(-1),
     running(false) {}
@@ -166,4 +166,8 @@ void SharedMemoryManager::getAudioData(const QByteArray &data) {
 
 void SharedMemoryManager::stop() {
     running = false;
+    // Wake the thread in case it is waiting on new data so that it can exit
+    waitMutex.lock();
+    dataReady.wakeOne();
+    waitMutex.unlock();
 }

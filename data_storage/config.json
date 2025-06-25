@@ -19,7 +19,7 @@
     },
     "DEVICE": {
         "JETSON": false,
-        "USE_TENSORRT": false
+        "USE_TENSORRT": true
     },
     "MODEL": {
         "TYPE": "vq_vae"
@@ -49,7 +49,7 @@
     "REALTIME": {
         "CHANNELS": 1,
         "FOLDER_PATH": "/home/haiminh/Desktop/Data_Predictive_Maintainance/abnormal/newAngle",
-        "IMPORT_FILE": false,
+        "IMPORT_FILE": true,
         "LOG_PATH": "/home/haiminh/Desktop/minh/ESCA_Qt/python_ai/rt_result",
         "MANUAL_THRESHOLD": 0.04,
         "MAX": 51.67738342285156,

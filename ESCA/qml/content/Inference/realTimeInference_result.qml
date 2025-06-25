@@ -1,421 +1,349 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
-import Qt.labs.folderlistmodel 2.6
-import Qt.labs.platform 1.1
+import Qt.labs.platform 1.1      // File dialog trên mọi HĐH
 import QtQuick.Dialogs 1.3
 
 Rectangle {
     id: realtimeConfigWindow
     width: 1024
-    height: 500
+    height: 560
     color: "#151515"
     border.color: "#414141"
 
-    // Bố cục chính
-    ColumnLayout {
-        x: 106
-        y: 40
-        width: 812
-        height: 150
-        spacing: 15
+    // ===== Thông số giao diện dùng chung =====
+    property int fieldHeight : 32         // chiều cao các ô nhập
+    property int labelWidth  : 160        // chiều rộng cột nhãn
 
-        // Tiêu đề
-        Text {
-            text: "REALTIME Configuration"
-            font.pixelSize: 24
-            font.family: "Oxanium"
-            font.bold: true
-            color: "#FFFFFF"
-            horizontalAlignment: Text.AlignHCenter
-            Layout.alignment: Qt.AlignHCenter
-        }
+    /*--------------------------------------------------------------------
+     *  Bộ cuộn bao toàn bộ nội dung – nếu cửa sổ thấp hơn nội dung sẽ
+     *  tự cuộn.  Giả sử ứng dụng nhúng trên thiết bị có màn hình nhỏ.
+     *-------------------------------------------------------------------*/
+    Flickable {
+        anchors.fill: parent
+        contentHeight: contentColumn.implicitHeight
+        clip: true
 
-        RowLayout {
-            Layout.fillWidth: true
-            spacing: 10
+        /*----------------------------------------------------------------
+         *  Cột chính chứa lần lượt: tiêu đề, khối đường dẫn, khối tham số.
+         *----------------------------------------------------------------*/
+        ColumnLayout {
+            id: contentColumn
+            anchors.margins: 24
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: parent.width - 48  // giữ lề 24 px hai bên
+            spacing: 24
 
-            Text {
-                text: "Import Folder Path:"
-                color: "#FFFFFF"
-                Layout.alignment: Qt.AlignLeft
-                Layout.minimumWidth: 200
-                font.pointSize: 14
+            // ===== Tiêu đề =====
+            Label {
+                text: "REALTIME Configuration"
+                font.pixelSize: 26
                 font.family: "Oxanium"
+                font.bold: true
+                color: "#FFFFFF"
+                horizontalAlignment: Text.AlignHCenter
+                Layout.alignment: Qt.AlignHCenter
             }
 
-            Rectangle {
-                width: 600
-                height: 30
-                color: "#222222"
-                radius: 5
-                border.color: "#FFFFFF"
+            /*------------------------------------------------------------
+             *  KHỐI 1 – CÁC ĐƯỜNG DẪN FILE/FOLDER (chiếm toàn bộ chiều rộng)
+             *-----------------------------------------------------------*/
+            GridLayout {
+                id: pathGrid
+                columns: 3                       // nhãn – ô nhập – nút duyệt
+                columnSpacing: 12
+                rowSpacing: 12
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignHCenter
 
-                TextInput {
-                    id: folderPathInput
-                    enabled: !AIObject.inferenceStatus
-                    anchors.fill: parent
-                    anchors.margins: 5
-                    text: ConfigManager.folderPath
-                    color: "#FFFFFF"
-
-                    Connections {
-                        target: ConfigManager
-                        function onFolderPathChanged() {
-                            if (folderPathInput.text !== ConfigManager.folderPath)
-                                folderPathInput.text = ConfigManager.folderPath;
-                        }
-                    }
-
-                    onTextChanged: {
-                        if (ConfigManager.folderPath !== text) {
-                            ConfigManager.folderPath = text;
-                            ConfigManager.saveConfig();
+                /*---------------- Import Folder Path ----------------*/
+                Text {
+                    text: "Import Folder Path:";
+                    color: "#FFFFFF";
+                    Layout.preferredWidth: labelWidth;
+                    Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
+                }
+                Rectangle {
+                    Layout.fillWidth: true
+                    height: fieldHeight
+                    radius: 6
+                    color: "#222222"
+                    border.color: "#FFFFFF"
+                    TextInput {
+                        id: folderPathInput
+                        anchors.fill: parent
+                        anchors.margins: 6
+                        enabled: !AIObject.inferenceStatus
+                        text: ConfigManager.folderPath
+                        color: "#FFFFFF"
+                        wrapMode: Text.NoWrap
+                        onTextChanged: {
+                            if (ConfigManager.folderPath !== text) {
+                                ConfigManager.folderPath = text;
+                                ConfigManager.saveConfig();
+                            }
                         }
                     }
                 }
                 Rectangle {
-                    x: 566
-                    y: 3
-                    width: 25
-                    height: 25
-                    color: "#cccccc"
+                    width: fieldHeight; height: fieldHeight; radius: 4; color: "#cccccc"
+                    MouseArea { anchors.fill: parent; onClicked: fileDialogFolder.open() }
+                }
 
-                    MouseArea {
-                        id: mouseAreafolder
-                        enabled: !AIObject.inferenceStatus
+                /*---------------- Model Path ----------------*/
+                Text {
+                    text: "Model:";
+                    color: "#FFFFFF";
+                    Layout.preferredWidth: labelWidth;
+                    Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
+                }
+                Rectangle {
+                    Layout.fillWidth: true
+                    height: fieldHeight
+                    radius: 6
+                    color: "#222222"
+                    border.color: "#FFFFFF"
+                    TextInput {
+                        id: modelPathInput
                         anchors.fill: parent
-                        onClicked: {
-                            fileDialogfolder.open()
-                        }
-                    }
-                }
-                FileDialog { // Thay thế FolderDialog bằng FileDialog
-                    id: fileDialogfolder
-                    // currentFolder: StandardPaths.writableLocation(StandardPaths.PicturesLocation)
-                    title: "Choose a folder"
-                   selectFolder: true // Thêm thuộc tính để chọn thư mục
-                   selectExisting: true
-                    onAccepted: {
-                        folderPathInput.text = fileDialogfolder.fileUrl
-                    }
-                    onRejected: {
-                        console.log("Canceled")
-                    }
-                }
-            }
-        }
-        RowLayout {
-            Layout.fillWidth: true
-            spacing: 10
-
-            Text {
-                text: "Model:"
-                color: "#FFFFFF"
-                Layout.alignment: Qt.AlignLeft
-                Layout.minimumWidth: 200
-                font.pointSize: 14
-                font.family: "Oxanium"
-            }
-
-            Rectangle {
-                width: 600
-                height: 30
-                color: "#222222"
-                radius: 5
-                border.color: "#FFFFFF"
-
-                TextInput {
-                    id: modelInput
-                    enabled: !AIObject.inferenceStatus
-                    anchors.fill: parent
-                    anchors.margins: 5
-                    text: ConfigManager.modelPath
-                    color: "#FFFFFF"
-                    // Đảm bảo cập nhật khi giá trị thay đổi từ C++
-                    Connections {
-                        target: ConfigManager
-                        function onModelPathChanged() {
-                            if (modelInput.text !== ConfigManager.modelPath)
-                                modelInput.text = ConfigManager.modelPath;
-                        }
-                    }
-
-                    // Cập nhật khi người dùng nhập liệu, nhưng tránh vòng lặp
-                    onTextChanged: {
-                        if (ConfigManager.modelPath !== text) {
-                            ConfigManager.modelPath = text;
-                            ConfigManager.saveConfig();
+                        anchors.margins: 6
+                        enabled: !AIObject.inferenceStatus
+                        text: ConfigManager.modelPath
+                        color: "#FFFFFF"
+                        wrapMode: Text.NoWrap
+                        onTextChanged: {
+                            if (ConfigManager.modelPath !== text) {
+                                ConfigManager.modelPath = text;
+                                ConfigManager.saveConfig();
+                            }
                         }
                     }
                 }
                 Rectangle {
-                    x: 566
-                    y: 3
-                    width: 25
-                    height: 25
-                    color: "#cccccc"
+                    width: fieldHeight; height: fieldHeight; radius: 4; color: "#cccccc"
+                    MouseArea { anchors.fill: parent; onClicked: fileDialogModel.open() }
+                }
 
-                    MouseArea {
-                        id: mouseArea
-                        enabled: !AIObject.inferenceStatus
+                /*---------------- Log Path ----------------*/
+                Text {
+                    text: "Log Path:";
+                    color: "#FFFFFF";
+                    Layout.preferredWidth: labelWidth;
+                    Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
+                }
+                Rectangle {
+                    Layout.fillWidth: true
+                    height: fieldHeight
+                    radius: 6
+                    color: "#222222"
+                    border.color: "#FFFFFF"
+                    TextInput {
+                        id: logPathInput
                         anchors.fill: parent
-                        onClicked: {
-                            fileDialog.open()
+                        anchors.margins: 6
+                        enabled: !AIObject.inferenceStatus
+                        text: ConfigManager.logPath
+                        color: "#FFFFFF"
+                        wrapMode: Text.NoWrap
+                        onTextChanged: {
+                            if (ConfigManager.logPath !== text) {
+                                ConfigManager.logPath = text;
+                                ConfigManager.saveConfig();
+                            }
                         }
                     }
                 }
-                FileDialog { // Thay thế FolderDialog bằng FileDialog
-                    id: fileDialog
-                    // currentFolder: StandardPaths.writableLocation(StandardPaths.PicturesLocation)
-                    title: "Choose a folder"
-                   selectFolder: true // Thêm thuộc tính để chọn thư mục
-                   selectExisting: true
-                    onAccepted: {
-                        modelInput.text = fileDialog.fileUrl
-                    }
-                    onRejected: {
-                        console.log("Canceled")
-                    }
+                Rectangle {
+                    width: fieldHeight; height: fieldHeight; radius: 4; color: "#cccccc"
+                    MouseArea { anchors.fill: parent; onClicked: fileDialogLog.open() }
                 }
             }
-        }
-    }
 
-    ColumnLayout {
-        x: 152
-        y: 218
-        spacing: 15
+            /*------------------------------------------------------------
+             *  KHỐI 2 – CÁC THAM SỐ NHỎ (chia cột 4, gọn gàng)
+             *-----------------------------------------------------------*/
+            GridLayout {
+                id: paramGrid
+                columns: 4                      // nhãn – input | nhãn – input
+                columnSpacing: 12
+                rowSpacing: 12
+                //Layout.fillWidth: true
+                Layout.alignment: Qt.AlignHCenter
 
-        RowLayout {
-            Layout.fillWidth: true
-            spacing: 10
+                /*----- Hàng 1: Manual Threshold & Sample Size -----*/
+                Text { text: "Manual Threshold:"; color: "#FFFFFF" }
+                Rectangle {
+                    Layout.minimumWidth: 200;
+                    Layout.preferredWidth: 220
+                    Layout.maximumWidth: 220
+                    height: fieldHeight; radius: 6; color: "#222222"; border.color: "#FFFFFF"
+                    TextInput {
+                        id: manualThresholdInput; anchors.fill: parent; anchors.margins: 6
+                        enabled: !AIObject.inferenceStatus
+                        text: ConfigManager.manualThreshold.toString(); color: "#FFFFFF"
+                        validator: DoubleValidator { bottom: 0; top: 1 }
+                        onTextChanged: {
+                            var v = parseFloat(text); if (!isNaN(v)) { ConfigManager.manualThreshold = v; ConfigManager.saveConfig(); }
+                        }
+                    }
+                }
+                Text { text: "Sample Size (bit):"; color: "#FFFFFF" }
+                Rectangle {
+                    Layout.minimumWidth: 200;
+                    Layout.preferredWidth: 220
+                    Layout.maximumWidth: 220
+                    height: fieldHeight; radius: 6; color: "#222222"; border.color: "#FFFFFF"
+                    TextInput {
+                        id: sampleSizeInput; anchors.fill: parent; anchors.margins: 6
+                        enabled: !AIObject.inferenceStatus
+                        text: ConfigManager.sampleSize.toString(); color: "#FFFFFF"
+                        validator: IntValidator { bottom: 100; top: 10000 }
+                        onTextChanged: {
+                            var v = parseInt(text); if (!isNaN(v)) { ConfigManager.sampleSize = v; ConfigManager.saveConfig(); }
+                        }
+                    }
+                }
 
-            Text {
-                text: "Manual Threshold:"
-                color: "#FFFFFF"
-                Layout.alignment: Qt.AlignLeft
-                Layout.minimumWidth: 200
-                font.pointSize: 14
-                font.family: "Oxanium"
-            }
+                /*----- Hàng 2: Channels & Sampling Rate -----*/
+                Text { text: "Channels:"; color: "#FFFFFF" }
+                Rectangle {
+                    Layout.minimumWidth: 200;
+                    Layout.preferredWidth: 220
+                    Layout.maximumWidth: 220
+                    height: fieldHeight; radius: 6; color: "#222222"; border.color: "#FFFFFF"
+                    TextInput {
+                        id: channelsInput; anchors.fill: parent; anchors.margins: 6
+                        enabled: !AIObject.inferenceStatus
+                        text: ConfigManager.channels.toString(); color: "#FFFFFF"
+                        validator: IntValidator { bottom: 1; top: 8 }
+                        onTextChanged: {
+                            var v = parseInt(text); if (!isNaN(v)) { ConfigManager.channels = v; ConfigManager.saveConfig(); }
+                        }
+                    }
+                }
+                Text { text: "Sampling Rate:"; color: "#FFFFFF" }
+                Rectangle {
+                    Layout.minimumWidth: 200;
+                    Layout.preferredWidth: 220
+                    Layout.maximumWidth: 220
+                    height: fieldHeight; radius: 6; color: "#222222"; border.color: "#FFFFFF"
+                    TextInput {
+                        id: samplingRateInput; anchors.fill: parent; anchors.margins: 6
+                        enabled: !AIObject.inferenceStatus
+                        text: ConfigManager.samplingRate.toString(); color: "#FFFFFF"
+                        validator: IntValidator { bottom: 8000; top: 96000 }
+                        onTextChanged: {
+                            var v = parseInt(text); if (!isNaN(v)) { ConfigManager.samplingRate = v; ConfigManager.saveConfig(); }
+                        }
+                    }
+                }
 
-            Rectangle {
-                width: 100
-                height: 30
-                color: "#222222"
-                radius: 5
-                border.color: "#FFFFFF"
-
-                TextInput {
-                    id: manualThresholdInput
+                /*----- Hàng 3: Second & Import File -----*/
+                Text { text: "Second:"; color: "#FFFFFF" }
+                Rectangle {
+                    Layout.minimumWidth: 200;
+                    Layout.preferredWidth: 220
+                    Layout.maximumWidth: 220
+                    height: fieldHeight; radius: 6; color: "#222222"; border.color: "#FFFFFF"
+                    TextInput {
+                        id: secondInput; anchors.fill: parent; anchors.margins: 6
+                        enabled: !AIObject.inferenceStatus
+                        text: ConfigManager.second.toString(); color: "#FFFFFF"
+                        validator: IntValidator { bottom: 1; top: 60 }
+                        onTextChanged: {
+                            var v = parseInt(text); if (!isNaN(v)) { ConfigManager.second = v; ConfigManager.saveConfig(); }
+                        }
+                    }
+                }
+                Text { text: "Import File:"; color: "#FFFFFF" }
+                CheckBox {
+                    id: importFileCheckbox
                     enabled: !AIObject.inferenceStatus
-                    anchors.fill: parent
-                    anchors.margins: 5
-                    text: ConfigManager.manualThreshold.toString()
-                    color: "#FFFFFF"
-                    onTextChanged: {
-                        var value = parseFloat(text)
-                        if (!isNaN(value) && value >= 0 && value <= 1) {
-                            ConfigManager.manualThreshold = value
-                            ConfigManager.saveConfig()
-                        }
-                    }
+                    checked: ConfigManager.importFile
+                    onCheckedChanged: { ConfigManager.importFile = checked; ConfigManager.saveConfig(); }
                 }
-            }
-        }
 
-        RowLayout {
-            Layout.fillWidth: true
-            spacing: 10
-
-            Text {
-                text: "Sample Size (bit):"
-                color: "#FFFFFF"
-                Layout.alignment: Qt.AlignLeft
-                Layout.minimumWidth: 200
-                font.pointSize: 14
-                font.family: "Oxanium"
-            }
-
-            Rectangle {
-                width: 100
-                height: 30
-                color: "#222222"
-                radius: 5
-                border.color: "#FFFFFF"
-
-                TextInput {
-                    id: sampleSizeInput
+                /*----- Hàng 4: Use TensorRT & Threshold -----*/
+                Text { text: "Use TensorRT:"; color: "#FFFFFF" }
+                CheckBox {
+                    id: trtCheckbox
                     enabled: !AIObject.inferenceStatus
-                    anchors.fill: parent
-                    anchors.margins: 5
-                    text: ConfigManager.sampleSize.toString()
-                    color: "#FFFFFF"
-                    onTextChanged: {
-                        var value = parseInt(text)
-                        if (!isNaN(value) && value >= 100 && value <= 10000) {
-                            ConfigManager.sampleSize = value
-                            ConfigManager.saveConfig()
+                    checked: ConfigManager.useTensorRT
+                    onCheckedChanged: { ConfigManager.useTensorRT = checked; ConfigManager.saveConfig(); }
+                }
+                Text { text: "Threshold:"; color: "#FFFFFF" }
+                Label { text: ConfigManager.threshold.toFixed(6); color: "#FFFFFF" }
+
+                /*----- Hàng 5: TRT Model Path (chỉ hiện khi dùng TensorRT) -----*/
+                Text {
+                    text: "TRT Model Path:";
+                    color: "#FFFFFF";
+                    visible: trtCheckbox.checked
+                }
+                RowLayout {
+                    visible: trtCheckbox.checked
+                    Layout.columnSpan: 3
+                    Layout.fillWidth: true
+                    spacing: 8
+
+                    Rectangle {
+                        Layout.fillWidth: true
+                        height: fieldHeight
+                        radius: 6
+                        color: "#222222"
+                        border.color: "#FFFFFF"
+                        TextInput {
+                            id: trtModelPathInput
+                            anchors.fill: parent
+                            anchors.margins: 6
+                            enabled: !AIObject.inferenceStatus
+                            text: ConfigManager.trtModelPath
+                            color: "#FFFFFF"
+                            wrapMode: Text.NoWrap
+                            onTextChanged: {
+                                if (ConfigManager.trtModelPath !== text) {
+                                    ConfigManager.trtModelPath = text;
+                                    ConfigManager.saveConfig();
+                                }
+                            }
                         }
                     }
-                }
-            }
-        }
-
-        RowLayout {
-            Layout.fillWidth: true
-            spacing: 10
-
-            Text {
-                text: "Import File:"
-                color: "#FFFFFF"
-                Layout.alignment: Qt.AlignLeft
-                Layout.minimumWidth: 200
-                font.pointSize: 14
-                font.family: "Oxanium"
-            }
-
-            CheckBox {
-                id: importFileCheckbox
-                enabled: !AIObject.inferenceStatus
-                checked: ConfigManager.importFile
-                onCheckedChanged: {
-                    ConfigManager.importFile = checked
-                    ConfigManager.saveConfig()
-                }
-            }
-        }
-    }
-
-    ColumnLayout {
-        x: 519
-        y: 218
-        spacing: 15
-
-        RowLayout {
-            Layout.fillWidth: true
-            spacing: 10
-
-            Text {
-                text: "Channels:"
-                color: "#FFFFFF"
-                Layout.alignment: Qt.AlignLeft
-                Layout.minimumWidth: 200
-                font.pointSize: 14
-                font.family: "Oxanium"
-            }
-
-            Rectangle {
-                width: 100
-                height: 30
-                color: "#222222"
-                radius: 5
-                border.color: "#FFFFFF"
-
-                TextInput {
-                    id: channelsInput
-                    enabled: !AIObject.inferenceStatus
-                    anchors.fill: parent
-                    anchors.margins: 5
-                    text: ConfigManager.channels.toString()
-                    color: "#FFFFFF"
-                    onTextChanged: {
-                        var value = parseInt(text)
-                        if (!isNaN(value) && value >= 1 && value <= 8) {
-                            ConfigManager.channels = value
-                            ConfigManager.saveConfig()
-                        }
+                    Rectangle {
+                        width: fieldHeight; height: fieldHeight; radius: 4; color: "#cccccc"
+                        MouseArea { anchors.fill: parent; onClicked: fileDialogTrt.open() }
                     }
-                }
-            }
-        }
 
-        RowLayout {
-            Layout.fillWidth: true
-            spacing: 10
-
-            Text {
-                text: "Sampling Rate:"
-                color: "#FFFFFF"
-                Layout.alignment: Qt.AlignLeft
-                Layout.minimumWidth: 200
-                font.pointSize: 14
-                font.family: "Oxanium"
-            }
-
-            Rectangle {
-                width: 100
-                height: 30
-                color: "#222222"
-                radius: 5
-                border.color: "#FFFFFF"
-
-                TextInput {
-                    id: samplingRateInput
-                    enabled: !AIObject.inferenceStatus
-                    anchors.fill: parent
-                    anchors.margins: 5
-                    text: ConfigManager.samplingRate.toString()
-                    color: "#FFFFFF"
-                    onTextChanged: {
-                        var value = parseInt(text)
-                        if (!isNaN(value) && value >= 8000 && value <= 96000) {
-                            ConfigManager.samplingRate = value
-                            ConfigManager.saveConfig()
-                        }
-                    }
-                }
-            }
-        }
-
-        RowLayout {
-            Layout.fillWidth: true
-            spacing: 10
-
-            Text {
-                text: "Second:"
-                color: "#FFFFFF"
-                Layout.alignment: Qt.AlignLeft
-                Layout.minimumWidth: 200
-                font.pointSize: 14
-                font.family: "Oxanium"
-            }
-
-            Rectangle {
-                width: 100
-                height: 30
-                color: "#222222"
-                radius: 5
-                border.color: "#FFFFFF"
-
-                TextInput {
-                    id: secondInput
-                    enabled: !AIObject.inferenceStatus
-                    anchors.fill: parent
-                    anchors.margins: 5
-                    text: ConfigManager.second.toString()
-                    color: "#FFFFFF"
-                    onTextChanged: {
-                        var value = parseInt(text)
-                        if (!isNaN(value) && value >= 1 && value <= 60) {
-                            ConfigManager.second = value
-                            ConfigManager.saveConfig()
-                        }
-                    }
                 }
             }
         }
     }
 
     Button {
-        id: button
-        x: 106
-        y: 415
-        text: qsTr("Inference Screen")
+            text: qsTr("Back")
+            onClicked: screenLoader.source = "./realTimeInference_data.qml"
+    }
 
-        onClicked: {
-            screenLoader.source = "./realTimeInference_data.qml"
-        }
+    /*--------------------------------------------------------------------
+     *  FileDialog – đặt bên ngoài Flickable để tránh bị thu hồi khi cuộn
+     *-------------------------------------------------------------------*/
+    FileDialog {
+        id: fileDialogFolder
+        title: "Choose Folder"
+        onAccepted: folderPathInput.text = fileUrl
+    }
+    FileDialog {
+        id: fileDialogModel
+        title: "Choose Model File"
+        onAccepted: modelPathInput.text = fileUrl
+    }
+    FileDialog {
+        id: fileDialogLog
+        title: "Choose Log Folder"
+        onAccepted: logPathInput.text = fileUrl
+    }
+    FileDialog {
+        id: fileDialogTrt
+        title: "Choose TRT Model"
+        onAccepted: trtPathInput.text = fileDialogTrt.fileUrl
     }
 }
