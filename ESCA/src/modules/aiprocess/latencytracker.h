@@ -4,10 +4,15 @@
 #include <QQueue>
 #include <QMutex>
 #include <QtGlobal>
+#include <QFile>
+#include <QTextStream>
 
 class LatencyTracker
 {
 public:
+    static void init();
+    static void writeSummary();
+    static void reset();
     static void chunkStarted();
     static void bufferSent();
     static void shmWritten();
@@ -28,6 +33,13 @@ private:
 
     static QMutex m_mutex;
     static QQueue<ChunkMetrics> m_chunks;
+    static QFile m_logFile;
+    static qint64 m_totalRecordToSend;
+    static qint64 m_totalSendToResult;
+    static double m_totalReadMs;
+    static double m_totalGfccMs;
+    static double m_totalInferMs;
+    static qint64 m_totalLatency;
+    static int m_count;
 };
-
 #endif // LATENCYTRACKER_H

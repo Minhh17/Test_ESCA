@@ -2,7 +2,6 @@
 #include "latencytracker.h"
 #include <QDebug>
 #include <QByteArray>
-#include <QLocale>
 
 InferenceOutputParser::InferenceOutputParser(QObject *parent)
     : QObject{parent}
@@ -40,7 +39,7 @@ void InferenceOutputParser::parseLine(const QString &line)
     }
 
     bool ok = false;
-    float predValue = QLocale::c().toFloat(outputStr, &ok);
+    float predValue = outputStr.toFloat(&ok);
 
     if (ok) {
         qInfo() << "Predict Result:" << predValue;
