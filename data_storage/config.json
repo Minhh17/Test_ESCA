@@ -19,7 +19,7 @@
     },
     "DEVICE": {
         "JETSON": true,
-        "USE_TENSORRT": false
+        "USE_TENSORRT": true
     },
     "MODEL": {
         "TYPE": "vq_vae"
@@ -29,7 +29,7 @@
     },
     "PREPROCESS": {
         "AUDIO_LEN": 2,
-        "FRAME_RATE": 16000,
+        "FRAME_RATE": 44100,
         "GAMMA": {
             "CHANNELS": 32,
             "F_MIN": 100,
@@ -48,18 +48,18 @@
     },
     "REALTIME": {
         "CHANNELS": 1,
-        "FOLDER_PATH": "/home/sparclab/Downloads/newBear/nor",
+        "FOLDER_PATH": "/home/sparclab/Desktop/Test_ESCA/data_storage/fanAbnomaly",
         "IMPORT_FILE": true,
         "LOG_PATH": "/home/sparclab/Desktop/Test_ESCA/python_ai/rt_result",
-        "MANUAL_THRESHOLD": 7.89e-05,
+        "MANUAL_THRESHOLD": 0.25,
         "MAX": 31.466527938842773,
         "MIN": -16.270967483520508,
-        "MODEL_PATH": "/home/sparclab/Downloads/bear_Result",
+        "MODEL_PATH": "/home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fan",
         "SAMPLESIZE": 16,
         "SAMPLING_RATE": 44100,
         "SECOND": 2,
         "THRESHOLD": 0.01625131443142891,
-        "TRT_MODEL_PATH": ""
+        "TRT_MODEL_PATH": "/home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fan/vqvae32_fp32.engine"
     },
     "RECORD": {
         "ABNOMALY": false,
