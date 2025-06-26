@@ -1,13 +1,15 @@
 #include "sharedmemorymanager.h"
+#include "latencytracker.h"
 #include <QDebug>
 #include <QElapsedTimer>
 #include <QDateTime>
 
-SharedMemoryManager::SharedMemoryManager(QObject* parent, size_t size)
+SharedMemoryManager::SharedMemoryManager(size_t bufferSize, QObject* parent)
     : QThread(parent),
     shm_key(SHM_KEY),
     sem_key(SEM_KEY),
-    shm_size(size),
+    shm_size(bufferSize),
+
     shm_id(-1),
     sem_id(-1),
     running(false) {}
@@ -112,13 +114,13 @@ void SharedMemoryManager::run() {
         if (!running) break;
 
         // Khóa semaphore
-        qDebug() << "Locking semaphore";
+        //qDebug() << "Locking semaphore";
         if (semop(sem_id, &sem_lock, 1) == -1) {
             if (errno == EINTR) continue;
             qCritical() << "semop lock failed:" << strerror(errno);
             break;
         }
-        qDebug() << "Semaphore locked";
+        //qDebug() << "Semaphore locked";
 
         if (!attachSharedMemory(shm_ptr)) {
             qWarning() << "Could not attach to shared memory";
@@ -140,7 +142,8 @@ void SharedMemoryManager::run() {
             qCritical() << "semop unlock failed:" << strerror(errno);
             break;
         }
-        qDebug() << "Semaphore unlocked";
+        //qDebug() << "Semaphore unlocked";
+        LatencyTracker::shmWritten();
         qDebug() << QDateTime::currentDateTime().toString("hh:mm:ss.zzz") << "Shared memory updated";
 
     }
@@ -166,6 +169,10 @@ void SharedMemoryManager::getAudioData(const QByteArray &data) {
 
 void SharedMemoryManager::stop() {
     running = false;
+    // Wake the thread in case it is waiting on new data so that it can exit
+    waitMutex.lock();
+    dataReady.wakeOne();
+    waitMutex.unlock();
 }
 
 void SharedMemoryManager::setSharedMemorySize(size_t size) {

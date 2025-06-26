@@ -19,7 +19,7 @@
     },
     "DEVICE": {
         "JETSON": true,
-        "USE_TENSORRT": true
+        "USE_TENSORRT": false
     },
     "MODEL": {
         "TYPE": "vq_vae"
@@ -48,17 +48,17 @@
     },
     "REALTIME": {
         "CHANNELS": 1,
-        "FOLDER_PATH": "/home/sparclab/Desktop/Test_ESCA/data_storage/fanAbnomaly",
+        "FOLDER_PATH": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s0.2/s02Abnomaly",
         "IMPORT_FILE": true,
         "LOG_PATH": "/home/sparclab/Desktop/Test_ESCA/python_ai/rt_result",
-        "MANUAL_THRESHOLD": 0.25,
-        "MAX": 31.466527938842773,
-        "MIN": -16.270967483520508,
-        "MODEL_PATH": "/home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fan",
+        "MANUAL_THRESHOLD": 0.28,
+        "MAX": 26.339017868041992,
+        "MIN": -16.170351028442383,
+        "MODEL_PATH": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s0.2/s02model",
         "SAMPLESIZE": 16,
         "SAMPLING_RATE": 44100,
         "SECOND": 2,
-        "THRESHOLD": 0.01625131443142891,
+        "THRESHOLD": 0.04627840965986252,
         "TRT_MODEL_PATH": "/home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fan/vqvae32_fp32.engine"
     },
     "RECORD": {
@@ -68,7 +68,7 @@
         "DATASET_PATH": "./dataset_mic_laptop_16k",
         "DEVICE": 8,
         "DEVICENAME": "default",
-        "DURATION": 0,
+        "DURATION": 1,
         "ENDIAN": 0,
         "SAMPLERATE": 3,
         "SAMPLESIZE": 1

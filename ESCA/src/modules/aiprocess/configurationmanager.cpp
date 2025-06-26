@@ -15,7 +15,13 @@ ConfigurationManager::ConfigurationManager(QObject *parent) : QObject(parent),
     m_folderPath(""),
     m_threshold(0.0),
     m_max(1.0),
-    m_min(0.0)
+    m_min(0.0),
+    m_useTensorRT(false),
+    m_trtModelPath(""),
+    m_gfccChannels(32),
+    m_gfccFMin(100.0),
+    m_gfccWindowTime(0.12),
+    m_gfccHopTime(0.06)
 {
     m_filePath = DataStorage::filePath("config.json");
 }
@@ -88,14 +94,36 @@ bool ConfigurationManager::loadConfig() {
         m_channels = realtimeConfig.value("CHANNELS").toInt(1);
         m_samplingRate = realtimeConfig.value("SAMPLING_RATE").toInt(44100);
         m_importFile = realtimeConfig.value("IMPORT_FILE").toBool(false);
+
         m_modelPath = realtimeConfig.value("MODEL_PATH").toString("/home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fan");
         m_folderPath = realtimeConfig.value("FOLDER_PATH").toString("/home/sparclab/Desktop/Test_ESCA/data_storage/fanNormal_gear1");
+        m_threshold = realtimeConfig.value("THRESHOLD").toDouble(m_threshold);
+        m_max = realtimeConfig.value("MAX").toDouble(m_max);
+        m_min = realtimeConfig.value("MIN").toDouble(m_min);
+        m_trtModelPath = realtimeConfig.value("TRT_MODEL_PATH").toString(m_trtModelPath);
 
         qDebug() << "Đã cập nhật các tham số REALTIME từ file cấu hình.";
     } else {
         qWarning() << "Phần REALTIME không tồn tại trong file cấu hình. Sử dụng giá trị mặc định.";
         loadDefaults(); // Chỉ tải giá trị mặc định cho phần REALTIME
     }
+
+    if (m_fullConfig.contains("DEVICE") && m_fullConfig["DEVICE"].isObject()) {
+        QJsonObject deviceObj = m_fullConfig["DEVICE"].toObject();
+        m_useTensorRT = deviceObj.value("USE_TENSORRT").toBool(m_useTensorRT);
+    }
+
+    if (m_fullConfig.contains("PREPROCESS") && m_fullConfig["PREPROCESS"].isObject()) {
+        QJsonObject preprocessObj = m_fullConfig["PREPROCESS"].toObject();
+        if (preprocessObj.contains("GAMMA") && preprocessObj["GAMMA"].isObject()) {
+            QJsonObject gamma = preprocessObj["GAMMA"].toObject();
+            m_gfccChannels = gamma.value("CHANNELS").toInt(m_gfccChannels);
+            m_gfccFMin = gamma.value("F_MIN").toDouble(m_gfccFMin);
+            m_gfccHopTime = gamma.value("HOP_TIME").toDouble(m_gfccHopTime);
+            m_gfccWindowTime = gamma.value("WINDOW_TIME").toDouble(m_gfccWindowTime);
+        }
+    }
+
     loadMetricsDetails();
     return true;
 }
@@ -135,9 +163,22 @@ bool ConfigurationManager::saveConfig() const {
     realtimeConfig["MAX"] = m_max;
     realtimeConfig["MIN"] = m_min;
 
-    realtimeConfig["TRT_MODEL_PATH"] = "";
+    realtimeConfig["TRT_MODEL_PATH"] = m_trtModelPath;
 
     rootObject["REALTIME"] = realtimeConfig; // Ghi đè hoặc thêm phần REALTIME
+
+    QJsonObject deviceObj = rootObject.value("DEVICE").toObject();
+    deviceObj["USE_TENSORRT"] = m_useTensorRT;
+    rootObject["DEVICE"] = deviceObj;
+
+    QJsonObject preprocessObj = rootObject.value("PREPROCESS").toObject();
+    QJsonObject gammaObj = preprocessObj.value("GAMMA").toObject();
+    gammaObj["CHANNELS"] = m_gfccChannels;
+    gammaObj["F_MIN"] = m_gfccFMin;
+    gammaObj["WINDOW_TIME"] = m_gfccWindowTime;
+    gammaObj["HOP_TIME"] = m_gfccHopTime;
+    preprocessObj["GAMMA"] = gammaObj;
+    rootObject["PREPROCESS"] = preprocessObj;
 
     // Ghi lại file JSON
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
@@ -276,6 +317,34 @@ void ConfigurationManager::applyConfig(const QJsonObject& realtime)
     if (realtime.contains("FOLDER_PATH") && realtime["FOLDER_PATH"].isString()) {
         setFolderPath(realtime["FOLDER_PATH"].toString());
     }
+
+    if (realtime.contains("THRESHOLD") && realtime["THRESHOLD"].isDouble()) {
+        setThreshold(realtime["THRESHOLD"].toDouble());
+    }
+    if (realtime.contains("MAX") && realtime["MAX"].isDouble()) {
+        setMax(realtime["MAX"].toDouble());
+    }
+    if (realtime.contains("MIN") && realtime["MIN"].isDouble()) {
+        setMin(realtime["MIN"].toDouble());
+    }
+    if (realtime.contains("TRT_MODEL_PATH") && realtime["TRT_MODEL_PATH"].isString()) {
+        setTrtModelPath(realtime["TRT_MODEL_PATH"].toString());
+    }
+    if (realtime.contains("USE_TENSORRT") && realtime["USE_TENSORRT"].isBool()) {
+        setUseTensorRT(realtime["USE_TENSORRT"].toBool());
+    }
+    if (realtime.contains("GFCC_CHANNELS") && realtime["GFCC_CHANNELS"].isDouble()) {
+        setGfccChannels(realtime["GFCC_CHANNELS"].toInt());
+    }
+    if (realtime.contains("GFCC_F_MIN") && realtime["GFCC_F_MIN"].isDouble()) {
+        setGfccFMin(realtime["GFCC_F_MIN"].toDouble());
+    }
+    if (realtime.contains("GFCC_WINDOW_TIME") && realtime["GFCC_WINDOW_TIME"].isDouble()) {
+        setGfccWindowTime(realtime["GFCC_WINDOW_TIME"].toDouble());
+    }
+    if (realtime.contains("GFCC_HOP_TIME") && realtime["GFCC_HOP_TIME"].isDouble()) {
+        setGfccHopTime(realtime["GFCC_HOP_TIME"].toDouble());
+    }
 }
 
 QJsonObject ConfigurationManager::generateConfig() const
@@ -289,6 +358,16 @@ QJsonObject ConfigurationManager::generateConfig() const
     realtimeObj["SAMPLING_RATE"] = m_samplingRate;
     realtimeObj["IMPORT_FILE"] = m_importFile;
     realtimeObj["MODEL_PATH"] = m_modelPath;
+    realtimeObj["FOLDER_PATH"] = m_folderPath;
+    realtimeObj["THRESHOLD"] = m_threshold;
+    realtimeObj["MAX"] = m_max;
+    realtimeObj["MIN"] = m_min;
+    realtimeObj["TRT_MODEL_PATH"] = m_trtModelPath;
+    realtimeObj["USE_TENSORRT"] = m_useTensorRT;
+    realtimeObj["GFCC_CHANNELS"] = m_gfccChannels;
+    realtimeObj["GFCC_F_MIN"] = m_gfccFMin;
+    realtimeObj["GFCC_WINDOW_TIME"] = m_gfccWindowTime;
+    realtimeObj["GFCC_HOP_TIME"] = m_gfccHopTime;
 
     return realtimeObj;
 }
@@ -300,7 +379,10 @@ double ConfigurationManager::max() const
 
 void ConfigurationManager::setMax(double newMax)
 {
-    m_max = newMax;
+    if (m_max != newMax) {
+        m_max = newMax;
+        emit maxChanged();
+    }
 }
 
 double ConfigurationManager::min() const
@@ -310,7 +392,10 @@ double ConfigurationManager::min() const
 
 void ConfigurationManager::setMin(double newMin)
 {
-    m_min = newMin;
+    if (m_min != newMin) {
+        m_min = newMin;
+        emit minChanged();
+    }
 }
 
 double ConfigurationManager::threshold() const
@@ -320,7 +405,10 @@ double ConfigurationManager::threshold() const
 
 void ConfigurationManager::setThreshold(double newThreshold)
 {
-    m_threshold = newThreshold;
+    if (m_threshold != newThreshold) {
+        m_threshold = newThreshold;
+        emit thresholdChanged();
+    }
 }
 
 QString ConfigurationManager::folderPath() const
@@ -359,4 +447,64 @@ void ConfigurationManager::setSampleSize(int newSampleSize)
         return;
     m_sampleSize = newSampleSize;
     emit sampleSizeChanged();
+}
+
+bool ConfigurationManager::useTensorRT() const { return m_useTensorRT; }
+
+void ConfigurationManager::setUseTensorRT(bool newUseTensorRT)
+{
+    if (m_useTensorRT != newUseTensorRT) {
+        m_useTensorRT = newUseTensorRT;
+        emit useTensorRTChanged();
+    }
+}
+
+QString ConfigurationManager::trtModelPath() const { return m_trtModelPath; }
+
+void ConfigurationManager::setTrtModelPath(const QString &newTrtModelPath)
+{
+    if (m_trtModelPath != newTrtModelPath) {
+        m_trtModelPath = newTrtModelPath;
+        emit trtModelPathChanged();
+    }
+}
+
+int ConfigurationManager::gfccChannels() const { return m_gfccChannels; }
+
+void ConfigurationManager::setGfccChannels(int newChannels)
+{
+    if (m_gfccChannels != newChannels) {
+        m_gfccChannels = newChannels;
+        emit gfccChannelsChanged();
+    }
+}
+
+double ConfigurationManager::gfccFMin() const { return m_gfccFMin; }
+
+void ConfigurationManager::setGfccFMin(double newFMin)
+{
+    if (!qFuzzyCompare(m_gfccFMin, newFMin)) {
+        m_gfccFMin = newFMin;
+        emit gfccFMinChanged();
+    }
+}
+
+double ConfigurationManager::gfccWindowTime() const { return m_gfccWindowTime; }
+
+void ConfigurationManager::setGfccWindowTime(double newWindow)
+{
+    if (!qFuzzyCompare(m_gfccWindowTime, newWindow)) {
+        m_gfccWindowTime = newWindow;
+        emit gfccWindowTimeChanged();
+    }
+}
+
+double ConfigurationManager::gfccHopTime() const { return m_gfccHopTime; }
+
+void ConfigurationManager::setGfccHopTime(double newHop)
+{
+    if (!qFuzzyCompare(m_gfccHopTime, newHop)) {
+        m_gfccHopTime = newHop;
+        emit gfccHopTimeChanged();
+    }
 }
