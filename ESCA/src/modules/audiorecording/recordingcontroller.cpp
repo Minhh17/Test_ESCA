@@ -146,6 +146,7 @@ void RecordingController::startSharedMemory(){
     QAudioDeviceInfo deviceInfo = m_audioConfig->deviceInfo();
     
     m_chunkSize = computeChunkSize();
+    qInfo() << "chunksize now before SHM" << m_chunkSize;
     sharedMemoryManager->setSharedMemorySize(m_chunkSize);
     
     sharedMemoryManager->start();
@@ -226,7 +227,10 @@ void RecordingController::handleSharedMemory(const QByteArray &data) {
         activeBuffer.remove(0, m_chunkSize);
         //qDebug() << "Real-time SharedMemory - First 10 bytes: " << dataToSend.mid(0, 30);
         m_usingBuffer1 = !m_usingBuffer1;
+        
+        
         LatencyTracker::bufferSent();
+        
         sharedMemoryManager->getAudioData(dataToSend);
     }
 }

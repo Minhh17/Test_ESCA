@@ -49,16 +49,16 @@
     "REALTIME": {
         "CHANNELS": 1,
         "FOLDER_PATH": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s0.2/s02Abnomaly",
-        "IMPORT_FILE": true,
+        "IMPORT_FILE": false,
         "LOG_PATH": "/home/sparclab/Desktop/Test_ESCA/python_ai/rt_result",
         "MANUAL_THRESHOLD": 0.28,
-        "MAX": 26.339017868041992,
+        "MAX": 27.928985595703125,
         "MIN": -16.170351028442383,
         "MODEL_PATH": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s0.2/s02model",
         "SAMPLESIZE": 16,
         "SAMPLING_RATE": 44100,
         "SECOND": 2,
-        "THRESHOLD": 0.04627840965986252,
+        "THRESHOLD": 0.003989489749073982,
         "TRT_MODEL_PATH": "/home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fan/vqvae32_fp32.engine"
     },
     "RECORD": {
