@@ -21,6 +21,7 @@ ProcessManager::~ProcessManager()
 
 void ProcessManager::start()
 {
+
     qDebug()<<"In handleStandardOutput prcmng" <<QStringLiteral("python3 %1").arg(m_scriptPath);
     qInfo() << Q_FUNC_INFO;
 
@@ -38,7 +39,7 @@ void ProcessManager::stop()
 
 void ProcessManager::handleStandardOutput()
 {
-    qDebug()<<"In handleStandardOutput prcmng";
+    //qDebug()<<"In handleStandardOutput prcmng";
     static QByteArray buffer;
     buffer.append(m_process.readAllStandardOutput());
 

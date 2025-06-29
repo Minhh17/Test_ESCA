@@ -9,6 +9,7 @@
 #include <QThread>
 #include <QMutex>
 #include <memory>
+#include <QFile>
 
 #include "../../config/config.h"
 
@@ -63,6 +64,8 @@ private:
 
     size_t computeChunkSize() const;
 
+    size_t m_chunkSize = 0;
+    int m_durationSec = 2;
     
     bool m_recStatus;
 };

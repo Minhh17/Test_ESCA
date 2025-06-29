@@ -68,7 +68,7 @@
         "DATASET_PATH": "./dataset_mic_laptop_16k",
         "DEVICE": 8,
         "DEVICENAME": "default",
-        "DURATION": 0,
+        "DURATION": 1,
         "ENDIAN": 0,
         "SAMPLERATE": 3,
         "SAMPLESIZE": 1

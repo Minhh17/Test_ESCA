@@ -15,6 +15,7 @@ class SharedMemoryManager : public QThread {
     Q_OBJECT
 public:
     explicit SharedMemoryManager(QObject* parent = nullptr, size_t size = SHM_SIZE);
+
     ~SharedMemoryManager() override;
 
     bool init_ipc();
@@ -34,6 +35,7 @@ signals:
 
 private:
     static constexpr key_t SHM_KEY = 0x1234;
+
     static constexpr key_t SEM_KEY = 0x5678;
         // Base size; actual value provided by RecordingController
     static constexpr size_t SHM_SIZE = 0;

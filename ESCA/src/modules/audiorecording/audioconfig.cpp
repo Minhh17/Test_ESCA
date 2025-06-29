@@ -22,6 +22,14 @@ AudioConfig::AudioConfig(QObject *parent) : QObject{parent}
         if (jsonDoc.isObject()) {
             QJsonObject json = jsonDoc.object();
 
+            int rtSecond = 2;
+            if (json.contains("REALTIME") && json["REALTIME"].isObject()) {
+                QJsonObject rt = json["REALTIME"].toObject();
+                rtSecond = rt.value("SECOND").toInt(rtSecond);
+            }
+            if (!m_listDuration.isEmpty())
+                m_listDuration[0] = QString::number(rtSecond) + "s";
+
             // Truy cập phần RECORD
             if (json.contains("RECORD") && json["RECORD"].isObject()) {
                 QJsonObject record = json["RECORD"].toObject();
