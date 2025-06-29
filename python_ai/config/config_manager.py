@@ -20,6 +20,7 @@ class ConfigManager:
 
     def _load_default_config(self):
         """Load default configuration from JSON file"""
+
         env_path = os.getenv("ESCA_DATA_PATH") + "/data_storage"
         if env_path:
             default_path = Path(env_path + "/config.json")
@@ -27,6 +28,7 @@ class ConfigManager:
             default_path = Path(file_path("config.json"))
 
         with open(default_path, 'r', encoding='utf-8') as f:
+
             self._config = json.load(f)
 
     def update_from_file(self, config_path: str):

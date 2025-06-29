@@ -14,10 +14,10 @@ void ConfigApp::generateConfig() {
     dataloader["SHUFFLE"] = true;
 
     QJsonObject path;
-    path["ANOMALY"] = "/home/haiminh/Desktop/D-ESCA_v2/park_demo/park_Target3/abnormal";
-    path["NORMAL"] = "/home/haiminh/Desktop/D-ESCA_v2/park_demo/park_Target3/normal";
+    path["ANOMALY"] = "/home/sparclab/Desktop/D-ESCA_v2/park_demo/park_Target3/abnormal";
+    path["NORMAL"] = "/home/sparclab/Desktop/D-ESCA_v2/park_demo/park_Target3/normal";
     path["TEST"] = QJsonValue::Null;
-    path["TFRECORDS"] = QJsonArray({"/home/haiminh/Desktop/D-ESCA_v2/park_dataset_demo/mel_data2"});
+    path["TFRECORDS"] = QJsonArray({"/home/sparclab/Desktop/D-ESCA_v2/park_dataset_demo/mel_data2"});
 
     QJsonObject ratio;
     ratio["TEST"] = 0.1;
@@ -80,15 +80,17 @@ void ConfigApp::generateConfig() {
     realtime["SAMPLE_RATE"] = rtRate;
     realtime["SAMPLE_SIZE"] = rtSize;
     realtime["IMPORT_FILE"]=false;
-    realtime["FOLDER_PATH"]="/home/haiminh/Desktop/ESCA_Qt/ESCA/data";
-    realtime["LOG_PATH"] = "/home/haiminh/Desktop/Anomaly_Detection/D-ESCA_v2/Results/rt_test_results";
-    realtime["MODEL_PATH"]= "/home/haiminh/Desktop/ESCA_Qt/python_ai/result",
+    realtime["FOLDER_PATH"]="/home/sparclab/Desktop/Test_ESCA/data_storage/fanNormal_gear1";
+    realtime["LOG_PATH"] = "/home/sparclab/Desktop/Test_ESCA/data_storage";
+    realtime["MODEL_PATH"]= "/home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fan",
     realtime["MANUAL_THRESHOLD"] = 0.01;
     realtime["RUNTIME"] = 1000;
     realtime["SECOND"] = rtSecond;
     realtime["SHARED_MEMORY_KEY"] = "0xDEADBEEF";
     realtime["SEMAPHORE_KEY"] = "0xBEEFDEAD";
+  
     realtime["BUFFER_SIZE"] = rtChannel * rtRate * (rtSize / 8) * rtSecond;
+
     realtime["MIN"] = -23.14520263671875;
     realtime["MAX"] = 51.67738342285156;
     realtime["THRESHOLD"] = 0.002630938310176134;
@@ -124,13 +126,13 @@ void ConfigApp::generateConfig() {
     // TRANSFER_LEARNING
     QJsonObject transferLearning;
     transferLearning["ANOM_BATCH_SIZE"] = 128;
-    transferLearning["BASED_WEIGHTS"] = "/home/haiminh/Desktop/D-ESCA_v2/Results/base_training_result/saved_model/vq_vae";
+    transferLearning["BASED_WEIGHTS"] = "/home/sparclab/Desktop/D-ESCA_v2/Results/base_training_result/saved_model/vq_vae";
     transferLearning["BETA"] = 1;
     transferLearning["EPOCH"] = 81;
     transferLearning["LEARNING_RATE"] = 0.001;
-    transferLearning["SAVE_PATH"] = "/home/haiminh/Desktop/D-ESCA_v2/Results/tl-training_results/Target3";
+    transferLearning["SAVE_PATH"] = "/home/sparclab/Desktop/D-ESCA_v2/Results/tl-training_results/Target3";
     transferLearning["TEST_DIR"] = QJsonValue::Null;
-    transferLearning["TFRECORDS"] = QJsonArray({"/home/haiminh/Desktop/D-ESCA_v2/data/target/Target25"});
+    transferLearning["TFRECORDS"] = QJsonArray({"/home/sparclab/Desktop/D-ESCA_v2/data/target/Target25"});
 
     root["TRANSFER_LEARNING"] = transferLearning;
 

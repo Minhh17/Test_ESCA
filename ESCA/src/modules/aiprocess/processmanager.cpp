@@ -4,7 +4,7 @@
 
 ProcessManager::ProcessManager(QObject *parent)
     : InferenceEngine(parent),
-    m_scriptPath("~/Desktop/minh/ESCA_Qt/python_ai/inference.py"),
+    m_scriptPath("~/Desktop/Test_ESCA/python_ai/inference.py"),
     m_parser(new InferenceOutputParser(this))
 {
     connect(&m_process, &QProcess::readyRead, this, &ProcessManager::handleStandardOutput);
@@ -21,10 +21,13 @@ ProcessManager::~ProcessManager()
 
 void ProcessManager::start()
 {
-    //qDebug()<<"In handleStandardOutput prcmng" <<QStringLiteral("python3 %1").arg(m_scriptPath);
-    //qInfo() << Q_FUNC_INFO;
+
+    qDebug()<<"In handleStandardOutput prcmng" <<QStringLiteral("python3 %1").arg(m_scriptPath);
+    qInfo() << Q_FUNC_INFO;
+
     setStatement(QStringLiteral("python3 %1").arg(m_scriptPath));
     Process::start();
+
 }
 
 void ProcessManager::stop()

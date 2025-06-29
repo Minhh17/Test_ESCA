@@ -4,15 +4,15 @@
 #include <QDebug>
 
 ConfigurationManager::ConfigurationManager(QObject *parent) : QObject(parent),
-    m_logPath("/home/haiminh/Desktop/rt_test_results"),
+    m_logPath("/home/sparclab/Desktop/Test_ESCA/data_storage"),
     m_manualThreshold(0.0026),
     m_sampleSize(16),
     m_second(2),
     m_channels(1),
     m_samplingRate(44100),
     m_importFile(false),
-    m_modelPath("/home/haiminh/Desktop/ESCA_Qt/python_ai/result/saved_model/vq_vae"),
-    m_folderPath("/home/haiminh/Desktop/ESCA_Qt/ESCA/data"),
+    m_modelPath(""),
+    m_folderPath(""),
     m_threshold(0.0),
     m_max(1.0),
     m_min(0.0),
@@ -87,18 +87,20 @@ bool ConfigurationManager::loadConfig() {
         QJsonObject realtimeConfig = m_fullConfig["REALTIME"].toObject();
 
         // Cập nhật từng tham số (nếu thiếu thì bổ sung mặc định)
-        m_logPath = realtimeConfig.value("LOG_PATH").toString("/default/log/path");
+        m_logPath = realtimeConfig.value("LOG_PATH").toString("/home/sparclab/Desktop/Test_ESCA/data_storage");
         m_manualThreshold = realtimeConfig.value("MANUAL_THRESHOLD").toDouble(0.01);
         m_sampleSize = realtimeConfig.value("SAMPLESIZE").toInt(16);
         m_second = realtimeConfig.value("SECOND").toInt(5);
         m_channels = realtimeConfig.value("CHANNELS").toInt(1);
         m_samplingRate = realtimeConfig.value("SAMPLING_RATE").toInt(44100);
         m_importFile = realtimeConfig.value("IMPORT_FILE").toBool(false);
+
         m_modelPath = realtimeConfig.value("MODEL_PATH").toString("/home/haiminh/Desktop/ESCA_Qt/python_ai/result");
         m_folderPath = realtimeConfig.value("FOLDER_PATH").toString("/home/haiminh/Desktop/ESCA_Qt/ESCA/data");
         m_threshold = realtimeConfig.value("THRESHOLD").toDouble(m_threshold);
         m_max = realtimeConfig.value("MAX").toDouble(m_max);
         m_min = realtimeConfig.value("MIN").toDouble(m_min);
+      
         m_trtModelPath = realtimeConfig.value("TRT_MODEL_PATH").toString(m_trtModelPath);
 
         qDebug() << "Đã cập nhật các tham số REALTIME từ file cấu hình.";

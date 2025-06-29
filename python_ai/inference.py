@@ -7,6 +7,8 @@ import os
 import wave
 import logging
 import numpy as np
+import atexit	
+
 #from gammatone.gtgram import gtgram as cpu_gtgram
 from gammatone import gtgram
 import tensorflow as tf
@@ -60,22 +62,56 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# TensorRT resources tracked for cleanup
+stream = None
+d_in = None
+d_out = None
+context = None
+
 # --- Model Loader ---
 if USE_TENSORRT:
     try:
         import tensorrt as trt
         import pycuda.driver as cuda
         import pycuda.autoinit
+        print("USE_TENSORRT")
         def load_model_fn():
+            if not TRT_ENGINE_PATH or not os.path.exists(TRT_ENGINE_PATH):
+                logger.warning("TRT engine path '%s' is invalid. Falling back to plain model.", TRT_ENGINE_PATH)
+                raise FileNotFoundError(TRT_ENGINE_PATH)
+                
             trt_logger = trt.Logger(trt.Logger.WARNING)
             with open(TRT_ENGINE_PATH, 'rb') as f:
                 runtime = trt.Runtime(trt_logger)
                 engine = runtime.deserialize_cuda_engine(f.read())
             context = engine.create_execution_context()
-            in_shape  = tuple(engine.get_binding_shape(0))
-            out_shape = tuple(engine.get_binding_shape(1))
-            dtype_in  = np.dtype(engine.get_binding_dtype(0).name)
-            dtype_out = np.dtype(engine.get_binding_dtype(1).name)
+            in_shape = tuple(engine.get_binding_shape(0))
+            
+            dtype0 = engine.get_binding_dtype(0)
+            dtype1 = engine.get_binding_dtype(1)
+            logger.info("engine type: %s %s ", dtype0, dtype1)
+            logger.info("engine type: %s %s", dtype0.name, dtype1.name)                    
+            
+            if any(d <= 0 for d in in_shape):
+                # Engine was built with dynamic shapes; set the expected input
+                # dimensions (batch=1, channels=1, 32x32) before allocating
+                default_shape = (1, 1, 32, 32)
+                context.set_binding_shape(0, default_shape)
+                in_shape = tuple(context.get_binding_shape(0))
+                out_shape = tuple(context.get_binding_shape(1))
+            else:
+                out_shape = tuple(engine.get_binding_shape(1))
+            
+            dtype_map = {
+                trt.DataType.FLOAT: np.float32,
+                trt.DataType.HALF: np.float16,
+                trt.DataType.INT8: np.int8,
+                trt.DataType.INT32: np.int32,
+                trt.DataType.BOOL: np.bool_
+            }
+            dtype_in  = dtype_map[engine.get_binding_dtype(0)]
+            dtype_out = dtype_map[engine.get_binding_dtype(1)]         
+            
             try:
                 h_in  = cuda.pagelocked_empty(trt.volume(in_shape), dtype=dtype_in)
                 h_out = cuda.pagelocked_empty(trt.volume(out_shape), dtype=dtype_out)
@@ -98,6 +134,7 @@ if USE_TENSORRT:
         run_model = load_model_fn()
     except Exception as e:
         logger.warning("TensorRT unavailable, falling back to plain model: %s", e)
+        print("TensorRT init failed, using plain model")
         USE_TENSORRT = False
 
 if not USE_TENSORRT:
@@ -110,7 +147,6 @@ if not USE_TENSORRT:
 shm = None
 semaphore = None
 
-
 # --- Preprocess Function ---
 def preprocess_audio(audio: np.ndarray) -> np.ndarray:
     gtg = gtgram.gtgram(audio, FRAME_RATE, WINDOW_TIME, HOP_TIME, CHANNELS, F_MIN)
@@ -121,30 +157,33 @@ def preprocess_audio(audio: np.ndarray) -> np.ndarray:
 
 # --- Prediction & Reporting ---
 def predict_and_report(audio: np.ndarray):
+
     process_start = time.perf_counter()
-    logger.info("Chunk start: %.6f", process_start)
-    t0 = time.perf_counter()
 
     inp = preprocess_audio(audio)
 
-    gfcc_ms = (time.perf_counter() - t0) * 1e3
+    gfcc_ms = (time.perf_counter() - process_start) * 1e3
     print(f"METRIC gfcc_ms {gfcc_ms:.3f}", flush=True)
 
     start = time.perf_counter()
+    inp = preprocess_audio(audio)
+    
     pred = run_model(inp)
 
-    infer_ms = (time.perf_counter() - start) * 1e3
-    print(f"METRIC infer_ms {infer_ms:.3f}", flush=True)
-
     mse = float(np.mean((inp - pred) ** 2))
-    logger.info("Inference time: %.6f ms, MSE: %.6f", infer_ms, mse)
-    logger.info("Chunk end: %.6f", time.perf_counter())
-
 
     if mse > MANUAL_THRESHOLD:
         print("Anomaly detected!!", flush=True)
         
     print(f"{mse:.10f}", flush=True)
+    
+    infer_ms = (time.perf_counter() - start) * 1e3
+    all_ms = (time.perf_counter() - process_start) * 1e3
+    print(f"METRIC infer_ms {infer_ms:.3f}", flush=True)
+    
+    logger.info("GFCC time: %.6f ms, Inference time: %.6f, All time: %.6f, MSE: %.6f",gfcc_ms, infer_ms, all_ms, mse)
+
+    return gfcc_ms, infer_ms, all_ms, mse
 
 
 def signal_handler(signum, frame):
@@ -199,6 +238,7 @@ def process_realtime():
             semaphore.release()
             read_ms = (time.perf_counter() - t0) * 1e3
             print(f"METRIC read_ms {read_ms:.3f}", flush=True)
+            logger.info("Read SHM time: %.6f", read_ms)
         except sysv_ipc.BusyError:
             print("Semaphore is busy. Skipping this cycle.")
             continue
@@ -210,16 +250,7 @@ def process_realtime():
         #print(raw_data, flush=True)
         audio_array = np.frombuffer(raw_data, dtype=np.int16)
 
-        mse = predict_and_report(audio_array)
-        if mse is None:
-            continue
-
-        # Kiểm tra anomaly
-
-        if mse > MANUAL_THRESHOLD:
-            print("Anomaly detected!", flush=True)
-        # print(f"Predict Result: {mse}", flush=True)
-        print(mse, flush=True)
+        predict_and_report(audio_array)
 
         # Đảm bảo đọc đúng mỗi 2 giây
         elapsed = time.time() - cycle_start
@@ -229,34 +260,88 @@ def process_realtime():
 # --- Folder Processing ---
 def process_folder():
     files = sorted(f for f in os.listdir(FOLDER_PATH) if f.lower().endswith('.wav'))
+    
+    mses = []
+    gfccs = []
+    infers = []
+    alls = []
+    
     for f in files:
         with wave.open(os.path.join(FOLDER_PATH, f), 'rb') as wf:
             audio = np.frombuffer(wf.readframes(wf.getnframes()), dtype=np.int16)
-        predict_and_report(audio)
+            
+        gfcc_ms, infer_ms, all_ms, mse = predict_and_report(audio)
+        if mse is None:
+            continue
+        mses.append(mse)
+        gfccs.append(gfcc_ms)
+        infers.append(infer_ms)
+        alls.append(all_ms)                
+        
+    if mses:
+        avg_mse = float(np.mean(mses))
+        avg_gfcc = float(np.mean(gfccs))
+        avg_infer = float(np.mean(infers))
+        avg_all = float(np.mean(alls))
+        
+        logger.info("Average MSE: %.6f, Ave gfcc: %.6f ms, Ave inference: %.6F, Ave all py: %.6f ms", avg_mse, avg_gfcc, avg_infer, avg_all)
+        print(f"Average MSE: {avg_mse:.6f}, Average inference time: {avg_time:.6f} ms")
     print("Done Folder Mode")
 
 # --- Cleanup ---
 def cleanup():
-    """
-    Hàm dọn dẹp shared memory và semaphore khi thoát.
-    """
-    global shm, semaphore
+    """Release IPC and TensorRT resources."""
+    global shm, semaphore, stream, d_in, d_out, context
+    if stream:
+        try:
+            if hasattr(stream, "destroy"):
+                stream.destroy()
+        except Exception as e:
+            print(f"Failed to destroy stream: {e}")
+        stream = None
+    if d_in:
+        try:
+            d_in.free()
+        except Exception as e:
+            print(f"Failed to free d_in: {e}")
+        d_in = None
+    if d_out:
+        try:
+            d_out.free()
+        except Exception as e:
+            print(f"Failed to free d_out: {e}")
+        d_out = None
+    if context:
+        try:
+            if hasattr(context, "__del__"):
+                context.__del__()
+        except Exception as e:
+            print(f"Failed to destroy context: {e}")
+        context = None
     if shm:
         try:
             shm.detach()
             print("Shared memory detached.")
         except Exception as e:
             print(f"Failed to detach shared memory: {e}")
+            
+atexit.register(cleanup)            
 
 # --- Main ---
 def main():
-    signal.signal(signal.SIGINT, lambda s, f: (cleanup(), sys.exit(0)))
-    signal.signal(signal.SIGTERM, lambda s, f: (cleanup(), sys.exit(0)))
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
     if not IMPORT_FILE:
         wait_for_shared_memory()
+        start = time.perf_counter()
         process_realtime()
+        duration = (time.perf_counter() - start) * 1e3
+        logger.info("Realtime Mode : %.6f ms", duration)
     else:
+        start = time.perf_counter()
         process_folder()
+        duration = (time.perf_counter() - start) * 1e3
+        logger.info("Folder Mode: %.6f ms", duration)
 
 if __name__ == '__main__':
     main()

@@ -17,7 +17,7 @@ SystemInformationController::SystemInformationController(QObject *parent) : QObj
         qWarning() << "Cannot open health log:" << logFilePath;
     }
 
-    m_timer.setInterval(1000);
+    m_timer.setInterval(60000);
     m_timer.setSingleShot(false);
     m_timer.start();
     connect(&m_timer, &QTimer::timeout, this, [this]() {
@@ -31,6 +31,7 @@ SystemInformationController::SystemInformationController(QObject *parent) : QObj
         // For disk
         disk_usage = getDisk();
 
+        // For gpu and temperature
         // For gpu and temperature
         auto res = getGpuTemp();
         gpu_usage = std::get<0>(res);
@@ -150,13 +151,15 @@ QString SystemInformationController::diskText() const {
     return "Disk usage: " + QString::number(disk_usage) + "%";
 }
 
+
 std::tuple<double, double> SystemInformationController::getGpuTemp()
 {
     double gpu = 0;
     double temp = 0;
     QProcess process;
-    QString scriptPath = "/home/haiminh/Desktop/minh/ESCA_Qt/python_ai/system_info.py";
+    QString scriptPath = "/home/sparclab/Desktop/Test_ESCA/python_ai/system_info.py";
     process.start("python3", QStringList() << scriptPath);
+
     if (!process.waitForStarted(1000)) {
         qWarning() << "system_info.py did not start:" << process.errorString();
         return {gpu, temp};
@@ -184,6 +187,7 @@ std::tuple<double, double> SystemInformationController::getGpuTemp()
         //          << "Temp key" << obj.value("temp_key").toString();
     } else {
         qWarning() << "Failed to parse system_info.py output:" << out;
+
     }
     return {gpu, temp};
 }
