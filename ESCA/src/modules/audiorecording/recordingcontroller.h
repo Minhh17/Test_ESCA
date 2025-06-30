@@ -59,8 +59,6 @@ private:
     QByteArray audioBuffer1;
     QByteArray audioBuffer2;
     bool m_usingBuffer1;
-    
-    size_t m_chunkSize;
 
     size_t computeChunkSize() const;
 

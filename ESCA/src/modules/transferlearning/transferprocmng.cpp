@@ -34,8 +34,9 @@ void TransferProcMng::start()
         qWarning() << "Script path is not set";
         return;
     }
-    setStatement("export PYTHONPATH=~/Desktop/D-ESCA_v2:$PYTHONPATH && python3 ~/Desktop/D-ESCA_v2/tools/tl_training.py");
+    setStatement("python3 ~/Desktop/minh/ESCA_Qt/python_ai/tl_training.py");
 
+    //export PYTHONPATH=~/Desktop/D-ESCA_v2:$PYTHONPATH &&
     Process::start();
 }
 

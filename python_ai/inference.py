@@ -284,8 +284,9 @@ def process_folder():
         avg_infer = float(np.mean(infers))
         avg_all = float(np.mean(alls))
         
-        logger.info("Average MSE: %.6f, Ave gfcc: %.6f ms, Ave inference: %.6F, Ave all py: %.6f ms", avg_mse, avg_gfcc, avg_infer, avg_all)
-        print(f"Average MSE: {avg_mse:.6f}, Average inference time: {avg_time:.6f} ms")
+        logger.info(f"Average MSE: %.6f, Ave gfcc: %.6f ms, Ave inference: %.6f, Ave all py: %.6f ms", avg_mse, avg_gfcc, avg_infer, avg_all)
+        print(f"Average MSE: {avg_mse:.6f}, Ave gfcc: {avg_gfcc:.6f} ms, Ave inference: {avg_infer:.6f}, Ave all py: {avg_all:.6f} ms", avg_mse, avg_gfcc, avg_infer, avg_all)
+
     print("Done Folder Mode")
 
 # --- Cleanup ---

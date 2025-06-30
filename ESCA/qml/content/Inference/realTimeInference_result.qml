@@ -329,21 +329,29 @@ Rectangle {
     FileDialog {
         id: fileDialogFolder
         title: "Choose Folder"
+        selectFolder: true
+        selectExisting: true
         onAccepted: folderPathInput.text = fileUrl
     }
     FileDialog {
         id: fileDialogModel
         title: "Choose Model File"
+        selectFolder: true
+        selectExisting: true
         onAccepted: modelPathInput.text = fileUrl
     }
     FileDialog {
         id: fileDialogLog
         title: "Choose Log Folder"
+        selectFolder: true
+        selectExisting: true
         onAccepted: logPathInput.text = fileUrl
     }
     FileDialog {
         id: fileDialogTrt
         title: "Choose TRT Model"
+        selectFolder: true
+        selectExisting: true
         onAccepted: trtPathInput.text = fileDialogTrt.fileUrl
     }
 }

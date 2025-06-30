@@ -157,7 +157,7 @@ std::tuple<double, double> SystemInformationController::getGpuTemp()
     double gpu = 0;
     double temp = 0;
     QProcess process;
-    QString scriptPath = "/home/sparclab/Desktop/Test_ESCA/python_ai/system_info.py";
+    QString scriptPath = "~/Desktop/minh/ESCA_Qt/python_ai/system_info.py";
     process.start("python3", QStringList() << scriptPath);
 
     if (!process.waitForStarted(1000)) {

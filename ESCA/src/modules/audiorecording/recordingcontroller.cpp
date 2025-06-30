@@ -43,7 +43,7 @@ RecordingController::RecordingController(QObject *parent)
     m_recordingChart = new RecordingChart(chartSamples, this);
     qmlRegisterSingletonInstance("AudioChartImport", 1, 0, "AudioChart", m_recordingChart);
 
-    sharedMemoryManager = new SharedMemoryManager(m_chunkSize, this);
+    sharedMemoryManager = new SharedMemoryManager(this);
       
     qInfo()<<"format in ini: "<<m_audioConfig->format();
     
