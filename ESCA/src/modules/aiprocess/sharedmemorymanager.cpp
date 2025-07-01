@@ -12,7 +12,11 @@ SharedMemoryManager::SharedMemoryManager(size_t bufferSize, QObject* parent)
 
     shm_id(-1),
     sem_id(-1),
-    running(false) {}
+    running(false) {
+    
+    	qDebug()<<"bufferSize in SHM Construct"<<bufferSize;
+    
+    }
 
 SharedMemoryManager::~SharedMemoryManager() {
     stop();

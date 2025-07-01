@@ -16,7 +16,7 @@ class ConfigurationManager : public QObject
     Q_PROPERTY(QString logPath READ logPath WRITE setLogPath NOTIFY logPathChanged)
     Q_PROPERTY(double manualThreshold READ manualThreshold WRITE setManualThreshold NOTIFY manualThresholdChanged)
     Q_PROPERTY(int sampleSize READ sampleSize WRITE setSampleSize NOTIFY sampleSizeChanged)
-    Q_PROPERTY(int second READ second WRITE setSecond NOTIFY secondChanged)
+    Q_PROPERTY(double second READ second WRITE setSecond NOTIFY secondChanged)
     Q_PROPERTY(int channels READ channels WRITE setChannels NOTIFY channelsChanged)
     Q_PROPERTY(int samplingRate READ samplingRate WRITE setSamplingRate NOTIFY samplingRateChanged)
     Q_PROPERTY(bool importFile READ importFile WRITE setImportFile NOTIFY importFileChanged)
@@ -38,7 +38,7 @@ public:
     // Getters
     QString logPath() const;
     double manualThreshold() const;
-    int second() const;
+    double second() const;
     int channels() const;
     int samplingRate() const;
     bool importFile() const;
@@ -46,7 +46,7 @@ public:
     // Setters
     void setLogPath(const QString &logPath);
     void setManualThreshold(double manualThreshold);
-    void setSecond(int second);
+    void setSecond(double second);
     void setChannels(int channels);
     void setSamplingRate(int samplingRate);
     void setImportFile(bool importFile);
@@ -121,7 +121,7 @@ private:
     QString m_logPath;
     double m_manualThreshold;
     int m_sampleSize;
-    int m_second;
+    double m_second;
     int m_channels;
     int m_samplingRate;
     bool m_importFile;

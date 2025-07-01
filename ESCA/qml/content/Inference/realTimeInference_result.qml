@@ -249,9 +249,9 @@ Rectangle {
                         id: secondInput; anchors.fill: parent; anchors.margins: 6
                         enabled: !AIObject.inferenceStatus
                         text: ConfigManager.second.toString(); color: "#FFFFFF"
-                        validator: IntValidator { bottom: 1; top: 60 }
+                        validator: DoubleValidator { bottom: 0.0; top: 10.0; decimals:1 }
                         onTextChanged: {
-                            var v = parseInt(text); if (!isNaN(v)) { ConfigManager.second = v; ConfigManager.saveConfig(); }
+                            var v = parseFloat(text); if (!isNaN(v)) { ConfigManager.second = v; ConfigManager.saveConfig(); }
                         }
                     }
                 }
@@ -329,21 +329,29 @@ Rectangle {
     FileDialog {
         id: fileDialogFolder
         title: "Choose Folder"
+	selectFolder: true
+	selectExisting: true
         onAccepted: folderPathInput.text = fileUrl
     }
     FileDialog {
         id: fileDialogModel
         title: "Choose Model File"
+	selectFolder: true
+	selectExisting: true
         onAccepted: modelPathInput.text = fileUrl
     }
     FileDialog {
         id: fileDialogLog
         title: "Choose Log Folder"
+	selectFolder: true
+	selectExisting: true
         onAccepted: logPathInput.text = fileUrl
     }
     FileDialog {
         id: fileDialogTrt
         title: "Choose TRT Model"
+	selectFolder: true
+	selectExisting: true
         onAccepted: trtPathInput.text = fileDialogTrt.fileUrl
     }
 }

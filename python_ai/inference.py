@@ -51,6 +51,8 @@ SAMPLE_SIZE   = config.get("REALTIME.SAMPLESIZE", 16)
 DURATION_SEC  = config.get("REALTIME.SECOND", 2)
 SHM_KEY, SEM_KEY = 0x1234, 0x5678
 SHM_SIZE = SAMPLE_RATE * CHANNELS_RT * (SAMPLE_SIZE // 8) * DURATION_SEC
+print(f"SHM_SIZE {SHM_SIZE}")
+
 
 # --- Logging Setup ---
 log_dir = config.get("REALTIME.LOG_PATH", file_path("logs"))

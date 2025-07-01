@@ -17,7 +17,7 @@ SystemInformationController::SystemInformationController(QObject *parent) : QObj
         qWarning() << "Cannot open health log:" << logFilePath;
     }
 
-    m_timer.setInterval(60000);
+    m_timer.setInterval(10000);
     m_timer.setSingleShot(false);
     m_timer.start();
     connect(&m_timer, &QTimer::timeout, this, [this]() {

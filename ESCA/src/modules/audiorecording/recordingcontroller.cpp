@@ -28,7 +28,8 @@ RecordingController::RecordingController(QObject *parent)
     qInfo() << "format in ini: " << m_audioConfig->format();
 
     QFile cfg(DataStorage::filePath("config.json"));
-    int sr = 44100, ch = 1, ss = 16, sec = 2;
+    int sr = 44100, ch = 1, ss = 16;
+    double sec = 2.0;
     if (cfg.open(QIODevice::ReadOnly)) {
         QJsonDocument doc = QJsonDocument::fromJson(cfg.readAll());
         QJsonObject rt = doc.object().value("REALTIME").toObject();
@@ -42,7 +43,8 @@ RecordingController::RecordingController(QObject *parent)
     size_t chartSamples = m_chunkSize / (ss / 8);
     m_recordingChart = new RecordingChart(chartSamples, this);
     qmlRegisterSingletonInstance("AudioChartImport", 1, 0, "AudioChart", m_recordingChart);
-
+	
+	qDebug()<<"m_chunkSize before SHM Cons"<<m_chunkSize<<"for duration"<<m_durationSec;
     sharedMemoryManager = new SharedMemoryManager(m_chunkSize, this);
 
 
@@ -220,7 +222,7 @@ void RecordingController::handleSharedMemory(const QByteArray &data) {
     activeBuffer.append(data);
 
     if (activeBuffer.size() >= static_cast<int>(m_chunkSize)) {
-
+		qInfo() << "chunksize now when sent to SHM" << m_chunkSize;
         LatencyTracker::chunkStarted();
 
         QByteArray dataToSend = activeBuffer.left(m_chunkSize);
