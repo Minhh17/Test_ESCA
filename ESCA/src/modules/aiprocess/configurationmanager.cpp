@@ -97,9 +97,11 @@ bool ConfigurationManager::loadConfig() {
 
         m_modelPath = realtimeConfig.value("MODEL_PATH").toString("/home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fan");
         m_folderPath = realtimeConfig.value("FOLDER_PATH").toString("/home/sparclab/Desktop/Test_ESCA/data_storage/fanNormal_gear1");
+
         m_threshold = realtimeConfig.value("THRESHOLD").toDouble(m_threshold);
         m_max = realtimeConfig.value("MAX").toDouble(m_max);
         m_min = realtimeConfig.value("MIN").toDouble(m_min);
+      
         m_trtModelPath = realtimeConfig.value("TRT_MODEL_PATH").toString(m_trtModelPath);
 
         qDebug() << "Đã cập nhật các tham số REALTIME từ file cấu hình.";

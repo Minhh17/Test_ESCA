@@ -4,19 +4,15 @@
 #include <QElapsedTimer>
 #include <QDateTime>
 
-SharedMemoryManager::SharedMemoryManager(size_t bufferSize, QObject* parent)
+SharedMemoryManager::SharedMemoryManager(QObject* parent, size_t size)
     : QThread(parent),
     shm_key(SHM_KEY),
     sem_key(SEM_KEY),
-    shm_size(bufferSize),
+    shm_size(size),
 
     shm_id(-1),
     sem_id(-1),
-    running(false) {
-    
-    	qDebug()<<"bufferSize in SHM Construct"<<bufferSize;
-    
-    }
+    running(false) {}
 
 SharedMemoryManager::~SharedMemoryManager() {
     stop();

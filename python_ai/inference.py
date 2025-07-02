@@ -51,8 +51,6 @@ SAMPLE_SIZE   = config.get("REALTIME.SAMPLESIZE", 16)
 DURATION_SEC  = config.get("REALTIME.SECOND", 2)
 SHM_KEY, SEM_KEY = 0x1234, 0x5678
 SHM_SIZE = SAMPLE_RATE * CHANNELS_RT * (SAMPLE_SIZE // 8) * DURATION_SEC
-print(f"SHM_SIZE {SHM_SIZE}")
-
 
 # --- Logging Setup ---
 log_dir = config.get("REALTIME.LOG_PATH", file_path("logs"))
@@ -168,22 +166,28 @@ def predict_and_report(audio: np.ndarray):
     print(f"METRIC gfcc_ms {gfcc_ms:.3f}", flush=True)
 
     start = time.perf_counter()
-    
+
     inp = preprocess_audio(audio)
     
-    pred = run_model(inp)        
+    pred = run_model(inp)
 
     mse = float(np.mean((inp - pred) ** 2))
 
     if mse > MANUAL_THRESHOLD:
         print("Anomaly detected!!", flush=True)
-        
+    print("inp shape:", inp.shape)
+    print("pred shape:", pred.shape)
+    
+    
     print(f"{mse:.10f}", flush=True)
+    
     infer_ms = (time.perf_counter() - start) * 1e3
     all_ms = (time.perf_counter() - process_start) * 1e3
     print(f"METRIC infer_ms {infer_ms:.3f}", flush=True)
-    logger.info("Inference GFCC time: %.6f ms, Inference Time:  %.6f ms, AllTime: %.6f ms, MSE: %.6f", gfcc_ms, infer_ms, all_ms, mse)
-    return mse, gfcc_ms, infer_ms, all_ms
+    
+    logger.info("GFCC time: %.6f ms, Inference time: %.6f, All time: %.6f, MSE: %.6f",gfcc_ms, infer_ms, all_ms, mse)
+
+    return gfcc_ms, infer_ms, all_ms, mse
 
 
 def signal_handler(signum, frame):
@@ -238,7 +242,9 @@ def process_realtime():
             semaphore.release()
             read_ms = (time.perf_counter() - t0) * 1e3
             print(f"METRIC read_ms {read_ms:.3f}", flush=True)
-            logger.info("Read Shm time: %.6f ms", read_ms)
+
+            logger.info("Read SHM time: %.6f ms", read_ms)
+
         except sysv_ipc.BusyError:
             print("Semaphore is busy. Skipping this cycle.")
             continue
@@ -262,31 +268,31 @@ def process_folder():
     files = sorted(f for f in os.listdir(FOLDER_PATH) if f.lower().endswith('.wav'))
     
     mses = []
-    gfcc_mss = []
-    infer_mss = []
-    all_mss = []
+    gfccs = []
+    infers = []
+    alls = []
     
     for f in files:
         with wave.open(os.path.join(FOLDER_PATH, f), 'rb') as wf:
             audio = np.frombuffer(wf.readframes(wf.getnframes()), dtype=np.int16)
             
-            mse, gfcc_ms, infer_ms, all_ms  = predict_and_report(audio)
-            
+        gfcc_ms, infer_ms, all_ms, mse = predict_and_report(audio)
         if mse is None:
             continue
         mses.append(mse)
-        gfcc_mss.append(gfcc_ms)
-        infer_mss.append(infer_ms)
-        all_mss.append(all_ms)
-                
+        gfccs.append(gfcc_ms)
+        infers.append(infer_ms)
+        alls.append(all_ms)                
+        
     if mses:
         avg_mse = float(np.mean(mses))
-        avg_gfcc = float(np.mean(gfcc_mss))
-        avg_infer = float(np.mean(infer_mss))
-        avg_all = float(np.mean(all_mss))
+        avg_gfcc = float(np.mean(gfccs))
+        avg_infer = float(np.mean(infers))
+        avg_all = float(np.mean(alls))
         
-        logger.info("Ave MSE: %.6f, Ave GFCC: %.6f ms, Ave Inference: %6f ms, Ave All: %6f ms", avg_mse, avg_gfcc, avg_infer, avg_all)
-        #print(f"Average MSE: {avg_mse:.6f}, Average inference time: {avg_time:.6f} ms")
+        logger.info("Average MSE: %.6f, Ave gfcc: %.6f ms, Ave inference: %.6f, Ave all py: %.6f ms", avg_mse, avg_gfcc, avg_infer, avg_all)
+        print(f"Average MSE: {avg_mse:.6f}, Ave gfcc: {avg_gfcc:.6f} ms, Ave inference: {avg_infer:.6f}, Ave all py: {avg_all:.6f}")
+
     print("Done Folder Mode")
 
 # --- Cleanup ---

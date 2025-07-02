@@ -350,7 +350,6 @@ Rectangle {
     FileDialog {
         id: fileDialogTrt
         title: "Choose TRT Model"
-	selectFolder: true
 	selectExisting: true
         onAccepted: trtPathInput.text = fileDialogTrt.fileUrl
     }
