@@ -127,6 +127,7 @@ class Dataloader(Feature_extractor):
 
     def _create_tfrecord_from_wav(self):
         time_per_sample = self.segment_len*1000  # time is processed in millisecond
+        print("time_per_sample", time_per_sample)
         rate = self.audio_len//self.segment_len
         # read all files in the directory
         test_id_holder = 0 # a work around to save both anomaly test sample and normal test sample to the same directory

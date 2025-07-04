@@ -1,4 +1,9 @@
 #include "audiomanipulation.h"
+#include "../../common/storage/datastorage.h"
+#include <QJsonObject>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QFile>
 #include <QFileInfo>
 
 AudioManipulation::AudioManipulation(QObject *parent) : QObject(parent)
@@ -8,6 +13,8 @@ AudioManipulation::AudioManipulation(QObject *parent) : QObject(parent)
             this, &AudioManipulation::onProcessFinished);
     connect(m_process, &QProcess::errorOccurred,
             this, &AudioManipulation::onProcessError);
+            
+    m_filePath = DataStorage::filePath("config.json");
 }
 
 AudioManipulation::~AudioManipulation()
@@ -86,9 +93,58 @@ void AudioManipulation::splitAudio(QString source, QString destination, QString 
 }
 
 void AudioManipulation::prepareDataset(QString normalPath, QString anomalyPath, QString outputPath)
-{
-	QString statement = QString("python3 /home/sparclab/Desktop/Test_ESCA/python_ai/prepare_data.py --normal %1 --anomaly %2 --output %3")
-                        	.arg(normalPath, anomalyPath, outputPath);
+{	
+
+	QFile file(m_filePath);
+    QJsonObject rootObject;
+    
+	if (file.exists()) {
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            qWarning() << "Không thể mở file cấu hình để đọc:" << m_filePath;
+        }
+
+        QByteArray data = file.readAll();
+        QJsonDocument doc = QJsonDocument::fromJson(data);
+
+        if (!doc.isNull() && doc.isObject()) {
+            rootObject = doc.object();
+        }
+
+        file.close();
+    }    
+    
+    // Cập nhật phần REALTIME
+    QJsonObject dataset;
+    QJsonObject path;    
+    path["ANOMALY"] = anomalyPath;
+    path["NORMAL"] = normalPath;
+    path["TEST"] = QJsonValue::Null;
+    path["TFRECORDS"] = QJsonArray({outputPath});
+    
+    QJsonObject dataloader; 
+    dataloader["BATCH_SIZE"] = 128;
+    dataloader["SHUFFLE"] = true;
+    
+    QJsonObject ratio;
+    ratio["TEST"] = 0.1;
+    ratio["TRAIN"] = 0.8;
+         
+    dataset["DATALOADER"] = dataloader;
+	dataset["PATH"] = path;
+	dataset["RATIO"] = ratio;
+    rootObject["DATASET"] = dataset; // Ghi đè hoặc thêm phần REALTIME
+
+    // Ghi lại file JSON
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        qWarning() << "Không thể mở file cấu hình để ghi:" << m_filePath;
+    }
+
+    QJsonDocument doc(rootObject);
+    file.write(doc.toJson());
+    file.close();
+    qDebug() << "Đã lưu cấu hình đầy đủ thành công.";
+    
+	QString statement = "python3 /home/sparclab/Desktop/Test_ESCA/python_ai/prepare_data.py";
 	qInfo() << "Executing command:" << statement;
 	m_process->start("/bin/sh", QStringList() << "-c" << statement);
 }

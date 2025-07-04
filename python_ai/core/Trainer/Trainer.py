@@ -265,56 +265,6 @@ class ModelTrainer():
 
         # Lưu model sau khi hoàn thành tất cả epoch
         self.model.save(join(self.log_dir, 'saved_model', self.model_name))
-        #onnx_path = self.export_to_onnx(opset=17)
-        #self.build_tensorrt_engine(onnx_path)
         print("[FINISHED]")
 
-    def build_tensorrt_engine(self, onnx_path: str):
-        """
-        Dùng trtexec (đã có sẵn trong JetPack / NVIDIA Docker) sinh .engine.
-        Có thể chạy hàm này trên PC RTX, sau đó copy file .engine
-        sang Jetson miễn compute capability ≥ 8.0.
-        """
-        import subprocess, shutil, os
-        engine_path = onnx_path.replace(".onnx", "_fp16.engine")
 
-        cmd = [
-            "trtexec",
-            f"--onnx={onnx_path}",
-            f"--saveEngine={engine_path}",
-            "--fp16",
-            "--workspace=4096",
-            # điều chỉnh H,W đúng mô hình của bạn
-            "--minShapes=input_1:1x1x32x32",
-            "--optShapes=input_1:4x1x32x32",
-            "--maxShapes=input_1:8x1x32x32",
-            "--verbose"
-        ]
-        print("[TRT] " + " ".join(cmd))
-        subprocess.run(cmd, check=True)
-        size = os.path.getsize(engine_path) / (1<<20)
-        print(f"[TRT] Done – {engine_path} ({size:.1f} MB)")
-
-
-    def export_to_onnx(self, opset: int = 17):
-        """
-        Convert SavedModel (đã lưu trong fit()) sang ONNX.
-        Trả về đường dẫn .onnx.
-        """
-        import tf2onnx, onnx
-        from pathlib import Path
-
-        sm_dir   = Path(self.log_dir) / "saved_model" / self.model_name
-        onnx_out = sm_dir.with_suffix(".onnx")          # same name, .onnx
-
-        print(f"[ONNX] Converting {sm_dir} → {onnx_out}")
-        model_proto, _ = tf2onnx.convert.from_saved_model(
-            sm_dir.as_posix(),
-            opset=opset,
-            output_path=onnx_out.as_posix(),
-            # -- Nếu VQ layer cần batch động, khai báo input_signature:
-            # input_signature=(tf.TensorSpec([None, H, W, C], tf.float32, name="input"),)
-        )
-        onnx.checker.check_model(model_proto)
-        print("[ONNX] Export OK")
-        return onnx_out.as_posix()    

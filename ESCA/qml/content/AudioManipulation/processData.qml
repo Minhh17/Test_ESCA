@@ -162,7 +162,7 @@ Rectangle {
             onAccepted: {
                 var urlStr = folderDialog1.fileUrl.toString()
                 chooseSourceTx.text = urlStr.replace("file://", "");
-                chooseFile = urlStr.replace("file:///", "");
+                chooseFile = urlStr.replace("file://", "");
                 console.log("Selected file: " + chooseSourceTx.text)
             }
             onRejected: {
@@ -177,8 +177,8 @@ Rectangle {
             nameFilters: ["*"] // Display all folders
             onAccepted: {
                 var urlStr = folderDialog2.fileUrl.toString()
-                chooseTargetTx.text = urlStr.replace("file:///", "");
-                chooseFile = urlStr.replace("file:///", "");
+                chooseTargetTx.text = urlStr.replace("file://", "");
+                chooseFile = urlStr.replace("file://", "");
                 console.log("Selected folder: " + chooseTargetTx.text)
             }
             onRejected: {

@@ -1,20 +1,12 @@
 import os
 import sys
-import arg_parser 
 sys.path.append(os.getcwd())
 from core.DataLoader import Dataloader
-from config.config_manager import ConfigManager
+from helper.parser import arg_parser 
 
 import tensorflow as tf
 
- # argument parser for custom paths
-def parse_args():
-	parser = argparse.ArgumentParser(description="Create TFRecord dataset")
-	parser.add_argument("--normal", help="Path to normal data")
-	parser.add_argument("--anomaly", help="Path to anomaly data")
-	parser.add_argument("--output", help="Directory to store TFRecords")
-	return parser.parse_args()
-
+from config.config_manager import ConfigManager 
 
 # os.environ['CUDA_VISIBLE_DEVICES'] = "1"
 
@@ -32,18 +24,14 @@ if gpus:
     print(e)
 
 if __name__ == '__main__':
+    # update config based on default.yaml file
+    # cfg = get_cfg_defaults()
+    # config_file = arg_parser('Create Dataloader for further uses.')
+    # cfg = update_config(cfg, config_file)
 
-	args = parse_args()
-	cfg = ConfigManager()
+    cfg = ConfigManager()
 
-		# override paths from command line if provided
-	if args.normal:
-    	cfg._config['DATASET']['PATH']['NORMAL'] = args.normal
-    if args.anomaly:
-    	cfg._config['DATASET']['PATH']['ANOMALY'] = args.anomaly
-	if args.output:
-    	cfg._config['DATASET']['PATH']['TFRECORDS'] = [args.output]
-
+    # initiate a feature_extractor with all parameters from cfg
     data_loader = Dataloader(cfg)
     data_loader.create_tfrecord()
     data_loader.accumulate_stat()

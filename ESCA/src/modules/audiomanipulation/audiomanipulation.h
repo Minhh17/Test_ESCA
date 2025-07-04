@@ -24,10 +24,12 @@ public:
 
 private:
     QProcess *m_process;
+    QString m_filePath;
 
 private slots:
     void onProcessFinished(int exitCode, QProcess::ExitStatus exitStatus);
     void onProcessError(QProcess::ProcessError error);
+
 };
 
 #endif // AUDIOMANIPULATION_H

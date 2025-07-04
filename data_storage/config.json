@@ -5,11 +5,11 @@
             "SHUFFLE": true
         },
         "PATH": {
-            "ANOMALY": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s5/s5Abnomaly",
-            "NORMAL": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s5/s5Normal",
+            "ANOMALY": "/home/sparclab/Documents/s02Abnomaly",
+            "NORMAL": "/home/sparclab/Documents/s02Normal",
             "TEST": null,
             "TFRECORDS": [
-                "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s5/s5TF"
+                "/home/sparclab/Documents"
             ]
         },
         "RATIO": {
@@ -42,7 +42,7 @@
             "SR": 16000
         },
         "SAMPLE_PER_FILE": 200,
-        "SEGMENT_LEN": 2,
+        "SEGMENT_LEN": 0.35,
         "TYPE": "gamma",
         "USE_TF_GTGRAM": false
     },
