@@ -279,12 +279,20 @@ Rectangle {
         Text {
             id: text8
             color: "#ffffff"
-            text: qsTr("Spectrograms")
+            text: qsTr("Prepare Data")
             anchors.fill: parent
             font.pixelSize: 20
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
         }
+	MouseArea {
+		anchors.fill: parent
+		onClicked: {
+			AudioManipulationObject.prepareDataset(chooseSourceTx.text, chooseTargetTx.text, chooseTargetTx.text)
+		}
+		
+	}
+
     }
 
     Rectangle {

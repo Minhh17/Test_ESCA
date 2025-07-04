@@ -5,11 +5,11 @@
             "SHUFFLE": true
         },
         "PATH": {
-            "ANOMALY": "/home/haiminh/Desktop/minh/ESCA_Qt/data_storage/fanAbnomaly",
-            "NORMAL": "/home/haiminh/Desktop/minh/ESCA_Qt/data_storage/fanNormal_gear2",
+            "ANOMALY": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s5/s5Abnomaly",
+            "NORMAL": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s5/s5Normal",
             "TEST": null,
             "TFRECORDS": [
-                "/home/haiminh/Desktop/minh/ESCA_Qt/data_storage/tfrecordFan"
+                "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s5/s5TF"
             ]
         },
         "RATIO": {
@@ -19,7 +19,7 @@
     },
     "DEVICE": {
         "JETSON": true,
-        "USE_TENSORRT": false
+        "USE_TENSORRT": true
     },
     "MODEL": {
         "TYPE": "vq_vae"
@@ -48,18 +48,18 @@
     },
     "REALTIME": {
         "CHANNELS": 1,
-        "FOLDER_PATH": "/home/haiminh/Desktop/minh/ESCA_Qt/data_storage/fanNormal_gear2",
+        "FOLDER_PATH": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s0.35/s035Abnomaly",
         "IMPORT_FILE": true,
-        "LOG_PATH": "home/haiminh/Desktop/minh/ESCA_Qt/python_ai/rt_result",
-        "MANUAL_THRESHOLD": 0.3,
-        "MAX": 30.707645416259766,
-        "MIN": -16.21242904663086,
-        "MODEL_PATH": "/home/haiminh/Desktop/minh/ESCA_Qt/python_ai/tl_fan_Laptop",
+        "LOG_PATH": "/home/sparclab/Desktop/Test_ESCA/data_storage",
+        "MANUAL_THRESHOLD": 0.2,
+        "MAX": 29.274986267089844,
+        "MIN": -16.170351028442383,
+        "MODEL_PATH": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s0.35/s035model",
         "SAMPLESIZE": 16,
         "SAMPLING_RATE": 44100,
         "SECOND": 2,
-        "THRESHOLD": 0.01800500601530075,
-        "TRT_MODEL_PATH": ""
+        "THRESHOLD": 0.008025996387004852,
+        "TRT_MODEL_PATH": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s0.35/s035model/vqvae32_fp32.engine"
     },
     "RECORD": {
         "ABNOMALY": false,
@@ -68,7 +68,7 @@
         "DATASET_PATH": "./dataset_mic_laptop_16k",
         "DEVICE": 8,
         "DEVICENAME": "default",
-        "DURATION": 1,
+        "DURATION": 0,
         "ENDIAN": 0,
         "SAMPLERATE": 3,
         "SAMPLESIZE": 1
@@ -76,20 +76,20 @@
     "TRAINING": {
         "EPOCH": 10,
         "LEARNING_RATE": 0.001,
-        "LOG_FOLDER": "/home/sparclab/Desktop/Test_ESCA/python_ai/result",
+        "LOG_FOLDER": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s0.2",
         "PRETRAINED_WEIGHTS": "/home/sparclab/Desktop/Test_ESCA/python_ai/temp/saved_model",
-        "SAVE_PATH": "/home/haiminh/Desktop/minh/ESCA_Qt/python_ai/result"
+        "SAVE_PATH": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s5/s5model"
     },
     "TRANSFER_LEARNING": {
         "ANOM_BATCH_SIZE": 128,
-        "BASED_WEIGHTS": "/home/haiminh/Desktop/minh/ESCA_Qt/python_ai/result/saved_model/vq_vae",
+        "BASED_WEIGHTS": "/home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fan/saved_model/vq_vae",
         "BETA": 1,
         "EPOCH": 20,
         "LEARNING_RATE": 0.001,
-        "SAVE_PATH": "/home/haiminh/Desktop/minh/ESCA_Qt/python_ai/tl_fan_Laptop",
+        "SAVE_PATH": "/home/sparclab/Desktop/Test_ESCA/python_ai/tl_orin_fan",
         "TEST_DIR": null,
         "TFRECORDS": [
-            "/home/haiminh/Desktop/minh/ESCA_Qt/data_storage/tfrecordFanTarget"
+            "/home/sparclab/Desktop/D-ESCA_v2/park_dataset_demo/mel_orin_fan"
         ]
     }
 }

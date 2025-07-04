@@ -117,9 +117,9 @@ void ConfigApp::generateConfig() {
     QJsonObject training;
     training["EPOCH"] = 10;
     training["LEARNING_RATE"] = 0.001;
-    training["LOG_FOLDER"] = "./Results/temp";
+    training["LOG_FOLDER"] = "/home/sparclab/Desktop/Test_ESCA/python_ai";
     training["PRETRAINED_WEIGHTS"] = "/home/haiminh/Desktop/ESCA_Qt/python_ai/temp/saved_model";
-    training["SAVE_PATH"] = "/home/haiminh/Desktop/ESCA_Qt/python_ai";
+    training["SAVE_PATH"] = "/home/sparclab/Desktop/Test_ESCA/python_ai/resultOrin_fan";
 
     root["TRAINING"] = training;
 

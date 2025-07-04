@@ -2,7 +2,6 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import ProjectImport 1.0 // IMport component: Constants, Animation, ...
 import "component"
-import "Base"
 import "Notification"
 
 ApplicationWindow {
@@ -14,7 +13,7 @@ ApplicationWindow {
     Loader {
         id: screenLoader
         anchors.top: topbar.bottom
-        source: "./Base/FullScreen.qml"
+        source: "./RecordModule/RecordModule.qml"
     }
 
     // NotificationCenter như một overlay
@@ -34,9 +33,9 @@ ApplicationWindow {
         id: topbar
     }
 
-    HomeButton {
-        id: homeButton
-    }
+	BottomMenu {
+		id: mainmenu
+	}
 
     // Cập nhật log khi epoch thay đổi
     Connections {

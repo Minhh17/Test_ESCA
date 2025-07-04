@@ -204,12 +204,19 @@ bool ConfigurationManager::importFile() const { return m_importFile; }
 
 // Setters
 
-void ConfigurationManager::setLogPath(const QString &logPath)
+void ConfigurationManager::setLogPath(const QString &newLogPath)
 {
-    if (m_logPath != logPath) {
-        m_logPath = logPath;
-        emit logPathChanged();
+    QUrl fileUrl(newLogPath);
+    if (fileUrl.isValid() && fileUrl.scheme() == "file") {
+        QString path = fileUrl.toLocalFile();
+        m_logPath = path;
+        qDebug()<<"setListOutput"+path;
+    } else {
+        m_logPath = newLogPath;
+        qDebug()<<"setListOutput"+newLogPath;
     }
+
+    emit logPathChanged();
 }
 
 void ConfigurationManager::setManualThreshold(double manualThreshold)
@@ -419,10 +426,10 @@ QString ConfigurationManager::folderPath() const
 
 void ConfigurationManager::setFolderPath(const QString &newFolderPath)
 {
-    if (m_folderPath == newFolderPath)
-        return;
-    m_folderPath = newFolderPath;
-    emit folderPathChanged();
+    //if (m_folderPath == newFolderPath)
+    //    return;
+    //m_folderPath = newFolderPath;
+    //emit folderPathChanged();
 
     QUrl fileUrl(newFolderPath);
     if (fileUrl.isValid() && fileUrl.scheme() == "file") {
@@ -464,10 +471,22 @@ QString ConfigurationManager::trtModelPath() const { return m_trtModelPath; }
 
 void ConfigurationManager::setTrtModelPath(const QString &newTrtModelPath)
 {
-    if (m_trtModelPath != newTrtModelPath) {
+    //if (m_trtModelPath == newTrtModelPath)
+    //    return;
+    //m_trtModelPath = newTrtModelPath;
+    //emit trtModelPathChanged();
+
+    QUrl fileUrl(newTrtModelPath);
+    if (fileUrl.isValid() && fileUrl.scheme() == "file") {
+        QString path = fileUrl.toLocalFile();
+        m_trtModelPath = path;
+        qDebug()<<"setListOutput"+path;
+    } else {
         m_trtModelPath = newTrtModelPath;
-        emit trtModelPathChanged();
+        qDebug()<<"setListOutput"+newTrtModelPath;
     }
+
+    emit trtModelPathChanged();
 }
 
 int ConfigurationManager::gfccChannels() const { return m_gfccChannels; }

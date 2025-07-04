@@ -85,6 +85,16 @@ void AudioManipulation::splitAudio(QString source, QString destination, QString 
     m_process->start("/bin/sh", QStringList() << "-c" << statement);
 }
 
+void AudioManipulation::prepareDataset(QString normalPath, QString anomalyPath, QString outputPath)
+{
+	QString statement = QString("python3 /home/sparclab/Desktop/Test_ESCA/python_ai/prepare_data.py --normal %1 --anomaly %2 --output %3")
+                        	.arg(normalPath, anomalyPath, outputPath);
+	qInfo() << "Executing command:" << statement;
+	m_process->start("/bin/sh", QStringList() << "-c" << statement);
+}
+
+
+
 void AudioManipulation::onProcessFinished(int exitCode, QProcess::ExitStatus exitStatus)
 {
     if (exitStatus == QProcess::NormalExit && exitCode == 0) {

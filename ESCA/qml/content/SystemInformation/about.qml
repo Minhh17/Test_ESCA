@@ -58,14 +58,4 @@ Rectangle {
         font.family: "Oxanium"
     }
 
-    Text {
-        id: text6
-        x: 834
-        y: 401
-        color: "#ffffff"
-        text: qsTr("© Copyright by ESCA3 2023")
-        font.pixelSize: 12
-        font.family: "Oxanium"
-    }
-
 }

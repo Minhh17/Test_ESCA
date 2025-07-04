@@ -16,6 +16,15 @@ inline QString basePath()
     return QDir::homePath() + QDir::separator() + "data_storage";
 }
 
+inline QString baseProject()
+{
+    QString env = qEnvironmentVariable("ESCA_DATA_PATH");
+    //qDebug()<<"qEnvironmentVariable"<< env;
+    if (!env.isEmpty())
+        return env;
+    return QDir::homePath();
+}
+
 inline QString filePath(const QString &relative)
 {
     QString base = basePath();

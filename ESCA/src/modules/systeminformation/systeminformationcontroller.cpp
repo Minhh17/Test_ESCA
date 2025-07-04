@@ -17,7 +17,7 @@ SystemInformationController::SystemInformationController(QObject *parent) : QObj
         qWarning() << "Cannot open health log:" << logFilePath;
     }
 
-    m_timer.setInterval(60000);
+    m_timer.setInterval(5000);
     m_timer.setSingleShot(false);
     m_timer.start();
     connect(&m_timer, &QTimer::timeout, this, [this]() {
@@ -157,7 +157,7 @@ std::tuple<double, double> SystemInformationController::getGpuTemp()
     double gpu = 0;
     double temp = 0;
     QProcess process;
-    QString scriptPath = "~/Desktop/minh/ESCA_Qt/python_ai/system_info.py";
+    QString scriptPath = "/home/sparclab/Desktop/Test_ESCA/python_ai/system_info.py";
     process.start("python3", QStringList() << scriptPath);
 
     if (!process.waitForStarted(1000)) {
