@@ -10,6 +10,7 @@
 #include "prmanager.h"
 #include "rocmanager.h"
 #include "transferengine.h"
+#include "../../common/storage/datastorage.h"
 
 class TransferController : public QObject
 {
@@ -29,6 +30,7 @@ public:
     Q_PROPERTY(QString logText READ logText WRITE setLogText NOTIFY logTextChanged)
 
     Q_INVOKABLE void start();
+    Q_INVOKABLE void startBaseTraining();
     Q_INVOKABLE void stop();
 
     bool tlStatus() const;

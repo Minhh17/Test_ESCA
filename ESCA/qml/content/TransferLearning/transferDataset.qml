@@ -27,8 +27,8 @@ Rectangle {
         }
 
         GridLayout {
-            width: 700
-            columns: 3
+            width: 750
+            columns: 4
             columnSpacing: 15
             rowSpacing: 30
             anchors.horizontalCenter: parent.horizontalCenter
@@ -83,6 +83,8 @@ Rectangle {
                 }
             }
 
+		Item { width: 35; height: 35 }
+
             Label {
                 text: "TFRecord Path (Used):"
                 font.pointSize: 13
@@ -133,6 +135,26 @@ Rectangle {
                 }
             }
 
+		Rectangle {
+            	id: clearUsedPath
+            	width: 35
+            	height: 35
+            	color: "#ff5c5c"
+
+            	MouseArea {
+                	anchors.fill: parent
+                	onClicked: {
+                    	tfrecordUsedPath.text = ""
+                	}
+            	}
+            	Text {
+                	text: "X"
+                	anchors.centerIn: parent
+                	color: "#ffffff"
+            	}
+        	}
+
+
             Label {
                 text: "TFRecord Path (New):"
                 font.pointSize: 13
@@ -180,6 +202,8 @@ Rectangle {
                     }
                 }
             }
+
+		Item { width: 35; height:35 }
 
             Label {
                 text: "Save Path:"
@@ -229,6 +253,8 @@ Rectangle {
                     }
                 }
             }
+
+		Item {width: 35; height: 35 }
 
         }
 

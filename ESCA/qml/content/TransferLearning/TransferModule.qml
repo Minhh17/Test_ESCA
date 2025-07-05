@@ -35,8 +35,12 @@ Rectangle {
             onClicked: {
                 // loader.source = "/ui/layout/splitingScreen.qml"
 
-                if (!tlStatus) {                    
-                    TransferObject.start();
+                if (!tlStatus) { 
+			if (TransferConfig.tfrecordUsedPath === "") {
+                    		TransferObject.startBaseTraining();
+                	} else {
+                    		TransferObject.start();
+                	}             
                 }
             }
         }

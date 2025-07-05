@@ -36,13 +36,16 @@ TransferController::~TransferController()
 
 void TransferController::start()
 {
-    // Đọc cấu hình
-    // if (!configManager->loadConfig("python_ai/ai_module/config/config.json")) {
-    //     qWarning() << "Failed to load configuration.";
-    //     return;
-    // }
-    transferProcMng->start();
-    setTlStatus(true);
+	transferProcMng->setScriptPath(DataStorage::baseProject() + "/python_ai/tl_training.py");
+	transferProcMng->start();
+	setTlStatus(true);
+}
+
+void TransferController::startBaseTraining()
+{
+	transferProcMng->setScriptPath(DataStorage::baseProject() + "/python_ai/base_training.py");
+	transferProcMng->start();
+	setTlStatus(true);
 }
 
 void TransferController::stop()

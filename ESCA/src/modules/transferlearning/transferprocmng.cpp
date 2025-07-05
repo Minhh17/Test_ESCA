@@ -1,12 +1,13 @@
 #include "transferprocmng.h"
+#include "../../common/storage/datastorage.h"
 #include <QDebug>
 #include <QString>
 #include <QtConcurrent>
 
 TransferProcMng::TransferProcMng(QObject *parent)
     : TransferEngine(parent),
-    m_scriptPath("/home/haiminh/Desktop/D-ESCA_v2/tools/tl_training.py -cfg ./config/default.py -f '' "),
-    m_parser(std::make_unique<TransferLogParser>(this))
+    m_scriptPath(DataStorage::baseProject() + "/python_ai/tl_training.py"),
+  	m_parser(std::make_unique<TransferLogParser>(this))
 {
     connect(&m_process, &QProcess::readyRead, this, &TransferProcMng::handleStandardOutput);
     connect(&m_process,
@@ -34,9 +35,8 @@ void TransferProcMng::start()
         qWarning() << "Script path is not set";
         return;
     }
-    setStatement("python3 ~/Desktop/minh/ESCA_Qt/python_ai/tl_training.py");
-
-    //export PYTHONPATH=~/Desktop/D-ESCA_v2:$PYTHONPATH &&
+    setStatement(QStringLiteral("python3 %1").arg(m_scriptPath));
+    qDebug()<< "Command start" << QStringLiteral("python3 %1").arg(m_scriptPath);
     Process::start();
 }
 
