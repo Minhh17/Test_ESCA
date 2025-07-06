@@ -47,7 +47,7 @@ void ConfigApp::generateConfig() {
 
     // PREPROCESS
     QJsonObject preprocess;
-    preprocess["AUDIO_LEN"] = 2;
+    preprocess["AUDIO_LEN"] = 0.35;
     preprocess["FRAME_RATE"] = 44100;
 
     QJsonObject gamma;
@@ -75,7 +75,7 @@ void ConfigApp::generateConfig() {
     int rtChannel = 1;
     int rtRate = 44100;
     int rtSize = 16;
-    int rtSecond = 2;
+    int rtSecond = 0.35;
     realtime["CHANNEL"] = rtChannel;
     realtime["SAMPLE_RATE"] = rtRate;
     realtime["SAMPLE_SIZE"] = rtSize;

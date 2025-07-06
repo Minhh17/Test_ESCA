@@ -51,7 +51,14 @@ CHANNELS_RT   = config.get("REALTIME.CHANNELS", 1)
 SAMPLE_SIZE   = config.get("REALTIME.SAMPLESIZE", 16)
 DURATION_SEC  = config.get("REALTIME.SECOND", 2)
 SHM_KEY, SEM_KEY = 0x1234, 0x5678
-SHM_SIZE = SAMPLE_RATE * CHANNELS_RT * (SAMPLE_SIZE // 8) * DURATION_SEC
+
+bytes_per_sample = SAMPLE_SIZE // 8
+SHM_SIZE = int(round(SAMPLE_RATE * CHANNELS_RT * bytes_per_sample * DURATION_SEC))
+assert SHM_SIZE % bytes_per_sample == 0, "SHM_SIZE must align with sample size"
+
+
+print(f"SAMPLE_RATE: {SAMPLE_RATE}, CHANNELS_RT: {CHANNELS_RT}, SAMPLE_SIZE: {SAMPLE_SIZE}")
+print(f"SHM_SIZE: {SHM_SIZE}")
 
 # --- Logging Setup ---
 log_dir = config.get("REALTIME.LOG_PATH", file_path("logs"))

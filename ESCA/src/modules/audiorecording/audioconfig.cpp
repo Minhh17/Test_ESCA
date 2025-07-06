@@ -22,10 +22,10 @@ AudioConfig::AudioConfig(QObject *parent) : QObject{parent}
         if (jsonDoc.isObject()) {
             QJsonObject json = jsonDoc.object();
 
-            int rtSecond = 2;
+            int rtSecond = 0.35;
             if (json.contains("REALTIME") && json["REALTIME"].isObject()) {
                 QJsonObject rt = json["REALTIME"].toObject();
-                rtSecond = rt.value("SECOND").toInt(rtSecond);
+                rtSecond = rt.value("SECOND").toDouble(rtSecond);
             }
             if (!m_listDuration.isEmpty())
                 m_listDuration[0] = QString::number(rtSecond) + "s";

@@ -7,7 +7,7 @@ ConfigurationManager::ConfigurationManager(QObject *parent) : QObject(parent),
     m_logPath("/home/sparclab/Desktop/Test_ESCA/data_storage"),
     m_manualThreshold(0.0026),
     m_sampleSize(16),
-    m_second(2),
+    m_second(0.35),
     m_channels(1),
     m_samplingRate(44100),
     m_importFile(false),
@@ -90,7 +90,7 @@ bool ConfigurationManager::loadConfig() {
         m_logPath = realtimeConfig.value("LOG_PATH").toString("/home/sparclab/Desktop/Test_ESCA/data_storage");
         m_manualThreshold = realtimeConfig.value("MANUAL_THRESHOLD").toDouble(0.01);
         m_sampleSize = realtimeConfig.value("SAMPLESIZE").toInt(16);
-        m_second = realtimeConfig.value("SECOND").toInt(5);
+        m_second = realtimeConfig.value("SECOND").toDouble(0.35);
         m_channels = realtimeConfig.value("CHANNELS").toInt(1);
         m_samplingRate = realtimeConfig.value("SAMPLING_RATE").toInt(44100);
         m_importFile = realtimeConfig.value("IMPORT_FILE").toBool(false);
@@ -197,7 +197,7 @@ bool ConfigurationManager::saveConfig() const {
 // Getters
 QString ConfigurationManager::logPath() const { return m_logPath; }
 double ConfigurationManager::manualThreshold() const { return m_manualThreshold; }
-int ConfigurationManager::second() const { return m_second; }
+double ConfigurationManager::second() const { return m_second; }
 int ConfigurationManager::channels() const { return m_channels; }
 int ConfigurationManager::samplingRate() const { return m_samplingRate; }
 bool ConfigurationManager::importFile() const { return m_importFile; }
@@ -227,7 +227,7 @@ void ConfigurationManager::setManualThreshold(double manualThreshold)
     }
 }
 
-void ConfigurationManager::setSecond(int second)
+void ConfigurationManager::setSecond(double second)
 {
     if (m_second != second) {
         m_second = second;
@@ -305,7 +305,7 @@ void ConfigurationManager::applyConfig(const QJsonObject& realtime)
     }
 
     if (realtime.contains("SECOND") && realtime["SECOND"].isDouble()) {
-        setSecond(realtime["SECOND"].toInt());
+        setSecond(realtime["SECOND"].toDouble());
     }
 
     if (realtime.contains("CHANNELS") && realtime["CHANNELS"].isDouble()) {

@@ -48,7 +48,7 @@
     },
     "REALTIME": {
         "CHANNELS": 1,
-        "FOLDER_PATH": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s0.35/s035Normal",
+        "FOLDER_PATH": "/home/sparclab/Desktop/Thesipython3 ./ins/Dataset_For_Chunksize/s0.35/s035Normal",
         "IMPORT_FILE": false,
         "LOG_PATH": "/home/sparclab/Desktop/Test_ESCA/data_storage",
         "MANUAL_THRESHOLD": 0.21,
@@ -57,7 +57,7 @@
         "MODEL_PATH": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s0.35/s035model",
         "SAMPLESIZE": 16,
         "SAMPLING_RATE": 44100,
-        "SECOND": 2,
+        "SECOND": 0.35,
         "THRESHOLD": 0.008025996387004852,
         "TRT_MODEL_PATH": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s0.35/s035model/vqvae32_fp32.engine"
     },

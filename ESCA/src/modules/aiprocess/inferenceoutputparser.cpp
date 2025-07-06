@@ -17,14 +17,14 @@ void InferenceOutputParser::parseLine(const QString &line)
 
     if (outputStr.startsWith("METRIC")) {
         const QStringList parts = outputStr.split(' ');
-        qDebug()<<"parseLine";
+        //qDebug()<<"parseLine";
         if (parts.size() >= 3) {
             const QString key = parts.at(1);
             bool ok = false;
-            qDebug()<<"parseLine2 "<< key;
+            //qDebug()<<"parseLine2 "<< key;
             double value = parts.at(2).toDouble(&ok);
 
-            qDebug()<<"parseLine3 "<< value;
+            //qDebug()<<"parseLine3 "<< value;
             if (ok) {
                 if (key == "read_ms") {
                     LatencyTracker::pythonRead(value);

@@ -63,7 +63,7 @@ private:
     size_t computeChunkSize() const;
 
     size_t m_chunkSize = 0;
-    int m_durationSec = 2;
+    int m_durationSec = 0.35;
     
     bool m_recStatus;
 };

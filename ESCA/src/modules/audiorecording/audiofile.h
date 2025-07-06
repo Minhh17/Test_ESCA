@@ -13,7 +13,7 @@ class AudioFile : public QObject{
 public:
     AudioFile(const QString &outputDir,
               const QAudioFormat &format,
-              double durationSeconds = 2.0,
+              double durationSeconds = 0.35,
               QObject *parent = nullptr);
 
     ~AudioFile();

@@ -5,6 +5,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QFile>
+#include <cmath>
 #include "../../common/storage/datastorage.h"
 
 RecordingController::RecordingController(QObject *parent)
@@ -28,17 +29,19 @@ RecordingController::RecordingController(QObject *parent)
     qInfo() << "format in ini: " << m_audioConfig->format();
 
     QFile cfg(DataStorage::filePath("config.json"));
-    int sr = 44100, ch = 1, ss = 16, sec = 2;
+    int sr = 44100, ch = 1, ss = 16;
+    double sec = 0.35;
     if (cfg.open(QIODevice::ReadOnly)) {
         QJsonDocument doc = QJsonDocument::fromJson(cfg.readAll());
         QJsonObject rt = doc.object().value("REALTIME").toObject();
         sr  = rt.value("SAMPLING_RATE").toInt(sr);
         ch  = rt.value("CHANNELS").toInt(ch);
         ss  = rt.value("SAMPLESIZE").toInt(ss);
-        sec = rt.value("SECOND").toInt(sec);
+        sec = rt.value("SECOND").toDouble(sec);
     }
     m_durationSec = sec;
-    m_chunkSize = sr * ch * (ss / 8) * m_durationSec;
+    m_chunkSize = static_cast<size_t>(std::lround(sr * ch * (ss / 8.0) * m_durationSec));
+    
     size_t chartSamples = m_chunkSize / (ss / 8);
     m_recordingChart = new RecordingChart(chartSamples, this);
     qmlRegisterSingletonInstance("AudioChartImport", 1, 0, "AudioChart", m_recordingChart);
@@ -97,7 +100,7 @@ void RecordingController::startRecording()
     bool ok = false;
     double durationSec = durStr.remove('s').toDouble(&ok);
     if (!ok || durationSec <= 0)
-        durationSec = 2.0;
+        durationSec = 0.35;
     m_audioFile = std::make_unique<AudioFile>(m_outputDir, m_format, static_cast<double>(durationSec));
 
     // Đảm bảo thread chưa chạy thì start lại
@@ -260,8 +263,10 @@ size_t RecordingController::computeChunkSize() const
     bool ok = false;
     double durationSec = durStr.remove('s').toDouble(&ok);
     if (!ok || durationSec <= 0)
-        durationSec = 2.0;
+        durationSec = 0.35;
 
     size_t bytesPerSample = static_cast<size_t>(fmt.sampleSize() / 8);
-    return static_cast<size_t>(fmt.sampleRate() * bytesPerSample * fmt.channelCount() * durationSec);
+    
+    double totalBytes = fmt.sampleRate() * bytesPerSample * fmt.channelCount() * durationSec;
+    return static_cast<size_t>(std::lround(totalBytes));
 }
