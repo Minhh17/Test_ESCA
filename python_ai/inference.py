@@ -6,6 +6,7 @@ import time
 import os
 import wave
 import logging
+import logging.handlers
 import numpy as np
 import atexit	
 
@@ -54,13 +55,19 @@ SHM_SIZE = SAMPLE_RATE * CHANNELS_RT * (SAMPLE_SIZE // 8) * DURATION_SEC
 
 # --- Logging Setup ---
 log_dir = config.get("REALTIME.LOG_PATH", file_path("logs"))
-os.makedirs(log_dir, exist_ok=True)
-logging.basicConfig(
-    filename=os.path.join(log_dir, "processing_time.log"),
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s",
+proc_dir = os.path.join(log_dir, "processing")
+os.makedirs(proc_dir, exist_ok=True)
+
+logger = logging.getLogger("processing")
+logger.setLevel(logging.INFO)
+handler = logging.handlers.TimedRotatingFileHandler(
+    os.path.join(proc_dir, "processing_time.log"),
+    when="m",
+    interval=10,
+    encoding="utf-8",
 )
-logger = logging.getLogger(__name__)
+handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(message)s"))
+logger.addHandler(handler)
 
 # TensorRT resources tracked for cleanup
 stream = None

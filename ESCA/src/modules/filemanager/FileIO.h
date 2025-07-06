@@ -6,6 +6,7 @@
 #include <QAbstractListModel>
 #include <QDir>
 #include <QFileInfoList>
+#include <QTextStream>
 
 class FolderListModel : public QAbstractListModel {
     Q_OBJECT
@@ -45,6 +46,15 @@ public:
     Q_INVOKABLE bool removeFile(const QString &filePath) {
         QFile file(filePath);
         return file.remove();
+    }
+       
+    Q_INVOKABLE QString readFile(const QString &filePath) {
+        QFile file(filePath);
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            return QString();
+        }
+        QTextStream in(&file);
+        return in.readAll();
     }
 };
 

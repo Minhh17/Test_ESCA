@@ -18,6 +18,11 @@ public:
 
 private:
     QFile m_logFile;
+    QDateTime m_logStart;
+
+    QString anomalyLogFilePath(const QDateTime &dt) const;
+    void openLog(const QDateTime &dt);
+    void rotateLog();
 };
 
 #endif // ANOMALYLOGGER_H

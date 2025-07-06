@@ -68,6 +68,12 @@ private:
     QVector<int> m_ramHistory;
     QVector<int> m_tempHistory;
     QFile m_healthLog;
+    
+	QDateTime m_logStart;
+
+    QString healthLogFilePath(const QDateTime &dt) const;
+    void openHealthLog(const QDateTime &dt);
+    void rotateHealthLog();
 
     unsigned int user, total = 0;
     std::tuple<unsigned int, unsigned int> readFile();

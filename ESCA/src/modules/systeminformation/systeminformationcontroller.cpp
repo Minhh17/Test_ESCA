@@ -11,11 +11,8 @@
 
 SystemInformationController::SystemInformationController(QObject *parent) : QObject{parent} {
 
-    QString logFilePath = DataStorage::filePath("health.log");
-    m_healthLog.setFileName(logFilePath);
-    if (!m_healthLog.open(QIODevice::Append | QIODevice::Text)) {
-        qWarning() << "Cannot open health log:" << logFilePath;
-    }
+    m_logStart = QDateTime::currentDateTime();
+    openHealthLog(m_logStart);
 
     m_timer.setInterval(5000);
     m_timer.setSingleShot(false);
@@ -41,6 +38,8 @@ SystemInformationController::SystemInformationController(QObject *parent) : QObj
         appendHistory(m_gpuHistory, gpu_usage);
         appendHistory(m_ramHistory, ram_usage);
         appendHistory(m_tempHistory, temperature_value);
+        
+        rotateHealthLog();
 
         if (m_healthLog.isOpen()) {
             QTextStream out(&m_healthLog);
@@ -215,3 +214,34 @@ QVector<int> SystemInformationController::cpuHistory() const { return m_cpuHisto
 QVector<int> SystemInformationController::gpuHistory() const { return m_gpuHistory; }
 QVector<int> SystemInformationController::ramHistory() const { return m_ramHistory; }
 QVector<int> SystemInformationController::tempHistory() const { return m_tempHistory; }
+
+
+QString SystemInformationController::healthLogFilePath(const QDateTime &dt) const
+{
+    QString dirPath = DataStorage::filePath("logs/health");
+    QDir().mkpath(dirPath);
+    int bucket = (dt.time().minute()/10)*10;
+    QTime t(dt.time().hour(), bucket);
+    QDateTime bucketTime(dt.date(), t);
+    QString name = QStringLiteral("health_%1.log").arg(bucketTime.toString("yyyyMMdd_HHmm"));
+    return QDir(dirPath).filePath(name);
+}
+
+void SystemInformationController::openHealthLog(const QDateTime &dt)
+{
+    QString logFilePath = healthLogFilePath(dt);
+    m_healthLog.setFileName(logFilePath);
+    if (!m_healthLog.open(QIODevice::Append | QIODevice::Text)) {
+        qWarning() << "Cannot open health log:" << logFilePath;
+    }
+}
+
+void SystemInformationController::rotateHealthLog()
+{
+    QDateTime now = QDateTime::currentDateTime();
+    if (m_logStart.secsTo(now) >= 600) {
+        m_healthLog.close();
+        m_logStart = now;
+        openHealthLog(m_logStart);
+    }
+}

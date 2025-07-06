@@ -306,7 +306,7 @@ Rectangle {
         Text {
             id: text9
             color: "#ffffff"
-            text: qsTr("Split to 2s")
+            text: qsTr("Split to 350ms")
             anchors.fill: parent
             font.pixelSize: 20
             horizontalAlignment: Text.AlignHCenter

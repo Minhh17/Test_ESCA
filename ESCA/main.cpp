@@ -48,6 +48,9 @@ int main(int argc, char *argv[])
     AIController aiController(&processManager);
     ConfigurationManager configManager;
     configManager.loadConfig();
+    
+    QString logFolder = DataStorage::filePath("logs");
+    QDir().mkpath(logFolder);
 
     NotificationLogger notificationLogger;
     AnomalyLogger anomalyLogger;
@@ -73,6 +76,8 @@ int main(int argc, char *argv[])
 
     engine.rootContext()->setContextProperty("ConfigManager", &configManager);
     engine.rootContext()->setContextProperty("TransferConfig", &transferConfig);
+    
+    engine.rootContext()->setContextProperty("LogFolderPath", QUrl::fromLocalFile(logFolder).toString());
 
     engine.rootContext()->setContextProperty("NotificationLoggerCpp", &notificationLogger);
     engine.rootContext()->setContextProperty("AlertManager", &alertManager);

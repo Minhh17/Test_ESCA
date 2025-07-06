@@ -108,6 +108,7 @@ DISTFILES += \
     qml/content/SystemInformation/about.qml \
     qml/content/SystemInformation/realTimeMonitor.qml \
     qml/content/SystemInformation/systemInformation.qml \
+    qml/content/Help/LogViewer.qml \
     qml/content/component/NotificationManager.qml \
     qml/content/component/RamFrame.qml \
     qml/content/component/UsageLineChart.qml

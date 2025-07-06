@@ -38,11 +38,9 @@ void AudioManipulation::extractMFCC(QString audioPath)
 
 void AudioManipulation::extractGFCC(QString audioPath)
 {
-    QString filePath = "/home/gianghandsome/ESCA/data/data.wav"; // Hard-coded tạm thời
-    QString statement = "cd ";
-    statement.append(AUDIO_FEATURES_EXTRACTOR_SRC);
-    statement.append(" && python3 gfcc.py -f ");
-    statement.append(filePath);
+    QString statement = "export PYTHONPATH=~/Desktop/ESCA_Audio_Features_Extractor:$PYTHONPATH && python3 ~/Desktop/ESCA_Audio_Features_Extractor/src/gfcc.py -f";
+
+    statement.append(audioPath);
     qInfo() << "Executing command:" << statement;
 
     m_process->start("/bin/sh", QStringList() << "-c" << statement);
