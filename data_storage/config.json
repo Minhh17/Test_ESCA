@@ -5,11 +5,11 @@
             "SHUFFLE": true
         },
         "PATH": {
-            "ANOMALY": "/home/sparclab/Desktop/Test_ESCA/data_storage/TestAudio",
-            "NORMAL": "/home/sparclab/Desktop/Test_ESCA/data_storage/TestAudio",
+            "ANOMALY": "/home/sparclab/Desktop/Test_ESCA/data_storage",
+            "NORMAL": "/home/sparclab/Desktop/Test_ESCA/data_storage/TestAudio/Normal",
             "TEST": null,
             "TFRECORDS": [
-                "/home/sparclab/Desktop/Test_ESCA/data_storage/tfrecordFan"
+                "/home/sparclab/Desktop/Test_ESCA/data_storage"
             ]
         },
         "RATIO": {
@@ -42,16 +42,16 @@
             "SR": 16000
         },
         "SAMPLE_PER_FILE": 200,
-        "SEGMENT_LEN": 0.35,
+        "SEGMENT_LEN": 2,
         "TYPE": "gamma",
         "USE_TF_GTGRAM": false
     },
     "REALTIME": {
         "CHANNELS": 1,
-        "FOLDER_PATH": "/home/sparclab/Desktop/Thesipython3 ./ins/Dataset_For_Chunksize/s0.35/s035Normal",
+        "FOLDER_PATH": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s0.35/s035Normal",
         "IMPORT_FILE": false,
         "LOG_PATH": "/home/sparclab/Desktop/Test_ESCA/data_storage",
-        "MANUAL_THRESHOLD": 0.21,
+        "MANUAL_THRESHOLD": 0.2,
         "MAX": 29.274986267089844,
         "MIN": -16.170351028442383,
         "MODEL_PATH": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s0.35/s035model",
@@ -78,7 +78,7 @@
         "LEARNING_RATE": 0.001,
         "LOG_FOLDER": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s0.2",
         "PRETRAINED_WEIGHTS": "/home/sparclab/Desktop/Test_ESCA/python_ai/temp/saved_model",
-        "SAVE_PATH": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s0.2/s02model"
+        "SAVE_PATH": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s5/s5model"
     },
     "TRANSFER_LEARNING": {
         "ANOM_BATCH_SIZE": 128,
@@ -89,7 +89,7 @@
         "SAVE_PATH": "/home/sparclab/Desktop/Test_ESCA/python_ai/tl_orin_fan",
         "TEST_DIR": null,
         "TFRECORDS": [
-            "/home/sparclab/Desktop/Test_ESCA/data_storage/tfrecordFanTarget"
+            "/home/sparclab/Desktop/D-ESCA_v2/park_dataset_demo/mel_orin_fan"
         ]
     }
 }

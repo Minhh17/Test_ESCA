@@ -6,13 +6,10 @@ constexpr quint32 WAV_HEADER_SIZE = 44;
 
 AudioFile::AudioFile(const QString &outputDir,
                      const QAudioFormat &format,
-                     double durationSeconds,
                      QObject *parent)
     : QObject(parent),
     m_outputDir(outputDir),
     m_audioFormat(format),
-    m_durationSeconds(durationSeconds),
-    m_usingBuffer1(true),
     dataSize(0) // Khởi tạo dataSize
 {
     QDir dir(m_outputDir);
@@ -21,17 +18,6 @@ AudioFile::AudioFile(const QString &outputDir,
             qWarning() << "Failed to create output directory:" << m_outputDir;
         }
     }
-
-    m_chunkSize = static_cast<quint32>(
-        m_audioFormat.sampleRate() *
-        (m_audioFormat.sampleSize() / 8) *
-        m_audioFormat.channelCount() *
-        m_durationSeconds
-        );
-    qDebug()<< "m_chunkSize"<<m_chunkSize;
-
-    m_buffer1.reserve(m_chunkSize);
-    m_buffer2.reserve(m_chunkSize);
 }
 
 AudioFile::~AudioFile() {
@@ -54,15 +40,6 @@ void AudioFile::stopRecording() {
     QMutexLocker locker(&m_mutex);
     if (!m_outFile.isOpen()) {
         return;
-    }
-
-    // Ghi dữ liệu còn lại trong buffer
-    QByteArray &currentBuffer = m_usingBuffer1 ? m_buffer1 : m_buffer2;
-    if (!currentBuffer.isEmpty()) {
-        m_outFile.write(currentBuffer);
-        m_outFile.flush();
-        dataSize = currentBuffer.size(); // Cập nhật dataSize dựa trên dữ liệu thực tế
-        qDebug() << "Wrote remaining" << dataSize << "bytes to file:" << m_outFile.fileName();
     }
 
     finalizeWavHeader(dataSize);
@@ -137,22 +114,22 @@ void AudioFile::writeWavHeader() {
     qInfo() << "End write header to WAV file";
 }
 
-void AudioFile::writeDataForever(const QByteArray &data) {
+void AudioFile::appendData(const QByteArray &data) {
     QMutexLocker locker(&m_mutex);
 
     if (!m_outFile.isOpen()) {
-        qWarning() << "writeDataForever: File is not open!";
+        qWarning() << "appendData: File is not open!";
         return;
     }
 
     if (data.isEmpty()) {
-        qWarning() << "writeDataForever: Empty data received!";
+        qWarning() << "appendData: Empty data received!";
         return;
     }
 
     qint64 bytesWritten = m_outFile.write(data);
     if (bytesWritten == -1) {
-        qWarning() << "writeDataForever: Failed to write data!";
+        qWarning() << "appendData: Failed to write data!";
         return;
     }
 
@@ -160,34 +137,26 @@ void AudioFile::writeDataForever(const QByteArray &data) {
     dataSize += static_cast<quint32>(bytesWritten);
 }
 
-void AudioFile::writeAudioData(const QByteArray &data) {
+void AudioFile::writeChunk(const QByteArray &data) {
     QMutexLocker locker(&m_mutex);
 
     if (!m_outFile.isOpen()) {
-        qWarning() << "writeAudioData: File is not open!";
+        qWarning() << "writeChunk: File is not open!";
+        return;
+    }
+    
+    if (data.isEmpty()) {
+        qWarning() << "writeChunk: Empty data received!";
         return;
     }
 
-    QByteArray &currentBuffer = m_usingBuffer1 ? m_buffer1 : m_buffer2;
-    currentBuffer.append(data);
+    m_outFile.write(data);
+    m_outFile.flush();
+    dataSize = static_cast<quint32>(data.size());
 
-    while (currentBuffer.size() >= m_chunkSize) {
-        // Ghi dữ liệu vào file
-        QByteArray chunk = currentBuffer.left(m_chunkSize);
-        //qDebug() << "Data before writing to WAV - First 10 bytes: " << chunk.mid(0, 10);
-        m_outFile.write(chunk);
-        m_outFile.flush();
-        dataSize = m_chunkSize; // Cập nhật dataSize cho chunk này
+    finalizeWavHeader(dataSize);
 
-        // Hoàn thiện header cho file hiện tại
-        finalizeWavHeader(dataSize);
-
-        // Xóa dữ liệu đã ghi
-        currentBuffer.remove(0, m_chunkSize);
-
-        // Tạo file mới
-        createFile();
-    }
+    createFile();
 }
 
 void AudioFile::finalizeWavHeader(quint32 dataSize) {

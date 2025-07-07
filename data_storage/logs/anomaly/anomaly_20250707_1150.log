@@ -1,0 +1,55 @@
+2025-07-07T11:53:00 : [07/07/2025-11:52:58] [TRT] [W] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors. (0) - 
+2025-07-07T11:53:01 : USE_TENSORRT (0) - repeated
+2025-07-07T11:53:02 : Semaphore connected. (0) - 
+2025-07-07T11:53:06 : ⚠️ Warning: Expected 176400 bytes but got 30870 bytes! (0) - 
+2025-07-07T11:56:08 : SHM_SIZE: 30870 (0) - repeated
+2025-07-07T11:56:08 : Semaphore connected. (0) - repeated
+2025-07-07T11:56:21 : Anomaly detected!! (0) - 
+2025-07-07T11:56:29 : Anomaly detected!! (0) - repeated
+2025-07-07T11:56:33 : Anomaly detected!! (0) - repeated
+2025-07-07T11:56:40 : Anomaly detected!! (0) - timeout
+2025-07-07T11:56:58 : Anomaly detected!! (0) - timeout
+2025-07-07T11:57:41 : Anomaly detected!! (0) - repeated
+2025-07-07T11:57:53 : Anomaly detected!! (0) - timeout
+2025-07-07T11:58:08 : Anomaly detected!! (0) - 
+2025-07-07T11:58:17 : Anomaly detected!! (0) - 
+2025-07-07T11:59:59 : Anomaly detected!! (0) - 
+2025-07-07T12:00:05 : Anomaly detected!! (0) - 
+2025-07-07T12:00:07 : Anomaly detected!! (0) - 
+2025-07-07T12:00:22 : Anomaly detected!! (0) - repeated
+2025-07-07T12:00:26 : Anomaly detected!! (0) - repeated
+2025-07-07T12:00:27 : Anomaly detected!! (0) - repeated
+2025-07-07T12:00:28 : Anomaly detected!! (0) - repeated
+2025-07-07T12:00:29 : Anomaly detected!! (0) - repeated
+2025-07-07T12:00:32 : Anomaly detected!! (0) - repeated
+2025-07-07T12:00:37 : Anomaly detected!! (0) - timeout
+2025-07-07T12:00:51 : Anomaly detected!! (0) - timeout
+2025-07-07T12:00:55 : Anomaly detected!! (0) - repeated
+2025-07-07T12:00:57 : Anomaly detected!! (0) - repeated
+2025-07-07T12:00:59 : Anomaly detected!! (0) - repeated
+2025-07-07T12:01:11 : Anomaly detected!! (0) - repeated
+2025-07-07T12:01:20 : Anomaly detected!! (0) - repeated
+2025-07-07T12:01:21 : Anomaly detected!! (0) - repeated
+2025-07-07T12:01:22 : Anomaly detected!! (0) - repeated
+2025-07-07T12:01:23 : Anomaly detected!! (0) - repeated
+2025-07-07T12:01:24 : Anomaly detected!! (0) - repeated
+2025-07-07T12:01:33 : Anomaly detected!! (0) - repeated
+2025-07-07T12:01:34 : Anomaly detected!! (0) - repeated
+2025-07-07T12:01:41 : Anomaly detected!! (0) - timeout
+2025-07-07T12:01:45 : Anomaly detected!! (0) - repeated
+2025-07-07T12:01:48 : Anomaly detected!! (0) - repeated
+2025-07-07T12:01:59 : Anomaly detected!! (0) - timeout
+2025-07-07T12:02:05 : Anomaly detected!! (0) - repeated
+2025-07-07T12:02:14 : Anomaly detected!! (0) - timeout
+2025-07-07T12:02:24 : Anomaly detected!! (0) - timeout
+2025-07-07T12:02:39 : Anomaly detected!! (0) - timeout
+2025-07-07T12:03:09 : Anomaly detected!! (0) - repeated
+2025-07-07T12:03:23 : Anomaly detected!! (0) - timeout
+2025-07-07T12:03:32 : Anomaly detected!! (0) - 
+2025-07-07T12:03:34 : Anomaly detected!! (0) - repeated
+2025-07-07T12:03:40 : Anomaly detected!! (0) - timeout
+2025-07-07T12:03:45 : Anomaly detected!! (0) - repeated
+2025-07-07T12:04:02 : Anomaly detected!! (0) - timeout
+2025-07-07T12:04:09 : Anomaly detected!! (0) - timeout
+2025-07-07T12:04:31 : Anomaly detected!! (0) - timeout
+2025-07-07T12:05:22 : Anomaly detected!! (0) - timeout

@@ -1,0 +1,32 @@
+2025-07-07T11:49:47 : SHM_SIZE: 176400 (0) - repeated
+2025-07-07T11:49:48 : Anomaly detected!! (0) - repeated
+2025-07-07T11:49:48 : Anomaly detected!! (0) - 
+2025-07-07T11:49:49 : Anomaly detected!! (0) - repeated
+2025-07-07T11:49:49 : Anomaly detected!! (0) - repeated
+2025-07-07T11:49:49 : Anomaly detected!! (0) - repeated
+2025-07-07T11:49:49 : Anomaly detected!! (0) - repeated
+2025-07-07T11:49:50 : Anomaly detected!! (0) - repeated
+2025-07-07T11:49:50 : Anomaly detected!! (0) - 
+2025-07-07T11:49:50 : Anomaly detected!! (0) - repeated
+2025-07-07T11:49:51 : Anomaly detected!! (0) - repeated
+2025-07-07T11:49:51 : Anomaly detected!! (0) - repeated
+2025-07-07T11:49:51 : Anomaly detected!! (0) - repeated
+2025-07-07T11:49:52 : Anomaly detected!! (0) - repeated
+2025-07-07T11:49:52 : Anomaly detected!! (0) - repeated
+2025-07-07T11:49:52 : Anomaly detected!! (0) - repeated
+2025-07-07T11:49:53 : Anomaly detected!! (0) - repeated
+2025-07-07T11:49:53 : Anomaly detected!! (0) - repeated
+2025-07-07T11:49:53 : Anomaly detected!! (0) - repeated
+2025-07-07T11:49:54 : Anomaly detected!! (0) - repeated
+2025-07-07T11:49:54 : Anomaly detected!! (0) - repeated
+2025-07-07T11:49:59 : Anomaly detected!! (0) - timeout
+2025-07-07T11:50:19 : SHM_SIZE: 176400 (0) - repeated
+2025-07-07T11:50:20 : USE_TENSORRT (0) - 
+2025-07-07T11:50:24 : Anomaly detected!! (0) - 
+2025-07-07T11:50:29 : Anomaly detected!! (0) - 
+2025-07-07T11:50:33 : Anomaly detected!! (0) - repeated
+2025-07-07T11:50:37 : Anomaly detected!! (0) - 
+2025-07-07T11:50:42 : Anomaly detected!! (0) - timeout
+2025-07-07T11:50:44 : Anomaly detected!! (0) - repeated
+2025-07-07T11:50:50 : Anomaly detected!! (0) - repeated
+2025-07-07T11:50:53 : Average MSE: 0.186888, Ave gfcc: 46.129449 ms, Ave inference: 47.488357, Ave all py: 93.697735 ms 0.18688757772065853 46.12944902908045 47.488356655069055 93.69773486241418 (0) - repeated

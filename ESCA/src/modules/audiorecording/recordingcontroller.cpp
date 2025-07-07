@@ -18,6 +18,7 @@ RecordingController::RecordingController(QObject *parent)
     , m_format(m_audioConfig->format())
     , m_recStatus(false)
     , m_chunkSize(0)
+    , m_usingBuffer1(true)
     , sharedMemoryManager(nullptr)
 {
     //qmlRegisterSingletonInstance("AudioChartImport", 1, 0, "AudioChart", m_recordingChart);
@@ -55,16 +56,6 @@ RecordingController::RecordingController(QObject *parent)
     //sharedMemoryManager->setSharedMemorySize(m_chunkSize);
     if (sharedMemoryManager)
         sharedMemoryManager->setSharedMemorySize(m_chunkSize);
-
-    if (!sharedMemoryManager->init_ipc()) {
-        qDebug() << "Failed to initialize IPC.";
-        delete sharedMemoryManager;
-        sharedMemoryManager = nullptr;
-    }
-    // else {
-    //     sharedMemoryManager->start();
-    //     qDebug() << "SharedMemoryManager started.";
-    // }
 }
 
 RecordingController::~RecordingController()
@@ -100,12 +91,7 @@ void RecordingController::startRecording()
 
     //m_audioFile = new AudioFile(m_outputDir, m_format, 2.0);
 
-        QString durStr = m_audioConfig->duration();
-    bool ok = false;
-    double durationSec = durStr.remove('s').toDouble(&ok);
-    if (!ok || durationSec <= 0)
-        durationSec = 0.35;
-    m_audioFile = std::make_unique<AudioFile>(m_outputDir, m_format, static_cast<double>(durationSec));
+	m_audioFile = std::make_unique<AudioFile>(m_outputDir, m_format);
 
     // Đảm bảo thread chưa chạy thì start lại
     if (!m_audioFileThread) {
@@ -161,12 +147,21 @@ void RecordingController::startSharedMemory(){
     QAudioDeviceInfo deviceInfo = m_audioConfig->deviceInfo();
     
     m_chunkSize = computeChunkSize();
-    if (sharedMemoryManager) {
-        sharedMemoryManager->setSharedMemorySize(m_chunkSize);
-        sharedMemoryManager->start();
-    } else {
-        qWarning() << "SharedMemoryManager is not available";
+    
+    if (m_chunkSize == 0) {
+        qWarning() << "Invalid chunk size computed" << m_chunkSize;
+        return;
+    }    
+    
+    sharedMemoryManager->setSharedMemorySize(m_chunkSize);    
+    
+    if (!sharedMemoryManager->init_ipc()) {
+        qDebug() << "Failed to initialize IPC.";
+        return;
     }
+    
+    sharedMemoryManager->start();
+
     m_recordIO->startAudioInput(m_format, deviceInfo);
     //qInfo() << "format before shm" << m_format;
 }
@@ -210,18 +205,18 @@ void RecordingController::handleDataReady(const QByteArray &data)
         // sharedMemoryManager->getAudioData(dataToSend);
         // qDebug() << "✅ Writing to shared memory completed at:" << QDateTime::currentDateTime().toString("hh:mm:ss.zzz");
 
-        if (duration == "2s"){
+        if (duration != "Forever"){
             // Chuyển tiếp dữ liệu cho AudioFile để xử lý buffering và ghi file
 
             if (m_audioFile) {
-                QMetaObject::invokeMethod(m_audioFile.get(), "writeAudioData",
+                QMetaObject::invokeMethod(m_audioFile.get(), "writeChunk",
                                           Qt::QueuedConnection,
                                           Q_ARG(QByteArray, dataToSend));
             }
         }
         else {
             if (m_audioFile) {
-                QMetaObject::invokeMethod(m_audioFile.get(), "writeDataForever",
+                QMetaObject::invokeMethod(m_audioFile.get(), "appendData",
                                           Qt::QueuedConnection,
                                           Q_ARG(QByteArray, dataToSend));
             }
