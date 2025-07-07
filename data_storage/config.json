@@ -9,7 +9,7 @@
             "NORMAL": "/home/sparclab/Desktop/Test_ESCA/data_storage/TestAudio",
             "TEST": null,
             "TFRECORDS": [
-                "/home/sparclab/Desktop/Test_ESCA/data_storage/TestAudio"
+                "/home/sparclab/Desktop/Test_ESCA/data_storage/tfrecordFan"
             ]
         },
         "RATIO": {

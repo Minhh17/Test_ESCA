@@ -28,7 +28,7 @@ AudioConfig::AudioConfig(QObject *parent) : QObject{parent}
                 rtSecond = rt.value("SECOND").toDouble(rtSecond);
             }
             if (!m_listDuration.isEmpty())
-                m_listDuration[0] = QString::number(rtSecond) + "s";
+                m_listDuration[0] = "0.35s";
 
             // Truy cập phần RECORD
             if (json.contains("RECORD") && json["RECORD"].isObject()) {

@@ -1,0 +1,26 @@
+2025-07-06T11:07:59 [warning] (Priority: 1): Level1 alert: [07/06/2025-11:07:59] [TRT] [W] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors. (score 0.00)
+2025-07-06T11:08:01 [error] (Priority: 2): Escalating alert: SHM_SIZE: 30870
+2025-07-06T11:08:01 [error] (Priority: 2): SHM_SIZE: 30870 (Escalated)
+2025-07-06T11:08:01 [warning] (Priority: 1): Level1 alert: USE_TENSORRT (score 0.00)
+2025-07-06T11:08:01 [error] (Priority: 2): Escalating alert: Semaphore connected.
+2025-07-06T11:08:01 [error] (Priority: 2): Semaphore connected. (Escalated)
+2025-07-06T12:56:32 [info] (Priority: 1): Transfer Learning training completed.
+2025-07-06T13:00:25 [success] (Priority: 1): Transfer Dataset saved
+2025-07-06T13:19:35 [info] (Priority: 1): Transfer Learning training completed.
+2025-07-06T13:23:18 [success] (Priority: 1): Transfer Dataset saved
+2025-07-06T13:23:41 [info] (Priority: 1): Transfer Learning training completed.
+2025-07-06T13:25:11 [success] (Priority: 1): Transfer Dataset saved
+2025-07-06T13:26:37 [success] (Priority: 1): Transfer Dataset saved
+2025-07-06T13:28:35 [success] (Priority: 1): Transfer Dataset saved
+2025-07-06T13:31:04 [success] (Priority: 1): Transfer Dataset saved
+2025-07-06T13:32:27 [info] (Priority: 1): Transfer Learning training completed.
+2025-07-06T13:35:32 [success] (Priority: 1): Record-Config completed successfully.
+2025-07-06T13:36:09 [success] (Priority: 1): Record-Config completed successfully.
+2025-07-06T13:36:19 [success] (Priority: 1): Record-Config completed successfully.
+2025-07-06T13:52:38 [success] (Priority: 1): Record-Config completed successfully.
+2025-07-06T13:52:41 [success] (Priority: 1): Record-Config completed successfully.
+2025-07-06T13:53:21 [success] (Priority: 1): Record-Config completed successfully.
+2025-07-06T14:00:30 [success] (Priority: 1): Record-Config completed successfully.
+2025-07-07T10:02:48 [success] (Priority: 1): Record-Config completed successfully.
+2025-07-07T10:03:18 [success] (Priority: 1): Record-Config completed successfully.
+2025-07-07T10:48:05 [success] (Priority: 1): Record-Config completed successfully.

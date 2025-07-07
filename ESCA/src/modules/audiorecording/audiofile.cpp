@@ -28,6 +28,7 @@ AudioFile::AudioFile(const QString &outputDir,
         m_audioFormat.channelCount() *
         m_durationSeconds
         );
+    qDebug()<< "m_chunkSize"<<m_chunkSize;
 
     m_buffer1.reserve(m_chunkSize);
     m_buffer2.reserve(m_chunkSize);

@@ -249,9 +249,9 @@ Rectangle {
                         id: secondInput; anchors.fill: parent; anchors.margins: 6
                         enabled: !AIObject.inferenceStatus
                         text: ConfigManager.second.toString(); color: "#FFFFFF"
-                        validator: IntValidator { bottom: 1; top: 60 }
+                        validator: DoubleValidator { bottom: 0; top: 10 }
                         onTextChanged: {
-                            var v = parseInt(text); if (!isNaN(v)) { ConfigManager.second = v; ConfigManager.saveConfig(); }
+                            var v = parseFloat(text); if (!isNaN(v)) { ConfigManager.second = v; ConfigManager.saveConfig(); }
                         }
                     }
                 }

@@ -20,7 +20,7 @@ RecordingController::RecordingController(QObject *parent)
     , m_chunkSize(0)
     , sharedMemoryManager(nullptr)
 {
-    qmlRegisterSingletonInstance("AudioChartImport", 1, 0, "AudioChart", m_recordingChart);
+    //qmlRegisterSingletonInstance("AudioChartImport", 1, 0, "AudioChart", m_recordingChart);
     qmlRegisterSingletonInstance("AudioConfigImport", 1, 0, "AudioConfig", m_audioConfig);
     setRecStatus(false);
 
@@ -40,7 +40,8 @@ RecordingController::RecordingController(QObject *parent)
         sec = rt.value("SECOND").toDouble(sec);
     }
     m_durationSec = sec;
-    m_chunkSize = static_cast<size_t>(std::lround(sr * ch * (ss / 8.0) * m_durationSec));
+    double samplesPerChunk = std::ceil(sr * m_durationSec);
+    m_chunkSize = static_cast<size_t>(samplesPerChunk * ch * (ss / 8.0));
     
     size_t chartSamples = m_chunkSize / (ss / 8);
     m_recordingChart = new RecordingChart(chartSamples, this);
@@ -51,7 +52,9 @@ RecordingController::RecordingController(QObject *parent)
     qInfo()<<"format in ini: "<<m_audioConfig->format();
     
     m_chunkSize = computeChunkSize();
-    sharedMemoryManager->setSharedMemorySize(m_chunkSize);
+    //sharedMemoryManager->setSharedMemorySize(m_chunkSize);
+    if (sharedMemoryManager)
+        sharedMemoryManager->setSharedMemorySize(m_chunkSize);
 
     if (!sharedMemoryManager->init_ipc()) {
         qDebug() << "Failed to initialize IPC.";
@@ -88,7 +91,8 @@ void RecordingController::startRecording()
     //qDebug()<< "format"<< m_format;
         
     m_chunkSize = computeChunkSize();
-    sharedMemoryManager->setSharedMemorySize(m_chunkSize);
+    if (sharedMemoryManager)
+        sharedMemoryManager->setSharedMemorySize(m_chunkSize);
 
     QAudioDeviceInfo deviceInfo = m_audioConfig->deviceInfo();
     m_outputDir = m_audioConfig->listOutput();
@@ -157,9 +161,12 @@ void RecordingController::startSharedMemory(){
     QAudioDeviceInfo deviceInfo = m_audioConfig->deviceInfo();
     
     m_chunkSize = computeChunkSize();
-    sharedMemoryManager->setSharedMemorySize(m_chunkSize);
-    
-    sharedMemoryManager->start();
+    if (sharedMemoryManager) {
+        sharedMemoryManager->setSharedMemorySize(m_chunkSize);
+        sharedMemoryManager->start();
+    } else {
+        qWarning() << "SharedMemoryManager is not available";
+    }
     m_recordIO->startAudioInput(m_format, deviceInfo);
     //qInfo() << "format before shm" << m_format;
 }
@@ -169,8 +176,10 @@ void RecordingController::stopSharedMemory()
     if (m_recordIO)
         disconnect(m_recordIO, &RecordIO::sendData, this, &RecordingController::handleSharedMemory);
     m_recordIO->audioInputStop();
-    sharedMemoryManager->stop();
-    sharedMemoryManager->wait();
+    if (sharedMemoryManager) {
+        sharedMemoryManager->stop();
+        sharedMemoryManager->wait();
+    }
 }
 
 void RecordingController::handleDataReady(const QByteArray &data)
@@ -267,6 +276,6 @@ size_t RecordingController::computeChunkSize() const
 
     size_t bytesPerSample = static_cast<size_t>(fmt.sampleSize() / 8);
     
-    double totalBytes = fmt.sampleRate() * bytesPerSample * fmt.channelCount() * durationSec;
-    return static_cast<size_t>(std::lround(totalBytes));
+	double samplesPerChunk = std::ceil(fmt.sampleRate() * durationSec);
+    return static_cast<size_t>(samplesPerChunk) * bytesPerSample * fmt.channelCount();
 }
