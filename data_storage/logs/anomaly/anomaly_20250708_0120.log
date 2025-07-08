@@ -1,0 +1,114 @@
+2025-07-08T01:22:45 : USE_TENSORRT (0) - repeated
+2025-07-08T01:22:45 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:45 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:46 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:46 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:46 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:47 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:47 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:47 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:48 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:48 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:48 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:48 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:49 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:49 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:49 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:50 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:50 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:50 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:51 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:51 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:51 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:52 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:52 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:52 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:52 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:53 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:53 : Anomaly detected!! (0) - repeated
+2025-07-08T01:22:53 : Anomaly detected!! (0) - repeated
+2025-07-08T01:23:37 : USE_TENSORRT (0) - repeated
+2025-07-08T01:24:01 : USE_TENSORRT (0) - repeated
+2025-07-08T01:24:01 : Anomaly detected!! (0) - repeated
+2025-07-08T01:24:01 : Anomaly detected!! (0) - repeated
+2025-07-08T01:24:02 : Anomaly detected!! (0) - repeated
+2025-07-08T01:24:02 : Anomaly detected!! (0) - repeated
+2025-07-08T01:24:02 : Anomaly detected!! (0) - 
+2025-07-08T01:24:02 : Anomaly detected!! (0) - repeated
+2025-07-08T01:24:03 : Anomaly detected!! (0) - repeated
+2025-07-08T01:24:03 : Anomaly detected!! (0) - repeated
+2025-07-08T01:24:04 : Anomaly detected!! (0) - repeated
+2025-07-08T01:24:04 : Anomaly detected!! (0) - repeated
+2025-07-08T01:24:04 : Anomaly detected!! (0) - repeated
+2025-07-08T01:24:04 : Anomaly detected!! (0) - repeated
+2025-07-08T01:24:05 : Anomaly detected!! (0) - repeated
+2025-07-08T01:24:05 : Anomaly detected!! (0) - repeated
+2025-07-08T01:24:05 : Anomaly detected!! (0) - repeated
+2025-07-08T01:24:06 : Average MSE: 0.317391, Ave gfcc: 45.765948 ms, Ave inference: 47.469825, Ave all py: 93.313568 ms 0.3173914039896123 45.765948459957144 47.46982519991434 93.31356759994378 (0) - 
+2025-07-08T01:24:23 : USE_TENSORRT (0) - repeated
+2025-07-08T01:24:28 : Semaphore connected. (0) - timeout
+2025-07-08T01:24:32 : Anomaly detected!! (0) - repeated
+2025-07-08T01:24:38 : Anomaly detected!! (0) - repeated
+2025-07-08T01:24:39 : Anomaly detected!! (0) - repeated
+2025-07-08T01:24:41 : Anomaly detected!! (0) - repeated
+2025-07-08T01:24:52 : Anomaly detected!! (0) - 
+2025-07-08T01:24:55 : Anomaly detected!! (0) - 
+2025-07-08T01:25:01 : Anomaly detected!! (0) - 
+2025-07-08T01:25:04 : Anomaly detected!! (0) - 
+2025-07-08T01:25:10 : Anomaly detected!! (0) - repeated
+2025-07-08T01:25:14 : Anomaly detected!! (0) - 
+2025-07-08T01:25:18 : Anomaly detected!! (0) - repeated
+2025-07-08T01:25:19 : Anomaly detected!! (0) - 
+2025-07-08T01:25:21 : Anomaly detected!! (0) - repeated
+2025-07-08T01:25:22 : Anomaly detected!! (0) - repeated
+2025-07-08T01:25:23 : Anomaly detected!! (0) - repeated
+2025-07-08T01:25:26 : Anomaly detected!! (0) - repeated
+2025-07-08T01:25:27 : Anomaly detected!! (0) - repeated
+2025-07-08T01:25:28 : Anomaly detected!! (0) - repeated
+2025-07-08T01:25:29 : Anomaly detected!! (0) - repeated
+2025-07-08T01:25:29 : Anomaly detected!! (0) - 
+2025-07-08T01:25:30 : Anomaly detected!! (0) - repeated
+2025-07-08T01:25:31 : Anomaly detected!! (0) - 
+2025-07-08T01:25:32 : Anomaly detected!! (0) - 
+2025-07-08T01:25:33 : Anomaly detected!! (0) - repeated
+2025-07-08T01:25:34 : Anomaly detected!! (0) - repeated
+2025-07-08T01:25:35 : Anomaly detected!! (0) - repeated
+2025-07-08T01:25:36 : Anomaly detected!! (0) - repeated
+2025-07-08T01:25:39 : Anomaly detected!! (0) - repeated
+2025-07-08T01:29:15 : USE_TENSORRT (0) - repeated
+2025-07-08T01:29:50 : USE_TENSORRT (0) - repeated
+2025-07-08T01:29:50 : Anomaly detected!! (0) - repeated
+2025-07-08T01:29:50 : Anomaly detected!! (0) - repeated
+2025-07-08T01:29:51 : Anomaly detected!! (0) - repeated
+2025-07-08T01:29:51 : Anomaly detected!! (0) - 
+2025-07-08T01:29:51 : Anomaly detected!! (0) - repeated
+2025-07-08T01:29:52 : Anomaly detected!! (0) - repeated
+2025-07-08T01:29:52 : Anomaly detected!! (0) - repeated
+2025-07-08T01:29:52 : Anomaly detected!! (0) - repeated
+2025-07-08T01:29:53 : Anomaly detected!! (0) - repeated
+2025-07-08T01:29:53 : Anomaly detected!! (0) - repeated
+2025-07-08T01:29:53 : Anomaly detected!! (0) - repeated
+2025-07-08T01:29:54 : Anomaly detected!! (0) - repeated
+2025-07-08T01:29:54 : Anomaly detected!! (0) - repeated
+2025-07-08T01:29:54 : Anomaly detected!! (0) - repeated
+2025-07-08T01:29:54 : Anomaly detected!! (0) - repeated
+2025-07-08T01:29:55 : Average MSE: 0.317391, Ave gfcc: 46.635349 ms, Ave inference: 48.762236, Ave all py: 95.475466 ms 0.3173914039896123 46.63534942006663 48.76223592000315 95.47546562014759 (0) - 
+2025-07-08T01:30:26 : USE_TENSORRT (0) - repeated
+2025-07-08T01:30:26 : Anomaly detected!! (0) - repeated
+2025-07-08T01:30:28 : Anomaly detected!! (0) - 
+2025-07-08T01:30:43 : Anomaly detected!! (0) - repeated
+2025-07-08T01:30:47 : Anomaly detected!! (0) - repeated
+2025-07-08T01:30:51 : Anomaly detected!! (0) - 
+2025-07-08T01:30:54 : Anomaly detected!! (0) - repeated
+2025-07-08T01:30:55 : Anomaly detected!! (0) - 
+2025-07-08T01:30:56 : Anomaly detected!! (0) - repeated
+2025-07-08T01:30:57 : Anomaly detected!! (0) - repeated
+2025-07-08T01:30:58 : Anomaly detected!! (0) - 
+2025-07-08T01:30:59 : Anomaly detected!! (0) - 
+2025-07-08T01:31:00 : Anomaly detected!! (0) - repeated
+2025-07-08T01:31:01 : Anomaly detected!! (0) - repeated
+2025-07-08T01:31:02 : Anomaly detected!! (0) - 
+2025-07-08T01:31:06 : Anomaly detected!! (0) - 
+2025-07-08T01:31:10 : Anomaly detected!! (0) - repeated
+2025-07-08T01:31:11 : Anomaly detected!! (0) - 
+2025-07-08T01:31:13 : Anomaly detected!! (0) - 

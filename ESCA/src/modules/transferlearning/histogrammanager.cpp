@@ -42,7 +42,7 @@ void HistogramManager::updateImportantMetrics()
 {
     QVariantList list;
     // Chọn các epoch: epoch 1, 20, 40, 60, 81 (index 0, 19, 39, 59, 80)
-    QList<int> indices = {0, 19, 39, 59, 80};
+    QList<int> indices = {0, 4, 9, 14, 19};
     for (int idx : indices) {
         if (idx < m_allEpochs->size()) {
             QVector<int> hist = computeHistogram(m_allEpochs->at(idx), 30);

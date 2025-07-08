@@ -1,0 +1,4 @@
+2025-07-07T14:12:49 : [07/07/2025-14:12:45] [TRT] [W] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors. (0) - 
+2025-07-07T14:12:49 : USE_TENSORRT (0) - repeated
+2025-07-07T14:12:50 : Semaphore connected. (0) - 
+2025-07-07T14:13:14 : Anomaly detected!! (0) - timeout

@@ -3,7 +3,7 @@
 MetricsManagerBase::MetricsManagerBase(QObject *parent)
     : QObject(parent),
     m_epochCount(0),
-    m_sampleIndices{1, 20, 40, 60, 81}
+    m_sampleIndices{1, 5, 10, 15, 20}
 {
 }
 

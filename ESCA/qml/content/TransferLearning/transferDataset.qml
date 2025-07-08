@@ -135,24 +135,7 @@ Rectangle {
                 }
             }
 
-		Rectangle {
-            	id: clearUsedPath
-            	width: 35
-            	height: 35
-            	color: "#ff5c5c"
-
-            	MouseArea {
-                	anchors.fill: parent
-                	onClicked: {
-                    	tfrecordUsedPath.text = ""
-                	}
-            	}
-            	Text {
-                	text: "X"
-                	anchors.centerIn: parent
-                	color: "#ffffff"
-            	}
-        	}
+		Item { width: 35; height:35 }
 
 
             Label {
@@ -203,7 +186,25 @@ Rectangle {
                 }
             }
 
-		Item { width: 35; height:35 }
+                Rectangle {
+                id: clearUsedPath
+                width: 35
+                height: 35
+                color: "#ff5c5c"
+
+                MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                        tfrecordNewPath.text = ""
+                        }
+                }
+                Text {
+                        text: "X"
+                        anchors.centerIn: parent
+                        color: "#ffffff"
+                }
+                }
+
 
             Label {
                 text: "Save Path:"

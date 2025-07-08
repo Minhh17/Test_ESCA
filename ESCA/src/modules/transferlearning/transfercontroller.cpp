@@ -39,6 +39,7 @@ void TransferController::start()
 	transferProcMng->setScriptPath(DataStorage::baseProject() + "/python_ai/tl_training.py");
 	transferProcMng->start();
 	setTlStatus(true);
+	qDebug()<< "Use Transfer Learning";
 }
 
 void TransferController::startBaseTraining()
@@ -46,6 +47,7 @@ void TransferController::startBaseTraining()
 	transferProcMng->setScriptPath(DataStorage::baseProject() + "/python_ai/base_training.py");
 	transferProcMng->start();
 	setTlStatus(true);
+	qDebug()<< "Use Base Training";
 }
 
 void TransferController::stop()

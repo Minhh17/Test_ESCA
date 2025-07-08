@@ -5,11 +5,11 @@
             "SHUFFLE": true
         },
         "PATH": {
-            "ANOMALY": "/home/sparclab/Desktop/Test_ESCA/data_storage",
-            "NORMAL": "/home/sparclab/Desktop/Test_ESCA/data_storage/TestAudio/Normal",
+            "ANOMALY": "/home/sparclab/Desktop/Demo/Abnormaly_g2",
+            "NORMAL": "/home/sparclab/Desktop/Demo/Normal_g2",
             "TEST": null,
             "TFRECORDS": [
-                "/home/sparclab/Desktop/Test_ESCA/data_storage"
+                "/home/sparclab/Desktop/Demo/TFRecord"
             ]
         },
         "RATIO": {
@@ -48,18 +48,18 @@
     },
     "REALTIME": {
         "CHANNELS": 1,
-        "FOLDER_PATH": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s0.35/s035Normal",
+        "FOLDER_PATH": "/home/sparclab/Desktop/Demo/Abnomaly",
         "IMPORT_FILE": false,
         "LOG_PATH": "/home/sparclab/Desktop/Test_ESCA/data_storage",
-        "MANUAL_THRESHOLD": 0.2,
+        "MANUAL_THRESHOLD": 0.3,
         "MAX": 29.274986267089844,
         "MIN": -16.170351028442383,
-        "MODEL_PATH": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s0.35/s035model",
+        "MODEL_PATH": "/home/sparclab/Desktop/Demo/Model",
         "SAMPLESIZE": 16,
         "SAMPLING_RATE": 44100,
         "SECOND": 0.35,
         "THRESHOLD": 0.008025996387004852,
-        "TRT_MODEL_PATH": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s0.35/s035model/vqvae32_fp32.engine"
+        "TRT_MODEL_PATH": "/home/sparclab/Desktop/Demo/Model/vqvae32_fp32.engine"
     },
     "RECORD": {
         "ABNOMALY": false,
@@ -68,7 +68,7 @@
         "DATASET_PATH": "./dataset_mic_laptop_16k",
         "DEVICE": 8,
         "DEVICENAME": "default",
-        "DURATION": 1,
+        "DURATION": 0,
         "ENDIAN": 0,
         "SAMPLERATE": 3,
         "SAMPLESIZE": 1
@@ -78,7 +78,7 @@
         "LEARNING_RATE": 0.001,
         "LOG_FOLDER": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s0.2",
         "PRETRAINED_WEIGHTS": "/home/sparclab/Desktop/Test_ESCA/python_ai/temp/saved_model",
-        "SAVE_PATH": "/home/sparclab/Desktop/Thesis/Dataset_For_Chunksize/s5/s5model"
+        "SAVE_PATH": "/home/sparclab/Desktop/Demo/Model"
     },
     "TRANSFER_LEARNING": {
         "ANOM_BATCH_SIZE": 128,
@@ -86,10 +86,10 @@
         "BETA": 1,
         "EPOCH": 20,
         "LEARNING_RATE": 0.001,
-        "SAVE_PATH": "/home/sparclab/Desktop/Test_ESCA/python_ai/tl_orin_fan",
+        "SAVE_PATH": "/home/sparclab/Desktop/Demo/Model",
         "TEST_DIR": null,
         "TFRECORDS": [
-            "/home/sparclab/Desktop/D-ESCA_v2/park_dataset_demo/mel_orin_fan"
+            ""
         ]
     }
 }

@@ -28,7 +28,7 @@ void ROCManager::updateImportantMetrics()
 {
     QVariantList list;
     // Danh sách các chỉ số quan trọng (0-based): 0, 19, 39, 59, 80
-    QList<int> indices = {0, 19, 39, 59, 80};
+    QList<int> indices = {0, 4, 9, 14, 19};
     for (int idx : indices) {
         if (idx < m_allROCData->size()) {
             const QPair<QVector<double>, QVector<double>> &pair = m_allROCData->at(idx);

@@ -36,7 +36,7 @@ Rectangle {
                 // loader.source = "/ui/layout/splitingScreen.qml"
 
                 if (!tlStatus) { 
-			if (TransferConfig.tfrecordUsedPath === "") {
+			if (TransferConfig.tfrecordNewPath === "") {
                     		TransferObject.startBaseTraining();
                 	} else {
                     		TransferObject.start();
